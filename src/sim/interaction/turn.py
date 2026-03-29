@@ -1,4 +1,5 @@
 import time
+from difflib import SequenceMatcher
 
 from loguru import logger
 
@@ -13,6 +14,8 @@ from ..models.dialogue import TurnOutput
 from ..models.event import Event
 from ..models.scene import Scene
 from .speaker_selection import pick_first_speaker, pick_next_speaker
+
+REPETITION_THRESHOLD = 0.6
 
 
 def _format_turn(name: str, turn: TurnOutput) -> str:
@@ -108,6 +111,30 @@ async def run_group_dialogue(
             next_exam_in_days, conversation_history, day, exam_context,
         )
 
+        # Validate directed_to against present characters
+        present_names = {profiles[aid].name for aid in group_agent_ids}
+        if result.directed_to and result.directed_to not in present_names:
+            result.directed_to = None
+
+        # Repetition detection
+        is_repetitive = False
+        # Check against own previous speeches
+        for prev in turn_records:
+            if prev["speaker"] == speaker:
+                prev_speech = prev["output"]["speech"]
+                if SequenceMatcher(None, result.speech, prev_speech).ratio() > REPETITION_THRESHOLD:
+                    is_repetitive = True
+                    break
+        # Check against last speaker's speech (catch identity confusion)
+        if not is_repetitive and turn_records:
+            last_speech = turn_records[-1]["output"]["speech"]
+            if SequenceMatcher(None, result.speech, last_speech).ratio() > REPETITION_THRESHOLD:
+                is_repetitive = True
+
+        if is_repetitive:
+            result.want_to_continue = False
+            logger.info(f"  [repetition detected] {profiles[speaker].name} forced to exit")
+
         # Format and append
         formatted = _format_turn(profiles[speaker].name, result)
         conversation_history.append(formatted)
@@ -118,7 +145,7 @@ async def run_group_dialogue(
             "output": result.model_dump(),
         })
 
-        logger.info(f"  Round {round_num}: {formatted[:80]}")
+        logger.info(f"  Round {round_num}: {formatted}")
 
         # Update silent counts
         for aid in active_agents:
