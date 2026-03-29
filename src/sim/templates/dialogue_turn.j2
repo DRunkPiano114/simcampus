@@ -1,0 +1,68 @@
+{% include 'system_base.j2' %}
+
+## 你的身份
+{{ profile_summary }}
+
+## 你和在场人物的关系
+{% for rel in relationships %}
+- {{ rel.target_name }}（{{ rel.label }}）：好感度{{ rel.favorability }}，信任度{{ rel.trust }}
+  {% if rel.recent_interactions %}最近互动：{{ rel.recent_interactions | join('；') }}{% endif %}
+{% endfor %}
+
+## 今天已经发生的事
+{{ today_events if today_events else "（今天刚开始，还没发生什么）" }}
+
+## 最近几天的记忆
+{{ recent_summary if recent_summary else "（没有特别的记忆）" }}
+
+{% if key_memories %}
+## 相关的重要记忆
+{% for mem in key_memories %}
+- [{{ mem.date }}] {{ mem.text }}（情绪：{{ mem.emotion }}）
+{% endfor %}
+{% endif %}
+
+{% if pending_intentions %}
+## 你今天隐约想着的事（不一定要做，看情况自然发展）
+{% for intent in pending_intentions %}
+- {% if intent.target %}想找{{ intent.target }}{% endif %}{{ intent.goal }}（因为{{ intent.reason }}）
+{% endfor %}
+{% endif %}
+
+## 当前场景
+- 时间：{{ scene_info.time }}
+- 地点：{{ scene_info.location }}
+- 场景：{{ scene_info.name }}
+- {{ scene_info.description }}
+- 在场的人：{{ scene_info.present_names | join('、') }}
+{% if teacher_present %}
+【注意】班主任正在附近，说话注意点！
+{% endif %}
+
+{% if known_events %}
+## 你知道的近期事件（别人不一定知道）
+{% for evt in known_events %}
+- {{ evt.text }}
+{% endfor %}
+{% endif %}
+
+{% if exam_context %}
+## 最近的月考成绩
+{{ exam_context }}
+{% endif %}
+
+## 对话记录
+{% for turn in conversation_history %}
+{{ turn }}
+{% endfor %}
+
+## 任务
+现在轮到你说话了。根据你的性格、当前情绪、和在场人物的关系，自然地回应或发起话题。
+
+请输出：
+- speech: 你说的话（自然口语，符合你的说话风格）
+- directed_to: 主要对谁说的（名字，如果是对所有人说则为null）
+- inner_thought: 你的内心想法（可以和说的话不同）
+- action: 你同时做的动作（可以为null，比如"低头写作业""看向窗外"）
+- emotion: 你当前的情绪
+- want_to_continue: 你是否还想继续聊下去（false表示你想离开或不想说了）
