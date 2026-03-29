@@ -135,15 +135,6 @@ async def run_group_dialogue(
 
         last_directed_to = result.directed_to
 
-        # Summarize if conversation is too long (>15 rounds)
-        if round_num > 15 and len(conversation_history) > 15:
-            # Keep last 8 turns, summarize the rest
-            old = conversation_history[:-8]
-            summary = f"[之前的对话摘要：{len(old)}轮对话，主要聊了" + "、".join(
-                set(t.split("：")[1][:10] + "..." for t in old[:3] if "：" in t)
-            ) + "]"
-            conversation_history = [summary] + conversation_history[-8:]
-
         # Pick next speaker
         speaker = pick_next_speaker(
             active_agents, profiles, states,

@@ -34,7 +34,7 @@ def compute_speaking_desire(
 
     # Addressed bonus
     if was_addressed:
-        desire += 20.0
+        desire += 10.0
 
     # Pending intention bonus
     if has_pending_intention:
@@ -42,6 +42,10 @@ def compute_speaking_desire(
 
     # Silent rounds bonus (cap at 8)
     desire += min(silent_rounds * 1.5, 8.0)
+
+    # Recent speaker penalty — break ping-pong patterns
+    if silent_rounds <= 1:
+        desire -= 3.0
 
     # Emotion modifier
     if state.emotion in BOOST_EMOTIONS:

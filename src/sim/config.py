@@ -19,7 +19,7 @@ class Settings(BaseSettings):
     analytical_temperature: float = 0.3
     plan_temperature: float = 0.7
     compression_temperature: float = 0.5
-    max_tokens_per_turn: int = 300
+    max_tokens_per_turn: int = 800
     max_tokens_scene_end: int = 1500
     max_tokens_daily_plan: int = 500
     max_tokens_compression: int = 800
