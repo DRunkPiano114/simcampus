@@ -99,6 +99,6 @@ async def nightly_compress(
     storage.clear_today_md()
 
     logger.info(
-        f"  {profile.name}: compressed → \"{result.daily_summary[:50]}...\" "
+        f"  {profile.name}: compressed → \"{result.daily_summary}\" "
         f"({len(result.permanent_memories)} permanent memories)"
     )
