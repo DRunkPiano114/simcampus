@@ -1,0 +1,74 @@
+[
+  {
+    "time": "07:00",
+    "name": "早读",
+    "location": "教室",
+    "density": "low",
+    "max_rounds": 8,
+    "trigger_probability": 0.15,
+    "description": "早读时间，大家在教室里朗读课文"
+  },
+  {
+    "time": "08:45",
+    "name": "课间",
+    "location": "教室",
+    "density": "high",
+    "max_rounds": 12,
+    "trigger_probability": 1.0,
+    "description": "上午第一个课间休息，同学们在教室里活动"
+  },
+  {
+    "time": "10:30",
+    "name": "上课",
+    "location": "教室",
+    "density": "low",
+    "max_rounds": 8,
+    "trigger_probability": 0.15,
+    "description": "上午第二节课"
+  },
+  {
+    "time": "12:00",
+    "name": "午饭",
+    "location": "食堂",
+    "density": "high",
+    "max_rounds": 18,
+    "trigger_probability": 1.0,
+    "description": "午饭时间，同学们结伴去食堂吃饭"
+  },
+  {
+    "time": "14:00",
+    "name": "上课",
+    "location": "教室",
+    "density": "low",
+    "max_rounds": 8,
+    "trigger_probability": 0.15,
+    "description": "下午第一节课"
+  },
+  {
+    "time": "15:30",
+    "name": "课间",
+    "location": "教室",
+    "density": "high",
+    "max_rounds": 12,
+    "trigger_probability": 1.0,
+    "description": "下午课间休息"
+  },
+  {
+    "time": "18:30",
+    "name": "晚自习",
+    "location": "教室",
+    "density": "low",
+    "max_rounds": 8,
+    "trigger_probability": 0.15,
+    "description": "晚自习时间，教室里安静学习"
+  },
+  {
+    "time": "22:00",
+    "name": "宿舍夜聊",
+    "location": "宿舍",
+    "density": "high",
+    "max_rounds": 35,
+    "trigger_probability": 1.0,
+    "description": "熄灯后宿舍里的悄悄话时间"
+  }
+]
