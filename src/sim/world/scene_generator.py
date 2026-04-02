@@ -62,6 +62,11 @@ class SceneGenerator:
                 ])
                 injected_events.append(event)
 
+            # Pick a random opening event for PDA tick loop
+            opening_event = ""
+            if config.opening_events:
+                opening_event = self.rng.choice(config.opening_events)
+
             scene = Scene(
                 scene_index=scene_index,
                 day=day,
@@ -76,6 +81,7 @@ class SceneGenerator:
                 injected_events=injected_events,
                 teacher_present=teacher_present,
                 teacher_action=teacher_action,
+                opening_event=opening_event,
             )
             scenes.append(scene)
             scene_index += 1

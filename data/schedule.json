@@ -6,7 +6,12 @@
     "density": "low",
     "max_rounds": 8,
     "trigger_probability": 0.15,
-    "description": "早读时间，大家在教室里朗读课文"
+    "description": "早读时间，大家在教室里朗读课文",
+    "opening_events": [
+      "早读铃响了，教室里稀稀拉拉地响起读书声",
+      "英语老师走进教室，大家赶紧翻开课本",
+      "有人打着哈欠走进教室，看起来没睡醒"
+    ]
   },
   {
     "time": "08:45",
@@ -15,7 +20,13 @@
     "density": "high",
     "max_rounds": 20,
     "trigger_probability": 1.0,
-    "description": "上午第一个课间休息，同学们在教室里活动"
+    "description": "上午第一个课间休息，同学们在教室里活动",
+    "opening_events": [
+      "下课铃响了，教室里一下子热闹起来",
+      "老师刚走出教室，后排就开始闹了",
+      "下课了，几个人立马凑到一起",
+      "铃声响了，有人伸懒腰有人往外冲"
+    ]
   },
   {
     "time": "10:30",
@@ -24,7 +35,12 @@
     "density": "low",
     "max_rounds": 8,
     "trigger_probability": 0.15,
-    "description": "上午第二节课"
+    "description": "上午第二节课",
+    "opening_events": [
+      "老师在黑板上写题，底下有人偷偷传纸条",
+      "数学课，老师让大家做练习，教室安静下来",
+      "课上到一半，有人开始犯困"
+    ]
   },
   {
     "time": "12:00",
@@ -33,7 +49,13 @@
     "density": "high",
     "max_rounds": 25,
     "trigger_probability": 1.0,
-    "description": "午饭时间，同学们结伴去食堂吃饭"
+    "description": "午饭时间，同学们结伴去食堂吃饭",
+    "opening_events": [
+      "食堂里人挤人，端着餐盘找座位",
+      "刚坐下来，饭菜的香味飘过来",
+      "今天食堂出了新菜，排队的人特别多",
+      "几个人占了个角落的位子，开始吃饭"
+    ]
   },
   {
     "time": "14:00",
@@ -42,7 +64,12 @@
     "density": "low",
     "max_rounds": 8,
     "trigger_probability": 0.15,
-    "description": "下午第一节课"
+    "description": "下午第一节课",
+    "opening_events": [
+      "下午第一节课，窗外太阳晒进来，有人昏昏欲睡",
+      "老师讲着讲着，突然停下来看了一眼后排",
+      "教室里闷热，有人偷偷在桌子底下玩手机"
+    ]
   },
   {
     "time": "15:30",
@@ -51,7 +78,13 @@
     "density": "high",
     "max_rounds": 20,
     "trigger_probability": 1.0,
-    "description": "下午课间休息"
+    "description": "下午课间休息",
+    "opening_events": [
+      "终于下课了，大家都松了口气",
+      "下课铃一响，走廊上立刻热闹起来",
+      "有人趴在桌上不想动，有人已经跑出去了",
+      "课间操刚结束，大家陆续回教室"
+    ]
   },
   {
     "time": "18:30",
@@ -60,7 +93,12 @@
     "density": "low",
     "max_rounds": 8,
     "trigger_probability": 0.15,
-    "description": "晚自习时间，教室里安静学习"
+    "description": "晚自习时间，教室里安静学习",
+    "opening_events": [
+      "晚自习开始了，教室里安静得只听到翻书声",
+      "值日班长在黑板上写了'保持安静'",
+      "有人趁没老师偷偷跟旁边的人说话"
+    ]
   },
   {
     "time": "22:00",
@@ -69,6 +107,12 @@
     "density": "high",
     "max_rounds": 35,
     "trigger_probability": 1.0,
-    "description": "熄灯后宿舍里的悄悄话时间"
+    "description": "熄灯后宿舍里的悄悄话时间",
+    "opening_events": [
+      "灯灭了，黑暗中谁先开口说了句话",
+      "查寝的老师刚走，宿舍立刻活了过来",
+      "有人翻了个身，嘟囔了一句什么",
+      "手机屏幕的光在被窝里一闪一闪"
+    ]
   }
 ]

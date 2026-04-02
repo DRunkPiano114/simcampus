@@ -1,7 +1,28 @@
+from enum import Enum
+
 from pydantic import BaseModel, Field
 
 from .agent import Emotion
 from .relationship import RelationshipChange
+
+
+class ActionType(str, Enum):
+    SPEAK = "speak"
+    WHISPER = "whisper"
+    NON_VERBAL = "non_verbal"
+    OBSERVE = "observe"
+    EXIT = "exit"
+
+
+class PerceptionOutput(BaseModel):
+    observation: str
+    inner_thought: str
+    emotion: Emotion
+    action_type: ActionType
+    action_content: str | None = None
+    action_target: str | None = None
+    urgency: int = Field(ge=1, le=10)
+    is_disruptive: bool = False
 
 
 class TurnOutput(BaseModel):

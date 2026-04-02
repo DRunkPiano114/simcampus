@@ -17,6 +17,7 @@ class SceneConfig(BaseModel):
     max_rounds: int = 12
     trigger_probability: float = 1.0
     description: str = ""
+    opening_events: list[str] = Field(default_factory=list)
 
 
 class GroupAssignment(BaseModel):
@@ -39,3 +40,4 @@ class Scene(BaseModel):
     injected_events: list[str] = Field(default_factory=list)
     teacher_present: bool = False
     teacher_action: str | None = None
+    opening_event: str = ""
