@@ -419,7 +419,7 @@ All LLM calls go through `llm/client.py:structured_call()` which uses Instructor
 | Scene-end analysis | `scene_end_analysis.j2` | `SceneEndAnalysis` | 0.3 | 32000 |
 | Nightly compression | `nightly_compress.j2` | `CompressionResult` | 0.5 | 32000 |
 
-All templates include `system_base.j2` (shared system prompt establishing the Chinese high school setting, natural dialogue requirements, role consistency rules, and few-shot examples of natural Chinese teen speech patterns).
+All templates include `system_base.j2` (shared system prompt establishing the Chinese high school setting, natural dialogue requirements, role consistency rules, few-shot examples of natural Chinese teen speech patterns, and inner_thought voice guidelines with bad/good examples to prevent self-analysis-report style thinking).
 
 Context assembly (`agent/context.py:prepare_context()`):
 - Profile summary (name, gender, personality, speaking style, academic rank/strengths/weaknesses/study attitude/homework habit/target, position, family expectation/situation, long-term goals, backstory)
@@ -517,7 +517,7 @@ src/sim/
     writer.py                    # Helper wrappers for today.md and key_memory writes
   templates/                     # Jinja2 prompt templates (all in Chinese)
     system_base.j2               # Shared system prompt (high school setting + dialogue rules + few-shot teen speech examples)
-    perception_decision.j2       # PDA tick loop perception prompt (replaces dialogue_turn.j2 for group dialogue)
+    perception_decision.j2       # PDA tick loop perception prompt (includes speech burstiness rule + non-verbal action de-duplication)
     dialogue_turn.j2             # Legacy per-turn dialogue (kept for A/B comparison reference)
     daily_plan.j2                # Morning plan generation
     solo_reflection.j2           # Solo inner monologue
