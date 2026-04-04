@@ -11,6 +11,8 @@ from ..agent.self_narrative import generate_self_narrative
 from ..agent.state_update import (
     EXTREME_EMOTIONS,
     decay_concerns,
+    maybe_decay_emotion,
+    regress_relationships,
     reset_energy_for_sleep,
     update_energy,
 )
@@ -61,11 +63,8 @@ class Orchestrator:
             aid: s.load_state() for aid, s in self.world.agents.items()
         }
 
-    def _student_ids(self) -> list[str]:
-        return [
-            aid for aid, p in self.profiles.items()
-            if p.role == Role.STUDENT
-        ]
+    def _active_agent_ids(self) -> list[str]:
+        return list(self.profiles.keys())
 
     async def run(self, start_day: int, end_day: int) -> None:
         progress = self.world.load_progress()
@@ -122,7 +121,7 @@ class Orchestrator:
 
     async def _generate_self_narratives(self, day: int) -> None:
         logger.info("Generating self-narratives...")
-        student_ids = self._student_ids()
+        student_ids = self._active_agent_ids()
 
         async def _gen_narrative(aid: str) -> None:
             async with self.semaphore:
@@ -139,7 +138,7 @@ class Orchestrator:
             await self._generate_self_narratives(day)
 
         logger.info("Generating daily plans...")
-        student_ids = self._student_ids()
+        student_ids = self._active_agent_ids()
 
         async def _gen_plan(aid: str) -> None:
             async with self.semaphore:
@@ -302,16 +301,22 @@ class Orchestrator:
             if not group:
                 continue
 
+            # Scoped scene copy with only this group's participants
+            group_scene = scene.model_copy(update={
+                "agent_ids": group.agent_ids,
+                "teacher_present": scene.teacher_present or ("he_min" in group.agent_ids),
+            })
+
             if group.is_solo:
                 # Solo reflection
                 aid = group.agent_ids[0]
                 reflection = await run_solo_reflection(
                     aid, storages[aid], self.profiles[aid], self.states[aid],
-                    scene, self.profiles,
+                    group_scene, self.profiles,
                     event_manager.get_known_events(aid),
                     progress.next_exam_in_days, day,
                 )
-                apply_solo_result(reflection, storages[aid], self.profiles[aid], scene, day)
+                apply_solo_result(reflection, storages[aid], self.profiles[aid], group_scene, day)
                 gc.status = "applied"
                 self._save_progress(progress)
                 continue
@@ -323,7 +328,7 @@ class Orchestrator:
                     for aid in group.agent_ids
                 }
                 turn_records = await run_group_dialogue(
-                    group.agent_ids, scene, storages, self.profiles,
+                    group.agent_ids, group_scene, storages, self.profiles,
                     self.states, known_events, progress.next_exam_in_days,
                     day, self.rng, self.semaphore,
                 )
@@ -333,11 +338,11 @@ class Orchestrator:
                 # Narrative extraction + per-agent reflections (all concurrent)
                 narrative_coro = run_scene_end_analysis(
                     turn_records, group.agent_ids, self.profiles,
-                    scene, day, gc.group_index,
+                    group_scene, day, gc.group_index,
                 )
                 reflections_coro = run_all_reflections(
                     group.agent_ids, turn_records, storages,
-                    self.profiles, self.states, scene,
+                    self.profiles, self.states, group_scene,
                     day, gc.group_index, self.semaphore,
                 )
                 narrative, reflections = await asyncio.gather(
@@ -346,7 +351,7 @@ class Orchestrator:
 
                 # Apply results (serial to avoid concurrent writes)
                 apply_scene_end_results(
-                    narrative, reflections, self.world, scene,
+                    narrative, reflections, self.world, group_scene,
                     group.agent_ids, day, gc.group_index,
                     self.profiles, event_manager,
                 )
@@ -416,14 +421,18 @@ class Orchestrator:
                     scene_summary, next_pref_field, available_locations, day,
                 )
 
-        replan_tasks = [_replan_one(aid) for aid in affected_agents if aid in self.profiles]
+        student_affected = {
+            aid for aid in affected_agents
+            if aid in self.profiles and self.profiles[aid].role == Role.STUDENT
+        }
+        replan_tasks = [_replan_one(aid) for aid in student_affected]
         if replan_tasks:
             logger.info(f"  Re-planning {len(replan_tasks)} affected agents...")
             await asyncio.gather(*replan_tasks)
 
     async def _run_compression(self, day: int, progress: Progress) -> None:
         logger.info("\nRunning nightly compression...")
-        student_ids = self._student_ids()
+        student_ids = self._active_agent_ids()
 
         async def _compress(aid: str) -> None:
             async with self.semaphore:
@@ -436,12 +445,17 @@ class Orchestrator:
     def _end_of_day(self, day: int, progress: Progress) -> None:
         self.world.clear_all_snapshots()
         # Reset energy for sleep + decay concerns
-        for aid in self._student_ids():
+        for aid in self._active_agent_ids():
             storage = self.world.get_agent(aid)
             state = storage.load_state()
             state = reset_energy_for_sleep(state)
             state = decay_concerns(state)
+            state = maybe_decay_emotion(state, scenes_since_extreme=2, rng=self.rng)
             storage.save_state(state)
+            # Relationship regression (same loop, one load+save)
+            rels = storage.load_relationships()
+            rels = regress_relationships(rels)
+            storage.save_relationships(rels)
 
         # Save trajectory
         if self._trajectory:

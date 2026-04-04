@@ -102,7 +102,9 @@
 观察一下刚才发生的事。你注意到了什么？你心里怎么想的？
 然后决定你想做什么：
 - 说话（对谁说，说什么）
+{% if scene_info.location != "宿舍" %}
 - 悄悄话（只对一个人说，别人听不见）
+{% endif %}
 - 做个动作（传纸条、低头写字、看向某人...）
 - 继续观察（什么都不做，看看接下来怎么发展）
 - 离开（你想走了）
@@ -113,7 +115,7 @@
 - observation: 你注意到了什么（一句话）
 - inner_thought: 你心里在想什么（一两句话，要真实）
 - emotion: 你现在的情绪
-- action_type: speak / whisper / non_verbal / observe / exit
+- action_type: speak / {% if scene_info.location != "宿舍" %}whisper / {% endif %}non_verbal / observe / exit
 - action_content: 你说的话或做的动作（如果选observe就填null）
 - action_target: 主要对谁（只能填：{{ scene_info.present_names | join('、') }}，或null）
 - urgency: 你有多想做这件事（1-10）
@@ -127,7 +129,9 @@
 - 真人聊天经常只有一两个字："嗯""啊""行""随便""哦""滚"。不是每句话都要完整表达一个观点。在随意闲聊中，至少三分之一的回答应该在5个字以内。
 - 一次只跟一两个人说话，不要在一句话里把所有人都点名到。
 - 你只能跟在场的人（{{ scene_info.present_names | join('、') }}）互动。
+{% if scene_info.location != "宿舍" %}
 - 如果有人对你说了悄悄话，只有你听到了内容，可以选择回应或者装作没听见。
+{% endif %}
 {% if teacher_present %}
 【注意】班主任正在附近，说话注意点！
 {% endif %}

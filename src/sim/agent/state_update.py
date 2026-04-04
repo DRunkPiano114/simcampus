@@ -1,6 +1,7 @@
 import random
 
 from ..models.agent import AgentState, Emotion, PressureLevel
+from ..models.relationship import RelationshipFile
 
 
 def clamp(value: int, lo: int, hi: int) -> int:
@@ -96,3 +97,17 @@ def maybe_decay_emotion(
         if rng.random() < 0.5:
             state.emotion = Emotion.NEUTRAL
     return state
+
+
+def regress_relationships(rels: RelationshipFile) -> RelationshipFile:
+    """Nudge favorability and trust 1 point toward zero daily."""
+    for rel in rels.relationships.values():
+        if rel.favorability > 0:
+            rel.favorability -= 1
+        elif rel.favorability < 0:
+            rel.favorability += 1
+        if rel.trust > 0:
+            rel.trust -= 1
+        elif rel.trust < 0:
+            rel.trust += 1
+    return rels

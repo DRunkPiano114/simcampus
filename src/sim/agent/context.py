@@ -23,8 +23,8 @@ def _profile_summary(profile: AgentProfile) -> str:
         parts.append(f"学习态度：{profile.academics.study_attitude}")
         parts.append(f"作业习惯：{profile.academics.homework_habit}")
         parts.append(f"目标：{profile.academics.target.value}")
-        if profile.position:
-            parts.append(f"职务：{profile.position}")
+    if profile.position:
+        parts.append(f"职务：{profile.position}")
     parts.append(f"家庭期望：{profile.family_background.expectation}")
     parts.append(f"家庭情况：{profile.family_background.situation}")
     if profile.long_term_goals:

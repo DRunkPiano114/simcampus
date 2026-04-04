@@ -36,23 +36,29 @@ async def generate_daily_plan(
     parts = [
         f"姓名：{profile.name}",
         f"性格：{'、'.join(profile.personality)}",
-        f"成绩：{profile.academics.overall_rank.value}",
     ]
-    if profile.academics.strengths:
-        parts.append(f"擅长科目：{'、'.join(profile.academics.strengths)}")
-    if profile.academics.weaknesses:
-        parts.append(f"弱势科目：{'、'.join(profile.academics.weaknesses)}")
-    parts.append(f"学习态度：{profile.academics.study_attitude}")
-    parts.append(f"目标：{profile.academics.target.value}")
+    if profile.role == Role.STUDENT:
+        parts.append(f"成绩：{profile.academics.overall_rank.value}")
+        if profile.academics.strengths:
+            parts.append(f"擅长科目：{'、'.join(profile.academics.strengths)}")
+        if profile.academics.weaknesses:
+            parts.append(f"弱势科目：{'、'.join(profile.academics.weaknesses)}")
+        parts.append(f"学习态度：{profile.academics.study_attitude}")
+        parts.append(f"目标：{profile.academics.target.value}")
     if profile.position:
         parts.append(f"职务：{profile.position}")
-    parts.append(f"家庭期望：{profile.family_background.expectation}")
+    if profile.family_background.expectation:
+        parts.append(f"家庭期望：{profile.family_background.expectation}")
     parts.append(f"家庭情况：{profile.family_background.situation}")
+    if profile.backstory:
+        parts.append(f"背景：{profile.backstory}")
     if profile.long_term_goals:
         parts.append(f"长期目标：{'；'.join(profile.long_term_goals)}")
     if profile.inner_conflicts:
         parts.append(f"内心矛盾：{'；'.join(profile.inner_conflicts)}")
     profile_summary = "\n".join(parts)
+
+    is_student = profile.role == Role.STUDENT
 
     # Load concerns and self-narrative for context
     active_concerns = [c for c in state.active_concerns]
@@ -70,6 +76,7 @@ async def generate_daily_plan(
         active_concerns=active_concerns,
         self_narrative=self_narrative,
         inner_conflicts=profile.inner_conflicts,
+        is_student=is_student,
     )
 
     messages = [{"role": "user", "content": prompt}]

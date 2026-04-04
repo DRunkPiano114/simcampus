@@ -110,7 +110,7 @@
     "density": "high",
     "max_rounds": 35,
     "trigger_probability": 1.0,
-    "description": "熄灯后宿舍里的悄悄话时间",
+    "description": "熄灯后宿舍里的闲聊时间",
     "opening_events": [
       "灯灭了，黑暗中谁先开口说了句话",
       "查寝的老师刚走，宿舍立刻活了过来",

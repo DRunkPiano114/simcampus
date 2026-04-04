@@ -12,7 +12,7 @@ from ..llm.client import structured_call
 from ..llm.logger import log_llm_call
 from ..llm.prompts import render
 from ..models.agent import AgentProfile, AgentState, Emotion
-from ..models.dialogue import PerceptionOutput
+from ..models.dialogue import ActionType, PerceptionOutput
 from ..models.event import Event
 from ..models.scene import Scene
 from .narrative import format_agent_transcript, format_latest_event
@@ -130,6 +130,12 @@ async def run_group_dialogue(
             *[_perceive(aid) for aid in perceiving]
         )
         outputs: dict[str, PerceptionOutput] = dict(perception_results)
+
+        # Safety net: convert whisper to speech in dorm scenes
+        if scene.location == "宿舍":
+            for aid, out in outputs.items():
+                if out.action_type == ActionType.WHISPER:
+                    out.action_type = ActionType.SPEAK
 
         # Update in-memory emotions
         for aid, out in outputs.items():

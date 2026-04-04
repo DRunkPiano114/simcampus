@@ -61,30 +61,33 @@ class SceneGenerator:
         if not agent_ids:
             return []
 
-        # Teacher presence probability
+        # Teacher joins probabilistically as a full agent
         teacher_present = False
         teacher_action = None
         if config.name == "晚自习":
             teacher_present = self.rng.random() < 0.20
-        elif config.name == "课间":
-            teacher_present = self.rng.random() < 0.05
 
-        if teacher_present:
-            teacher_action = self.rng.choice([
-                "在教室后面巡视",
-                "在讲台上批改作业",
-                "和某个同学谈话",
-            ])
+        if teacher_present and "he_min" in self.profiles:
+            agent_ids.append("he_min")
+            teacher_action = None  # she's a real participant now
 
         # Inject random events for triggered LOW scenes
         injected_events: list[str] = []
         if config.density == SceneDensity.HIGH_LIGHT:
             event = self.rng.choice([
+                # 负面/冲突
                 "老师突然点名回答问题",
                 "有人传纸条被发现",
                 "后排有人睡着了被叫醒",
+                # 中性
                 "窗外突然下大雨",
                 "隔壁班传来吵闹声",
+                "广播站放了一首很好听的歌",
+                # 正面
+                "老师表扬了上次作业写得好的同学",
+                "有人带了零食偷偷分给周围的人",
+                "课代表发了新的练习卷，大家一边抱怨一边翻看",
+                "窗外出了太阳，教室里一下子亮堂起来",
             ])
             injected_events.append(event)
 
@@ -143,6 +146,13 @@ class SceneGenerator:
             else:
                 loc = default_location
             location_groups[loc].append(aid)
+
+        # Teacher occasionally appears during free periods
+        if "he_min" in self.profiles:
+            teacher_prob = 0.30 if config.name == "午饭" else 0.10
+            if self.rng.random() < teacher_prob:
+                teacher_loc = "食堂" if config.name == "午饭" else "教室"
+                location_groups[teacher_loc].append("he_min")
 
         # Create one Scene per occupied location
         scenes: list[Scene] = []

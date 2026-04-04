@@ -56,6 +56,8 @@ async def nightly_compress(
         parts.append(f"成绩：{profile.academics.overall_rank.value}")
         parts.append(f"目标：{profile.academics.target.value}")
     parts.append(f"家庭情况：{profile.family_background.situation}")
+    if profile.backstory:
+        parts.append(f"背景：{profile.backstory}")
     if profile.long_term_goals:
         parts.append(f"长期目标：{'；'.join(profile.long_term_goals)}")
     if profile.inner_conflicts:

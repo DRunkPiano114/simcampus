@@ -52,17 +52,17 @@ Each simulated day runs through three sequential phases:
 ### Phase 0: Self-Narrative Generation (periodic)
 
 On day 1 and every `self_narrative_interval_days` (default 3) days:
-- For each student (concurrently), call LLM with `self_narrative.j2` template
-- Input: profile summary, recent 3-day summary, active concerns, relationships
+- For each agent (concurrently), call LLM with `self_narrative.j2` template
+- Input: profile summary (including backstory), recent 3-day summary, active concerns, relationships
 - Output: `SelfNarrativeResult.narrative` — 100-200 word first-person self-reflection
 - Saved to `agents/<id>/self_narrative.md`
 - Used as context in all agent-facing prompts (perception, daily plan, solo reflection)
 
 ### Phase 1: Daily Plan Generation (`day_phase = "daily_plan"`)
 
-For each student (concurrently, up to `max_concurrent_llm_calls`):
+For each agent (concurrently, up to `max_concurrent_llm_calls`):
 1. Load relationships, last 3 days of `recent.md`, yesterday's unfulfilled intentions, active concerns, self-narrative, and inner conflicts
-2. Call LLM with `daily_plan.j2` template → returns `DailyPlan` (1-3 `Intention` objects + `mood_forecast` + `location_preferences`). The prompt first nudges the agent to reflect on unmet needs ("先想想你最近缺什么——朋友的陪伴？学业上的成就感？…") before generating intentions
+2. Call LLM with `daily_plan.j2` template → returns `DailyPlan` (1-3 `Intention` objects + `mood_forecast` + `location_preferences`). For students, the prompt nudges reflection on unmet needs ("先想想你最近缺什么——朋友的陪伴？学业上的成就感？…"). For the teacher, it nudges teacher-specific priorities ("哪个学生需要关注？班级有什么问题要处理？"). Academic fields (成绩/目标/学习态度) are only shown to students; teacher context comes from backstory and position. Location preferences section is only shown to students.
 3. Validate location preferences against valid lists (invalid → default)
 4. Save updated state with new plan
 
@@ -79,16 +79,19 @@ For each scene in `data/schedule.json` (sequentially):
 Scene generation is now **lazy per-config**: the orchestrator iterates over `schedule.json` entries and generates scene(s) for each config, reloading agent states between configs (to reflect re-planning changes).
 
 For **normal scenes** (`is_free_period=false`):
-- LOW density scenes roll against `trigger_probability` (default 15%). If they don't trigger, they're skipped entirely. If they trigger, density is upgraded to HIGH_LIGHT and a random classroom event is injected.
-- Teacher presence is probabilistic: 20% during 晚自习, 5% during 课间.
+- LOW density scenes roll against `trigger_probability` (default 15%). If they don't trigger, they're skipped entirely. If they trigger, density is upgraded to HIGH_LIGHT and a random classroom event is injected (balanced across negative/neutral/positive events).
+- Teacher participation: 20% chance during 晚自习 — when the roll succeeds, He Min joins as a full LLM-driven agent participant (not just a `teacher_present` flag). Teacher does not appear in 课间 normal scenes (课间 is a free period, handled separately).
 - Present agents determined by location: 宿舍 → only dorm members; elsewhere → all students.
+
+For **group interaction**, each group gets a scoped scene copy (`group_scene`) with `agent_ids` set to only that group's members. This ensures dorm scenes show correct participant lists (boys-only / girls-only) and the `teacher_present` flag is set correctly per-group (`scene.teacher_present OR "he_min" in group.agent_ids`).
 
 For **free period scenes** (`is_free_period=true` — 课间 08:45, 午饭 12:00, 课间 15:30):
 1. Map config time to `LocationPreference` field (`"08:45"→morning_break`, `"12:00"→lunch`, `"15:30"→afternoon_break`)
 2. Group students by their chosen location from daily plan
-3. Create one Scene per occupied location with location-specific opening events from `data/location_events.json`
-4. Scene name becomes `f"{config.name}@{location}"` (e.g. "课间@走廊", "午饭@食堂")
-5. Sequential scene indices assigned starting from current index
+3. Teacher occasionally appears during free periods: 30% at 午饭 (in 食堂), 10% at 课间 (in 教室). When she appears, she joins the location group as a full agent participant.
+4. Create one Scene per occupied location with location-specific opening events from `data/location_events.json`
+5. Scene name becomes `f"{config.name}@{location}"` (e.g. "课间@走廊", "午饭@食堂")
+6. Sequential scene indices assigned starting from current index
 
 Available locations: 课间 → 教室/走廊/操场/小卖部/图书馆/天台; 午饭 → 食堂/教室/操场/小卖部.
 
@@ -98,7 +101,7 @@ After all sub-scenes for a config complete, if the next config is a free period,
 - Their reflection emotion is an extreme emotion (ANGRY, EXCITED, SAD, EMBARRASSED, JEALOUS, GUILTY, FRUSTRATED, TOUCHED)
 - Any of their `relationship_changes` has |favorability| >= 8 or |trust| >= 8
 
-Re-plan uses `replan.j2` template → `ReplanResult` (changed, new_location, reason). If changed, updates `location_preferences` for the next slot.
+Re-plan uses `replan.j2` template → `ReplanResult` (changed, new_location, reason). If changed, updates `location_preferences` for the next slot. Only students are re-planned (teacher is excluded — she has no location preferences).
 
 **Step 2b — Grouping** (`world/grouping.py`):
 - First, identify solo agents (energy < 25, or introvert without close relationships at 50% chance, or sad + low energy at 60% chance).
@@ -124,6 +127,7 @@ for tick in range(max_ticks_per_scene):
        - LLM returns PerceptionOutput: observation, inner_thought, emotion,
          action_type (speak/whisper/non_verbal/observe/exit),
          action_content, action_target, urgency (1-10), is_disruptive
+       - Whisper disabled in 宿舍 scenes (template hides option + safety net converts whisper→speak)
     2. RESOLVE: resolve_tick() determines what happens (see PDA Tick Resolution)
     3. RECORD: store tick_record with all agent outputs + resolved actions
     4. UPDATE: latest_event for next tick from resolved actions
@@ -183,7 +187,7 @@ This two-phase design enables **asymmetric perception**: the same conversation c
 
 ### Phase 3: Nightly Compression (`day_phase = "compression"`)
 
-For each student (concurrently):
+For each agent (concurrently):
 1. Read `today.md` content, active concerns, and unfulfilled intentions from daily plan
 2. Call LLM with `nightly_compress.j2` → returns `CompressionResult`:
    - `daily_summary`: 1-2 sentence summary of the day. If there are unfulfilled intentions, the prompt asks the LLM to briefly note why (no opportunity? changed mind? interrupted?) — reflections enter `recent.md` with natural ~3 day half-life
@@ -196,8 +200,13 @@ For each student (concurrently):
 
 ### End of Day
 
-- Reset all students' energy to 85 (sleep)
+For all agents (students + teacher):
+- Reset energy to 85 (sleep)
 - Decay all active concern intensities by 1 (remove when <= 0)
+- **Emotion decay**: extreme emotions (angry, excited, sad, embarrassed, jealous, guilty, frustrated, touched) have 50% chance of resetting to neutral overnight
+- **Relationship regression**: favorability and trust each nudge 1 point toward zero daily. Understanding does not regress (it represents cognitive knowledge that doesn't fade overnight)
+
+Global end-of-day:
 - Save trajectory data to `logs/day_NNN/trajectory.json`
 - Expire events older than `event_expire_days` (default 3)
 - Decrement `next_exam_in_days`
@@ -462,7 +471,11 @@ pressure = base + countdown_delta + exam_shock + recovery
 
 ### Emotion Decay (`agent/state_update.py`)
 
-Extreme emotions (angry, excited, sad, embarrassed, jealous, guilty, frustrated, touched) decay to neutral with 50% probability after 2+ scenes since onset.
+Extreme emotions (angry, excited, sad, embarrassed, jealous, guilty, frustrated, touched) decay to neutral with 50% probability overnight (called in `_end_of_day`). The `scenes_since_extreme=2` parameter is hardcoded since `_end_of_day` models overnight sleep — a natural emotional reset regardless of when the emotion arose.
+
+### Relationship Regression (`agent/state_update.py`)
+
+Daily regression: `favorability` and `trust` each nudge 1 point toward zero at end of day. `understanding` does not regress — it represents cognitive knowledge ("I know this person is competitive") which doesn't fade overnight. This prevents indefinite negative spirals and ensures relationships require ongoing interaction to maintain.
 
 ### Concern Decay (`agent/state_update.py`)
 
@@ -528,12 +541,28 @@ Tag-overlap based (not embedding-based):
 3. Filter to memories with overlap > 0
 4. Sort by (importance DESC, overlap DESC), return top K (default 10)
 
-### Homeroom Teacher (`world/homeroom_teacher.py`)
+### Homeroom Teacher (He Min)
 
-Rule-driven, not a full agent:
-- **Post-exam talks**: 70% chance of talking to students whose rank dropped by 3+. Creates a `teacher_talk` event with 0.7 spread probability.
-- **Patrol events**: 30% chance during 晚自习/早读 of generating discipline/patrol events. During 上课, generates random classroom events (点名, 传纸条被发现, etc.).
-- **Suppression effect**: When `teacher_present=true`, the perception template includes a warning ("班主任正在附近，说话注意点！") that naturally suppresses agent speech urgency.
+He Min is a full LLM-driven agent, participating in scenes like any student. She goes through daily plan generation, perception, dialogue, self-reflection, and nightly compression — using the same pipeline but with role-aware prompts.
+
+**Scene participation** (probabilistic — she doesn't attend every scene):
+| Scene type | Probability | Notes |
+|-----------|-------------|-------|
+| 晚自习 | 20% | Joins as full participant |
+| 课间 (free period) | 10% | Appears in 教室 |
+| 午饭 (free period) | 30% | Appears in 食堂 |
+| 宿舍夜聊 | Never | Not in dorm |
+
+**Role-aware prompt adaptations**:
+- `system_base.j2`: "中国高中老师" instead of "中国高中生" language guidance
+- `daily_plan.j2`: teacher-specific need prompts (student attention, parent calls, lesson prep). No location preferences section (teacher doesn't choose free-period locations). Academic fields (成绩/目标/学习态度) skipped.
+- `perception_decision.j2`: whisper option hidden in dorm scenes (safety net: whisper→speak conversion in `turn.py`)
+- Re-planning skipped for teacher (no location preferences)
+- **Suppression effect**: When `teacher_present=true`, the perception template includes a warning ("班主任正在附近，说话注意点！") that naturally suppresses student speech urgency
+
+**Cold start**: He Min starts with empty relationships (`{}`). Her backstory names specific students she monitors, and the "班主任" position gives LLM enough context. Relationships populate naturally after scene interactions.
+
+**Legacy**: `world/homeroom_teacher.py` still handles rule-driven post-exam talks (70% chance for rank-drop students) and patrol events.
 
 ---
 
@@ -554,7 +583,7 @@ All LLM calls go through `llm/client.py:structured_call()` which uses Instructor
 
 Narrative extraction + N self-reflections run concurrently after each group dialogue (replacing the single `SceneEndAnalysis` call). Effective latency ≈ 1 LLM call despite N+1 total calls.
 
-All templates include `system_base.j2` (shared system prompt establishing the Chinese high school setting, natural dialogue requirements, role consistency rules, few-shot examples of natural Chinese teen speech patterns, and inner_thought voice guidelines with bad/good examples to prevent self-analysis-report style thinking).
+All templates include `system_base.j2` (shared system prompt establishing the Chinese high school setting, role-aware language guidance — "中国高中生" for students vs "中国高中老师" for teacher — natural dialogue requirements, role consistency rules, few-shot examples of natural Chinese teen speech patterns, and inner_thought voice guidelines with bad/good examples to prevent self-analysis-report style thinking).
 
 Context assembly (`agent/context.py:prepare_context()`):
 - Profile summary (name, gender, personality, speaking style, academic rank/strengths/weaknesses/study attitude/homework habit/target, position, family expectation/situation, long-term goals, backstory, inner_conflicts)
