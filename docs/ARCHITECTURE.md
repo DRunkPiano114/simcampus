@@ -409,12 +409,7 @@ Rule-driven, not a full agent:
 
 ## LLM Calls
 
-All LLM calls go through `llm/client.py:structured_call()` which dispatches to one of two backends based on `llm_backend` config:
-
-- **`litellm`** (default): Uses Instructor + LiteLLM for Pydantic-validated structured output. Supports DeepSeek, OpenRouter, Volcengine, Dashscope, Anthropic API, etc.
-- **`claude_code`**: Spawns `claude -p` (Claude Code CLI) as a subprocess. Uses OAuth auth (Max subscription) instead of API keys. Enforces structured output via `--json-schema` with the Pydantic model's JSON Schema. All tools are disabled (`--tools ""`) to prevent the model from reading the codebase or exploring files. Implementation in `llm/claude_code.py`.
-
-Each call has a dedicated Jinja2 template in `src/sim/templates/`.
+All LLM calls go through `llm/client.py:structured_call()` which uses Instructor + LiteLLM to guarantee Pydantic model output. Each call has a dedicated Jinja2 template in `src/sim/templates/`.
 
 | Call Type | Template | Response Model | Temperature | Max Tokens |
 |-----------|----------|---------------|-------------|------------|
@@ -538,10 +533,7 @@ All settings via `pydantic-settings` `BaseSettings`, loaded from `.env` file, ov
 
 | Setting | Default | Description |
 |---------|---------|-------------|
-| `llm_backend` | `litellm` | Backend: `litellm` or `claude_code` |
 | `llm_model` | `deepseek/deepseek-chat` | LiteLLM model identifier |
-| `claude_code_model` | `claude-sonnet-4-6` | Model alias for claude-code backend |
-| `claude_code_bare` | `false` | Use `--bare` mode (needs real `ANTHROPIC_API_KEY`) |
 | `creative_temperature` | 0.9 | Dialogue turns, solo reflection |
 | `analytical_temperature` | 0.3 | Scene-end analysis |
 | `plan_temperature` | 0.7 | Daily plan generation |

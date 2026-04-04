@@ -17,10 +17,7 @@ class Settings(BaseSettings):
     logs_dir: Path = Path("logs")
 
     # LLM
-    llm_backend: str = "litellm"  # "litellm" or "claude_code"
     llm_model: str = "deepseek/deepseek-chat"
-    claude_code_model: str = "claude-sonnet-4-6"  # model for claude-code backend
-    claude_code_bare: bool = False  # --bare mode (needs real ANTHROPIC_API_KEY)
     creative_temperature: float = 0.9
     analytical_temperature: float = 0.3
     plan_temperature: float = 0.7
