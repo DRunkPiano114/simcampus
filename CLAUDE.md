@@ -16,7 +16,7 @@ No tests or linting configured. Env: `cp .env.example .env` then set `DEEPSEEK_A
 
 ## Documentation Sync Rule
 
-Detailed technical documentation lives in `docs/ARCHITECTURE.md`. **Every time you modify code, you MUST also update that file to reflect the changes.** A task is not complete until the doc is in sync.
+Detailed technical documentation lives in `ARCHITECTURE.md`. **Every time you modify code, you MUST also update that file to reflect the changes.** A task is not complete until the doc is in sync.
 
 What triggers a doc update:
 - Add/remove/rename a module or file
@@ -27,7 +27,7 @@ What triggers a doc update:
 - Add/change configuration options
 - Change file storage format, paths, or initialization logic
 
-The goal: a stranger should be able to fully understand this project's technical implementation, engineering details, and framework logic by reading `docs/ARCHITECTURE.md` alone, without looking at source code.
+The goal: a stranger should be able to fully understand this project's technical implementation, engineering details, and framework logic by reading `ARCHITECTURE.md` alone, without looking at source code.
 
 ## Skill routing
 
