@@ -22,6 +22,13 @@ async def structured_call(
     temperature: float | None = None,
     max_tokens: int | None = None,
 ) -> object:
+    if settings.llm_backend == "claude_code":
+        from .claude_code import structured_call_claude
+
+        return await structured_call_claude(
+            response_model, messages, temperature, max_tokens,
+        )
+
     client = get_instructor_client()
     return await client.chat.completions.create(
         model=settings.llm_model,
