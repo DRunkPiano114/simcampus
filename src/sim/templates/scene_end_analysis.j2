@@ -10,6 +10,18 @@
 - 地点：{{ scene_info.location }}
 - 场景：{{ scene_info.name }}
 
+{% if agent_concerns %}
+## 在场人物的当前牵挂
+{% for name, concerns in agent_concerns.items() %}
+{% if concerns %}
+{{ name }}：
+{% for c in concerns %}
+- {{ c.text }}（强度{{ c.intensity }}/10）
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% endif %}
+
 ## 完整对话记录
 {{ full_conversation_log }}
 
@@ -41,3 +53,16 @@
 6. **new_events**: 对话中产生的新事件（八卦、消息、决定等），可能被传播。包含 text、category、witnesses、spread_probability
 
 7. **final_emotions**: 对话结束后每个人的情绪状态。格式：{"姓名": "emotion"}
+
+8. **new_concerns**: 这段对话是否让某个角色产生了新的持续性"牵挂"？牵挂不是一时的情绪，而是会在接下来几天反复想起、影响行为的心事。例如：
+   - 发现好友可能在背后说自己坏话
+   - 被老师当众批评，担心同学看不起自己
+   - 考试排名大幅下滑
+   注意：大部分日常闲聊不会产生任何牵挂。只有真正触动人的事情才会。
+   每条包含 agent（谁产生了牵挂）、text（牵挂内容）、source_event（触发事件，一句话）、emotion、intensity（1-10）、related_people
+
+9. **concern_updates**: 如果在场人物有"当前牵挂"（见上方列表），判断这段对话是否影响了某个牵挂的强度。
+   例如：陆思远安慰了林昭宇 → 林昭宇"被嘲笑"的牵挂缓解了（adjustment: -2）
+   例如：江浩天又提起成绩的事 → 林昭宇"被嘲笑"的牵挂加剧了（adjustment: +3）
+   例如：牵挂完全被化解（adjustment: -10 或足以让强度降为0）
+   每条包含 agent、concern_text（已有牵挂的文本）、adjustment（正数=加剧，负数=缓解）

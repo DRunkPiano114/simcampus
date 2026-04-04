@@ -43,6 +43,22 @@ class Settings(BaseSettings):
     max_key_memories: int = 10
     solo_energy_threshold: int = 25
 
+    # Location agency
+    free_period_locations: list[str] = ["教室", "走廊", "操场", "小卖部", "图书馆", "天台"]
+    lunch_locations: list[str] = ["食堂", "教室", "操场", "小卖部"]
+
+    # Self-narrative
+    self_narrative_interval_days: int = 3
+    self_narrative_temperature: float = 0.7
+    max_tokens_self_narrative: int = 32000
+
+    # Re-planning
+    replan_temperature: float = 0.7
+    max_tokens_replan: int = 32000
+
+    # Concerns
+    max_active_concerns: int = 3
+
     # Concurrency
     max_concurrent_llm_calls: int = 5
 

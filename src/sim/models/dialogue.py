@@ -51,6 +51,22 @@ class NewEventCandidate(BaseModel):
     spread_probability: float = Field(default=0.5, ge=0.0, le=1.0)
 
 
+class ConcernCandidate(BaseModel):
+    agent: str                  # Agent name
+    text: str
+    source_event: str = ""
+    emotion: str = ""
+    intensity: int = Field(default=5, ge=1, le=10)
+    related_people: list[str] = Field(default_factory=list)
+
+
+class ConcernUpdate(BaseModel):
+    """Adjustment to an existing concern's intensity from scene events."""
+    agent: str                  # Agent name
+    concern_text: str           # Text of existing concern being adjusted
+    adjustment: int             # -3=greatly soothed, -1=slightly eased, +2=worsened, +5=much worse
+
+
 class SceneEndAnalysis(BaseModel):
     key_moments: list[str] = Field(default_factory=list)
     relationship_changes: list[RelationshipChange] = Field(default_factory=list)
@@ -59,6 +75,8 @@ class SceneEndAnalysis(BaseModel):
     memories: list[MemoryCandidate] = Field(default_factory=list)
     new_events: list[NewEventCandidate] = Field(default_factory=list)
     final_emotions: dict[str, str] = Field(default_factory=dict)
+    new_concerns: list[ConcernCandidate] = Field(default_factory=list)
+    concern_updates: list[ConcernUpdate] = Field(default_factory=list)
 
 
 class SoloReflection(BaseModel):

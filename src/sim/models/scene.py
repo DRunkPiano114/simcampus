@@ -18,6 +18,7 @@ class SceneConfig(BaseModel):
     trigger_probability: float = 1.0
     description: str = ""
     opening_events: list[str] = Field(default_factory=list)
+    is_free_period: bool = False
 
 
 class GroupAssignment(BaseModel):

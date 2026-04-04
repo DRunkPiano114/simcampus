@@ -5,7 +5,7 @@ from loguru import logger
 
 from ..agent.storage import AgentStorage, WorldStorage, atomic_write_json
 from ..config import settings
-from ..models.agent import AgentProfile, Emotion
+from ..models.agent import ActiveConcern, AgentProfile, Emotion
 from ..models.dialogue import SceneEndAnalysis, SoloReflection
 from ..models.scene import Scene
 from ..world.event_queue import EventQueueManager
@@ -13,6 +13,16 @@ from ..world.event_queue import EventQueueManager
 
 def _clamp(v: int, lo: int, hi: int) -> int:
     return max(lo, min(hi, v))
+
+
+def _is_duplicate_concern(new_concern, existing_concerns):
+    """Structural dedup: same day + same scene + overlapping people = same event."""
+    for c in existing_concerns:
+        if (c.source_day == new_concern.source_day
+            and c.source_scene == new_concern.source_scene
+            and set(c.related_people) & set(new_concern.related_people)):
+            return True
+    return False
 
 
 def apply_scene_end_results(
@@ -134,6 +144,47 @@ def apply_scene_end_results(
             witnesses=[w for w in witness_ids if w in profiles],
             spread_probability=new_evt.spread_probability,
         )
+
+    # 4. Apply new concerns (structural dedup)
+    for cc in analysis.new_concerns:
+        target_id = name_to_id.get(cc.agent)
+        if not target_id or target_id not in group_agent_ids:
+            continue
+        storage = world.get_agent(target_id)
+        state = storage.load_state()
+
+        new_concern = ActiveConcern(
+            text=cc.text, source_event=cc.source_event,
+            source_scene=scene.name, source_day=day, emotion=cc.emotion,
+            intensity=cc.intensity, related_people=cc.related_people,
+        )
+
+        if _is_duplicate_concern(new_concern, state.active_concerns):
+            continue
+
+        # Enforce max: evict lowest intensity if full
+        if len(state.active_concerns) >= settings.max_active_concerns:
+            state.active_concerns.sort(key=lambda c: c.intensity)
+            if new_concern.intensity > state.active_concerns[0].intensity:
+                state.active_concerns.pop(0)
+            else:
+                continue
+        state.active_concerns.append(new_concern)
+        storage.save_state(state)
+
+    # 5. Apply concern intensity adjustments
+    for cu in analysis.concern_updates:
+        target_id = name_to_id.get(cu.agent)
+        if not target_id or target_id not in group_agent_ids:
+            continue
+        storage = world.get_agent(target_id)
+        state = storage.load_state()
+        for c in state.active_concerns:
+            if cu.concern_text in c.text or c.text in cu.concern_text:
+                c.intensity = max(0, min(10, c.intensity + cu.adjustment))
+        # Remove concerns with intensity <= 0
+        state.active_concerns = [c for c in state.active_concerns if c.intensity > 0]
+        storage.save_state(state)
 
     logger.debug(f"  Applied results for group {group_id}")
 

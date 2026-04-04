@@ -86,10 +86,14 @@ def init_agent(char_file: Path, rels: dict[str, dict]) -> None:
         "location": "教室",
         "daily_plan": {"intentions": [], "mood_forecast": "neutral"},
         "day": 1,
+        "active_concerns": [],
     }
     (agent_dir / "state.json").write_text(
         json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8"
     )
+
+    # Empty self-narrative
+    (agent_dir / "self_narrative.md").write_text("", encoding="utf-8")
 
     # Relationships
     rel_data = {"relationships": rels.get(agent_id, {})}

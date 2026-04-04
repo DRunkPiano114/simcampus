@@ -3,6 +3,13 @@
 ## 这个人的身份
 {{ profile_summary }}
 
+{% if active_concerns %}
+## 目前已有的牵挂
+{% for c in active_concerns %}
+- {{ c.text }}（强度{{ c.intensity }}/10）
+{% endfor %}
+{% endif %}
+
 ## 今天的完整记录
 {{ today_md_content }}
 
@@ -25,3 +32,8 @@
 - topics: 相关话题标签
 
 大部分普通的一天不会产生永久记忆，只有特别的事情才值得记住。
+
+### 任务3：新的牵挂
+回顾今天的一切，有没有产生新的"牵挂"——那些会让人睡前反复想的事情？
+注意：不要重复上面已有的牵挂。大部分普通的一天不会产生新的牵挂。
+如果有，输出 text、source_event、emotion、intensity、related_people。

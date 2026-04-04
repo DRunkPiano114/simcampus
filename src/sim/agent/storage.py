@@ -89,6 +89,14 @@ class AgentStorage:
         path = self._md_path("today")
         path.write_text("", encoding="utf-8")
 
+    # Self-narrative
+    def read_self_narrative(self) -> str:
+        path = self._md_path("self_narrative")
+        return path.read_text("utf-8") if path.exists() else ""
+
+    def write_self_narrative(self, content: str) -> None:
+        self._md_path("self_narrative").write_text(content, encoding="utf-8")
+
     # Recent markdown
     def read_recent_md(self) -> str:
         path = self._md_path("recent")

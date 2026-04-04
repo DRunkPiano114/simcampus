@@ -20,11 +20,13 @@ Four-layer design, all source code in `src/sim/`:
 ├──────────────────────────────────────────────────────────┤
 │  Agent Layer  (agent/)                                   │
 │  Profile/state storage, context assembly,                │
-│  daily plan generation, state update formulas            │
+│  daily plan generation, state update formulas,           │
+│  self-narrative generation, location re-planning         │
 ├──────────────────────────────────────────────────────────┤
 │  World Layer  (world/)                                   │
-│  Schedule, scene generation, agent grouping,             │
-│  event queue, exam system, homeroom teacher              │
+│  Schedule, scene generation (location-split free         │
+│  periods), agent grouping, event queue, exam system,     │
+│  homeroom teacher                                        │
 ├──────────────────────────────────────────────────────────┤
 │  LLM Layer  (llm/)                                       │
 │  Instructor+LiteLLM client, Jinja2 prompt rendering,     │
@@ -47,23 +49,56 @@ Four-layer design, all source code in `src/sim/`:
 
 Each simulated day runs through three sequential phases:
 
+### Phase 0: Self-Narrative Generation (periodic)
+
+On day 1 and every `self_narrative_interval_days` (default 3) days:
+- For each student (concurrently), call LLM with `self_narrative.j2` template
+- Input: profile summary, recent 3-day summary, active concerns, relationships
+- Output: `SelfNarrativeResult.narrative` — 100-200 word first-person self-reflection
+- Saved to `agents/<id>/self_narrative.md`
+- Used as context in all agent-facing prompts (perception, daily plan, solo reflection)
+
 ### Phase 1: Daily Plan Generation (`day_phase = "daily_plan"`)
 
 For each student (concurrently, up to `max_concurrent_llm_calls`):
-1. Load relationships, last 3 days of `recent.md`, and yesterday's unfulfilled intentions
-2. Call LLM with `daily_plan.j2` template → returns `DailyPlan` (1-3 `Intention` objects + `mood_forecast`)
-3. Save updated state with new plan
+1. Load relationships, last 3 days of `recent.md`, yesterday's unfulfilled intentions, active concerns, and self-narrative
+2. Call LLM with `daily_plan.j2` template → returns `DailyPlan` (1-3 `Intention` objects + `mood_forecast` + `location_preferences`)
+3. Validate location preferences against valid lists (invalid → default)
+4. Save updated state with new plan
 
 `Intention` has: `target` (optional agent name), `goal`, `reason`, `fulfilled` (bool, starts false).
+
+`LocationPreference` has: `morning_break` (课间 08:45), `lunch` (午饭 12:00), `afternoon_break` (课间 15:30). Agents choose from configured location lists.
 
 ### Phase 2: Scene Execution (`day_phase = "scenes"`)
 
 For each scene in `data/schedule.json` (sequentially):
 
 **Step 2a — Scene Generation** (`world/scene_generator.py`):
-- LOW density scenes roll against `trigger_probability` (default 15%). If they don't trigger, they're skipped entirely. If they trigger, density is upgraded to HIGH_LIGHT and a random classroom event is injected (e.g. "老师突然点名回答问题").
+
+Scene generation is now **lazy per-config**: the orchestrator iterates over `schedule.json` entries and generates scene(s) for each config, reloading agent states between configs (to reflect re-planning changes).
+
+For **normal scenes** (`is_free_period=false`):
+- LOW density scenes roll against `trigger_probability` (default 15%). If they don't trigger, they're skipped entirely. If they trigger, density is upgraded to HIGH_LIGHT and a random classroom event is injected.
 - Teacher presence is probabilistic: 20% during 晚自习, 5% during 课间.
 - Present agents determined by location: 宿舍 → only dorm members; elsewhere → all students.
+
+For **free period scenes** (`is_free_period=true` — 课间 08:45, 午饭 12:00, 课间 15:30):
+1. Map config time to `LocationPreference` field (`"08:45"→morning_break`, `"12:00"→lunch`, `"15:30"→afternoon_break`)
+2. Group students by their chosen location from daily plan
+3. Create one Scene per occupied location with location-specific opening events from `data/location_events.json`
+4. Scene name becomes `f"{config.name}@{location}"` (e.g. "课间@走廊", "午饭@食堂")
+5. Sequential scene indices assigned starting from current index
+
+Available locations: 课间 → 教室/走廊/操场/小卖部/图书馆/天台; 午饭 → 食堂/教室/操场/小卖部.
+
+**Step 2a.1 — Re-planning** (between configs):
+After all sub-scenes for a config complete, if the next config is a free period, "affected" agents may re-plan their location. An agent is affected if ANY of:
+- A new concern was generated for them in this scene's `new_concerns`
+- Their emotion changed to an extreme emotion (ANGRY, EXCITED, SAD, EMBARRASSED, JEALOUS, GUILTY, FRUSTRATED, TOUCHED)
+- A relationship change with absolute value >= 8 occurred
+
+Re-plan uses `replan.j2` template → `ReplanResult` (changed, new_location, reason). If changed, updates `location_preferences` for the next slot.
 
 **Step 2b — Grouping** (`world/grouping.py`):
 - First, identify solo agents (energy < 25, or introvert without close relationships at 50% chance, or sad + low energy at 60% chance).
@@ -107,6 +142,7 @@ for tick in range(max_ticks_per_scene):
 - Build conversation log from tick_records using `format_public_transcript()` (includes speech, whisper notices, non-verbal actions, exits). Inner thoughts and observations are NOT included — analysis only sees externally observable behavior.
 - `long_conversation` threshold: 12 ticks (was 20 turns)
 - Feed the conversation log to LLM with `scene_end_analysis.j2` (analytical temperature 0.3)
+- Receives `agent_concerns` dict (name → list of ActiveConcern) for in-scene agents
 - Returns `SceneEndAnalysis`:
   - `key_moments`: list of significant events as one-line summaries
   - `relationship_changes`: list of `RelationshipChange` (from_agent, to_agent, favorability/trust/understanding deltas). Scale: ±1-3 for normal chat, ±3-5 for meaningful interactions, ±10+ for extreme events
@@ -115,6 +151,8 @@ for tick in range(max_ticks_per_scene):
   - `memories`: `MemoryCandidate` with agent, text, emotion, importance (1-10), people, location, topics
   - `new_events`: gossip/conflicts/decisions that may spread to other scenes
   - `final_emotions`: map of agent name → emotion string
+  - `new_concerns`: list of `ConcernCandidate` — persistent emotional preoccupations generated from scene events
+  - `concern_updates`: list of `ConcernUpdate` — intensity adjustments to existing concerns (positive=worsened, negative=soothed)
 
 **Step 2e — Apply Results** (`interaction/apply_results.py`):
 - For each agent in the group:
@@ -124,22 +162,28 @@ for tick in range(max_ticks_per_scene):
   - Apply relationship deltas using baseline snapshot (for idempotency): `new_value = baseline + delta`, clamped to valid range
   - Mark fulfilled intentions in `daily_plan`
 - Update event queue: mark discussed events as known by all group members, add new events
+- Apply new concerns (structural dedup: same day + same scene + overlapping people = duplicate). Max 3 concerns; evicts lowest intensity if full.
+- Apply concern intensity adjustments from `concern_updates` (substring matching on concern text). Remove concerns that reach intensity <= 0.
 - Save result file to `logs/day_NNN/scene_name/group_N_result.json` with baseline snapshot
 
 ### Phase 3: Nightly Compression (`day_phase = "compression"`)
 
 For each student (concurrently):
-1. Read `today.md` content
+1. Read `today.md` content and active concerns
 2. Call LLM with `nightly_compress.j2` → returns `CompressionResult`:
    - `daily_summary`: 1-2 sentence summary of the day
    - `permanent_memories`: candidates with importance scores
+   - `new_concerns`: concerns surfaced by reviewing the whole day (safety net for scene-end misses)
 3. Append daily summary to `recent.md` as `# Day N` section
 4. Save memories with importance >= 7 to `key_memories.json`
-5. Clear `today.md`
+5. Apply new concerns (same structural dedup + eviction as scene-end, with `source_scene=""`)
+6. Clear `today.md`
 
 ### End of Day
 
 - Reset all students' energy to 85 (sleep)
+- Decay all active concern intensities by 1 (remove when <= 0)
+- Save trajectory data to `logs/day_NNN/trajectory.json`
 - Expire events older than `event_expire_days` (default 3)
 - Decrement `next_exam_in_days`
 - Advance progress to next day
@@ -187,8 +231,27 @@ location: str                    # e.g. "教室"
 daily_plan: DailyPlan
   intentions: list[Intention]    # max 3, each has target/goal/reason/fulfilled
   mood_forecast: Emotion
+  location_preferences: LocationPreference
+    morning_break: str           # 课间 08:45 destination (default "教室")
+    lunch: str                   # 午饭 12:00 destination (default "食堂")
+    afternoon_break: str         # 课间 15:30 destination (default "教室")
 day: int
+active_concerns: list[ActiveConcern]  # max 3 persistent emotional preoccupations
 ```
+
+### ActiveConcern (`models/agent.py`)
+
+```
+text: str                        # "被江浩天当众嘲笑数学成绩"
+source_event: str                # Brief trigger description
+source_scene: str                # e.g. "课间" — used for structural dedup
+source_day: int
+emotion: str                     # "羞耻"
+intensity: int (1-10)            # Decays by 1 per day, removed at 0
+related_people: list[str]
+```
+
+Concerns are generated at two points: scene-end analysis and nightly compression. Structural dedup prevents duplicates (same day + same scene + overlapping people). Max 3 per agent; lowest intensity evicted when full. Scene-end `concern_updates` can adjust intensity up or down based on events (e.g. being comforted → -2, being mocked again → +3).
 
 ### Relationship (`models/relationship.py`)
 
@@ -211,7 +274,7 @@ scene_index: int
 day: int
 time: str                        # e.g. "08:45"
 name: str                        # e.g. "课间"
-location: str                    # 教室 | 食堂 | 宿舍
+location: str                    # 教室 | 食堂 | 宿舍 | 走廊 | 操场 | 小卖部 | 图书馆 | 天台
 density: SceneDensity            # high | high_light | low
 max_rounds: int                  # Default 12
 description: str
@@ -223,7 +286,7 @@ teacher_action: str | None
 opening_event: str               # Randomly selected from schedule.json opening_events, used as tick 0 event
 ```
 
-`SceneConfig` also has `opening_events: list[str]` — pool of environment descriptions for the PDA loop's initial tick.
+`SceneConfig` also has `opening_events: list[str]` — pool of environment descriptions for the PDA loop's initial tick, and `is_free_period: bool` — marks 课间/午饭 for location-split scene generation.
 
 ### Event (`models/event.py`)
 
@@ -270,6 +333,8 @@ SceneEndAnalysis:
   memories: list[MemoryCandidate]           # agent, text, emotion, importance, people, location, topics
   new_events: list[NewEventCandidate]       # text, category, witnesses, spread_probability
   final_emotions: dict[str, str]            # name → emotion
+  new_concerns: list[ConcernCandidate]      # agent, text, source_event, emotion, intensity, related_people
+  concern_updates: list[ConcernUpdate]      # agent, concern_text, adjustment (±int)
 
 SoloReflection:
   inner_thought: str
@@ -342,6 +407,10 @@ pressure = base + countdown_delta + exam_shock + recovery
 ### Emotion Decay (`agent/state_update.py`)
 
 Extreme emotions (angry, excited, sad, embarrassed, jealous, guilty, frustrated, touched) decay to neutral with 50% probability after 2+ scenes since onset.
+
+### Concern Decay (`agent/state_update.py`)
+
+All active concern intensities decrease by 1 at end of day. Concerns reaching intensity 0 are removed. This is the baseline decay — scene-end `concern_updates` provide event-driven adjustments on top (concerns can be soothed faster by comforting interactions or intensified by triggering events).
 
 ### Exam Score Generation (`world/exam.py`)
 
@@ -423,6 +492,8 @@ All LLM calls go through `llm/client.py:structured_call()` which uses Instructor
 | Solo reflection | `solo_reflection.j2` | `SoloReflection` | 0.9 | 32000 |
 | Scene-end analysis | `scene_end_analysis.j2` | `SceneEndAnalysis` | 0.3 | 32000 |
 | Nightly compression | `nightly_compress.j2` | `CompressionResult` | 0.5 | 32000 |
+| Self-narrative | `self_narrative.j2` | `SelfNarrativeResult` | 0.7 | 32000 |
+| Re-plan | `replan.j2` | `ReplanResult` | 0.7 | 32000 |
 
 All templates include `system_base.j2` (shared system prompt establishing the Chinese high school setting, natural dialogue requirements, role consistency rules, few-shot examples of natural Chinese teen speech patterns, and inner_thought voice guidelines with bad/good examples to prevent self-analysis-report style thinking).
 
@@ -433,6 +504,8 @@ Context assembly (`agent/context.py:prepare_context()`):
 - Recent memory (last 3 days from `recent.md`)
 - Relevant key memories (tag-overlap retrieval, max 10)
 - Pending unfulfilled intentions
+- **Active concerns** — persistent emotional preoccupations (text, emotion, intensity)
+- **Self-narrative** — periodic first-person identity reflection from `self_narrative.md`
 - Scene info (time, location, who's present)
 - Known events (gossip the agent knows about)
 - Exam countdown context
@@ -454,13 +527,15 @@ data/
     lin_zhaoyu.json, tang_shihan.json, jiang_haotian.json, lu_siyuan.json,
     he_jiajun.json, shen_yifan.json, cheng_yutong.json, su_nianyao.json,
     fang_yuchen.json, he_min.json
-  schedule.json                  # 8 daily scenes: 07:00 早读 → 22:00 宿舍夜聊
+  schedule.json                  # 8 daily scenes: 07:00 早读 → 22:00 宿舍夜聊 (3 with is_free_period=true)
+  location_events.json           # Location-specific opening events for free period scenes
 
 agents/                          # Runtime state (gitignored, created by init_world.py)
   <agent_id>/
     profile.json                 # Copy of character profile
-    state.json                   # Current emotion, energy, pressure, plan, day
+    state.json                   # Current emotion, energy, pressure, plan, day, active_concerns
     relationships.json           # Sparse relationship map {target_id: Relationship}
+    self_narrative.md            # Periodic first-person self-reflection (regenerated every N days)
     key_memories.json            # Permanent memories (importance >= 7)
     today.md                     # Raw events from current day (cleared nightly)
     recent.md                    # Compressed daily summaries (rolling window)
@@ -479,6 +554,7 @@ logs/                            # Simulation logs (gitignored)
   sim.log                        # Main log (10MB rotation)
   costs.jsonl                    # Per-call cost tracking
   day_NNN/                       # Per-day detailed logs
+    trajectory.json              # Per-agent location/emotion trajectory for frontend
     scene_name/
       group_N_result.json        # Scene-end analysis results with baselines
       group_id/
@@ -496,15 +572,17 @@ scripts/
 src/sim/
   main.py                        # CLI entry point (argparse → Orchestrator.run)
   config.py                      # Settings via pydantic-settings (SIM_ env prefix)
-  models/                        # Pydantic models (agent, dialogue, event, memory, progress, relationship, scene)
+  models/                        # Pydantic models (agent, dialogue, event, memory, progress, relationship, scene, trajectory)
   agent/                         # Agent-level logic
     storage.py                   # AgentStorage + WorldStorage (file I/O, atomic writes)
     context.py                   # prepare_context() — assembles full LLM context for an agent
-    daily_plan.py                # generate_daily_plan() — morning intention generation
-    state_update.py              # Energy, pressure, emotion formulas
+    daily_plan.py                # generate_daily_plan() — morning intention + location generation
+    self_narrative.py            # generate_self_narrative() — periodic identity reflection
+    replan.py                    # maybe_replan() — reactive location changes between scenes
+    state_update.py              # Energy, pressure, emotion, concern decay formulas
   world/                         # World-level logic
     schedule.py                  # load_schedule() from data/schedule.json
-    scene_generator.py           # SceneGenerator — daily scene list + teacher presence + event injection
+    scene_generator.py           # SceneGenerator — lazy per-config scene generation, free period location splitting
     grouping.py                  # group_agents() — solo detection + affinity-based clustering
     event_queue.py               # EventQueueManager — add, spread, expire events
     exam.py                      # generate_exam_results(), apply_exam_effects(), format_exam_context()
@@ -527,12 +605,14 @@ src/sim/
     writer.py                    # Helper wrappers for today.md and key_memory writes
   templates/                     # Jinja2 prompt templates (all in Chinese)
     system_base.j2               # Shared system prompt (high school setting + dialogue rules + few-shot teen speech examples)
-    perception_decision.j2       # PDA tick loop perception prompt (includes speech burstiness rule + non-verbal action de-duplication)
+    perception_decision.j2       # PDA tick loop perception prompt (+ concerns + self-narrative context)
     dialogue_turn.j2             # Legacy per-turn dialogue (kept for A/B comparison reference)
-    daily_plan.j2                # Morning plan generation
-    solo_reflection.j2           # Solo inner monologue
-    scene_end_analysis.j2        # Post-dialogue analysis (relationship changes, events, memories)
-    nightly_compress.j2          # Daily summary + permanent memory extraction
+    daily_plan.j2                # Morning plan + location preference generation (+ concerns + self-narrative)
+    solo_reflection.j2           # Solo inner monologue (+ concerns + self-narrative)
+    scene_end_analysis.j2        # Post-dialogue analysis (+ concern generation + concern updates)
+    nightly_compress.j2          # Daily summary + permanent memory + concern extraction
+    self_narrative.j2            # Periodic first-person self-reflection generation
+    replan.j2                    # Reactive location re-planning between scenes
 ```
 
 ---
@@ -565,6 +645,14 @@ All settings via `pydantic-settings` `BaseSettings`, loaded from `.env` file, ov
 | `recent_md_max_weeks` | 4 | Rolling window for recent.md |
 | `max_key_memories` | 10 | Max key memories in context |
 | `solo_energy_threshold` | 25 | Energy below this → solo |
+| `free_period_locations` | 教室,走廊,操场,小卖部,图书馆,天台 | Valid locations for 课间 |
+| `lunch_locations` | 食堂,教室,操场,小卖部 | Valid locations for 午饭 |
+| `self_narrative_interval_days` | 3 | Days between self-narrative regeneration |
+| `self_narrative_temperature` | 0.7 | Self-narrative LLM temperature |
+| `max_tokens_self_narrative` | 32000 | Self-narrative max tokens |
+| `replan_temperature` | 0.7 | Re-plan LLM temperature |
+| `max_tokens_replan` | 32000 | Re-plan max tokens |
+| `max_active_concerns` | 3 | Max concerns per agent |
 
 ---
 
@@ -573,9 +661,9 @@ All settings via `pydantic-settings` `BaseSettings`, loaded from `.env` file, ov
 1. Wipes `agents/`, `world/`, and `logs/` directories
 2. For each character in `data/characters/*.json`:
    - Copies profile to `agents/<id>/profile.json`
-   - Creates initial state (energy=85, pressure based on family: 高→60, 中→35, 低→15, emotion=neutral)
+   - Creates initial state (energy=85, pressure based on family: 高→60, 中→35, 低→15, emotion=neutral, active_concerns=[])
    - Creates relationships from preset pairs (defined in `PRESET_RELATIONSHIPS` — roommates, seatmates, desk neighbors with initial favorability/trust values)
-   - Creates empty `key_memories.json`, `today.md`, `recent.md`
+   - Creates empty `key_memories.json`, `today.md`, `recent.md`, `self_narrative.md`
 3. Creates `world/progress.json` (day 1, daily_plan phase, next_exam_in_days=30)
 4. Creates empty `world/event_queue.json`
 5. Creates `world/exam_results/` directory
@@ -603,6 +691,26 @@ tang_shihan ↔ fang_yuchen   室友    fav: 15/15  trust: 10/10
 tang_shihan ↔ cheng_yutong  室友    fav: 5/5    trust: 5/5
 tang_shihan ↔ su_nianyao    室友    fav: 10/10  trust: 5/5
 ```
+
+---
+
+## Trajectory Output (`models/trajectory.py`)
+
+Per-day trajectory data saved to `logs/day_NNN/trajectory.json` for frontend visualization:
+
+```
+DayTrajectory:
+  day: int
+  agents: dict[str, list[AgentSlot]]   # agent_id → time slots
+
+AgentSlot:
+  time: str                             # e.g. "08:45"
+  scene_name: str                       # e.g. "课间@走廊"
+  location: str                         # e.g. "走廊"
+  emotion: str                          # emotion at scene start
+```
+
+Collected during scene execution; each agent gets one slot per scene they participate in.
 
 ---
 

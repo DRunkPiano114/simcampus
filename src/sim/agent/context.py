@@ -104,4 +104,7 @@ def prepare_context(
         "scene_transcript": scene_transcript,
         "private_history": private_history or [],
         "tick_emotion": effective_emotion.value,
+        # Concerns + self-narrative
+        "active_concerns": [c for c in state.active_concerns],
+        "self_narrative": storage.read_self_narrative(),
     }

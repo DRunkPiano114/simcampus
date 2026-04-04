@@ -6,13 +6,21 @@ from datetime import datetime
 from loguru import logger
 
 from ..agent.daily_plan import generate_daily_plan
-from ..agent.state_update import reset_energy_for_sleep, update_energy
+from ..agent.replan import maybe_replan
+from ..agent.self_narrative import generate_self_narrative
+from ..agent.state_update import (
+    EXTREME_EMOTIONS,
+    decay_concerns,
+    reset_energy_for_sleep,
+    update_energy,
+)
 from ..agent.storage import WorldStorage
 from ..config import settings
 from ..memory.compression import nightly_compress
 from ..models.agent import AgentProfile, AgentState, Role
 from ..models.progress import GroupCompletion, Progress, SceneProgress
 from ..models.scene import Scene
+from ..models.trajectory import AgentSlot, DayTrajectory
 from ..world.event_queue import EventQueueManager
 from ..world.grouping import group_agents
 from ..world.scene_generator import SceneGenerator
@@ -33,6 +41,7 @@ class Orchestrator:
         self.profiles: dict[str, AgentProfile] = {}
         self.states: dict[str, AgentState] = {}
         self.semaphore = asyncio.Semaphore(settings.max_concurrent_llm_calls)
+        self._trajectory: DayTrajectory | None = None
 
     def _resolve_seed(self, progress: Progress) -> int:
         """Resolve seed: CLI flag > saved in progress > generate new."""
@@ -110,7 +119,24 @@ class Orchestrator:
             progress.scenes = []
             self._save_progress(progress)
 
+    async def _generate_self_narratives(self, day: int) -> None:
+        logger.info("Generating self-narratives...")
+        student_ids = self._student_ids()
+
+        async def _gen_narrative(aid: str) -> None:
+            async with self.semaphore:
+                storage = self.world.get_agent(aid)
+                profile = self.profiles[aid]
+                state = self.states[aid]
+                await generate_self_narrative(storage, profile, state, day)
+
+        await asyncio.gather(*[_gen_narrative(aid) for aid in student_ids])
+
     async def _run_daily_plans(self, day: int, progress: Progress) -> None:
+        # Generate self-narratives periodically
+        if day == 1 or day % settings.self_narrative_interval_days == 1:
+            await self._generate_self_narratives(day)
+
         logger.info("Generating daily plans...")
         student_ids = self._student_ids()
 
@@ -130,100 +156,142 @@ class Orchestrator:
         await asyncio.gather(*[_gen_plan(aid) for aid in student_ids])
 
     async def _run_scenes(self, day: int, progress: Progress) -> None:
+        # Initialize trajectory for this day
+        self._trajectory = DayTrajectory(day=day)
+
         # Per-day deterministic RNG so scene list is stable across resume
         scene_rng = random.Random(hash((self._seed, "scenes", day)))
-        gen = SceneGenerator(self.profiles, scene_rng)
-        scenes = gen.generate_day(day)
+        gen = SceneGenerator(self.profiles, self.states, scene_rng)
+        schedule = gen.schedule
+        scene_index = 0
 
-        # Initialize scene progress if not already done
-        if not progress.scenes:
-            progress.scenes = [
-                SceneProgress(scene_index=s.scene_index, scene_id=f"{s.time}_{s.name}")
-                for s in scenes
-            ]
-
-        for scene in scenes:
-            if scene.scene_index < progress.current_scene_index:
-                continue
-
-            logger.info(f"\n--- {scene.time} {scene.name} @ {scene.location} ---")
-
-            # Get or create scene progress
-            if scene.scene_index < len(progress.scenes):
-                sp = progress.scenes[scene.scene_index]
-            else:
-                sp = SceneProgress(
-                    scene_index=scene.scene_index,
-                    scene_id=f"{scene.time}_{scene.name}",
-                )
-                progress.scenes.append(sp)
-
-            # Skip completed scenes
-            if sp.phase == "complete":
-                continue
-
-            # Restore snapshot if scene was interrupted mid-interaction
-            if sp.phase != "grouping":
-                restored = self.world.restore_agents_from_snapshot(scene.scene_index)
-                if restored:
-                    logger.info(f"  Restored snapshot for scene {scene.scene_index}, resetting to grouping")
-                    sp.phase = "grouping"
-                    sp.groups = []
-                    self._save_progress(progress)
-                elif not scene.groups:
-                    logger.warning(f"  Scene {scene.scene_index} has no snapshot and no groups, resetting to grouping")
-                    sp.phase = "grouping"
-                    sp.groups = []
-                    self._save_progress(progress)
-
-            # Reload states (may have changed from previous scene)
+        for config in schedule:
+            # Reload states (may have changed from previous scene or re-planning)
             self.states = {
                 aid: self.world.get_agent(aid).load_state()
                 for aid in self.profiles
             }
+            gen.states = self.states
 
-            # Update energy for this scene
-            for aid in scene.agent_ids:
-                self.states[aid] = update_energy(self.states[aid], scene.name)
+            # Generate scene(s) for this config entry
+            scenes = gen.generate_scenes_for_config(config, day, scene_index)
+            if not scenes:
+                continue
 
-            # a. Grouping
-            if sp.phase == "grouping":
-                rels = {
-                    aid: self.world.get_agent(aid).load_relationships()
-                    for aid in scene.agent_ids
-                }
-                groups = group_agents(
-                    scene.agent_ids, self.profiles, self.states,
-                    rels, scene, self.rng,
+            # Run each sub-scene, collect affected agents for re-planning
+            affected_agents: set[str] = set()
+            for scene in scenes:
+                if scene.scene_index < progress.current_scene_index:
+                    scene_index = scene.scene_index + 1
+                    continue
+                scene_affected = await self._run_single_scene(day, scene, progress)
+                affected_agents.update(scene_affected)
+                scene_index = scene.scene_index + 1
+
+            # After all sub-scenes for this config, check for re-planning
+            if affected_agents:
+                await self._maybe_replan_agents(
+                    day, config, schedule, affected_agents, progress,
                 )
-                scene.groups = groups
-                sp.groups = [
-                    GroupCompletion(group_index=g.group_id)
-                    for g in groups
-                ]
-                sp.phase = "interaction"
-                self._save_progress(progress)
-                self.world.snapshot_agents_for_scene(scene.scene_index, scene.agent_ids)
 
-                for g in groups:
-                    names = [self.profiles[a].name for a in g.agent_ids]
-                    tag = "(solo)" if g.is_solo else ""
-                    logger.info(f"  Group {g.group_id}: {', '.join(names)} {tag}")
+    async def _run_single_scene(
+        self, day: int, scene: Scene, progress: Progress,
+    ) -> set[str]:
+        logger.info(f"\n--- {scene.time} {scene.name} @ {scene.location} ---")
 
-            # b. Interaction + scene-end + apply
-            if sp.phase in ("interaction", "scene_end", "applying"):
-                await self._run_scene_groups(day, scene, sp, progress)
-                sp.phase = "complete"
-                progress.current_scene_index = scene.scene_index + 1
-                self.world.clear_scene_snapshot(scene.scene_index)
+        # Get or create scene progress
+        if scene.scene_index < len(progress.scenes):
+            sp = progress.scenes[scene.scene_index]
+        else:
+            sp = SceneProgress(
+                scene_index=scene.scene_index,
+                scene_id=f"{scene.time}_{scene.name}",
+            )
+            progress.scenes.append(sp)
+
+        # Skip completed scenes
+        if sp.phase == "complete":
+            return set()
+
+        # Restore snapshot if scene was interrupted mid-interaction
+        if sp.phase != "grouping":
+            restored = self.world.restore_agents_from_snapshot(scene.scene_index)
+            if restored:
+                logger.info(f"  Restored snapshot for scene {scene.scene_index}, resetting to grouping")
+                sp.phase = "grouping"
+                sp.groups = []
                 self._save_progress(progress)
+            elif not scene.groups:
+                logger.warning(f"  Scene {scene.scene_index} has no snapshot and no groups, resetting to grouping")
+                sp.phase = "grouping"
+                sp.groups = []
+                self._save_progress(progress)
+
+        # Reload states (may have changed from previous scene)
+        self.states = {
+            aid: self.world.get_agent(aid).load_state()
+            for aid in self.profiles
+        }
+
+        # Update energy for this scene (use base name without @location)
+        base_scene_name = scene.name.split("@")[0]
+        for aid in scene.agent_ids:
+            self.states[aid] = update_energy(self.states[aid], base_scene_name)
+
+        # Record trajectory
+        if self._trajectory:
+            for aid in scene.agent_ids:
+                slot = AgentSlot(
+                    time=scene.time,
+                    scene_name=scene.name,
+                    location=scene.location,
+                    emotion=self.states[aid].emotion.value,
+                )
+                if aid not in self._trajectory.agents:
+                    self._trajectory.agents[aid] = []
+                self._trajectory.agents[aid].append(slot)
+
+        # a. Grouping
+        if sp.phase == "grouping":
+            rels = {
+                aid: self.world.get_agent(aid).load_relationships()
+                for aid in scene.agent_ids
+            }
+            groups = group_agents(
+                scene.agent_ids, self.profiles, self.states,
+                rels, scene, self.rng,
+            )
+            scene.groups = groups
+            sp.groups = [
+                GroupCompletion(group_index=g.group_id)
+                for g in groups
+            ]
+            sp.phase = "interaction"
+            self._save_progress(progress)
+            self.world.snapshot_agents_for_scene(scene.scene_index, scene.agent_ids)
+
+            for g in groups:
+                names = [self.profiles[a].name for a in g.agent_ids]
+                tag = "(solo)" if g.is_solo else ""
+                logger.info(f"  Group {g.group_id}: {', '.join(names)} {tag}")
+
+        # b. Interaction + scene-end + apply
+        affected: set[str] = set()
+        if sp.phase in ("interaction", "scene_end", "applying"):
+            affected = await self._run_scene_groups(day, scene, sp, progress)
+            sp.phase = "complete"
+            progress.current_scene_index = scene.scene_index + 1
+            self.world.clear_scene_snapshot(scene.scene_index)
+            self._save_progress(progress)
+        return affected
 
     async def _run_scene_groups(
         self, day: int, scene: Scene, sp: SceneProgress, progress: Progress,
-    ) -> None:
+    ) -> set[str]:
         eq = self.world.load_event_queue()
         event_manager = EventQueueManager(eq, self.rng)
         storages = {aid: self.world.get_agent(aid) for aid in scene.agent_ids}
+        affected_agents: set[str] = set()
 
         for gc in sp.groups:
             if gc.status == "applied":
@@ -262,9 +330,14 @@ class Orchestrator:
                 self._save_progress(progress)
 
                 # Scene-end analysis
+                agent_concerns = {
+                    self.profiles[aid].name: [c for c in self.states[aid].active_concerns]
+                    for aid in group.agent_ids
+                }
                 analysis = await run_scene_end_analysis(
                     turn_records, group.agent_ids, self.profiles,
                     scene, day, gc.group_index,
+                    agent_concerns=agent_concerns,
                 )
 
                 # Apply results (serial to avoid concurrent writes)
@@ -275,6 +348,30 @@ class Orchestrator:
                 gc.status = "applied"
                 self._save_progress(progress)
 
+                # Detect affected agents for re-planning
+                name_to_id = {self.profiles[a].name: a for a in group.agent_ids}
+                # New concerns generated
+                for cc in analysis.new_concerns:
+                    aid = name_to_id.get(cc.agent)
+                    if aid:
+                        affected_agents.add(aid)
+                # Extreme emotion changes
+                for agent_name, emo_str in analysis.final_emotions.items():
+                    aid = name_to_id.get(agent_name)
+                    if aid:
+                        try:
+                            from ..models.agent import Emotion
+                            emo = Emotion(emo_str)
+                            if emo in EXTREME_EMOTIONS:
+                                affected_agents.add(aid)
+                        except ValueError:
+                            pass
+                # Large relationship changes (|delta| >= 8)
+                for rc in analysis.relationship_changes:
+                    aid = name_to_id.get(rc.from_agent)
+                    if aid and (abs(rc.favorability) >= 8 or abs(rc.trust) >= 8):
+                        affected_agents.add(aid)
+
             elif gc.status == "llm_done":
                 # Recovery: result file exists, just apply
                 # For simplicity, re-run scene-end (idempotent apply)
@@ -284,6 +381,54 @@ class Orchestrator:
 
         # Save updated event queue
         self.world.save_event_queue(event_manager.eq)
+        return affected_agents
+
+    async def _maybe_replan_agents(
+        self, day: int, current_config, schedule: list, affected_agents: set[str],
+        progress: Progress,
+    ) -> None:
+        """Re-plan affected agents if next config is a free period."""
+        # Find next config in schedule
+        config_idx = schedule.index(current_config)
+        if config_idx + 1 >= len(schedule):
+            return
+        next_config = schedule[config_idx + 1]
+        if not next_config.is_free_period:
+            return
+
+        # Determine which pref field and available locations for next slot
+        from ..world.scene_generator import _TIME_TO_PREF_FIELD
+        next_pref_field = _TIME_TO_PREF_FIELD.get(next_config.time)
+        if not next_pref_field:
+            return
+
+        if next_config.name == "午饭":
+            available_locations = settings.lunch_locations
+        else:
+            available_locations = settings.free_period_locations
+
+        # Build a brief scene summary from the current config
+        scene_summary = f"{current_config.time} {current_config.name}刚结束"
+
+        # Reload states
+        self.states = {
+            aid: self.world.get_agent(aid).load_state()
+            for aid in self.profiles
+        }
+
+        async def _replan_one(aid: str) -> None:
+            async with self.semaphore:
+                storage = self.world.get_agent(aid)
+                state = self.states[aid]
+                await maybe_replan(
+                    aid, storage, self.profiles[aid], state,
+                    scene_summary, next_pref_field, available_locations, day,
+                )
+
+        replan_tasks = [_replan_one(aid) for aid in affected_agents if aid in self.profiles]
+        if replan_tasks:
+            logger.info(f"  Re-planning {len(replan_tasks)} affected agents...")
+            await asyncio.gather(*replan_tasks)
 
     async def _run_compression(self, day: int, progress: Progress) -> None:
         logger.info("\nRunning nightly compression...")
@@ -299,12 +444,24 @@ class Orchestrator:
 
     def _end_of_day(self, day: int, progress: Progress) -> None:
         self.world.clear_all_snapshots()
-        # Reset energy for sleep
+        # Reset energy for sleep + decay concerns
         for aid in self._student_ids():
             storage = self.world.get_agent(aid)
             state = storage.load_state()
             state = reset_energy_for_sleep(state)
+            state = decay_concerns(state)
             storage.save_state(state)
+
+        # Save trajectory
+        if self._trajectory:
+            from ..agent.storage import atomic_write_json
+            traj_dir = settings.logs_dir / f"day_{day:03d}"
+            traj_dir.mkdir(parents=True, exist_ok=True)
+            atomic_write_json(
+                traj_dir / "trajectory.json",
+                self._trajectory.model_dump(),
+            )
+            self._trajectory = None
 
         # Expire old events
         eq = self.world.load_event_queue()

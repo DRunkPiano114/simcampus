@@ -19,6 +19,7 @@ async def run_scene_end_analysis(
     scene: Scene,
     day: int,
     group_id: int,
+    agent_concerns: dict[str, list] | None = None,
 ) -> SceneEndAnalysis:
     full_log = format_public_transcript(tick_records, profiles)
     long_conversation = len(tick_records) > 12
@@ -41,6 +42,7 @@ async def run_scene_end_analysis(
         group_members=group_members,
         scene_info=scene_info,
         long_conversation=long_conversation,
+        agent_concerns=agent_concerns,
     )
 
     messages = [{"role": "user", "content": prompt}]

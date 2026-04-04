@@ -8,7 +8,7 @@ from ..config import settings
 from ..llm.client import structured_call
 from ..llm.logger import log_llm_call
 from ..llm.prompts import render
-from ..models.agent import AgentProfile, Role
+from ..models.agent import ActiveConcern, AgentProfile, Role
 from ..models.memory import KeyMemory
 
 
@@ -21,9 +21,18 @@ class CompressionMemoryCandidate(BaseModel):
     topics: list[str] = Field(default_factory=list)
 
 
+class CompressionConcernCandidate(BaseModel):
+    text: str
+    source_event: str = ""
+    emotion: str = ""
+    intensity: int = Field(default=5, ge=1, le=10)
+    related_people: list[str] = Field(default_factory=list)
+
+
 class CompressionResult(BaseModel):
     daily_summary: str
     permanent_memories: list[CompressionMemoryCandidate] = Field(default_factory=list)
+    new_concerns: list[CompressionConcernCandidate] = Field(default_factory=list)
 
 
 async def nightly_compress(
@@ -50,11 +59,16 @@ async def nightly_compress(
         parts.append(f"长期目标：{'；'.join(profile.long_term_goals)}")
     profile_summary = "\n".join(parts)
 
+    # Load active concerns for context
+    state = storage.load_state()
+    active_concerns = state.active_concerns
+
     prompt = render(
         "nightly_compress.j2",
         role_description=role_desc,
         profile_summary=profile_summary,
         today_md_content=today_content,
+        active_concerns=active_concerns,
     )
 
     messages = [{"role": "user", "content": prompt}]
@@ -98,6 +112,32 @@ async def nightly_compress(
                 text=mem.text,
             )
             storage.append_key_memory(km)
+
+    # Apply new concerns from compression (structural dedup)
+    for cc in result.new_concerns:
+        new_concern = ActiveConcern(
+            text=cc.text, source_event=cc.source_event,
+            source_scene="", source_day=day, emotion=cc.emotion,
+            intensity=cc.intensity, related_people=cc.related_people,
+        )
+        # Structural dedup
+        is_dup = False
+        for c in state.active_concerns:
+            if (c.source_day == new_concern.source_day
+                and c.source_scene == new_concern.source_scene
+                and set(c.related_people) & set(new_concern.related_people)):
+                is_dup = True
+                break
+        if is_dup:
+            continue
+        if len(state.active_concerns) >= settings.max_active_concerns:
+            state.active_concerns.sort(key=lambda c: c.intensity)
+            if new_concern.intensity > state.active_concerns[0].intensity:
+                state.active_concerns.pop(0)
+            else:
+                continue
+        state.active_concerns.append(new_concern)
+    storage.save_state(state)
 
     # Clear today.md
     storage.clear_today_md()

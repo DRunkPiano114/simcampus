@@ -52,6 +52,10 @@ async def generate_daily_plan(
         parts.append(f"长期目标：{'；'.join(profile.long_term_goals)}")
     profile_summary = "\n".join(parts)
 
+    # Load concerns and self-narrative for context
+    active_concerns = [c for c in state.active_concerns]
+    self_narrative = storage.read_self_narrative()
+
     prompt = render(
         "daily_plan.j2",
         role_description=role_desc,
@@ -61,6 +65,8 @@ async def generate_daily_plan(
         relationships=relationships,
         recent_days=recent_days,
         yesterday_unfulfilled=yesterday_unfulfilled,
+        active_concerns=active_concerns,
+        self_narrative=self_narrative,
     )
 
     messages = [{"role": "user", "content": prompt}]
@@ -84,6 +90,17 @@ async def generate_daily_plan(
         latency_ms=latency,
         temperature=settings.plan_temperature,
     )
+
+    # Validate location preferences
+    valid_break = set(settings.free_period_locations)
+    valid_lunch = set(settings.lunch_locations)
+    prefs = result.location_preferences
+    if prefs.morning_break not in valid_break:
+        prefs.morning_break = "教室"
+    if prefs.lunch not in valid_lunch:
+        prefs.lunch = "食堂"
+    if prefs.afternoon_break not in valid_break:
+        prefs.afternoon_break = "教室"
 
     logger.info(
         f"  {profile.name} plan: {len(result.intentions)} intentions, "

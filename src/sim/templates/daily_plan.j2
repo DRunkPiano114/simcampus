@@ -28,9 +28,33 @@
 {% endfor %}
 {% endif %}
 
+{% if active_concerns %}
+## 你最近心里挥之不去的事
+{% for concern in active_concerns %}
+- {{ concern.text }}（{{ concern.emotion }}，强度{{ concern.intensity }}/10）
+{% endfor %}
+{% endif %}
+
+{% if self_narrative %}
+## 你对自己的感觉
+{{ self_narrative }}
+{% endif %}
+
 ## 任务
 新的一天开始了。根据你的性格、当前状态和最近发生的事，想想今天你隐约想做的事情（最多3件）。这些不是必须完成的任务，只是你心里模糊的想法，看情况自然发展。
 
 请输出你的每日计划：
 - intentions: 最多3个意图，每个包含 target（针对谁，可以为null）、goal（想做什么）、reason（为什么）
 - mood_forecast: 预测今天的整体心情
+
+## 自由时段地点选择
+今天有三个可以自由活动的时段。根据你的心情和想法选择去哪里：
+
+上午课间（08:45）可选：教室、走廊、操场、小卖部、图书馆、天台
+午饭时间（12:00）可选：食堂、教室、操场、小卖部
+下午课间（15:30）可选：教室、走廊、操场、小卖部、图书馆、天台
+
+请在 location_preferences 中输出：
+- morning_break: 上午课间去哪
+- lunch: 午饭去哪
+- afternoon_break: 下午课间去哪

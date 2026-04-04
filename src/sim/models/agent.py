@@ -92,9 +92,26 @@ class Intention(BaseModel):
     fulfilled: bool = False
 
 
+class ActiveConcern(BaseModel):
+    text: str                    # "被江浩天当众嘲笑数学成绩"
+    source_event: str = ""       # Brief trigger description
+    source_scene: str = ""       # e.g. "课间" — used for structural dedup
+    source_day: int = 0
+    emotion: str = ""            # "羞耻"
+    intensity: int = Field(default=5, ge=1, le=10)
+    related_people: list[str] = Field(default_factory=list)
+
+
+class LocationPreference(BaseModel):
+    morning_break: str = "教室"      # 课间 08:45
+    lunch: str = "食堂"              # 午饭 12:00
+    afternoon_break: str = "教室"    # 课间 15:30
+
+
 class DailyPlan(BaseModel):
     intentions: list[Intention] = Field(default_factory=list, max_length=3)
     mood_forecast: Emotion = Emotion.NEUTRAL
+    location_preferences: LocationPreference = Field(default_factory=LocationPreference)
 
 
 class AgentState(BaseModel):
@@ -104,3 +121,4 @@ class AgentState(BaseModel):
     location: str = "教室"
     daily_plan: DailyPlan = Field(default_factory=DailyPlan)
     day: int = 1
+    active_concerns: list[ActiveConcern] = Field(default_factory=list)  # max 3

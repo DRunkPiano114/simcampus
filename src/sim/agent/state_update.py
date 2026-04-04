@@ -75,6 +75,17 @@ def update_academic_pressure(
     return state
 
 
+def decay_concerns(state: AgentState) -> AgentState:
+    """Decay all concern intensities by 1 per day. Remove when <= 0."""
+    surviving = []
+    for c in state.active_concerns:
+        c.intensity -= 1
+        if c.intensity > 0:
+            surviving.append(c)
+    state.active_concerns = surviving
+    return state
+
+
 def maybe_decay_emotion(
     state: AgentState,
     scenes_since_extreme: int,

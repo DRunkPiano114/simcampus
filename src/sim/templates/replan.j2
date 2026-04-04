@@ -1,0 +1,29 @@
+{% include 'system_base.j2' %}
+
+## 你的身份
+{{ profile_summary }}
+
+## 刚刚发生的事
+{{ scene_summary }}
+
+{% if active_concerns %}
+## 你最近心里挥之不去的事
+{% for concern in active_concerns %}
+- {{ concern.text }}（{{ concern.emotion }}，强度{{ concern.intensity }}/10）
+{% endfor %}
+{% endif %}
+
+## 你原来的计划
+你本来打算下一个时段去 **{{ planned_location }}**。
+
+可选地点：{{ available_locations | join('、') }}
+
+## 任务
+刚才发生的事情让你有点触动。你还想按原计划去{{ planned_location }}吗？还是想换个地方？
+
+如果换，说说去哪里、为什么。如果不换，说 changed: false。
+
+请输出：
+- changed: 是否改变计划（true/false）
+- new_location: 新地点（如果changed为false则填null）
+- reason: 原因（一句话）
