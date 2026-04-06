@@ -5,8 +5,8 @@
 
 ## 当前状态
 - 情绪：{{ current_state.emotion }}
-- 精力：{{ current_state.energy }}/100
-- 学业压力：{{ current_state.academic_pressure }}/100
+- 精力：{{ energy_label }}
+- 学业压力：{{ pressure_label }}
 
 ## 今天已经发生的事
 {{ today_events if today_events else "（今天刚开始，还没发生什么）" }}
@@ -24,7 +24,7 @@
 {% if pending_intentions %}
 ## 你今天隐约想着的事
 {% for intent in pending_intentions %}
-- {% if intent.target %}想找{{ intent.target }}{% endif %}{{ intent.goal }}
+- {% if intent.target %}想找{{ intent.target }}{% endif %}{{ intent.goal }}{% if intent.satisfies_concern %} [为了处理：{{ intent.satisfies_concern }}]{% endif %}{% if intent.pursued_days > 1 %} （已经想了{{ intent.pursued_days }}天了）{% endif %}
 {% endfor %}
 {% endif %}
 
@@ -33,19 +33,33 @@
 {% if negative_concerns %}
 ## 你最近心里挥之不去的事
 {% for concern in negative_concerns %}
-- {{ concern.text }}（{{ concern.emotion }}，强度{{ concern.intensity }}/10）
+- {{ concern.text }}（{{ concern.emotion }}，{{ concern.intensity_label }}）
 {% endfor %}
 {% endif %}
 {% if positive_concerns %}
 ## 你最近心里期待的事
 {% for concern in positive_concerns %}
-- {{ concern.text }}（{{ concern.emotion }}，强度{{ concern.intensity }}/10）
+- {{ concern.text }}（{{ concern.emotion }}，{{ concern.intensity_label }}）
 {% endfor %}
 {% endif %}
 
 {% if self_narrative %}
 ## 你对自己的感觉
 {{ self_narrative }}
+{% endif %}
+
+{% if self_concept %}
+## 你觉得自己是
+{% for bullet in self_concept %}
+- {{ bullet }}
+{% endfor %}
+{% endif %}
+
+{% if current_tensions %}
+## 你最近在和这些搏斗
+{% for bullet in current_tensions %}
+- {{ bullet }}
+{% endfor %}
 {% endif %}
 
 ## 当前场景

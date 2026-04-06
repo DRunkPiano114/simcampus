@@ -9,7 +9,7 @@
 {% if active_concerns %}
 ## 你最近心里挥之不去的事
 {% for concern in active_concerns %}
-- {{ concern.text }}（{{ concern.emotion }}，强度{{ concern.intensity }}/10）
+- {{ concern.text }}（{{ concern.emotion }}，{{ concern.intensity_label }}）
 {% endfor %}
 {% endif %}
 

@@ -71,6 +71,65 @@ async def run_perception(
     return result
 
 
+def _should_perceive(
+    aid: str,
+    tick: int,
+    last_resolved_speech: tuple[str, PerceptionOutput] | None,
+    environmental_event: str | None,
+    latest_event: str,
+    profiles: dict[str, AgentProfile],
+    states: dict[str, AgentState],
+    last_perceive_tick: dict[str, int],
+) -> bool:
+    """Decide whether an agent needs a fresh perception this tick."""
+    # Rule 1: Tick 0 — everyone must perceive
+    if tick == 0:
+        return True
+
+    # Rule 2: Directly targeted by last speech
+    if last_resolved_speech:
+        _, last_out = last_resolved_speech
+        if last_out.action_target and last_out.action_target == profiles[aid].name:
+            return True
+
+    # Rule 3: Name mentioned in latest_event text
+    if profiles[aid].name in latest_event:
+        return True
+
+    # Rule 4: Environmental event this tick (disruptive action)
+    if environmental_event:
+        return True
+
+    # Rule 5: Concern-related person mentioned in latest_event
+    state = states.get(aid)
+    if state:
+        for concern in state.active_concerns:
+            for rp in concern.related_people:
+                if rp in latest_event:
+                    return True
+
+    # Rule 6: 4-tick cadence — force perceive if silent too long
+    last_tick = last_perceive_tick.get(aid, -4)
+    if tick - last_tick >= 4:
+        return True
+
+    return False
+
+
+def _make_gated_output(last_output: PerceptionOutput) -> PerceptionOutput:
+    """Create a passive OBSERVE output reusing last perception's emotion."""
+    return PerceptionOutput(
+        observation=last_output.observation,
+        inner_thought=last_output.inner_thought,
+        emotion=last_output.emotion,
+        action_type=ActionType.OBSERVE,
+        action_content=None,
+        action_target=None,
+        urgency=max(1, last_output.urgency - 1),
+        is_disruptive=False,
+    )
+
+
 async def run_group_dialogue(
     group_agent_ids: list[str],
     scene: Scene,
@@ -99,18 +158,39 @@ async def run_group_dialogue(
     latest_event = scene.opening_event or scene.description
     last_resolved_speech = None
 
+    # PDA gating state
+    last_perception: dict[str, PerceptionOutput] = {}
+    last_perceive_tick: dict[str, int] = {}
+    # Track the environmental_event from previous tick for gating decisions
+    prev_environmental_event: str | None = None
+
     for tick in range(settings.max_ticks_per_scene):
         active_agents = list(resolution_state.active_agents)
         if len(active_agents) < 2:
             break
 
-        # Determine which agents need to perceive (skip queued agents)
-        perceiving = [
+        # Determine which agents need to perceive (skip queued agents entirely)
+        non_queued = [
             aid for aid in active_agents
             if aid not in resolution_state.queued_agents
         ]
 
-        # PERCEIVE: all non-queued agents concurrently
+        # Gate: decide who actually needs a fresh LLM perception call
+        perceiving = []
+        gated = []
+        for aid in non_queued:
+            if _should_perceive(
+                aid, tick, last_resolved_speech, prev_environmental_event,
+                latest_event, profiles, states, last_perceive_tick,
+            ):
+                perceiving.append(aid)
+            elif aid in last_perception:
+                gated.append(aid)
+            else:
+                # No previous output to reuse, must perceive
+                perceiving.append(aid)
+
+        # PERCEIVE: agents that need fresh perception
         async def _perceive(aid: str) -> tuple[str, PerceptionOutput]:
             transcript, priv = format_agent_transcript(tick_records, aid, profiles)
             trace = emotion_history[aid][-5:]
@@ -131,16 +211,26 @@ async def run_group_dialogue(
         )
         outputs: dict[str, PerceptionOutput] = dict(perception_results)
 
+        # Update gating state for fresh perceptions
+        for aid, out in outputs.items():
+            last_perception[aid] = out
+            last_perceive_tick[aid] = tick
+
+        # Add gated agents with passive OBSERVE outputs
+        for aid in gated:
+            outputs[aid] = _make_gated_output(last_perception[aid])
+
         # Safety net: convert whisper to speech in dorm scenes
         if scene.location == "宿舍":
             for aid, out in outputs.items():
                 if out.action_type == ActionType.WHISPER:
                     out.action_type = ActionType.SPEAK
 
-        # Update in-memory emotions
-        for aid, out in outputs.items():
-            tick_emotions[aid] = out.emotion
-            emotion_history[aid].append(out.emotion.value)
+        # Update in-memory emotions (only for fresh perceptions, not gated)
+        for aid in perceiving:
+            if aid in outputs:
+                tick_emotions[aid] = outputs[aid].emotion
+                emotion_history[aid].append(outputs[aid].emotion.value)
 
         # RESOLVE
         result = resolve_tick(
@@ -178,6 +268,9 @@ async def run_group_dialogue(
 
         for aid in result.exits:
             logger.info(f"  Tick {tick}: {profiles[aid].name} 离开了")
+
+        # Track environmental_event for next tick's gating
+        prev_environmental_event = result.environmental_event
 
         # Update latest_event for next tick
         latest_event = format_latest_event(

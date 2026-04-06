@@ -8,6 +8,7 @@ from ..llm.client import structured_call
 from ..llm.logger import log_llm_call
 from ..llm.prompts import render
 from ..models.agent import AgentProfile, AgentState, Role
+from .qualitative import intensity_label
 from .storage import AgentStorage
 
 
@@ -40,11 +41,16 @@ async def maybe_replan(
         parts.append(f"成绩：{profile.academics.overall_rank.value}")
     profile_summary = "\n".join(parts)
 
+    concerns = [
+        {**c.model_dump(), "intensity_label": intensity_label(c.intensity)}
+        for c in state.active_concerns
+    ]
+
     prompt = render(
         "replan.j2",
         profile_summary=profile_summary,
         scene_summary=scene_summary,
-        active_concerns=state.active_concerns,
+        active_concerns=concerns,
         planned_location=planned_location,
         available_locations=available_locations,
     )

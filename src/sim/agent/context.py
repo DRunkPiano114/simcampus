@@ -4,6 +4,13 @@ from ..models.memory import KeyMemory
 from ..models.relationship import Relationship, RelationshipFile
 from ..models.scene import Scene
 from ..memory.retrieval import get_relevant_memories
+from .qualitative import (
+    energy_label,
+    intensity_label,
+    next_exam_label,
+    pressure_label,
+    relationship_label,
+)
 from .storage import AgentStorage
 
 
@@ -88,10 +95,22 @@ def prepare_context(
 
     effective_emotion = emotion_override if emotion_override else state.emotion
 
+    # Qualitative labels for prompts (convert to dicts so templates can access label_text)
+    rels_list = _filter_relationships(rels, scene.agent_ids)
+    rels_with_labels = [
+        {**r.model_dump(), "label_text": relationship_label(r.favorability, r.trust)}
+        for r in rels_list
+    ]
+
+    concerns = [
+        {**c.model_dump(), "intensity_label": intensity_label(c.intensity)}
+        for c in state.active_concerns
+    ]
+
     return {
         "role_description": role_desc,
         "profile_summary": _profile_summary(profile),
-        "relationships": _filter_relationships(rels, scene.agent_ids),
+        "relationships": rels_with_labels,
         "today_events": today_events,
         "recent_summary": recent_summary,
         "key_memories": key_memories,
@@ -102,14 +121,20 @@ def prepare_context(
         "teacher_present": scene.teacher_present,
         "current_state": state,
         "exam_context": exam_context,
+        # Qualitative labels
+        "energy_label": energy_label(state.energy),
+        "pressure_label": pressure_label(state.academic_pressure),
+        "exam_label": next_exam_label(next_exam_in_days),
         # PDA tick loop
         "latest_event": latest_event,
         "scene_transcript": scene_transcript,
         "private_history": private_history or [],
         "tick_emotion": effective_emotion.value,
-        # Concerns + self-narrative
-        "active_concerns": [c for c in state.active_concerns],
-        "self_narrative": storage.read_self_narrative(),
+        # Concerns + self-narrative (structured)
+        "active_concerns": concerns,
+        "self_narrative": (narr := storage.load_self_narrative_structured()).narrative,
+        "self_concept": narr.self_concept,
+        "current_tensions": narr.current_tensions,
         # Emotion chain + inner conflicts
         "emotion_trace": emotion_trace or [],
         "inner_conflicts": profile.inner_conflicts,

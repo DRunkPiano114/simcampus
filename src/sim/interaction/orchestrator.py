@@ -128,6 +128,7 @@ class Orchestrator:
                 storage = self.world.get_agent(aid)
                 profile = self.profiles[aid]
                 state = self.states[aid]
+                # generate_self_narrative now returns SelfNarrativeResult and saves structured JSON
                 await generate_self_narrative(storage, profile, state, day)
 
         await asyncio.gather(*[_gen_narrative(aid) for aid in student_ids])
@@ -148,6 +149,7 @@ class Orchestrator:
                 plan = await generate_daily_plan(
                     aid, storage, profile, state,
                     progress.next_exam_in_days, day,
+                    all_profiles=self.profiles,
                 )
                 state.daily_plan = plan
                 state.day = day

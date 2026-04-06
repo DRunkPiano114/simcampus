@@ -6,7 +6,7 @@
 {% if active_concerns %}
 ## 目前已有的牵挂
 {% for c in active_concerns %}
-- {{ c.text }}（强度{{ c.intensity }}/10）
+- {{ c.text }}（{{ c.intensity_label }}）
 {% endfor %}
 {% endif %}
 
@@ -28,12 +28,12 @@
 {% endif %}
 
 ### 任务2：永久记忆判断
-判断今天是否有值得永久记住的重要事件（importance >= 7 的事件，比如重要的情感时刻、关系转折、重大事件等）。
+判断今天是否有值得永久记住的重要事件（比如关系转折、重大情感时刻、重要事件等）。
 
 如果有，提取为记忆条目，包含：
 - text: 事件描述
 - emotion: 当时的情绪
-- importance: 重要程度 (7-10)
+- importance: 对这个人来说有多重要
 - people: 相关的人
 - location: 地点
 - topics: 相关话题标签

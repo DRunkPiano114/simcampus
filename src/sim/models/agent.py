@@ -91,6 +91,10 @@ class Intention(BaseModel):
     goal: str
     reason: str
     fulfilled: bool = False
+    abandoned: bool = False
+    satisfies_concern: str | None = None
+    origin_day: int = 0
+    pursued_days: int = 1
 
 
 class ActiveConcern(BaseModel):

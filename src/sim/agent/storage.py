@@ -97,6 +97,20 @@ class AgentStorage:
     def write_self_narrative(self, content: str) -> None:
         self._md_path("self_narrative").write_text(content, encoding="utf-8")
 
+    def load_self_narrative_structured(self):
+        """Load structured self-narrative. Falls back to md-only for legacy data."""
+        from .self_narrative import SelfNarrativeResult
+        json_path = self._json_path("self_narrative")
+        if json_path.exists():
+            return SelfNarrativeResult.model_validate_json(json_path.read_text("utf-8"))
+        md_content = self.read_self_narrative()
+        return SelfNarrativeResult(narrative=md_content)
+
+    def save_self_narrative_structured(self, result) -> None:
+        """Save structured self-narrative as JSON + md mirror."""
+        atomic_write_json(self._json_path("self_narrative"), result.model_dump())
+        self._md_path("self_narrative").write_text(result.narrative, encoding="utf-8")
+
     # Recent markdown
     def read_recent_md(self) -> str:
         path = self._md_path("recent")

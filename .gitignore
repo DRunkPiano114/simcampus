@@ -15,4 +15,4 @@ __pycache__/
 uv.lock
 
 # development
-.reports/
+docs/

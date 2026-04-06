@@ -1,6 +1,6 @@
 # Architecture & Technical Reference
 
-Multi-agent simulation of a Chinese high school class (中国高中班级模拟). Each agent (student/teacher) is an LLM-powered character that interacts through structured daily scenes, generating emergent narratives. Pure observation mode — no user intervention, text output only. The goal is to simulate a full three years of high school life and produce narrative content that could be edited into video.
+Multi-agent simulation of a Chinese high school class (中国高中班级模拟). Each agent (student/teacher) is an LLM-powered character that interacts through structured daily scenes, generating emergent narratives. Pure observation mode — no user intervention, text output only. The goal is to explore whether multi-agent LLM simulation can produce agents that behave like real people — with authentic personalities, evolving relationships, and believable decision-making across three years of high school life.
 
 **Tech stack**: Python 3.12+, DeepSeek V3.2 via LiteLLM + Instructor (structured JSON output), Pydantic (data models + validation), Jinja2 (prompt templates), Loguru (logging), asyncio (concurrency). All state stored as JSON + Markdown files — no database.
 
@@ -53,20 +53,26 @@ Each simulated day runs through three sequential phases:
 
 On day 1 and every `self_narrative_interval_days` (default 3) days:
 - For each agent (concurrently), call LLM with `self_narrative.j2` template
-- Input: profile summary (including backstory), recent 3-day summary, active concerns, relationships
-- Output: `SelfNarrativeResult.narrative` — 100-200 word first-person self-reflection
-- Saved to `agents/<id>/self_narrative.md`
-- Used as context in all agent-facing prompts (perception, daily plan, solo reflection)
+- Input: profile summary (including backstory), recent 3-day summary, active concerns, relationships with qualitative labels, previous `self_concept` and `current_tensions` (for continuity)
+- Output: `SelfNarrativeResult` — structured model with three fields:
+  - `narrative`: 100-200 word first-person self-reflection
+  - `self_concept`: up to 4 bullets ("我是一个 ___ 的人"), slow-changing (prompt instructs: change at most 1 bullet per update unless major event)
+  - `current_tensions`: up to 3 bullets, what the agent is struggling with this week (can change fully each update)
+- Saved to `agents/<id>/self_narrative.json` (canonical) + `self_narrative.md` (human-readable mirror). Legacy md-only data is auto-migrated on read.
+- `self_concept` + `current_tensions` are injected into daily_plan, self_reflection, and solo_reflection templates. `perception_decision.j2` only gets `current_tensions` (kept lean since it runs per-tick).
+- `inner_conflicts` (from profile, immutable) displayed as "你内心的永恒矛盾" vs `current_tensions` displayed as "你最近在和这些搏斗" — both coexist, representing permanent personality traits vs transient struggles.
 
 ### Phase 1: Daily Plan Generation (`day_phase = "daily_plan"`)
 
 For each agent (concurrently, up to `max_concurrent_llm_calls`):
-1. Load relationships, last 3 days of `recent.md`, yesterday's unfulfilled intentions, active concerns, self-narrative, and inner conflicts
-2. Call LLM with `daily_plan.j2` template → returns `DailyPlan` (1-3 `Intention` objects + `mood_forecast` + `location_preferences`). For students, the prompt nudges reflection on unmet needs ("先想想你最近缺什么——朋友的陪伴？学业上的成就感？…"). For the teacher, it nudges teacher-specific priorities ("哪个学生需要关注？班级有什么问题要处理？"). Academic fields (成绩/目标/学习态度) are only shown to students; teacher context comes from backstory and position. Location preferences section is only shown to students.
+1. Load relationships (with qualitative labels), last 3 days of `recent.md`, yesterday's intentions (full lifecycle state), active concerns (with intensity labels), structured self-narrative (narrative + self_concept + current_tensions), and inner conflicts
+2. Call LLM with `daily_plan.j2` template → returns `DailyPlan` (1-3 `Intention` objects + `mood_forecast` + `location_preferences`). The prompt shows yesterday's intentions with fulfillment status and instructs the agent to link each new intention to a concern via `satisfies_concern`. For students, the prompt nudges reflection on unmet needs. For the teacher, it nudges teacher-specific priorities. Qualitative labels replace raw numbers (energy/pressure shown as descriptive text, not "73/100").
 3. Validate location preferences against valid lists (invalid → default)
-4. Save updated state with new plan
+4. **Carry-forward**: after LLM returns, each new intention is fuzzy-matched against yesterday's intentions (same target + goal substring overlap, skipping abandoned). Matched intentions inherit `origin_day` and increment `pursued_days`. Unmatched intentions get `origin_day=today, pursued_days=1`.
+5. **Audit log**: warnings for high-intensity (>=6) addressable concerns with no matching intention
+6. Save updated state with new plan
 
-`Intention` has: `target` (optional agent name), `goal`, `reason`, `fulfilled` (bool, starts false).
+`Intention` has: `target` (optional agent name), `goal`, `reason`, `fulfilled` (bool), `abandoned` (bool), `satisfies_concern` (first 15 chars of linked concern text, or null), `origin_day` (first day this intention appeared), `pursued_days` (consecutive days in plan).
 
 `LocationPreference` has: `morning_break` (课间 08:45), `lunch` (午饭 12:00), `afternoon_break` (课间 15:30). Agents choose from configured location lists.
 
@@ -119,23 +125,29 @@ Each tick, ALL agents in the group perceive the latest event, decide what to do,
 Tick loop (`run_group_dialogue`):
 ```
 for tick in range(max_ticks_per_scene):
-    1. PERCEIVE: all non-queued active agents concurrently (semaphore-throttled)
-       - Build per-agent context via prepare_context() with PDA params:
-         latest_event, scene_transcript, private_history, emotion_override, emotion_trace
-       - emotion_trace: last 5 entries from per-agent emotion_history (tracked across ticks)
-       - Render perception_decision.j2 template (shows emotion chain as "好奇 → 惊讶 → ..." when trace has >1 entry)
-       - LLM returns PerceptionOutput: observation, inner_thought, emotion,
-         action_type (speak/whisper/non_verbal/observe/exit),
-         action_content, action_target, urgency (1-10), is_disruptive
-       - Whisper disabled in 宿舍 scenes (template hides option + safety net converts whisper→speak)
-    2. RESOLVE: resolve_tick() determines what happens (see PDA Tick Resolution)
-    3. RECORD: store tick_record with all agent outputs + resolved actions
-    4. UPDATE: latest_event for next tick from resolved actions
-    5. CHECK: scene ends if consecutive_all_observe >= 3 and tick_count >= 3
+    1. GATE: for each non-queued active agent, decide if fresh perception is needed
+       Trigger rules (any one → perceive):
+       a. Tick 0 (no previous output to reuse)
+       b. Agent was directly targeted by last resolved speech
+       c. Agent's name appears in latest_event text
+       d. Environmental event occurred this tick (disruptive action)
+       e. A concern-related person is mentioned in latest_event
+       f. 4-tick cadence: agent hasn't perceived in 4+ ticks
+       If no trigger: reuse last PerceptionOutput with action_type=OBSERVE,
+       urgency decremented by 1, no emotion_history append (prevents fake drift)
+    2. PERCEIVE: gated-in agents concurrently (semaphore-throttled)
+       - Build per-agent context via prepare_context() with PDA params
+       - LLM returns PerceptionOutput
+       - Whisper disabled in 宿舍 scenes (safety net converts whisper→speak)
+    3. RESOLVE: resolve_tick() determines what happens (see PDA Tick Resolution)
+    4. RECORD: store tick_record with all agent outputs + resolved actions
+    5. UPDATE: latest_event for next tick from resolved actions
+    6. CHECK: scene ends if consecutive_all_observe >= 3 and tick_count >= 3
 ```
 
 - Tick 0 starts with `scene.opening_event` as the latest event (randomly selected from `schedule.json:opening_events` per scene config)
 - Queued agents (losers from previous tick's speaker resolution) skip the PERCEIVE step and reuse their previous PerceptionOutput with +3 urgency per tick queued
+- **Perception gating** reduces LLM calls by 30-60% for silent background agents. Gating state (`last_perception`, `last_perceive_tick`) is local to `run_group_dialogue` scope — rebuilt from scratch on crash recovery (deterministic with same seed). Solo groups (`_run_single_scene` → `run_solo_reflection`) are not affected by gating.
 - Narrative formatting (`interaction/narrative.py`):
   - `format_public_transcript()`: public events visible to all (speech, whisper notices, actions, exits). Mid-scene summarization after 12 ticks: ticks 1-6 are collapsed into a one-line summary
   - `format_agent_transcript()`: public view + agent's own prior observations and inner thoughts as private history
@@ -169,6 +181,7 @@ After the dialogue ends, two types of LLM calls run **concurrently**:
   - `memories`: list of `AgentMemoryCandidate` (text, emotion, importance, people, location, topics) — no agent field needed
   - `new_concerns`: list of `AgentConcernCandidate` — persistent emotional preoccupations from the agent's perspective (can be positive or negative, flagged via `positive` field)
   - `concern_updates`: list of `AgentConcernUpdate` — intensity adjustments to the agent's existing concerns
+  - `intention_outcomes`: list of `IntentionOutcome` — agent self-evaluates each pending intention from the dialogue (status: fulfilled/attempted/frustrated/abandoned/pending, brief_reason). This replaces the old `narrative.fulfilled_intentions` substring matching which had 0% hit rate.
 - Error handling: if an individual agent's reflection fails (LLM error, timeout), a default `AgentReflection()` is used (NEUTRAL emotion, no changes) so one failure doesn't block the group
 
 This two-phase design enables **asymmetric perception**: the same conversation can produce different emotions, relationship changes, and memories for each participant, based on their personality, history, and existing concerns.
@@ -179,7 +192,11 @@ This two-phase design enables **asymmetric perception**: the same conversation c
   - Append key moments from shared `NarrativeExtraction` to `today.md` (formatted as `## time scene @ location`)
   - Save key memories with importance >= 7 from agent's own reflection to `key_memories.json`
   - Apply relationship deltas from agent's own reflection using baseline snapshot (for idempotency): `new_value = baseline + delta`, clamped to valid range
-  - Mark fulfilled intentions from shared `NarrativeExtraction` in `daily_plan`
+  - **Mark intention outcomes** from agent's own `intention_outcomes` (replaces old `narrative.fulfilled_intentions` substring matching):
+    - `fulfilled` → mark intent as fulfilled; if `satisfies_concern` is set, decay linked concern intensity by 2
+    - `frustrated` → if `satisfies_concern` is set, intensify linked concern by 1
+    - `abandoned` → mark intent as abandoned (excluded from carry-forward)
+    - Matching uses bidirectional substring (`concern_match` helper)
   - Apply new concerns from agent's own reflection (structural dedup: same day + same scene + overlapping people = duplicate). Max 4 concerns; evicts lowest intensity if full. Propagates `positive` flag from `AgentConcernCandidate`.
   - Apply concern intensity adjustments from agent's own reflection (substring matching on concern text). Remove concerns that reach intensity <= 0.
 - Update event queue from shared `NarrativeExtraction`: mark discussed events as known by all group members, add new events
@@ -254,7 +271,7 @@ energy: int (0-100)              # Default 85, sleep resets to 85
 academic_pressure: int (0-100)   # Based on family + exam proximity + rank changes
 location: str                    # e.g. "教室"
 daily_plan: DailyPlan
-  intentions: list[Intention]    # max 3, each has target/goal/reason/fulfilled
+  intentions: list[Intention]    # max 3, each has target/goal/reason/fulfilled/abandoned/satisfies_concern/origin_day/pursued_days
   mood_forecast: Emotion
   location_preferences: LocationPreference
     morning_break: str           # 课间 08:45 destination (default "教室")
@@ -368,12 +385,18 @@ NarrativeExtraction:                         # Objective facts from dialogue (1 
   events_discussed: list[str]                # Event IDs
   new_events: list[NewEventCandidate]        # Gossip/conflicts that may spread
 
+IntentionOutcome:                            # Agent self-eval of one intention
+  goal: str                                  # LLM's restatement of the intention goal
+  status: Literal["fulfilled","attempted","frustrated","abandoned","pending"]
+  brief_reason: str                          # One-sentence explanation
+
 AgentReflection:                             # Per-agent subjective reflection (1 per agent per group)
   emotion: Emotion                           # Post-dialogue emotional state
   relationship_changes: list[AgentRelChange] # to_agent, favorability/trust/understanding deltas
   memories: list[AgentMemoryCandidate]       # text, emotion, importance, people, location, topics
   new_concerns: list[AgentConcernCandidate]  # text, source_event, emotion, intensity, related_people
   concern_updates: list[AgentConcernUpdate]  # concern_text, adjustment (±int)
+  intention_outcomes: list[IntentionOutcome]  # Self-eval of pending intentions from the dialogue
 
 AgentRelChange:                              # Single-direction, no from_agent (belongs to focal agent)
   to_agent: str
@@ -505,7 +528,7 @@ resolution_score = urgency + bonuses
 ```
 Bonuses:
 - +5 if agent was addressed in the previous resolved speech (action_target matches agent name)
-- +3 if agent has an unfulfilled intention targeting someone present
+- +3 to +6 if agent has an unfulfilled intention targeting someone present (base +3, scaled up to +6 by linked concern intensity: `3 * max(1.0, concern.intensity / 5.0)`)
 - +3 per tick queued (from previous ticks)
 
 **Urgency clustering fallback**: if variance of urgency values among this tick's speakers is ≤ 2 (everyone equally urgent), bonuses become the primary signal and urgency is demoted to a 0.1× tiebreaker. This prevents urgency from dominating when LLM outputs cluster.
@@ -587,17 +610,18 @@ All templates include `system_base.j2` (shared system prompt establishing the Ch
 
 Context assembly (`agent/context.py:prepare_context()`):
 - Profile summary (name, gender, personality, speaking style, academic rank/strengths/weaknesses/study attitude/homework habit/target, position, family expectation/situation, long-term goals, backstory, inner_conflicts)
-- Relationships filtered to agents present in the scene
+- Relationships filtered to agents present in the scene, with qualitative `label_text` (亲近/还行/一般/有点疏远/不对付) computed from `(favorability+trust)/2`
 - Today's events so far (`today.md`)
 - Recent memory (last 3 days from `recent.md`)
 - Relevant key memories (tag-overlap retrieval, max 10)
-- Pending unfulfilled intentions
-- **Active concerns** — persistent emotional preoccupations (text, emotion, intensity)
-- **Self-narrative** — periodic first-person identity reflection from `self_narrative.md`
+- Pending unfulfilled intentions (with `satisfies_concern` and `pursued_days` for display)
+- **Active concerns** — persistent emotional preoccupations with qualitative `intensity_label` (轻微/中等/较强/强烈) replacing raw "强度 X/10"
+- **Qualitative state labels** — `energy_label` (精疲力尽→精神充沛), `pressure_label` (轻松→几乎扛不住), `exam_label` (月考还远→月考近在眼前) via `agent/qualitative.py`
+- **Self-narrative** — narrative text + `self_concept` (up to 4 identity bullets) + `current_tensions` (up to 3 struggle bullets) from `self_narrative.json`
 - Scene info (time, location, who's present)
 - Known events (gossip the agent knows about)
 - Exam countdown context
-- **Inner conflicts** — character's internal contradictions (e.g. "渴望友情但社交笨拙") from `inner_conflicts` field. Displayed in perception, daily plan, and self-narrative prompts as "你内心的矛盾" section
+- **Inner conflicts** — character's permanent internal contradictions. Displayed as "你内心的永恒矛盾" to distinguish from `current_tensions` ("你最近在和这些搏斗")
 - PDA tick loop params (used by `perception_decision.j2`):
   - `latest_event`: what just happened (string)
   - `scene_transcript`: formatted public events so far
@@ -625,7 +649,8 @@ agents/                          # Runtime state (gitignored, created by init_wo
     profile.json                 # Copy of character profile
     state.json                   # Current emotion, energy, pressure, plan, day, active_concerns
     relationships.json           # Sparse relationship map {target_id: Relationship}
-    self_narrative.md            # Periodic first-person self-reflection (regenerated every N days)
+    self_narrative.json          # Structured self-narrative (narrative + self_concept + current_tensions)
+    self_narrative.md            # Human-readable mirror of narrative text (not read as source)
     key_memories.json            # Permanent memories (importance >= 7)
     today.md                     # Raw events from current day (cleared nightly)
     recent.md                    # Compressed daily summaries (rolling window)
@@ -664,10 +689,11 @@ src/sim/
   config.py                      # Settings via pydantic-settings (SIM_ env prefix)
   models/                        # Pydantic models (agent, dialogue, event, memory, progress, relationship, scene, trajectory)
   agent/                         # Agent-level logic
-    storage.py                   # AgentStorage + WorldStorage (file I/O, atomic writes)
-    context.py                   # prepare_context() — assembles full LLM context for an agent
-    daily_plan.py                # generate_daily_plan() — morning intention + location generation
-    self_narrative.py            # generate_self_narrative() — periodic identity reflection
+    storage.py                   # AgentStorage + WorldStorage (file I/O, atomic writes, structured self_narrative load/save)
+    context.py                   # prepare_context() — assembles full LLM context with qualitative labels
+    daily_plan.py                # generate_daily_plan() — intention generation with concern linkage + carry-forward
+    self_narrative.py            # generate_self_narrative() — periodic identity reflection (structured: narrative + self_concept + current_tensions)
+    qualitative.py               # Numeric → qualitative label helpers (energy, pressure, intensity, relationship, exam)
     replan.py                    # maybe_replan() — reactive location changes between scenes
     state_update.py              # Energy, pressure, emotion, concern decay formulas
   world/                         # World-level logic
@@ -679,12 +705,12 @@ src/sim/
     homeroom_teacher.py          # HomeroomTeacher — rule-driven post-exam talks + patrol events
   interaction/                   # Scene execution logic
     orchestrator.py              # Orchestrator — main simulation loop
-    turn.py                      # run_perception() + run_group_dialogue() — PDA tick loop
+    turn.py                      # run_perception() + run_group_dialogue() — PDA tick loop with perception gating
     resolution.py                # resolve_tick() — PDA tick resolution (speaker arbitration, queue, scene end)
     narrative.py                 # format_public_transcript(), format_agent_transcript(), format_latest_event()
     scene_end.py                 # run_scene_end_analysis() — objective narrative extraction (post-dialogue)
     self_reflection.py           # run_agent_reflection() + run_all_reflections() — per-agent subjective reflection
-    apply_results.py             # apply_scene_end_results() + apply_solo_result()
+    apply_results.py             # apply_scene_end_results() + apply_solo_result() + concern_match() helper
     solo.py                      # run_solo_reflection() — solo agent inner monologue
   llm/                           # LLM infrastructure
     client.py                    # structured_call() via Instructor + LiteLLM
@@ -696,14 +722,15 @@ src/sim/
     writer.py                    # Helper wrappers for today.md and key_memory writes
   templates/                     # Jinja2 prompt templates (all in Chinese)
     system_base.j2               # Shared system prompt (high school setting + dialogue rules + few-shot teen speech examples)
-    perception_decision.j2       # PDA tick loop perception prompt (+ concerns split by positive/negative + inner conflicts + emotion trace + self-narrative context)
+    perception_decision.j2       # PDA tick perception (qualitative labels, concern linkage, current_tensions only — no self_concept/self_narrative to stay lean)
     dialogue_turn.j2             # Legacy per-turn dialogue (kept for A/B comparison reference)
-    daily_plan.j2                # Morning plan + location preference generation (+ concerns split by positive/negative + inner conflicts + need-awareness prompt + self-narrative)
-    solo_reflection.j2           # Solo inner monologue (+ concerns + self-narrative)
-    scene_end_analysis.j2        # Post-dialogue analysis (+ concern generation + concern updates)
-    nightly_compress.j2          # Daily summary (with failure reflection for unfulfilled intentions) + permanent memory + concern extraction (supports positive concerns)
-    self_narrative.j2            # Periodic first-person self-reflection generation
-    replan.j2                    # Reactive location re-planning between scenes
+    daily_plan.j2                # Morning plan with concern linkage (satisfies_concern), yesterday intentions display, self_concept + current_tensions
+    solo_reflection.j2           # Solo inner monologue (qualitative labels, self_concept + current_tensions)
+    scene_end_analysis.j2        # Post-dialogue objective narrative extraction
+    self_reflection.j2           # Per-agent reflection (qualitative labels, intention_outcomes self-eval, self_concept + current_tensions)
+    nightly_compress.j2          # Daily summary + permanent memory + concern extraction (qualitative intensity labels)
+    self_narrative.j2            # Periodic structured self-reflection (narrative + self_concept + current_tensions)
+    replan.j2                    # Reactive location re-planning (qualitative concern labels)
 ```
 
 ---

@@ -22,6 +22,13 @@ def _is_duplicate_concern(new_concern, existing_concerns):
     return False
 
 
+def concern_match(text_a: str, text_b: str | None) -> bool:
+    """Bidirectional substring match for concern/intention alignment."""
+    if not text_b:
+        return False
+    return text_b in text_a or text_a in text_b
+
+
 def apply_scene_end_results(
     narrative: NarrativeExtraction,
     reflections: dict[str, AgentReflection],
@@ -64,7 +71,6 @@ def apply_scene_end_results(
         state = storage.load_state()
         rels = storage.load_relationships()
         refl = reflections.get(aid, AgentReflection())
-        agent_name = profiles[aid].name
 
         # Update emotion directly from reflection (Emotion enum, no try/except needed)
         state.emotion = refl.emotion
@@ -107,13 +113,28 @@ def apply_scene_end_results(
                     rel.trust = _clamp(rel.trust + change.trust, -100, 100)
                     rel.understanding = _clamp(rel.understanding + change.understanding, 0, 100)
 
-        # Mark fulfilled intentions (from shared narrative)
-        for fi in narrative.fulfilled_intentions:
-            parts = fi.split(":", 1)
-            if len(parts) == 2 and parts[0].strip() == agent_name:
-                for intent in state.daily_plan.intentions:
-                    if not intent.fulfilled and parts[1].strip() in intent.goal:
+        # Mark intention outcomes from agent's own reflection
+        for outcome in refl.intention_outcomes:
+            for intent in state.daily_plan.intentions:
+                if not intent.fulfilled and concern_match(intent.goal, outcome.goal):
+                    if outcome.status == "fulfilled":
                         intent.fulfilled = True
+                        # Concern decay on fulfillment
+                        if intent.satisfies_concern:
+                            for c in state.active_concerns:
+                                if concern_match(c.text, intent.satisfies_concern):
+                                    c.intensity = max(0, c.intensity - 2)
+                                    break
+                    elif outcome.status == "frustrated":
+                        # Frustration can intensify the linked concern
+                        if intent.satisfies_concern:
+                            for c in state.active_concerns:
+                                if concern_match(c.text, intent.satisfies_concern):
+                                    c.intensity = min(10, c.intensity + 1)
+                                    break
+                    elif outcome.status == "abandoned":
+                        intent.abandoned = True
+                    break  # one outcome matches at most one intent
 
         # Apply new concerns from agent's own reflection
         for cc in refl.new_concerns:

@@ -5,7 +5,7 @@
 
 ## 你和在场人物的关系
 {% for rel in relationships %}
-- {{ rel.target_name }}（{{ rel.label }}）：好感度{{ rel.favorability }}，信任度{{ rel.trust }}
+- {{ rel.target_name }}（{{ rel.label }}）：{{ rel.label_text }}
   {% if rel.recent_interactions %}最近互动：{{ rel.recent_interactions | join('；') }}{% endif %}
 {% endfor %}
 
@@ -25,7 +25,7 @@
 {% if pending_intentions %}
 ## 你今天隐约想着的事（不一定要做，看情况自然发展）
 {% for intent in pending_intentions %}
-- {% if intent.target %}想找{{ intent.target }}{% endif %}{{ intent.goal }}（因为{{ intent.reason }}）
+- {% if intent.target %}想找{{ intent.target }}{% endif %}{{ intent.goal }}（因为{{ intent.reason }}）{% if intent.satisfies_concern %} [为了处理：{{ intent.satisfies_concern }}]{% endif %}{% if intent.pursued_days > 1 %} （已经想了{{ intent.pursued_days }}天了）{% endif %}
 {% endfor %}
 {% endif %}
 
@@ -34,26 +34,28 @@
 {% if negative_concerns %}
 ## 你最近心里挥之不去的事
 {% for concern in negative_concerns %}
-- {{ concern.text }}（{{ concern.emotion }}，强度{{ concern.intensity }}/10）
+- {{ concern.text }}（{{ concern.emotion }}，{{ concern.intensity_label }}）
 {% endfor %}
 {% endif %}
 {% if positive_concerns %}
 ## 你最近心里期待的事
 {% for concern in positive_concerns %}
-- {{ concern.text }}（{{ concern.emotion }}，强度{{ concern.intensity }}/10）
+- {{ concern.text }}（{{ concern.emotion }}，{{ concern.intensity_label }}）
 {% endfor %}
 {% endif %}
 
 {% if inner_conflicts %}
-## 你内心的矛盾
+## 你内心的永恒矛盾
 {% for conflict in inner_conflicts %}
 - {{ conflict }}
 {% endfor %}
 {% endif %}
 
-{% if self_narrative %}
-## 你对自己的感觉
-{{ self_narrative }}
+{% if current_tensions %}
+## 你最近在和这些搏斗
+{% for bullet in current_tensions %}
+- {{ bullet }}
+{% endfor %}
 {% endif %}
 
 ## 当前场景
@@ -118,8 +120,7 @@
 - action_type: speak / {% if scene_info.location != "宿舍" %}whisper / {% endif %}non_verbal / observe / exit
 - action_content: 你说的话或做的动作（如果选observe就填null）
 - action_target: 主要对谁（只能填：{{ scene_info.present_names | join('、') }}，或null）
-- urgency: 你有多想做这件事（1-10）
-  1=完全不想做什么  3=有点想法但不急  5=想说话  7=很想说  10=非说不可，憋不住了
+- urgency: 你有多想做这件事（1-10，随便看看就1-3，有话想说5-7，非说不可就9-10）
 - is_disruptive: 你的动作会不会让周围人注意到（比如拍桌子、突然站起来）
 
 注意：

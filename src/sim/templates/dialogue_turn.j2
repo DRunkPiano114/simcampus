@@ -5,7 +5,7 @@
 
 ## 你和在场人物的关系
 {% for rel in relationships %}
-- {{ rel.target_name }}（{{ rel.label }}）：好感度{{ rel.favorability }}，信任度{{ rel.trust }}
+- {{ rel.target_name }}（{{ rel.label }}）：{{ rel.label_text }}
   {% if rel.recent_interactions %}最近互动：{{ rel.recent_interactions | join('；') }}{% endif %}
 {% endfor %}
 
@@ -25,7 +25,7 @@
 {% if pending_intentions %}
 ## 你今天隐约想着的事（不一定要做，看情况自然发展）
 {% for intent in pending_intentions %}
-- {% if intent.target %}想找{{ intent.target }}{% endif %}{{ intent.goal }}（因为{{ intent.reason }}）
+- {% if intent.target %}想找{{ intent.target }}{% endif %}{{ intent.goal }}（因为{{ intent.reason }}）{% if intent.satisfies_concern %} [为了处理：{{ intent.satisfies_concern }}]{% endif %}{% if intent.pursued_days > 1 %} （已经想了{{ intent.pursued_days }}天了）{% endif %}
 {% endfor %}
 {% endif %}
 

@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import Literal
 
 from pydantic import BaseModel, Field
 
@@ -124,6 +125,13 @@ class AgentConcernUpdate(BaseModel):
     adjustment: int
 
 
+class IntentionOutcome(BaseModel):
+    """Agent 对自己一条 intention 的自评"""
+    goal: str
+    status: Literal["fulfilled", "attempted", "frustrated", "abandoned", "pending"] = "pending"
+    brief_reason: str = ""
+
+
 class AgentReflection(BaseModel):
     """单个 agent 对一段对话的自我反思"""
     emotion: Emotion = Emotion.NEUTRAL
@@ -131,6 +139,7 @@ class AgentReflection(BaseModel):
     memories: list[AgentMemoryCandidate] = Field(default_factory=list)
     new_concerns: list[AgentConcernCandidate] = Field(default_factory=list)
     concern_updates: list[AgentConcernUpdate] = Field(default_factory=list)
+    intention_outcomes: list[IntentionOutcome] = Field(default_factory=list)
 
 
 class SoloReflection(BaseModel):

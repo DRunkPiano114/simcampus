@@ -1,18 +1,21 @@
 import time
 
 from loguru import logger
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from ..config import settings
 from ..llm.client import structured_call
 from ..llm.logger import log_llm_call
 from ..llm.prompts import render
 from ..models.agent import AgentProfile, AgentState, Role
+from .qualitative import relationship_label
 from .storage import AgentStorage
 
 
 class SelfNarrativeResult(BaseModel):
-    narrative: str
+    narrative: str = ""
+    self_concept: list[str] = Field(default_factory=list, max_length=4)
+    current_tensions: list[str] = Field(default_factory=list, max_length=3)
 
 
 async def generate_self_narrative(
@@ -20,7 +23,7 @@ async def generate_self_narrative(
     profile: AgentProfile,
     state: AgentState,
     day: int,
-) -> str:
+) -> SelfNarrativeResult:
     rels = storage.load_relationships()
     recent_summary = storage.read_recent_md_last_n_days(3)
 
@@ -41,7 +44,13 @@ async def generate_self_narrative(
         parts.append(f"内心矛盾：{'；'.join(profile.inner_conflicts)}")
     profile_summary = "\n".join(parts)
 
-    relationships = list(rels.relationships.values())
+    relationships = [
+        {**r.model_dump(), "label_text": relationship_label(r.favorability, r.trust)}
+        for r in rels.relationships.values()
+    ]
+
+    # Load previous structured result for continuity
+    prev = storage.load_self_narrative_structured()
 
     prompt = render(
         "self_narrative.j2",
@@ -50,6 +59,8 @@ async def generate_self_narrative(
         recent_summary=recent_summary or "（刚开学，还没什么特别的经历）",
         concerns=state.active_concerns,
         relationships=relationships,
+        prev_self_concept=prev.self_concept,
+        prev_current_tensions=prev.current_tensions,
     )
 
     messages = [{"role": "user", "content": prompt}]
@@ -74,8 +85,8 @@ async def generate_self_narrative(
         temperature=settings.self_narrative_temperature,
     )
 
-    storage.write_self_narrative(result.narrative)
+    storage.save_self_narrative_structured(result)
 
     logger.info(f"  {profile.name}: self-narrative updated")
 
-    return result.narrative
+    return result

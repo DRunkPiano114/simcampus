@@ -5,26 +5,24 @@
 
 ## 当前状态
 - 情绪：{{ current_state.emotion }}
-- 精力：{{ current_state.energy }}/100
-- 学业压力：{{ current_state.academic_pressure }}/100
-{% if next_exam_in_days <= 7 %}
-- ⚠️ 距离月考还有 {{ next_exam_in_days }} 天！
-{% elif next_exam_in_days <= 14 %}
-- 距离月考还有 {{ next_exam_in_days }} 天
+- 精力：{{ energy_label }}
+- 学业压力：{{ pressure_label }}
+{% if next_exam_in_days <= 14 %}
+- {{ exam_label }}
 {% endif %}
 
 ## 你的人际关系
 {% for rel in relationships %}
-- {{ rel.target_name }}（{{ rel.label }}）：好感度{{ rel.favorability }}，信任度{{ rel.trust }}
+- {{ rel.target_name }}（{{ rel.label }}）：{{ rel.label_text }}
 {% endfor %}
 
 ## 最近几天发生的事
 {{ recent_days }}
 
-{% if yesterday_unfulfilled %}
-## 昨天没完成的事
-{% for item in yesterday_unfulfilled %}
-- {{ item }}
+{% if yesterday_intentions %}
+## 你昨天想着的事（有些可能还没做到）
+{% for intent in yesterday_intentions %}
+- {{ intent.goal }}{% if intent.target %}（找{{ intent.target }}）{% endif %}{% if intent.satisfies_concern %} [牵挂：{{ intent.satisfies_concern }}]{% endif %} — {% if intent.fulfilled %}✓ 做到了{% elif intent.abandoned %}✗ 放下了{% else %}✗ 没做成（已经连续想了{{ intent.pursued_days }}天了）{% endif %}
 {% endfor %}
 {% endif %}
 
@@ -33,18 +31,18 @@
 {% if negative_concerns %}
 ## 你最近心里挥之不去的事
 {% for concern in negative_concerns %}
-- {{ concern.text }}（{{ concern.emotion }}，强度{{ concern.intensity }}/10）
+- {{ concern.text }}（{{ concern.emotion }}，{{ concern.intensity_label }}）
 {% endfor %}
 {% endif %}
 {% if positive_concerns %}
 ## 你最近心里期待的事
 {% for concern in positive_concerns %}
-- {{ concern.text }}（{{ concern.emotion }}，强度{{ concern.intensity }}/10）
+- {{ concern.text }}（{{ concern.emotion }}，{{ concern.intensity_label }}）
 {% endfor %}
 {% endif %}
 
 {% if inner_conflicts %}
-## 你内心的矛盾
+## 你内心的永恒矛盾
 {% for conflict in inner_conflicts %}
 - {{ conflict }}
 {% endfor %}
@@ -55,13 +53,36 @@
 {{ self_narrative }}
 {% endif %}
 
+{% if self_concept %}
+## 你觉得自己是
+{% for bullet in self_concept %}
+- {{ bullet }}
+{% endfor %}
+{% endif %}
+
+{% if current_tensions %}
+## 你最近在和这些搏斗
+{% for bullet in current_tensions %}
+- {{ bullet }}
+{% endfor %}
+{% endif %}
+
 ## 任务
 新的一天开始了。{% if is_student %}先想想你最近缺什么——朋友的陪伴？学业上的成就感？安静的独处？一点点刺激和新鲜感？还是某种情感上的支持？{% else %}先想想今天的重点——哪个学生需要关注？班级有什么问题要处理？有没有家长要沟通？自己的备课和批改进度如何？{% endif %}
 
 然后根据你的性格、当前状态和最近发生的事，想想今天你隐约想做的事情（最多3件）。这些不是必须完成的任务，只是你心里模糊的想法，看情况自然发展。
 
+## 重要：意图要和牵挂挂钩
+
+你上面列出的牵挂是你心里真正挥之不去的事。你今天的每个意图都应该显式回答："这是为了处理哪个牵挂？"
+
+- 如果某个意图是为了处理某个牵挂，把 satisfies_concern 填成那个牵挂的前 15 个字
+- 如果某个意图和任何牵挂都无关（纯粹的日常小事），把 satisfies_concern 填 null
+- 如果你有高强度的牵挂（"较强"或"强烈"）却在今天的意图里完全不处理它，说明你今天选择逃避——这是合理的，但请在那些逃避的意图的 reason 里说明为什么不面对
+- 如果昨天有些事没做成但你还想做，你可以继续把它列为今天的意图（goal 可以微调表述，但核心指向同一件事）
+
 请输出你的每日计划：
-- intentions: 最多3个意图，每个包含 target（针对谁，可以为null）、goal（想做什么）、reason（为什么）
+- intentions: 最多3个意图，每个包含 target、goal、reason、satisfies_concern
 - mood_forecast: 预测今天的整体心情
 
 {% if is_student %}

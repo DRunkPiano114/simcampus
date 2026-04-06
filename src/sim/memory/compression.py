@@ -8,6 +8,7 @@ from ..config import settings
 from ..llm.client import structured_call
 from ..llm.logger import log_llm_call
 from ..llm.prompts import render
+from ..agent.qualitative import intensity_label
 from ..models.agent import ActiveConcern, AgentProfile, Role
 from ..models.memory import KeyMemory
 
@@ -66,7 +67,10 @@ async def nightly_compress(
 
     # Load active concerns for context
     state = storage.load_state()
-    active_concerns = state.active_concerns
+    active_concerns = [
+        {**c.model_dump(), "intensity_label": intensity_label(c.intensity)}
+        for c in state.active_concerns
+    ]
 
     unfulfilled_intentions = [
         f"{i.goal}（{i.reason}）"

@@ -14,9 +14,29 @@
 
 ## 你的关系
 {% for rel in relationships %}
-- {{ rel.target_name }}（{{ rel.label }}）：好感度{{ rel.favorability }}，信任度{{ rel.trust }}
+- {{ rel.target_name }}（{{ rel.label }}）：{{ rel.label_text }}
 {% endfor %}
 
+{% if prev_self_concept %}
+## 上一次你对自己的认知（几天前写的）
+{% for bullet in prev_self_concept %}
+- {{ bullet }}
+{% endfor %}
+{% endif %}
+
+{% if prev_current_tensions %}
+## 上一次你说的当下挣扎
+{% for bullet in prev_current_tensions %}
+- {{ bullet }}
+{% endfor %}
+{% endif %}
+
 ## 任务
-用第一人称写一段自我反思（100-200字）。描述你觉得自己在班上是什么样的人、
-最近过得怎么样、什么事对你影响最大。像真正的高中生在心里想的，不要文艺腔。
+
+用第一人称写一段自我反思，同时提炼两组结构化的自我观察。
+
+1. **narrative**（100-200 字散文）：你觉得自己在班上是什么样的人、最近过得怎么样、什么事对你影响最大。像真正的高中生在心里想的，不要文艺腔。
+
+2. **self_concept**（最多 4 条 bullet，每条一句话，"我是一个 ___ 的人" 的句式）：你对自己稳定、核心的认知。**重要**：如果上面有"上一次你对自己的认知"，新的 self_concept 应该和它几乎相同——**最多只改 1 条 bullet，除非有重大事件改变了你对自己的根本看法**。大部分时候，self_concept 应该一字不差地照抄。
+
+3. **current_tensions**（最多 3 条 bullet）：你这几天正在搏斗、纠结、挣扎的事。这和稳定的自我认知不同——tensions 会来来去去，每次更新都可以完全不一样。可以是具体的事（"和陆思远之间好像有点疏远了"），也可以是抽象的挣扎（"越学越觉得自己不够聪明"）。
