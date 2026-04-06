@@ -14,14 +14,8 @@ from .qualitative import (
     pressure_label,
     relationship_label,
 )
+from ..interaction.apply_results import concern_match
 from .storage import AgentStorage
-
-
-def _concern_match(text_a: str, text_b: str | None) -> bool:
-    """Bidirectional substring match for concern/intention alignment."""
-    if not text_b:
-        return False
-    return text_b in text_a or text_a in text_b
 
 
 def _match_old_intention(new_intent: Intention, old_intentions: list[Intention]) -> Intention | None:
@@ -29,7 +23,7 @@ def _match_old_intention(new_intent: Intention, old_intentions: list[Intention])
     for old in old_intentions:
         if old.abandoned:
             continue
-        if new_intent.target == old.target and _concern_match(new_intent.goal, old.goal):
+        if new_intent.target == old.target and concern_match(new_intent.goal, old.goal):
             return old
     return None
 
@@ -162,7 +156,7 @@ async def generate_daily_plan(
             if c.intensity >= 6 and any(rp in known_names for rp in c.related_people)
         ]
         for c in addressable:
-            if not any(_concern_match(c.text, i.satisfies_concern) for i in result.intentions):
+            if not any(concern_match(c.text, i.satisfies_concern) for i in result.intentions):
                 logger.warning(f"  {profile.name}: 高强度牵挂 '{c.text[:20]}...' 没有被挂钩")
 
     logger.info(
