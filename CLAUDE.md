@@ -14,9 +14,24 @@ uv run python scripts/export_frontend_data.py    # Export sim data → web/publi
 cd web && pnpm install                           # Install frontend dependencies
 cd web && pnpm dev                               # Dev server at localhost:5173
 cd web && pnpm build                             # Production build → web/dist/
+uv run python -m pytest                         # Run all tests
+uv run python -m pytest tests/test_foo.py -v    # Run one test file, verbose
+uv run python -m pytest -k "test_name"          # Run tests matching a name
 ```
 
-No tests or linting configured. Env: `cp .env.example .env` then set `DEEPSEEK_API_KEY`.
+
+## Test Sync Rule
+
+Tests live in `tests/`. **When you modify logic in `src/sim/`, you MUST also update or add corresponding tests.** A task is not complete until tests pass.
+
+What triggers a test update:
+- Change an algorithm (grouping, speaker selection, energy, pressure, concern dedup, etc.)
+- Change state update logic (energy deltas, decay, regression, etc.)
+- Change qualitative threshold mappings
+- Add/remove/rename fields on models used in tested functions
+- Change memory retrieval, event queue, or narrative formatting logic
+
+Run `uv run python -m pytest` before considering any code change complete.
 
 ## Documentation Sync Rule
 
