@@ -1,4 +1,4 @@
-# 2D High School
+# SimClass
 
 Multi-agent LLM simulation of a Chinese high school class. AI-powered students and a teacher live through three years of school life — attending classes, forming friendships, navigating conflicts, and growing up — generating emergent narratives with no human intervention.
 

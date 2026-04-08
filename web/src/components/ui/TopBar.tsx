@@ -43,7 +43,7 @@ export function TopBar() {
 
       {/* Center: title */}
       <div className="text-white/90 text-sm font-medium tracking-wide">
-        读心教室 <span className="text-white/40">—</span>{' '}
+        Sim班 <span className="text-white/40">—</span>{' '}
         <span className="text-amber-400/80">第{dayNum}天</span>
       </div>
 
