@@ -163,6 +163,39 @@ def load_previous_exam_results(day: int) -> dict | None:
     return None
 
 
+def format_teacher_exam_context(results: dict) -> str:
+    if not results:
+        return ""
+
+    sorted_students = sorted(results.values(), key=lambda r: r["rank"])
+    total_students = len(sorted_students)
+    class_avg = sum(r["total"] for r in sorted_students) / total_students
+
+    lines = [f"本次月考全班概况（共{total_students}人）："]
+    lines.append(f"班级平均总分：{class_avg:.0f}")
+
+    # Top 3
+    lines.append("前三名：" + "、".join(
+        f"{r['name']}（{r['total']}分）" for r in sorted_students[:3]
+    ))
+
+    # Struggling students (rank drop >= 3)
+    struggling = [r for r in sorted_students if r.get("rank_change", 0) <= -3]
+    if struggling:
+        lines.append("退步明显的学生：" + "、".join(
+            f"{r['name']}（退{abs(r['rank_change'])}名）" for r in struggling
+        ))
+
+    # Big improvers
+    improved = [r for r in sorted_students if r.get("rank_change", 0) >= 3]
+    if improved:
+        lines.append("进步明显的学生：" + "、".join(
+            f"{r['name']}（进{r['rank_change']}名）" for r in improved
+        ))
+
+    return "\n".join(lines)
+
+
 def format_exam_context(results: dict, agent_id: str) -> str:
     if agent_id not in results:
         return ""

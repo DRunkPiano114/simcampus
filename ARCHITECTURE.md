@@ -47,7 +47,21 @@ Four-layer design, all source code in `src/sim/`:
 
 `interaction/orchestrator.py` → `Orchestrator` class. Entry point: `Orchestrator.run(start_day, end_day)`.
 
-Each simulated day runs through three sequential phases:
+Each simulated day runs through four sequential phases (plus an exam trigger before Phase 1):
+
+### Phase 0.5: Exam Trigger (conditional)
+
+Before daily plans, if `progress.next_exam_in_days <= 0`, the exam fires via `Orchestrator._run_exam()`:
+
+1. Load previous exam results (most recent `world/exam_results/day_NNN.json`) for rank comparison
+2. Generate exam scores (see Exam Score Generation below)
+3. Apply exam effects — emotion changes + energy drain + pressure shock, written directly to disk
+4. Reload all agent states from disk (to pick up the effects)
+5. Teacher post-exam actions: `HomeroomTeacher.post_exam_actions()` creates gossip events for students who dropped ≥3 ranks (70% per student), injected via `EventQueueManager`
+6. Set `progress.last_exam_day = day`, reset `progress.next_exam_in_days = exam_interval_days`
+7. Store results in `self._exam_results` — used later to inject per-agent `exam_context` into scenes
+
+**Per-agent exam context**: during scene execution, each student gets their own `format_exam_context()` string (personal scores + rank + rank change). The teacher (`he_min`) gets `format_teacher_exam_context()` — a class-level overview (top 3, struggling students, class average, notable improvers). The `exam_context` is passed as a `dict[str, str]` to `run_group_dialogue()` (keyed by agent_id) and as a plain `str` to `run_solo_reflection()`.
 
 ### Phase 0: Self-Narrative Generation (periodic)
 
@@ -87,6 +101,7 @@ Scene generation is now **lazy per-config**: the orchestrator iterates over `sch
 For **normal scenes** (`is_free_period=false`):
 - LOW density scenes roll against `trigger_probability` (default 15%). If they don't trigger, they're skipped entirely. If they trigger, density is upgraded to HIGH_LIGHT and a random classroom event is injected (balanced across negative/neutral/positive events).
 - Teacher participation: 20% chance during 晚自习 — when the roll succeeds, He Min joins as a full LLM-driven agent participant (not just a `teacher_present` flag). Teacher does not appear in 课间 normal scenes (课间 is a free period, handled separately).
+- **Teacher patrol events**: when the teacher is NOT a full participant and the scene is 晚自习/早读/上课, a patrol event may be injected via `HomeroomTeacher.patrol_event()`. 晚自习/早读 have a 30% internal probability gate; 上课 always returns an event so a 30% gate is applied in the scene generator. Patrol events (e.g. "何老师巡视时发现有人在聊天") appear in the scene's `injected_events`.
 - Present agents determined by location: 宿舍 → only dorm members; elsewhere → all students.
 
 For **group interaction**, each group gets a scoped scene copy (`group_scene`) with `agent_ids` set to only that group's members. This ensures dorm scenes show correct participant lists (boys-only / girls-only) and the `teacher_present` flag is set correctly per-group (`scene.teacher_present OR "he_min" in group.agent_ids`).
@@ -110,7 +125,7 @@ After all sub-scenes for a config complete, if the next config is a free period,
 Re-plan uses `replan.j2` template → `ReplanResult` (changed, new_location, reason). If changed, updates `location_preferences` for the next slot. Only students are re-planned (teacher is excluded — she has no location preferences).
 
 **Step 2b — Grouping** (`world/grouping.py`):
-- First, identify solo agents (energy < 25, or introvert without close relationships at 50% chance, or sad + low energy at 60% chance).
+- First, identify solo agents: non-students (teacher) are never solo. For students: energy < 25, or introvert without close relationships at 50% chance, or sad + low energy at 60% chance.
 - For 宿舍 scenes: group by dorm assignment.
 - For other scenes: greedy affinity clustering (max group size 5). Affinity = bidirectional favorability + structural label bonus (室友 +20, 同桌 +15, 前后桌 +10) + same-gender bonus (+5, or +100 in dorms) + intention targeting bonus (+25 if either agent has an unfulfilled intention targeting the other by name) + random noise ±10.
 
@@ -222,6 +237,7 @@ For all agents (students + teacher):
 - Decay all active concern intensities by 1 (remove when <= 0)
 - **Emotion decay**: extreme emotions (angry, excited, sad, embarrassed, jealous, guilty, frustrated, touched) have 50% chance of resetting to neutral overnight
 - **Relationship regression**: favorability and trust each nudge 1 point toward zero daily. Understanding does not regress (it represents cognitive knowledge that doesn't fade overnight)
+- **Academic pressure update** (students only): calls `update_academic_pressure()` with current countdown and days since last exam. This activates countdown pressure escalation (≤14 days: +3, ≤7 days: +8, ≤3 days: +15) and post-exam recovery (day 0 resets to base, then -2/day decay). `days_since_exam` is computed from `progress.last_exam_day`.
 
 Global end-of-day:
 - Save trajectory data to `logs/day_NNN/trajectory.json`
@@ -483,7 +499,8 @@ scenes: list[SceneProgress]
   groups: list[GroupCompletion]
     group_index: int
     status: "pending" | "llm_done" | "applied"
-next_exam_in_days: int           # Default 30, decremented daily
+next_exam_in_days: int           # Default 29 (first exam on day 30), reset to exam_interval_days after each exam
+last_exam_day: int | None        # Day number of most recent exam (None if no exam yet)
 total_days_simulated: int
 last_updated: str                # ISO timestamp
 seed: int | None                 # Persisted RNG seed for deterministic scene generation on resume
@@ -523,13 +540,15 @@ Sleep resets to 85. Clamped to 0-100.
 
 ### Academic Pressure Formula (`agent/state_update.py`)
 
+On exam day (days_since_exam=0): pressure resets directly to base. Otherwise:
 ```
-pressure = base + countdown_delta + exam_shock + recovery
+pressure = base + countdown_delta + recovery
 ```
 - `base`: HIGH family → 50, MEDIUM → 30, LOW → 15
 - `countdown_delta`: exam in ≤3 days → +15, ≤7 → +8, ≤14 → +3, else 0
-- `exam_shock`: rank_drop × 2
-- `recovery`: exam day resets to base, then -2/day
+- `recovery` (days 1+ after exam): -2 × days_since_exam
+
+Note: exam shock (rank_drop × 2) is applied separately in `apply_exam_effects()`, not through this function.
 
 ### Emotion Decay (`agent/state_update.py`)
 
@@ -545,6 +564,10 @@ All active concern intensities decrease by 1 at end of day. Concerns reaching in
 
 ### Exam Score Generation (`world/exam.py`)
 
+**Trigger**: when `progress.next_exam_in_days` reaches 0, the orchestrator calls `_run_exam()` at the start of the day, before daily plans. Full chain: `load_previous_exam_results()` → `generate_exam_results()` → `apply_exam_effects()` → `save_exam_results()` → reload states → `HomeroomTeacher.post_exam_actions()` → set `progress.last_exam_day` and reset countdown.
+
+**Teacher exam context**: `format_teacher_exam_context()` produces a class-level overview (total students, class average, top 3, struggling/improved students) instead of the per-student view.
+
 Not LLM-driven — pure formula:
 ```
 score = base(overall_rank) + subject_mod(±5 for strengths/weaknesses)
@@ -554,6 +577,7 @@ score = base(overall_rank) + subject_mod(±5 for strengths/weaknesses)
 - Variance inversely correlated with rank: top=3.0, 下游=10.0 (stronger students more consistent)
 - Attitude coefficient maps `study_attitude` text → 0.0-1.2 multiplier
 - Post-exam effects: rank drop ≥5 → SAD, rank rise ≥5 → EXCITED, high-pressure family + rank>5 → ANXIOUS, energy -15
+- Results saved to `world/exam_results/day_NNN.json`
 
 ### PDA Tick Resolution (`interaction/resolution.py`)
 
@@ -618,13 +642,22 @@ He Min is a full LLM-driven agent, participating in scenes like any student. She
 **Role-aware prompt adaptations**:
 - `system_base.j2`: "上海高中老师" instead of "上海高中生" language guidance
 - `daily_plan.j2`: teacher-specific need prompts (student attention, parent calls, lesson prep). No location preferences section (teacher doesn't choose free-period locations). Academic fields (成绩/目标/学习态度) skipped.
-- `perception_static.j2` + `perception_dynamic.j2`: whisper option hidden in dorm scenes (safety net: whisper→speak conversion in `turn.py`)
+- `self_narrative.j2`: conditional identity ("班主任兼语文老师" vs "高中生"), narrative/self_concept instructions adapted for teacher role
+- `nightly_compress.j2`: uses `role_description` variable for opening line identity
+- `perception_dynamic.j2` + `dialogue_turn.j2`: "班主任正在附近，说话注意点！" warning only shown to students (`teacher_present and not is_teacher`)
+- `self_reflection.j2`: teacher's intention evaluation acknowledges observing/guiding students as part of her role
+- `perception_static.j2`: whisper option hidden in dorm scenes (safety net: whisper→speak conversion in `turn.py`)
 - Re-planning skipped for teacher (no location preferences)
-- **Suppression effect**: When `teacher_present=true`, the perception template includes a warning ("班主任正在附近，说话注意点！") that naturally suppresses student speech urgency
+- **Suppression effect**: When `teacher_present=true`, the perception template warning naturally suppresses student speech urgency. The teacher herself does NOT see this warning (guarded by `is_teacher`).
+- `prepare_context()` provides `is_student`/`is_teacher` booleans to all templates via the context dict
+
+**Grouping**: teacher never goes solo — `_should_be_solo()` returns `False` early for non-students, regardless of energy/emotion state.
 
 **Cold start**: He Min starts with empty relationships (`{}`). Her backstory names specific students she monitors, and the "班主任" position gives LLM enough context. Relationships populate naturally after scene interactions.
 
-**Legacy**: `world/homeroom_teacher.py` still handles rule-driven post-exam talks (70% chance for rank-drop students) and patrol events.
+**Rule-driven behaviors** (`world/homeroom_teacher.py`):
+- **Post-exam talks**: `post_exam_actions()` — for each student whose rank dropped ≥3 places, 70% chance of a teacher-student talk. Creates gossip events via `EventQueueManager` that spread through the student network.
+- **Patrol events**: `patrol_event()` — injected into 晚自习/早读 (with internal 30% probability gate) and 上课 (30% gate applied in `scene_generator.py`) when the teacher is NOT a full scene participant. Events like "何老师巡视时发现有人在聊天" appear in `injected_events`.
 
 ---
 
@@ -657,6 +690,7 @@ Context assembly (`agent/context.py:prepare_context()`):
 - **Active concerns** — persistent emotional preoccupations with qualitative `intensity_label` (轻微/中等/较强/强烈) replacing raw "强度 X/10"
 - **Qualitative state labels** — `energy_label` (精疲力尽→精神充沛), `pressure_label` (轻松→几乎扛不住), `exam_label` (月考还远→月考近在眼前) via `agent/qualitative.py`
 - **Self-narrative** — narrative text + `self_concept` (up to 4 identity bullets) + `current_tensions` (up to 3 struggle bullets) from `self_narrative.json`
+- **Role booleans** — `is_student` and `is_teacher` (derived from `profile.role`) used by templates for role-conditional rendering
 - Scene info (time, location, who's present)
 - Known events (gossip the agent knows about)
 - Exam countdown context
@@ -823,7 +857,7 @@ All settings via `pydantic-settings` `BaseSettings`, loaded from `.env` file, ov
    - Creates initial state (energy=85, pressure based on family: 高→60, 中→35, 低→15, emotion=neutral, active_concerns=[])
    - Creates relationships from preset pairs (defined in `PRESET_RELATIONSHIPS` — roommates, seatmates, desk neighbors with initial favorability/trust values)
    - Creates empty `key_memories.json`, `today.md`, `recent.md`, `self_narrative.md`
-3. Creates `world/progress.json` (day 1, daily_plan phase, next_exam_in_days=30)
+3. Creates `world/progress.json` (day 1, daily_plan phase, next_exam_in_days=29)
 4. Creates empty `world/event_queue.json`
 5. Creates `world/exam_results/` directory
 

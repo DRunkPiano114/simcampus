@@ -54,6 +54,6 @@
 {% if scene_info.location != "宿舍" %}
 - 如果有人对你说了悄悄话，只有你听到了内容，可以选择回应或者装作没听见。
 {% endif %}
-{% if teacher_present %}
+{% if teacher_present and not is_teacher %}
 【注意】班主任正在附近，说话注意点！
 {% endif %}

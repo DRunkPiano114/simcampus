@@ -24,10 +24,11 @@ async def run_solo_reflection(
     known_events: list[Event],
     next_exam_in_days: int,
     day: int,
+    exam_context: str = "",
 ) -> SoloReflection:
     ctx = prepare_context(
         storage, profile, state, scene, all_profiles,
-        known_events, next_exam_in_days,
+        known_events, next_exam_in_days, exam_context=exam_context,
     )
 
     prompt = render("solo_reflection.j2", **ctx)

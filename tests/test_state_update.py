@@ -134,12 +134,16 @@ def test_pressure_exam_far():
 
 
 def test_pressure_post_exam_day0_resets():
+    """Day 0 after exam: pressure resets to base regardless of current value."""
     state = AgentState(academic_pressure=80)
     update_academic_pressure(state, PressureLevel.MEDIUM, next_exam_in_days=30, days_since_exam=0)
-    # Recovery = -(80 - 30) = -50, pressure = 30 + 0 + 0 + (-50) = -20 → clamped to 0
-    # But base is recalculated: base(30) + countdown(0) + recovery(-(80-30))
-    # Note: recovery uses state.academic_pressure before update, which is 80
-    assert state.academic_pressure == 0
+    assert state.academic_pressure == 30  # Reset to MEDIUM base
+
+
+def test_pressure_post_exam_day0_resets_high():
+    state = AgentState(academic_pressure=95)
+    update_academic_pressure(state, PressureLevel.HIGH, next_exam_in_days=30, days_since_exam=0)
+    assert state.academic_pressure == 50  # Reset to HIGH base
 
 
 def test_pressure_post_exam_recovery():
@@ -149,17 +153,11 @@ def test_pressure_post_exam_recovery():
     assert state.academic_pressure == 24
 
 
-def test_pressure_exam_shock():
-    state = AgentState(academic_pressure=30)
-    update_academic_pressure(state, PressureLevel.MEDIUM, next_exam_in_days=30, exam_shock=20)
-    assert state.academic_pressure == 50  # 30 + 0 + 20
-
-
 def test_pressure_clamped_to_100():
     state = AgentState(academic_pressure=0)
-    update_academic_pressure(state, PressureLevel.HIGH, next_exam_in_days=1, exam_shock=50)
-    # 50 + 15 + 50 = 115 → clamped to 100
-    assert state.academic_pressure == 100
+    update_academic_pressure(state, PressureLevel.HIGH, next_exam_in_days=1)
+    # 50 + 15 = 65
+    assert state.academic_pressure == 65
 
 
 # --- decay_concerns ---

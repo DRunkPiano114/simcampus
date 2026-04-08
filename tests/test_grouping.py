@@ -129,6 +129,18 @@ def test_affinity_intention_bonus():
 
 # --- _should_be_solo ---
 
+def test_solo_teacher_never_solo():
+    """Teacher (non-student) should never be solo regardless of state."""
+    profile = AgentProfile(
+        agent_id="t", name="何敏", gender=Gender.FEMALE, role=Role.HOMEROOM_TEACHER,
+        academics=Academics(overall_rank=OverallRank.MIDDLE),
+        family_background=FamilyBackground(pressure_level=PressureLevel.LOW),
+        personality=["内向"],
+    )
+    state = AgentState(energy=10, emotion=Emotion.SAD)  # Would trigger solo for students
+    assert _should_be_solo("t", profile, state, {}, RNG) is False
+
+
 def test_solo_low_energy():
     profile = _make_profile("a", "张伟")
     state = AgentState(energy=20)

@@ -55,6 +55,7 @@ async def generate_self_narrative(
     prompt = render(
         "self_narrative.j2",
         name=profile.name,
+        is_teacher=(profile.role != Role.STUDENT),
         profile_summary=profile_summary,
         recent_summary=recent_summary or "（刚开学，还没什么特别的经历）",
         concerns=state.active_concerns,

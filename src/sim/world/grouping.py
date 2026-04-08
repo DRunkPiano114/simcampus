@@ -1,6 +1,6 @@
 import random
 
-from ..models.agent import AgentProfile, AgentState, Emotion
+from ..models.agent import AgentProfile, AgentState, Emotion, Role
 from ..models.relationship import RelationshipFile
 from ..models.scene import GroupAssignment, Scene
 
@@ -62,6 +62,9 @@ def _should_be_solo(
     relationships: dict[str, RelationshipFile],
     rng: random.Random,
 ) -> bool:
+    if profile.role != Role.STUDENT:
+        return False
+
     # Low energy → solo
     if state.energy < 25:
         return True

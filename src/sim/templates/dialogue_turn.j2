@@ -35,7 +35,7 @@
 - 场景：{{ scene_info.name }}
 - {{ scene_info.description }}
 - 在场的人：{{ scene_info.present_names | join('、') }}
-{% if teacher_present %}
+{% if teacher_present and not is_teacher %}
 【注意】班主任正在附近，说话注意点！
 {% endif %}
 

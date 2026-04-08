@@ -22,7 +22,8 @@ class Progress(BaseModel):
     day_phase: Literal["daily_plan", "scenes", "compression", "complete"] = "daily_plan"
     current_scene_index: int = 0
     scenes: list[SceneProgress] = Field(default_factory=list)
-    next_exam_in_days: int = 30
+    next_exam_in_days: int = 29
+    last_exam_day: int | None = None
     total_days_simulated: int = 0
     last_updated: str = ""
     seed: int | None = None

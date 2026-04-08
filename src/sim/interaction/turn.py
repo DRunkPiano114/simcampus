@@ -150,7 +150,7 @@ async def run_group_dialogue(
     day: int,
     rng,
     semaphore: asyncio.Semaphore,
-    exam_context: str = "",
+    exam_context: dict[str, str] | None = None,
     group_index: int = 0,
 ) -> list[dict]:
     """Run a full group dialogue using the PDA tick loop."""
@@ -204,6 +204,7 @@ async def run_group_dialogue(
         async def _perceive(aid: str) -> tuple[str, PerceptionOutput]:
             transcript, priv = format_agent_transcript(tick_records, aid, profiles)
             trace = emotion_history[aid][-5:]
+            agent_exam_ctx = exam_context.get(aid, "") if exam_context else ""
             async with semaphore:
                 result = await run_perception(
                     storages[aid], profiles[aid], states[aid],
@@ -211,7 +212,7 @@ async def run_group_dialogue(
                     known_events_by_agent.get(aid, []),
                     next_exam_in_days,
                     latest_event, transcript, priv,
-                    tick_emotions[aid], day, exam_context,
+                    tick_emotions[aid], day, agent_exam_ctx,
                     emotion_trace=trace,
                     group_index=group_index,
                 )

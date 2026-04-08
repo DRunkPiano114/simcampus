@@ -48,10 +48,14 @@ def update_academic_pressure(
     state: AgentState,
     pressure_level: PressureLevel,
     next_exam_in_days: int,
-    exam_shock: int = 0,
     days_since_exam: int | None = None,
 ) -> AgentState:
     base = PRESSURE_BASE[pressure_level]
+
+    # Post-exam day 0: reset to base immediately
+    if days_since_exam is not None and days_since_exam == 0:
+        state.academic_pressure = clamp(base, 0, 100)
+        return state
 
     # Exam countdown pressure
     if next_exam_in_days <= 3:
@@ -63,15 +67,12 @@ def update_academic_pressure(
     else:
         countdown_delta = 0
 
-    # Post-exam recovery
+    # Post-exam recovery (days 1+)
     recovery = 0
-    if days_since_exam is not None and days_since_exam >= 0:
-        if days_since_exam == 0:
-            recovery = -(state.academic_pressure - base)  # Reset to base
-        else:
-            recovery = -2 * days_since_exam
+    if days_since_exam is not None and days_since_exam > 0:
+        recovery = -2 * days_since_exam
 
-    pressure = base + countdown_delta + exam_shock + recovery
+    pressure = base + countdown_delta + recovery
     state.academic_pressure = clamp(pressure, 0, 100)
     return state
 

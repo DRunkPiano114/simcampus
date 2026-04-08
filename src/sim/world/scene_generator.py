@@ -71,8 +71,24 @@ class SceneGenerator:
             agent_ids.append("he_min")
             teacher_action = None  # she's a real participant now
 
-        # Inject random events for triggered LOW scenes
+        # Teacher patrol events for non-participant teacher
         injected_events: list[str] = []
+        if not teacher_present and config.name in ("晚自习", "早读", "上课"):
+            if "he_min" in self.profiles:
+                from .homeroom_teacher import HomeroomTeacher
+                ht = HomeroomTeacher(self.profiles["he_min"], self.rng)
+                # 晚自习/早读 have internal 30% gates; 上课 always returns so gate here
+                if config.name == "上课":
+                    if self.rng.random() < 0.3:
+                        patrol = ht.patrol_event(config.name, day)
+                    else:
+                        patrol = None
+                else:
+                    patrol = ht.patrol_event(config.name, day)
+                if patrol:
+                    injected_events.append(patrol["text"])
+
+        # Inject random events for triggered LOW scenes
         if config.density == SceneDensity.HIGH_LIGHT:
             event = self.rng.choice([
                 # 负面/冲突

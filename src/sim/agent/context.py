@@ -109,6 +109,8 @@ def prepare_context(
 
     return {
         "role_description": role_desc,
+        "is_student": profile.role == Role.STUDENT,
+        "is_teacher": profile.role != Role.STUDENT,
         "profile_summary": _profile_summary(profile),
         "relationships": rels_with_labels,
         "today_events": today_events,

@@ -15,6 +15,7 @@ from ..agent.state_update import (
     maybe_decay_emotion,
     regress_relationships,
     reset_energy_for_sleep,
+    update_academic_pressure,
     update_energy,
 )
 from ..agent.storage import WorldStorage
@@ -32,6 +33,15 @@ from .scene_end import run_scene_end_analysis
 from .self_reflection import run_all_reflections
 from .solo import run_solo_reflection
 from .turn import run_group_dialogue
+from ..world.exam import (
+    apply_exam_effects,
+    format_exam_context,
+    format_teacher_exam_context,
+    generate_exam_results,
+    load_previous_exam_results,
+    save_exam_results,
+)
+from ..world.homeroom_teacher import HomeroomTeacher
 
 
 def serialize_tick_records(
@@ -110,6 +120,7 @@ class Orchestrator:
         self.semaphore = asyncio.Semaphore(settings.max_concurrent_llm_calls)
         self._trajectory: DayTrajectory | None = None
         self._scene_files: list[Path] = []  # track scene files written this day
+        self._exam_results: dict | None = None
 
     def _scene_file_path(self, day: int, scene: Scene) -> Path:
         time_prefix = scene.time.replace(":", "")  # "08:45" → "0845"
@@ -135,6 +146,44 @@ class Orchestrator:
     def _active_agent_ids(self) -> list[str]:
         return list(self.profiles.keys())
 
+    def _run_exam(self, day: int, progress: Progress) -> None:
+        logger.info("Running exam...")
+        previous = load_previous_exam_results(day)
+        results = generate_exam_results(self.profiles, self.states, self.rng, previous)
+        apply_exam_effects(results, self.world, self.profiles)
+        save_exam_results(results, day)
+
+        # Reload states after apply_exam_effects wrote to disk
+        self.states = {
+            aid: self.world.get_agent(aid).load_state()
+            for aid in self.profiles
+        }
+
+        # Teacher post-exam actions (counseling struggling students)
+        if "he_min" in self.profiles:
+            eq = self.world.load_event_queue()
+            event_manager = EventQueueManager(eq, self.rng)
+            ht = HomeroomTeacher(self.profiles["he_min"], self.rng)
+            ht.post_exam_actions(results, event_manager, day)
+            self.world.save_event_queue(event_manager.eq)
+
+        progress.last_exam_day = day
+        progress.next_exam_in_days = settings.exam_interval_days
+        self._exam_results = results
+
+    def _get_exam_context_for_agent(self, aid: str) -> str:
+        if not self._exam_results:
+            return ""
+        profile = self.profiles.get(aid)
+        if profile and profile.role != Role.STUDENT:
+            return format_teacher_exam_context(self._exam_results)
+        return format_exam_context(self._exam_results, aid)
+
+    def _build_group_exam_context(self, agent_ids: list[str]) -> dict[str, str] | None:
+        if not self._exam_results:
+            return None
+        return {aid: self._get_exam_context_for_agent(aid) for aid in agent_ids}
+
     async def run(self, start_day: int, end_day: int) -> None:
         progress = self.world.load_progress()
 
@@ -157,6 +206,12 @@ class Orchestrator:
             progress.current_day = day
             self._load_all_data()
             self._scene_files = []
+            self._exam_results = None
+
+            # Run exam if countdown reached zero
+            if progress.next_exam_in_days <= 0:
+                self._run_exam(day, progress)
+                self._save_progress(progress)
 
             # Only clear snapshots when starting a fresh day, not on resume
             if progress.day_phase == "daily_plan":
@@ -383,11 +438,13 @@ class Orchestrator:
             if group.is_solo:
                 # Solo reflection
                 aid = group.agent_ids[0]
+                solo_exam_ctx = self._get_exam_context_for_agent(aid)
                 reflection = await run_solo_reflection(
                     aid, storages[aid], self.profiles[aid], self.states[aid],
                     group_scene, self.profiles,
                     event_manager.get_known_events(aid),
                     progress.next_exam_in_days, day,
+                    exam_context=solo_exam_ctx,
                 )
                 apply_solo_result(reflection, storages[aid], self.profiles[aid], group_scene, day)
                 groups_data.append({
@@ -410,10 +467,12 @@ class Orchestrator:
                     aid: event_manager.get_active_events_for_group(group.agent_ids)
                     for aid in group.agent_ids
                 }
+                group_exam_ctx = self._build_group_exam_context(group.agent_ids)
                 turn_records = await run_group_dialogue(
                     group.agent_ids, group_scene, storages, self.profiles,
                     self.states, known_events, progress.next_exam_in_days,
                     day, self.rng, self.semaphore,
+                    exam_context=group_exam_ctx,
                     group_index=gc.group_index,
                 )
                 gc.status = "llm_done"
@@ -553,6 +612,13 @@ class Orchestrator:
             state = reset_energy_for_sleep(state)
             state = decay_concerns(state)
             state = maybe_decay_emotion(state, scenes_since_extreme=2, rng=self.rng)
+            profile = self.profiles[aid]
+            if profile.role == Role.STUDENT:
+                days_since = (day - progress.last_exam_day) if progress.last_exam_day is not None else None
+                state = update_academic_pressure(
+                    state, profile.family_background.pressure_level,
+                    progress.next_exam_in_days, days_since_exam=days_since,
+                )
             storage.save_state(state)
             # Relationship regression (same loop, one load+save)
             rels = storage.load_relationships()
