@@ -1,7 +1,7 @@
 import { Container } from 'pixi.js'
 
 const LERP_SPEED = 0.08
-const MIN_ZOOM = 0.5
+const MIN_ZOOM = 0.3
 const MAX_ZOOM = 3
 const ZOOM_STEP = 0.1
 
@@ -42,6 +42,25 @@ export class Camera {
   /** Set zoom level for smooth transition. */
   zoomTo(zoom: number) {
     this.targetZoom = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, zoom))
+  }
+
+  /** Snap camera to fit room within viewport, accounting for UI overlay insets. */
+  fitToRoom(
+    roomW: number,
+    roomH: number,
+    inset: { top: number; bottom: number; left: number; right: number },
+  ) {
+    const viewW = this.canvasWidth - inset.left - inset.right
+    const viewH = this.canvasHeight - inset.top - inset.bottom
+    const zoom = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, Math.min(viewW / roomW, viewH / roomH)))
+    this.targetZoom = zoom
+    this.currentZoom = zoom
+    // Center on room center, offset by inset asymmetry
+    const offsetX = (inset.left - inset.right) / 2 / zoom
+    const offsetY = (inset.top - inset.bottom) / 2 / zoom
+    this.targetX = roomW / 2 - offsetX
+    this.targetY = roomH / 2 - offsetY
+    this.apply(this.targetX, this.targetY, zoom)
   }
 
   /** Call every frame (from PixiJS Ticker). */

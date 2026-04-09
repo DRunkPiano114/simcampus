@@ -11,9 +11,9 @@ export const ROOMS: Record<RoomId, RoomLayout> = {
   '走廊': {
     id: '走廊', label: 'Hallway', cols: 28, rows: 10,
     zones: [
-      { id: 'left', x: 3, y: 4, capacity: 4 },
-      { id: 'center', x: 12, y: 4, capacity: 4 },
-      { id: 'right', x: 21, y: 4, capacity: 4 },
+      { id: 'left', x: 6, y: 4, capacity: 4 },
+      { id: 'center', x: 14, y: 4, capacity: 4 },
+      { id: 'right', x: 22, y: 4, capacity: 4 },
     ],
   },
   '食堂': {
@@ -117,12 +117,18 @@ export function derivePositions(
   const zone = availableZones[groupIndex % availableZones.length]
   const positions: Record<string, { x: number; y: number }> = {}
 
+  const pad = TILE * 1.5
+  const minX = pad
+  const maxX = (layout.cols - 1) * TILE - pad
+  const minY = pad
+  const maxY = (layout.rows - 1) * TILE - pad
+
   participants.forEach((id, i) => {
     const angle = (i / participants.length) * Math.PI * 2
-    const spread = Math.min(participants.length, 4) * TILE * 0.6
+    const spread = Math.min(participants.length, 4) * TILE * 1.0
     positions[id] = {
-      x: zone.x * TILE + Math.cos(angle) * spread,
-      y: zone.y * TILE + Math.sin(angle) * spread * 0.6,
+      x: Math.max(minX, Math.min(maxX, zone.x * TILE + Math.cos(angle) * spread)),
+      y: Math.max(minY, Math.min(maxY, zone.y * TILE + Math.sin(angle) * spread * 0.6)),
     }
   })
 

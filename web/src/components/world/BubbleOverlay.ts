@@ -118,11 +118,19 @@ export class BubbleOverlay {
 
     // Batch writes
     for (let i = 0; i < updates.length; i++) {
-      const { el } = updates[i]
-      const { left, top } = rects[i]
+      const { el, x: spriteX } = updates[i]
+      const { left, top, w } = rects[i]
       el.style.display = ''
       el.style.transform = `translate(${left}px, ${top}px)`
       el.style.opacity = '1'
+
+      // Dynamic arrow: point at the character's actual screen X
+      const arrow = el.querySelector('.bubble-arrow') as HTMLDivElement | null
+      if (arrow) {
+        const arrowX = Math.max(10, Math.min(spriteX - left, w - 10))
+        arrow.style.left = `${arrowX}px`
+        arrow.style.marginLeft = '-6px'
+      }
     }
   }
 
@@ -164,7 +172,7 @@ export class BubbleOverlay {
         position: 'absolute',
         left: '0',
         top: '0',
-        maxWidth: '150px',
+        maxWidth: '180px',
         padding: '2px 6px',
         borderRadius: '4px',
         fontSize: '11px',
@@ -173,9 +181,8 @@ export class BubbleOverlay {
         fontStyle: 'italic',
         color: 'rgba(255,255,255,0.6)',
         background: 'rgba(0,0,0,0.25)',
-        whiteSpace: 'nowrap',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
+        whiteSpace: 'pre-wrap',
+        wordBreak: 'break-all',
         pointerEvents: 'none',
         opacity: '0',
         transition: 'opacity 0.3s',
@@ -235,27 +242,29 @@ export class BubbleOverlay {
 
     Object.assign(el.style, {
       background: isThought
-        ? 'rgba(233,69,96,0.12)'
+        ? 'rgba(255,235,240,0.92)'
         : isWhisper
-          ? 'rgba(180,180,200,0.15)'
+          ? 'rgba(225,225,240,0.9)'
           : '#faf3e0',
       border: isThought
-        ? '1.5px dashed rgba(233,69,96,0.4)'
+        ? '1.5px dashed rgba(233,69,96,0.5)'
         : isWhisper
-          ? '1px dashed #aaa'
+          ? '1.5px dashed #9a9ab0'
           : '1.5px solid #e0d5c0',
       fontStyle: isThought ? 'italic' : 'normal',
-      color: isThought ? '#c0475a' : isWhisper ? '#888' : '#2c2c2c',
+      color: isThought ? '#c0475a' : isWhisper ? '#444' : '#2c2c2c',
     })
 
     const nameHtml = `<span style="font-weight:600;font-size:11px;opacity:0.7">${b.displayName}</span><br/>`
 
     let html = isWhisper
-      ? `<span style="font-size:12px;color:#888">${b.text}</span>`
+      ? (b.subtext
+          ? `${nameHtml}<span style="font-size:12px">${b.text}</span>`
+          : `<span style="font-size:12px;color:#888">${b.text}</span>`)
       : `${nameHtml}${b.text}`
 
-    // Inline inner thought below speech content (mind-reading mode)
-    if (b.subtext && b.type === 'speech') {
+    // Inline inner thought below speech/whisper content (mind-reading mode)
+    if (b.subtext && (b.type === 'speech' || b.type === 'whisper_notice')) {
       html += `<div style="margin-top:3px;padding-top:3px;border-top:1px dashed rgba(233,69,96,0.3);font-style:italic;font-size:11px;color:#c0475a;font-family:'LXGW WenKai',serif">${b.subtext}</div>`
     }
 
@@ -265,8 +274,8 @@ export class BubbleOverlay {
     const arrow = el.querySelector('.bubble-arrow') as HTMLDivElement | null
         ?? document.createElement('div')
     arrow.className = 'bubble-arrow'
-    const arrowColor = isThought ? 'rgba(233,69,96,0.12)'
-      : isWhisper ? 'rgba(180,180,200,0.15)'
+    const arrowColor = isThought ? 'rgba(255,235,240,0.92)'
+      : isWhisper ? 'rgba(225,225,240,0.9)'
       : '#faf3e0'
     Object.assign(arrow.style, {
       position: 'absolute',

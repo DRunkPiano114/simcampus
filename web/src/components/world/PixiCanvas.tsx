@@ -23,6 +23,9 @@ import type { SceneGroup } from '../../lib/types'
 
 extend({ Container, Graphics })
 
+// TopBar ~48px, BottomBar ~72px, RoomNav ~180px
+const UI_INSET = { top: 48, bottom: 72, left: 180, right: 0 }
+
 // --- data loading ---
 
 function useDataLoader() {
@@ -91,8 +94,8 @@ function WorldScene() {
       wrapper.className = 'pixi-wrapper'
       Object.assign(wrapper.style, {
         position: 'relative',
-        width: `${canvas.width}px`,
-        height: `${canvas.height}px`,
+        width: '100%',
+        height: '100%',
       })
       parent.insertBefore(wrapper, canvas)
       wrapper.appendChild(canvas)
@@ -109,16 +112,16 @@ function WorldScene() {
     }
   }, [app])
 
-  // Setup world container with camera
+  // Setup world container with camera (only depends on app, not room)
   const worldContainerRef = useCallback((node: Container | null) => {
     worldRef.current = node
     if (node && app.canvas) {
       const cam = new Camera(node, app.canvas.width, app.canvas.height)
-      const room = ROOMS[currentRoom]
-      cam.jumpTo((room.cols * TILE) / 2, (room.rows * TILE) / 2, 1)
+      const room = ROOMS[useWorldStore.getState().currentRoom]
+      cam.fitToRoom(room.cols * TILE, room.rows * TILE, UI_INSET)
       cameraRef.current = cam
     }
-  }, [app, currentRoom])
+  }, [app])
 
   // Manage character sprites
   useEffect(() => {
@@ -242,8 +245,10 @@ function WorldScene() {
       bubbles.push({
         agentId: w.from,
         displayName: fromName,
-        text: mindReading ? w.content : `${fromName}对${toName}说了悄悄话`,
-        type: mindReading ? 'speech' : 'whisper_notice',
+        text: mindReading
+          ? `🤫 → ${toName}\n${w.content}`
+          : `${fromName}对${toName}说了悄悄话`,
+        type: 'whisper_notice',
         target: w.to,
         subtext: mindReading ? tick.minds[w.from]?.inner_thought : undefined,
       })
@@ -286,13 +291,34 @@ function WorldScene() {
     prevTickRef.current = currentTick
   }, [sceneFile, groupIdx, currentTick, mindReading, focusedAgent, mode])
 
-  // Camera: center on room when room changes
+  // Camera: fit to room when room changes
   useEffect(() => {
     const room = ROOMS[currentRoom]
-    if (room && cameraRef.current) {
-      cameraRef.current.panTo((room.cols * TILE) / 2, (room.rows * TILE) / 2)
-    }
+    const cam = cameraRef.current
+    if (!room || !cam) return
+    cam.fitToRoom(room.cols * TILE, room.rows * TILE, UI_INSET)
   }, [currentRoom])
+
+  // ResizeObserver: keep canvas + camera in sync with viewport
+  useEffect(() => {
+    const cam = cameraRef.current
+    const canvas = app.canvas as HTMLCanvasElement
+    if (!cam || !canvas) return
+
+    const onResize = () => {
+      const parent = canvas.parentElement
+      if (!parent) return
+      const { clientWidth: vw, clientHeight: vh } = parent
+      app.renderer.resize(vw, vh)
+      cam.resize(vw, vh)
+      const room = ROOMS[currentRoom]
+      cam.fitToRoom(room.cols * TILE, room.rows * TILE, UI_INSET)
+    }
+
+    const ro = new ResizeObserver(onResize)
+    ro.observe(canvas.parentElement!)
+    return () => ro.disconnect()
+  }, [app, currentRoom])
 
   // Ticker: update camera + bubble positions
   useTick(() => {
@@ -346,22 +372,11 @@ function WorldScene() {
   )
 }
 
-// --- canvas size from room ---
-
-function useRoomSize() {
-  const room = useWorldStore(s => s.currentRoom)
-  const layout = ROOMS[room]
-  return { w: layout.cols * TILE, h: layout.rows * TILE }
-}
-
 // --- main export ---
 
 export function PixiCanvas() {
   useDataLoader()
 
-  const { w, h } = useRoomSize()
-
-  // Start playback controller
   useEffect(() => {
     playbackController.start()
     return () => playbackController.stop()
@@ -369,10 +384,10 @@ export function PixiCanvas() {
 
   return (
     <div className="w-screen h-screen bg-[#1a1a2e] overflow-hidden relative">
-      <div className="w-full h-full flex items-center justify-center">
+      <div className="w-full h-full">
         <Application
-          width={w}
-          height={h}
+          width={window.innerWidth}
+          height={window.innerHeight}
           background={0x1a1a2e}
           antialias={false}
           resolution={1}
