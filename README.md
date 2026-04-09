@@ -24,6 +24,14 @@ uv run python scripts/inspect_state.py           # inspect state (--agent lin_zh
 uv run python scripts/export_frontend_data.py    # export sim data → web/public/data/
 ```
 
+## API Server
+
+```bash
+uv run api                                       # start API at localhost:8000
+```
+
+God Mode and Role Play chat features require the API server running alongside the frontend.
+
 ## Frontend
 
 ```bash
