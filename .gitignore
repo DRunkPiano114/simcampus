@@ -29,3 +29,4 @@ web/public/data/
 # assets (purchased, not redistributable)
 /assets/
 web/public/assets/
+*.tsbuildinfo
