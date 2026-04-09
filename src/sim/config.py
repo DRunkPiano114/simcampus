@@ -18,6 +18,7 @@ class Settings(BaseSettings):
 
     # LLM
     llm_model: str = "deepseek/deepseek-chat"
+    llm_fallback_model: str = "openrouter/google/gemini-3-flash-preview"
     creative_temperature: float = 0.9
     analytical_temperature: float = 0.3
     plan_temperature: float = 0.7

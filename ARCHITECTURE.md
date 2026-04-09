@@ -814,7 +814,7 @@ src/sim/
     apply_results.py             # apply_scene_end_results() + apply_solo_result() + write_scene_file() + concern_match()
     solo.py                      # run_solo_reflection() — solo agent inner monologue
   llm/                           # LLM infrastructure
-    client.py                    # structured_call() via Instructor + LiteLLM
+    client.py                    # structured_call() via Instructor + LiteLLM; auto-fallback to llm_fallback_model on failure
     prompts.py                   # render() — Jinja2 template rendering
     logger.py                    # log_llm_call() — per-call JSON logging + cost tracking
   memory/                        # Memory management
@@ -844,6 +844,7 @@ All settings via `pydantic-settings` `BaseSettings`, loaded from `.env` file, ov
 | Setting | Default | Description |
 |---------|---------|-------------|
 | `llm_model` | `deepseek/deepseek-chat` | LiteLLM model identifier |
+| `llm_fallback_model` | `openrouter/google/gemini-3-flash-preview` | Fallback model for structured calls when primary fails validation |
 | `creative_temperature` | 0.9 | Dialogue turns, solo reflection |
 | `analytical_temperature` | 0.3 | Scene-end analysis |
 | `plan_temperature` | 0.7 | Daily plan generation |

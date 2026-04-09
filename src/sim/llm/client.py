@@ -27,20 +27,22 @@ def get_instructor_client() -> instructor.AsyncInstructor:
     )
 
 
-async def structured_call(
+async def _do_structured_call(
+    model: str,
     response_model: type,
     messages: list[dict],
-    temperature: float | None = None,
-    max_tokens: int | None = None,
+    temperature: float,
+    max_tokens: int,
+    max_retries: int,
 ) -> LLMResult:
     client = get_instructor_client()
     result, completion = await client.chat.completions.create_with_completion(
-        model=settings.llm_model,
+        model=model,
         messages=messages,
         response_model=response_model,
-        temperature=temperature if temperature is not None else settings.creative_temperature,
-        max_tokens=max_tokens if max_tokens is not None else settings.max_tokens_per_turn,
-        max_retries=settings.max_retries,
+        temperature=temperature,
+        max_tokens=max_tokens,
+        max_retries=max_retries,
     )
 
     usage = getattr(completion, "usage", None)
@@ -50,7 +52,7 @@ async def structured_call(
     try:
         cost = litellm.completion_cost(
             completion_response=completion,
-            model=settings.llm_model,
+            model=model,
         )
     except Exception:
         cost = 0.0
@@ -61,6 +63,34 @@ async def structured_call(
         tokens_completion=tokens_completion,
         cost_usd=cost,
     )
+
+
+async def structured_call(
+    response_model: type,
+    messages: list[dict],
+    temperature: float | None = None,
+    max_tokens: int | None = None,
+) -> LLMResult:
+    temp = temperature if temperature is not None else settings.creative_temperature
+    tokens = max_tokens if max_tokens is not None else settings.max_tokens_per_turn
+
+    try:
+        return await _do_structured_call(
+            settings.llm_model, response_model, messages,
+            temp, tokens, settings.max_retries,
+        )
+    except Exception as exc:
+        if not settings.llm_fallback_model or settings.llm_fallback_model == settings.llm_model:
+            raise
+        from loguru import logger
+        logger.warning(
+            f"structured_call failed with {settings.llm_model}, "
+            f"falling back to {settings.llm_fallback_model}: {exc!r}"
+        )
+        return await _do_structured_call(
+            settings.llm_fallback_model, response_model, messages,
+            temp, tokens, settings.max_retries,
+        )
 
 
 async def streaming_text_call(
