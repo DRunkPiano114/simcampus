@@ -4,7 +4,7 @@ export interface BubbleData {
   agentId: string
   displayName: string
   text: string
-  type: 'speech' | 'thought' | 'whisper_notice' | 'emoji' | 'action'
+  type: 'speech' | 'thought' | 'emoji' | 'action'
   target?: string
   /** Inline inner thought shown below speech content (mind-reading mode) */
   subtext?: string
@@ -238,33 +238,20 @@ export class BubbleOverlay {
     }
 
     const isThought = b.type === 'thought'
-    const isWhisper = b.type === 'whisper_notice'
 
     Object.assign(el.style, {
-      background: isThought
-        ? 'rgba(255,235,240,0.92)'
-        : isWhisper
-          ? 'rgba(225,225,240,0.9)'
-          : '#faf3e0',
-      border: isThought
-        ? '1.5px dashed rgba(233,69,96,0.5)'
-        : isWhisper
-          ? '1.5px dashed #9a9ab0'
-          : '1.5px solid #e0d5c0',
+      background: isThought ? 'rgba(255,235,240,0.92)' : '#faf3e0',
+      border: isThought ? '1.5px dashed rgba(233,69,96,0.5)' : '1.5px solid #e0d5c0',
       fontStyle: isThought ? 'italic' : 'normal',
-      color: isThought ? '#c0475a' : isWhisper ? '#444' : '#2c2c2c',
+      color: isThought ? '#c0475a' : '#2c2c2c',
     })
 
     const nameHtml = `<span style="font-weight:600;font-size:11px;opacity:0.7">${b.displayName}</span><br/>`
 
-    let html = isWhisper
-      ? (b.subtext
-          ? `${nameHtml}<span style="font-size:12px">${b.text}</span>`
-          : `<span style="font-size:12px;color:#888">${b.text}</span>`)
-      : `${nameHtml}${b.text}`
+    let html = `${nameHtml}${b.text}`
 
-    // Inline inner thought below speech/whisper content (mind-reading mode)
-    if (b.subtext && (b.type === 'speech' || b.type === 'whisper_notice')) {
+    // Inline inner thought below speech content (mind-reading mode)
+    if (b.subtext && b.type === 'speech') {
       html += `<div style="margin-top:3px;padding-top:3px;border-top:1px dashed rgba(233,69,96,0.3);font-style:italic;font-size:11px;color:#c0475a;font-family:'LXGW WenKai',serif">${b.subtext}</div>`
     }
 
@@ -274,9 +261,7 @@ export class BubbleOverlay {
     const arrow = el.querySelector('.bubble-arrow') as HTMLDivElement | null
         ?? document.createElement('div')
     arrow.className = 'bubble-arrow'
-    const arrowColor = isThought ? 'rgba(255,235,240,0.92)'
-      : isWhisper ? 'rgba(225,225,240,0.9)'
-      : '#faf3e0'
+    const arrowColor = isThought ? 'rgba(255,235,240,0.92)' : '#faf3e0'
     Object.assign(arrow.style, {
       position: 'absolute',
       left: '50%',

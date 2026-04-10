@@ -232,12 +232,6 @@ async def run_group_dialogue(
         for aid in gated:
             outputs[aid] = _make_gated_output(last_perception[aid])
 
-        # Safety net: convert whisper to speech in dorm scenes
-        if scene.location == "宿舍":
-            for aid, out in outputs.items():
-                if out.action_type == ActionType.WHISPER:
-                    out.action_type = ActionType.SPEAK
-
         # Update in-memory emotions (only for fresh perceptions, not gated)
         for aid in perceiving:
             if aid in outputs:
@@ -257,7 +251,6 @@ async def run_group_dialogue(
             "agent_outputs": outputs,
             "resolved_speech": result.resolved_speech,
             "resolved_actions": result.resolved_actions,
-            "whisper_events": result.whisper_events,
             "environmental_event": result.environmental_event,
             "exits": result.exits,
         }
@@ -275,9 +268,6 @@ async def run_group_dialogue(
         for aid, out in result.resolved_actions:
             logger.info(f"  Tick {tick}: {profiles[aid].name}(动作): {out.action_content}")
 
-        for from_id, to_id, _ in result.whisper_events:
-            logger.info(f"  Tick {tick}: {profiles[from_id].name}(悄悄话→{profiles[to_id].name})")
-
         for aid in result.exits:
             logger.info(f"  Tick {tick}: {profiles[aid].name} 离开了")
 
@@ -288,7 +278,6 @@ async def run_group_dialogue(
         latest_event = format_latest_event(
             result.resolved_speech,
             result.resolved_actions,
-            result.whisper_events,
             result.environmental_event,
             result.exits,
             profiles,

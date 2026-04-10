@@ -2,12 +2,11 @@ import type { Tick, SceneGroup, GroupData, SceneIndexEntry } from './types'
 
 /**
  * Drama score for a single tick.
- * Formula from design doc: whisper*4 + speak*1 + disruptive*5 + urgency*0.5 + exit*2
+ * Formula: speak*1 + disruptive*5 + urgency*0.5 + exit*2
  */
 export function scoreTick(tick: Tick): number {
   const p = tick.public
   const speakCount = p.speech ? 1 : 0
-  const whisperCount = p.whispers.length
   const exitCount = p.exits.length
 
   const minds = Object.values(tick.minds)
@@ -17,7 +16,6 @@ export function scoreTick(tick: Tick): number {
     : 0
 
   return (
-    whisperCount * 4 +
     speakCount * 1 +
     disruptiveCount * 5 +
     maxUrgency * 0.5 +

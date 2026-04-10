@@ -2,7 +2,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-ActionType = Literal["speak", "whisper", "action", "silence"]
+ActionType = Literal["speak", "action", "silence"]
 
 
 class ChatMessage(BaseModel):

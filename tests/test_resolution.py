@@ -45,32 +45,31 @@ def _fresh_state(agents=("a", "b", "c")) -> ResolutionState:
     return ResolutionState(active_agents=set(agents))
 
 
-def test_all_observe_no_termination_before_min_ticks():
-    """3 consecutive observes but tick_count < min_ticks → no end."""
+def test_quiet_no_termination_before_min_ticks():
+    """Quiet ticks but tick_count < min_ticks → no end."""
     state = _fresh_state()
     for _ in range(3):
         outputs = {aid: _make_output() for aid in ("a", "b", "c")}
         result = resolve_tick(outputs, state, PROFILES, STATES, None, RNG)
         state = result.updated_state
-    # tick_count is now 3, consecutive_all_observe is 3
-    # min_ticks_before_termination defaults to 3, so it should end
-    assert result.scene_should_end is True
+    # tick_count is 3 (meets min), but consecutive_quiet is 3 < 4 (new threshold)
+    assert result.scene_should_end is False
 
 
-def test_all_observe_termination():
-    """3 consecutive observes after min_ticks → scene ends."""
+def test_quiet_tick_termination():
+    """4 consecutive quiet ticks after min_ticks → scene ends."""
     state = _fresh_state()
     state.tick_count = 5  # Already past min
-    for i in range(3):
+    for _ in range(4):
         outputs = {aid: _make_output() for aid in ("a", "b", "c")}
         result = resolve_tick(outputs, state, PROFILES, STATES, None, RNG)
         state = result.updated_state
     assert result.scene_should_end is True
-    assert state.consecutive_all_observe == 3
+    assert state.consecutive_quiet == 4
 
 
 def test_min_tick_prevents_early_termination():
-    """All observe on tick 1 and 2 shouldn't end scene."""
+    """Quiet ticks on tick 1 and 2 shouldn't end scene."""
     state = _fresh_state()
     for _ in range(2):
         outputs = {aid: _make_output() for aid in ("a", "b", "c")}
@@ -199,22 +198,6 @@ def test_queue_target_exit_discard():
     assert result.resolved_speech is None  # b's target exited, discarded
 
 
-def test_whisper_events():
-    """Whisper creates proper events."""
-    state = _fresh_state()
-    outputs = {
-        "a": _make_output(ActionType.WHISPER, urgency=5, action_content="秘密", action_target="李明"),
-        "b": _make_output(),
-        "c": _make_output(),
-    }
-    result = resolve_tick(outputs, state, PROFILES, STATES, None, RNG)
-    assert len(result.whisper_events) == 1
-    from_id, to_id, content = result.whisper_events[0]
-    assert from_id == "a"
-    assert to_id == "b"
-    assert content == "秘密"
-
-
 def test_disruptive_non_verbal_creates_environmental_event():
     """Disruptive non-verbal action generates environmental event."""
     state = _fresh_state()
@@ -301,15 +284,15 @@ def test_non_verbal_simultaneous_with_speech():
     assert result.resolved_actions[0][0] == "b"
 
 
-def test_observe_resets_consecutive_count():
-    """A non-all-observe tick resets the consecutive counter."""
+def test_speech_resets_quiet_count():
+    """Speech resets the consecutive quiet counter."""
     state = _fresh_state()
-    # Two all-observe ticks
+    # Two quiet ticks
     for _ in range(2):
         outputs = {aid: _make_output() for aid in ("a", "b", "c")}
         result = resolve_tick(outputs, state, PROFILES, STATES, None, RNG)
         state = result.updated_state
-    assert state.consecutive_all_observe == 2
+    assert state.consecutive_quiet == 2
 
     # One tick with speech breaks the streak
     outputs = {
@@ -318,4 +301,78 @@ def test_observe_resets_consecutive_count():
         "c": _make_output(),
     }
     result = resolve_tick(outputs, state, PROFILES, STATES, None, RNG)
-    assert result.updated_state.consecutive_all_observe == 0
+    assert result.updated_state.consecutive_quiet == 0
+
+
+def test_non_verbal_allows_quiet_tick():
+    """Non-disruptive NON_VERBAL + OBSERVE mix → quiet tick increments."""
+    state = _fresh_state()
+    outputs = {
+        "a": _make_output(ActionType.NON_VERBAL, urgency=3, action_content="低头写字"),
+        "b": _make_output(),  # OBSERVE
+        "c": _make_output(),  # OBSERVE
+    }
+    result = resolve_tick(outputs, state, PROFILES, STATES, None, RNG)
+    assert result.updated_state.consecutive_quiet == 1
+
+
+def test_disruptive_non_verbal_resets_quiet():
+    """Disruptive NON_VERBAL sets environmental_event → counter resets."""
+    state = _fresh_state()
+    # First: one quiet tick
+    outputs = {aid: _make_output() for aid in ("a", "b", "c")}
+    result = resolve_tick(outputs, state, PROFILES, STATES, None, RNG)
+    state = result.updated_state
+    assert state.consecutive_quiet == 1
+
+    # Then: disruptive action
+    outputs = {
+        "a": _make_output(ActionType.NON_VERBAL, urgency=7, action_content="拍桌子", is_disruptive=True),
+        "b": _make_output(),
+        "c": _make_output(),
+    }
+    result = resolve_tick(outputs, state, PROFILES, STATES, None, RNG)
+    assert result.updated_state.consecutive_quiet == 0
+
+
+def test_queued_speaker_prevents_quiet():
+    """Non-empty queue → not quiet even if no speech resolved this tick."""
+    state = _fresh_state()
+    # Two speakers: winner + loser queued
+    outputs = {
+        "a": _make_output(ActionType.SPEAK, urgency=8, action_content="先说"),
+        "b": _make_output(ActionType.SPEAK, urgency=5, action_content="我也说"),
+        "c": _make_output(),
+    }
+    result = resolve_tick(outputs, state, PROFILES, STATES, None, RNG)
+    # Speech resolved, so not quiet anyway, but queue has b
+    assert result.updated_state.consecutive_quiet == 0
+
+    # Next tick: only observers, but b is still queued
+    outputs2 = {
+        "a": _make_output(),
+        "c": _make_output(),
+    }
+    result2 = resolve_tick(outputs2, result.updated_state, PROFILES, STATES, None, RNG)
+    # b speaks from queue → not quiet
+    assert result2.updated_state.consecutive_quiet == 0
+
+
+def test_speech_after_quiet_resets_counter():
+    """consecutive_quiet=2 then someone SPEAKs → counter resets to 0."""
+    state = _fresh_state()
+    # Two quiet ticks
+    for _ in range(2):
+        outputs = {aid: _make_output() for aid in ("a", "b", "c")}
+        result = resolve_tick(outputs, state, PROFILES, STATES, None, RNG)
+        state = result.updated_state
+    assert state.consecutive_quiet == 2
+
+    # Speech resumes
+    outputs = {
+        "a": _make_output(ActionType.SPEAK, urgency=5, action_content="其实我想说"),
+        "b": _make_output(),
+        "c": _make_output(),
+    }
+    result = resolve_tick(outputs, state, PROFILES, STATES, None, RNG)
+    assert result.updated_state.consecutive_quiet == 0

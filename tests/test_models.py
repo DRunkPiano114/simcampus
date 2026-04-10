@@ -64,7 +64,6 @@ def test_is_disruptive_default():
 
 def test_action_types():
     assert ActionType.SPEAK == "speak"
-    assert ActionType.WHISPER == "whisper"
     assert ActionType.NON_VERBAL == "non_verbal"
     assert ActionType.OBSERVE == "observe"
     assert ActionType.EXIT == "exit"

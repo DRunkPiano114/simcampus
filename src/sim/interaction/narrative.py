@@ -9,14 +9,6 @@ def _format_speech(name: str, output: PerceptionOutput) -> str:
     return f"  {name}(说话{target}): {output.action_content}"
 
 
-def _format_whisper_public(from_name: str, to_name: str) -> str:
-    return f"  [{from_name}对{to_name}说了悄悄话]"
-
-
-def _format_whisper_private(from_name: str, content: str) -> str:
-    return f"  {from_name}(悄悄话): {content}"
-
-
 def _format_non_verbal(name: str, output: PerceptionOutput) -> str:
     return f"  {name}(动作): {output.action_content}"
 
@@ -71,9 +63,6 @@ def format_public_transcript(
         for aid, output in rec.get("resolved_actions", []):
             tick_lines.append(_format_non_verbal(profiles[aid].name, output))
 
-        for from_id, to_id, *_ in rec.get("whisper_events", []):
-            tick_lines.append(_format_whisper_public(profiles[from_id].name, profiles[to_id].name))
-
         for aid in rec.get("exits", []):
             output = rec["agent_outputs"].get(aid)
             if output:
@@ -124,13 +113,6 @@ def format_agent_transcript(
         for aid, output in rec.get("resolved_actions", []):
             tick_lines.append(_format_non_verbal(profiles[aid].name, output))
 
-        # Whispers: show full content if agent is the target
-        for from_id, to_id, content in rec.get("whisper_events", []):
-            if to_id == agent_id:
-                tick_lines.append(_format_whisper_private(profiles[from_id].name, content))
-            else:
-                tick_lines.append(_format_whisper_public(profiles[from_id].name, profiles[to_id].name))
-
         for aid in rec.get("exits", []):
             agent_out = rec["agent_outputs"].get(aid)
             if agent_out:
@@ -151,7 +133,6 @@ def format_agent_transcript(
 def format_latest_event(
     result_resolved_speech: tuple[str, PerceptionOutput] | None,
     result_resolved_actions: list[tuple[str, PerceptionOutput]],
-    result_whisper_events: list[tuple[str, str, str]],
     result_environmental_event: str | None,
     result_exits: list[str],
     profiles: dict[str, AgentProfile],
@@ -169,9 +150,6 @@ def format_latest_event(
 
     for aid, output in result_resolved_actions:
         parts.append(f"{profiles[aid].name}{output.action_content}")
-
-    for from_id, to_id, _ in result_whisper_events:
-        parts.append(f"{profiles[from_id].name}对{profiles[to_id].name}说了悄悄话")
 
     for aid in result_exits:
         parts.append(f"{profiles[aid].name}离开了")

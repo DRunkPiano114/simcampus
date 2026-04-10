@@ -44,28 +44,12 @@ def test_public_transcript_speech():
         },
         "resolved_speech": ("a", _make_output(ActionType.SPEAK, action_content="你好")),
         "resolved_actions": [],
-        "whisper_events": [],
         "environmental_event": None,
         "exits": [],
     }]
     result = format_public_transcript(records, PROFILES)
     assert "张伟" in result
     assert "你好" in result
-
-
-def test_public_transcript_whisper_hides_content():
-    records = [{
-        "tick": 0,
-        "agent_outputs": {},
-        "resolved_speech": None,
-        "resolved_actions": [],
-        "whisper_events": [("a", "b", "秘密内容")],
-        "environmental_event": None,
-        "exits": [],
-    }]
-    result = format_public_transcript(records, PROFILES)
-    assert "悄悄话" in result
-    assert "秘密内容" not in result
 
 
 def test_agent_transcript_includes_private():
@@ -76,33 +60,11 @@ def test_agent_transcript_includes_private():
         },
         "resolved_speech": None,
         "resolved_actions": [],
-        "whisper_events": [],
         "environmental_event": None,
         "exits": [],
     }]
     public, private = format_agent_transcript(records, "a", PROFILES)
     assert len(private) >= 1  # observation + inner thought
-
-
-def test_agent_transcript_whisper_shows_content_to_target():
-    records = [{
-        "tick": 0,
-        "agent_outputs": {
-            "b": _make_output(),
-        },
-        "resolved_speech": None,
-        "resolved_actions": [],
-        "whisper_events": [("a", "b", "只有你知道")],
-        "environmental_event": None,
-        "exits": [],
-    }]
-    public, private = format_agent_transcript(records, "b", PROFILES)
-    assert "只有你知道" in public
-
-    # Non-target agent should not see content
-    public2, _ = format_agent_transcript(records, "a", PROFILES)
-    assert "只有你知道" not in public2
-    assert "悄悄话" in public2
 
 
 def test_mid_scene_summarization():
@@ -116,7 +78,6 @@ def test_mid_scene_summarization():
             },
             "resolved_speech": ("a", _make_output(ActionType.SPEAK, action_content=f"话{i}")),
             "resolved_actions": [],
-            "whisper_events": [],
             "environmental_event": None,
             "exits": [],
         })
@@ -131,11 +92,11 @@ def test_mid_scene_summarization():
 
 def test_format_latest_event_speech():
     speech = ("a", _make_output(ActionType.SPEAK, action_content="你好", action_target="李明"))
-    result = format_latest_event(speech, [], [], None, [], PROFILES)
+    result = format_latest_event(speech, [], None, [], PROFILES)
     assert "张伟" in result
     assert "你好" in result
 
 
 def test_format_latest_event_quiet():
-    result = format_latest_event(None, [], [], None, [], PROFILES)
+    result = format_latest_event(None, [], None, [], PROFILES)
     assert "安静" in result

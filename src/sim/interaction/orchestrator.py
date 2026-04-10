@@ -78,11 +78,6 @@ def serialize_tick_records(
                 "content": out.action_content,
             })
 
-        # public.whispers
-        whispers = []
-        for from_id, to_id, content in rec["whisper_events"]:
-            whispers.append({"from": from_id, "to": to_id, "content": content})
-
         # public.exits
         exits = rec.get("exits", [])
 
@@ -99,7 +94,6 @@ def serialize_tick_records(
             "public": {
                 "speech": speech,
                 "actions": actions,
-                "whispers": whispers,
                 "environmental_event": rec.get("environmental_event"),
                 "exits": exits,
             },

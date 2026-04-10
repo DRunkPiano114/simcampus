@@ -32,7 +32,7 @@ class Settings(BaseSettings):
 
     # PDA tick loop
     min_ticks_before_termination: int = 3
-    consecutive_observe_to_end: int = 3
+    consecutive_quiet_to_end: int = 4
     perception_temperature: float = 0.9
     max_tokens_perception: int = 32000
 

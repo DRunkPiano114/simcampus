@@ -9,7 +9,6 @@ from .relationship import RelationshipChange
 
 class ActionType(str, Enum):
     SPEAK = "speak"
-    WHISPER = "whisper"
     NON_VERBAL = "non_verbal"
     OBSERVE = "observe"
     EXIT = "exit"

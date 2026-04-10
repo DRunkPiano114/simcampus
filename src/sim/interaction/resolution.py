@@ -15,7 +15,7 @@ QUEUE_EXPIRY_TICKS = 3
 @dataclass
 class ResolutionState:
     queued_agents: dict[str, tuple[PerceptionOutput, int]] = field(default_factory=dict)
-    consecutive_all_observe: int = 0
+    consecutive_quiet: int = 0
     tick_count: int = 0
     active_agents: set[str] = field(default_factory=set)
 
@@ -24,7 +24,6 @@ class ResolutionState:
 class ResolutionResult:
     resolved_speech: tuple[str, PerceptionOutput] | None = None
     resolved_actions: list[tuple[str, PerceptionOutput]] = field(default_factory=list)
-    whisper_events: list[tuple[str, str, str]] = field(default_factory=list)
     environmental_event: str | None = None
     exits: list[str] = field(default_factory=list)
     scene_should_end: bool = False
@@ -84,7 +83,6 @@ def resolve_tick(
     active = set(state.active_agents)
     exits: list[str] = []
     resolved_actions: list[tuple[str, PerceptionOutput]] = []
-    whisper_events: list[tuple[str, str, str]] = []
     environmental_event: str | None = None
     name_to_id = _build_name_to_id(profiles)
     active_names = {profiles[aid].name for aid in active}
@@ -102,13 +100,6 @@ def resolve_tick(
             resolved_actions.append((aid, output))
             if output.is_disruptive and output.action_content:
                 environmental_event = f"\u3010\u52a8\u4f5c\u3011{profiles[aid].name}: {output.action_content}"
-
-    # --- Handle whispers ---
-    for aid, output in agent_outputs.items():
-        if output.action_type == ActionType.WHISPER and output.action_target and output.action_content:
-            target_id = name_to_id.get(output.action_target)
-            if target_id and target_id in active:
-                whisper_events.append((aid, target_id, output.action_content))
 
     # --- Speaker resolution ---
     current_speakers: dict[str, tuple[PerceptionOutput, int]] = {}
@@ -166,23 +157,24 @@ def resolve_tick(
             if aid != winner:
                 new_queue[aid] = (output, ticks_queued)
 
-    # --- Consecutive all-observe check ---
-    all_observe = (
-        all(o.action_type == ActionType.OBSERVE for o in agent_outputs.values())
+    # --- Quiet-tick check ---
+    quiet_tick = (
+        resolved_speech is None
         and len(new_queue) == 0
+        and environmental_event is None
     )
-    consecutive_all_observe = state.consecutive_all_observe + 1 if all_observe else 0
+    consecutive_quiet = state.consecutive_quiet + 1 if quiet_tick else 0
 
     # --- Scene end ---
     tick_count = state.tick_count + 1
     scene_should_end = (
-        consecutive_all_observe >= settings.consecutive_observe_to_end
+        consecutive_quiet >= settings.consecutive_quiet_to_end
         and tick_count >= settings.min_ticks_before_termination
     )
 
     updated_state = ResolutionState(
         queued_agents=new_queue,
-        consecutive_all_observe=consecutive_all_observe,
+        consecutive_quiet=consecutive_quiet,
         tick_count=tick_count,
         active_agents=active,
     )
@@ -190,7 +182,6 @@ def resolve_tick(
     return ResolutionResult(
         resolved_speech=resolved_speech,
         resolved_actions=resolved_actions,
-        whisper_events=whisper_events,
         environmental_event=environmental_event,
         exits=exits,
         scene_should_end=scene_should_end,

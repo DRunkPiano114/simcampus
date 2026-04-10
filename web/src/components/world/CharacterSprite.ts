@@ -18,7 +18,7 @@ const AGENT_COLORS: Record<string, number> = {
 }
 
 /** Sprite states affecting animation. */
-export type SpriteState = 'idle' | 'talking' | 'whispering' | 'action'
+export type SpriteState = 'idle' | 'talking' | 'action'
 
 export function getAgentColor(agentId: string): number {
   return AGENT_COLORS[agentId] ?? 0x888888
@@ -82,6 +82,6 @@ export function updateSpriteState(
 ) {
   container.alpha = dimmed ? 0.4 : 1
   // Talking: slight scale pulse
-  const scale = state === 'talking' ? 1.1 : state === 'whispering' ? 0.95 : 1
+  const scale = state === 'talking' ? 1.1 : 1
   container.scale.set(scale)
 }

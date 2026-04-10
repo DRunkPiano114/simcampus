@@ -26,7 +26,7 @@ async def run_agent_reflection(
     day: int,
     group_index: int,
 ) -> AgentReflection:
-    # Get agent-specific transcript (includes whispers they heard)
+    # Get agent-specific transcript
     conversation_log, _private_history = format_agent_transcript(
         tick_records, agent_id, all_profiles,
     )

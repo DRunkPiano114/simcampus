@@ -157,18 +157,17 @@ for tick in range(scene.max_rounds):  # per-scene cap from schedule.json
     2. PERCEIVE: gated-in agents concurrently (semaphore-throttled)
        - Build per-agent context via prepare_context() with PDA params
        - LLM returns PerceptionOutput
-       - Whisper disabled in 宿舍 scenes (safety net converts whisper→speak)
     3. RESOLVE: resolve_tick() determines what happens (see PDA Tick Resolution)
     4. RECORD: store tick_record with all agent outputs + resolved actions
     5. UPDATE: latest_event for next tick from resolved actions
-    6. CHECK: scene ends if consecutive_all_observe >= 3 and tick_count >= 3
+    6. CHECK: scene ends if consecutive_quiet >= 4 and tick_count >= 3
 ```
 
 - Tick 0 starts with `scene.opening_event` as the latest event (randomly selected from `schedule.json:opening_events` per scene config)
 - Queued agents (losers from previous tick's speaker resolution) skip the PERCEIVE step and reuse their previous PerceptionOutput with +3 urgency per tick queued
 - **Perception gating** reduces LLM calls by 30-60% for silent background agents. Gating state (`last_perception`, `last_perceive_tick`) is local to `run_group_dialogue` scope — rebuilt from scratch on crash recovery (deterministic with same seed). Solo groups (`_run_single_scene` → `run_solo_reflection`) are not affected by gating.
 - Narrative formatting (`interaction/narrative.py`):
-  - `format_public_transcript()`: public events visible to all (speech, whisper notices, actions, exits). Mid-scene summarization after 12 ticks: ticks 1-6 are collapsed into a one-line summary
+  - `format_public_transcript()`: public events visible to all (speech, actions, exits). Mid-scene summarization after 12 ticks: ticks 1-6 are collapsed into a one-line summary
   - `format_agent_transcript()`: public view + agent's own prior observations and inner thoughts as private history
   - `format_latest_event()`: one-line summary of what just happened, used as the "latest event" for next tick's perception prompt
 
@@ -179,7 +178,7 @@ for tick in range(scene.max_rounds):  # per-scene cap from schedule.json
 After the dialogue ends, two types of LLM calls run **concurrently**:
 
 **Phase 1: Narrative Extraction** (`interaction/scene_end.py`) — 1 LLM call:
-- Build conversation log from tick_records using `format_public_transcript()` (includes speech, whisper notices, non-verbal actions, exits). Inner thoughts and observations are NOT included — extraction only sees externally observable behavior.
+- Build conversation log from tick_records using `format_public_transcript()` (includes speech, non-verbal actions, exits). Inner thoughts and observations are NOT included — extraction only sees externally observable behavior.
 - `long_conversation` threshold: 12 ticks
 - Feed the conversation log to LLM with `scene_end_analysis.j2` (analytical temperature 0.3) as a purely objective recorder
 - Returns `NarrativeExtraction`:
@@ -191,7 +190,7 @@ After the dialogue ends, two types of LLM calls run **concurrently**:
 **Phase 2: Per-Agent Self-Reflection** (`interaction/self_reflection.py`) — N concurrent LLM calls:
 - For each agent in the group, build an agent-specific prompt with:
   - Full agent context (profile, relationships, memories, concerns, self-narrative) via `prepare_context()`
-  - Agent-specific conversation log via `format_agent_transcript()` (includes whispers the agent heard)
+  - Agent-specific conversation log via `format_agent_transcript()`
 - Render `self_reflection.j2` template (reflection temperature 0.7)
 - Each agent independently evaluates the conversation from their own perspective
 - Returns `AgentReflection` per agent:
@@ -287,7 +286,7 @@ After all groups in a scene complete, the orchestrator writes a single frontend-
       "ticks": [
         {
           "tick": 0,
-          "public": { "speech", "actions", "whispers", "environmental_event", "exits" },
+          "public": { "speech", "actions", "environmental_event", "exits" },
           "minds": { "agent_id": { PerceptionOutput fields } }
         }
       ],
@@ -429,7 +428,7 @@ active: bool                     # False after event_expire_days
 ### Dialogue Models (`models/dialogue.py`)
 
 ```
-ActionType: speak | whisper | non_verbal | observe | exit
+ActionType: speak | non_verbal | observe | exit
 
 PerceptionOutput:                  # PDA tick loop output per agent per tick
   observation: str                 # What the agent noticed (1 sentence)
@@ -630,12 +629,11 @@ Ties broken randomly via the provided `rng`.
 | ActionType | Resolution |
 |------------|-----------|
 | SPEAK | Competes for single speaker slot via scoring |
-| WHISPER | Goes to whisper_events as (from_id, to_id, content) |
-| NON_VERBAL | All resolve simultaneously into resolved_actions. If is_disruptive=True, generates environmental_event string: `【动作】{name}: {content}` |
-| OBSERVE | No action. Contributes to all-observe count |
+| NON_VERBAL | All resolve simultaneously into resolved_actions. If is_disruptive=True, generates environmental_event string: `【動作】{name}: {content}` |
+| OBSERVE | No action. Non-disruptive, counts toward quiet tick |
 | EXIT | Agent removed from active set |
 
-**Scene termination**: scene ends when `consecutive_all_observe >= settings.consecutive_observe_to_end` (default 3) AND `tick_count >= settings.min_ticks_before_termination` (default 3). "All observe" requires all active agents chose OBSERVE and no queued speakers are waiting.
+**Scene termination** (`quiet_tick`): scene ends when `consecutive_quiet >= settings.consecutive_quiet_to_end` (default 4) AND `tick_count >= settings.min_ticks_before_termination` (default 3). A "quiet tick" means no speech resolved, no queued speakers waiting, and no environmental event (disruptive action). Non-disruptive NON_VERBAL actions do not block termination.
 
 ### Gossip Propagation (`world/event_queue.py`)
 
@@ -672,7 +670,7 @@ He Min is a full LLM-driven agent, participating in scenes like any student. She
 - `nightly_compress.j2`: uses `role_description` variable for opening line identity
 - `perception_dynamic.j2` + `dialogue_turn.j2`: "班主任正在附近，说话注意点！" warning only shown to students (`teacher_present and not is_teacher`)
 - `self_reflection.j2`: teacher's intention evaluation acknowledges observing/guiding students as part of her role
-- `perception_static.j2`: whisper option hidden in dorm scenes (safety net: whisper→speak conversion in `turn.py`)
+- `perception_static.j2`: dorm scene examples show NON_VERBAL + SPEAK patterns
 - Re-planning skipped for teacher (no location preferences)
 - **Suppression effect**: When `teacher_present=true`, the perception template warning naturally suppresses student speech urgency. The teacher herself does NOT see this warning (guarded by `is_teacher`).
 - `prepare_context()` provides `is_student`/`is_teacher` booleans to all templates via the context dict
@@ -856,7 +854,7 @@ All settings via `pydantic-settings` `BaseSettings`, loaded from `.env` file, ov
 | `max_tokens_solo` | 32000 | Solo reflection max tokens |
 | `max_retries` | 3 | LLM call retries |
 | `min_ticks_before_termination` | 3 | Minimum ticks before scene can end |
-| `consecutive_observe_to_end` | 3 | Consecutive all-observe ticks to trigger scene end |
+| `consecutive_quiet_to_end` | 4 | Consecutive quiet ticks to trigger scene end |
 | `perception_temperature` | 0.9 | PDA perception LLM call temperature |
 | `max_tokens_perception` | 32000 | PDA perception max tokens |
 | `max_concurrent_llm_calls` | 5 | Async semaphore limit |
@@ -993,7 +991,7 @@ web/src/
       Room.tsx                  # Programmatic tilemap for each of 7 rooms. Draw functions: drawClassroom, drawHallway, drawCafeteria, drawDorm, drawPlayground, drawLibrary, drawConvenienceStore.
       CharacterSprite.ts        # Colored circle + head + name label. Per-agent colors. updateSpriteState() for talking/dimming.
       Camera.ts                 # Free-scroll (drag + wheel zoom) + auto-pan (lerp). State on PixiJS Container transform, updated via Ticker.
-      BubbleOverlay.ts          # Imperative DOM overlay. 5 bubble types: speech (cream bg, optional inline inner_thought in mind-reading), thought (rose dashed, solo only), whisper_notice (gray dashed), emoji (emotion indicator for observers in mind-reading, title tooltip shows inner_thought), action (small italic for non_verbal). Viewport-clamped positioning via sprite.toGlobal() each frame with overlap push-apart. Pointer triangle on speech/thought/whisper. Click forwarding via onBubbleClick callback → setFocusedAgent. Fade-in via opacity transition (no transform transition to avoid fly-in). Recreates DOM element on type change.
+      BubbleOverlay.ts          # Imperative DOM overlay. 4 bubble types: speech (cream bg, optional inline inner_thought in mind-reading), thought (rose dashed, solo only), emoji (emotion indicator for observers in mind-reading, title tooltip shows inner_thought), action (small italic for non_verbal). Viewport-clamped positioning via sprite.toGlobal() each frame with overlap push-apart. Pointer triangle on speech/thought. Click forwarding via onBubbleClick callback → setFocusedAgent. Fade-in via opacity transition (no transform transition to avoid fly-in). Recreates DOM element on type change.
       ErrorBoundary.tsx         # Minimal React Error Boundary. Catches render errors, logs to console, renders nothing on crash (prevents blank page).
       DanmuLayer.ts             # Floating text scrolling right-to-left. Fires from inner_thought of observers. CSS animation, 8s duration.
     ui/                         # React overlays
@@ -1044,7 +1042,7 @@ PlaybackController (singleton)
 └── Shared: speed 1x|2x|4x, tick duration 3s base
 ```
 
-Drama score per tick: `whisper×4 + speak×1 + disruptive×5 + max_urgency×0.5 + exit×2`. Top 20% are peaks that trigger camera zooms and danmu.
+Drama score per tick: `speak×1 + disruptive×5 + max_urgency×0.5 + exit×2`. Top 20% are peaks that trigger camera zooms and danmu.
 
 ### Key Interactions
 
@@ -1111,7 +1109,7 @@ User becomes an agent, picks 1-4 other agents, and has a freeform group chat. Al
 - **Streaming**: Not token-level. Each agent gets a parallel `structured_call()` → `AgentReactionLLM` model (excludes `agent_id`/`agent_name` — these are filled from profile data). Results stream as SSE events as they complete.
 - **Relationship filtering**: Each agent's context is filtered to only include relationships with scene participants (user agent + target agents), matching the template header "你和在场人物的关系".
 - **SSE events**: `{"thinking": true, "agent_ids": [...]}` first, then `{"agent_id": "...", "content": "...", ...}` per agent reaction, `{"done": true}` at end
-- **Actions**: Typed as `Literal["speak", "whisper", "action", "silence"]` — Instructor enforces valid values and retries on hallucinated action types. Silent agents are filtered out.
+- **Actions**: Typed as `Literal["speak", "action", "silence"]` — Instructor enforces valid values and retries on hallucinated action types. Silent agents are filtered out.
 - **Error handling**: Same `ContextWindowExceededError` handling as God Mode.
 
 ### Chat Templates

@@ -27,16 +27,9 @@ export interface PublicAction {
   content: string | null
 }
 
-export interface Whisper {
-  from: string
-  to: string
-  content: string
-}
-
 export interface PublicLayer {
   speech: Speech | null
   actions: PublicAction[]
-  whispers: Whisper[]
   environmental_event: string | null
   exits: string[]
 }

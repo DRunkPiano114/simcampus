@@ -215,10 +215,8 @@ function WorldScene() {
       const mind = tick.minds[agentId]
       const isActiveGroup = group.participants.includes(agentId)
       const isFocused = focusedAgent === null || focusedAgent === agentId
-      const state = mind?.action_type === 'speak' ? 'talking'
-        : mind?.action_type === 'whisper' ? 'whispering'
-        : 'idle'
-      updateSpriteState(sprite, state as 'idle' | 'talking' | 'whispering', !isActiveGroup || !isFocused)
+      const state = mind?.action_type === 'speak' ? 'talking' : 'idle'
+      updateSpriteState(sprite, state as 'idle' | 'talking', !isActiveGroup || !isFocused)
     }
 
     // Build bubbles
@@ -235,22 +233,6 @@ function WorldScene() {
         type: 'speech',
         target: s.target ?? undefined,
         subtext: mindReading && mind ? mind.inner_thought : undefined,
-      })
-    }
-
-    // Whisper notices
-    for (const w of tick.public.whispers) {
-      const fromName = sceneFile.participant_names[w.from] ?? ''
-      const toName = sceneFile.participant_names[w.to] ?? ''
-      bubbles.push({
-        agentId: w.from,
-        displayName: fromName,
-        text: mindReading
-          ? `🤫 → ${toName}\n${w.content}`
-          : `${fromName}对${toName}说了悄悄话`,
-        type: 'whisper_notice',
-        target: w.to,
-        subtext: mindReading ? tick.minds[w.from]?.inner_thought : undefined,
       })
     }
 

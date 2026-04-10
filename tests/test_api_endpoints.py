@@ -80,7 +80,7 @@ class TestChatModels:
         reaction = AgentReaction(
             agent_id="tang_shihan",
             agent_name="唐诗涵",
-            action="whisper",
+            action="speak",
             target="su_nianyao",
             content="你看到了吗",
             inner_thought="她应该知道",
@@ -135,7 +135,7 @@ class TestChatModels:
     def test_agent_reaction_from_llm_output(self):
         """Construct AgentReaction from AgentReactionLLM + known data."""
         llm_out = AgentReactionLLM(
-            action="whisper",
+            action="speak",
             target="someone",
             content="你看",
             inner_thought="有意思",
@@ -147,7 +147,7 @@ class TestChatModels:
             **llm_out.model_dump(),
         )
         assert reaction.agent_id == "lu_siyuan"
-        assert reaction.action == "whisper"
+        assert reaction.action == "speak"
         assert reaction.content == "你看"
 
 
