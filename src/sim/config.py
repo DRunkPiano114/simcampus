@@ -79,6 +79,7 @@ class Settings(BaseSettings):
 
     # Relationships
     max_recent_interactions: int = 10         # per-relationship recent interaction log cap
+    relationship_positive_stale_days: int = 3 # days without interaction before positive decay starts
 
     # Concurrency
     max_concurrent_llm_calls: int = 5

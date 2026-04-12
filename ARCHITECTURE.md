@@ -627,11 +627,22 @@ Note: exam shock (rank_drop × 2) is applied separately in `apply_exam_effects()
 
 ### Emotion Decay (`agent/state_update.py`)
 
-Extreme emotions (angry, excited, sad, embarrassed, jealous, guilty, frustrated, touched) decay to neutral with 50% probability overnight (called in `_end_of_day`). The `scenes_since_extreme=2` parameter is hardcoded since `_end_of_day` models overnight sleep — a natural emotional reset regardless of when the emotion arose.
+Two emotion sets control different behaviors:
+
+- **`EXTREME_EMOTIONS`** (angry, excited, sad, embarrassed, jealous, guilty, frustrated, touched) — triggers orchestrator re-plan when an agent's emotion enters this set. Kept narrow to avoid re-plan storms.
+- **`DECAYABLE_EMOTIONS`** — superset of `EXTREME_EMOTIONS` plus `ANXIOUS` and `BORED`. Used only by `maybe_decay_emotion()` for overnight reset. Low-arousal stuck states (anxious, bored) should decay overnight but should NOT trigger re-planning.
+
+`maybe_decay_emotion()` checks `DECAYABLE_EMOTIONS` and resets to NEUTRAL with 50% probability when `scenes_since_extreme >= 2`. Called in `_end_of_day` with hardcoded `scenes_since_extreme=2` (overnight sleep = natural emotional reset).
 
 ### Relationship Regression (`agent/state_update.py`)
 
-Daily regression: `favorability` and `trust` each nudge 1 point toward zero at end of day. `understanding` does not regress — it represents cognitive knowledge ("I know this person is competitive") which doesn't fade overnight. This prevents indefinite negative spirals and ensures relationships require ongoing interaction to maintain.
+Asymmetric daily regression via `regress_relationships()`:
+
+- **Negative** `favorability`/`trust` heal every day (nudge 1 point toward 0), unconditionally.
+- **Positive** `favorability`/`trust` only decay after `settings.relationship_positive_stale_days` (default 3) consecutive days without interaction.
+- **`understanding`** never regresses — it represents cognitive knowledge that doesn't fade overnight.
+
+The `days_since_interaction` counter (on `Relationship` model, default 0) increments each end-of-day call and resets to 0 whenever `apply_scene_end_results` processes any `RelationshipChange` for that pair (even if all deltas are 0 — presence in the LLM output = interacted). This means actively maintained friendships stay stable, while neglected ones slowly erode, and negative relationships always heal.
 
 ### Concern Decay (`agent/state_update.py`)
 

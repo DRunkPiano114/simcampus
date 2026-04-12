@@ -397,6 +397,8 @@ def apply_scene_end_results(
                 rel.trust = _clamp(rel.trust + trust_delta, -100, 100)
                 rel.understanding = _clamp(rel.understanding + und_delta, 0, 100)
 
+            rel.days_since_interaction = 0  # any LLM-reported change = interacted
+
             # Record this scene as a recent interaction. Dedup on the
             # (day, scene_name) part of the tag so multiple
             # relationship_changes against the same target within one scene

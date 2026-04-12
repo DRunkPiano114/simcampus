@@ -19,11 +19,19 @@ ENERGY_DELTA = {
     "宿舍夜聊": -5,
 }
 
-# Extreme emotions that should decay
+# Triggers orchestrator re-plan (orchestrator.py:558).
+# Keep narrow to avoid re-plan storms.
 EXTREME_EMOTIONS = {
     Emotion.ANGRY, Emotion.EXCITED, Emotion.SAD,
     Emotion.EMBARRASSED, Emotion.JEALOUS, Emotion.GUILTY,
     Emotion.FRUSTRATED, Emotion.TOUCHED,
+}
+
+# Used only by maybe_decay_emotion (end-of-day reset).
+# Wider set: includes low-arousal stuck states that should also decay overnight.
+DECAYABLE_EMOTIONS = EXTREME_EMOTIONS | {
+    Emotion.ANXIOUS,
+    Emotion.BORED,
 }
 
 # Base pressure by family background
@@ -103,21 +111,32 @@ def maybe_decay_emotion(
     rng: random.Random | None = None,
 ) -> AgentState:
     rng = rng or random.Random()
-    if state.emotion in EXTREME_EMOTIONS and scenes_since_extreme >= 2:
+    if state.emotion in DECAYABLE_EMOTIONS and scenes_since_extreme >= 2:
         if rng.random() < 0.5:
             state.emotion = Emotion.NEUTRAL
     return state
 
 
 def regress_relationships(rels: RelationshipFile) -> RelationshipFile:
-    """Nudge favorability and trust 1 point toward zero daily."""
+    """Asymmetric daily regression.
+
+    Negative relationships heal every day (nudge toward 0).
+    Positive relationships only decay after N days without interaction.
+    Understanding never regresses.
+    """
     for rel in rels.relationships.values():
-        if rel.favorability > 0:
-            rel.favorability -= 1
-        elif rel.favorability < 0:
-            rel.favorability += 1
-        if rel.trust > 0:
-            rel.trust -= 1
-        elif rel.trust < 0:
-            rel.trust += 1
+        # Negative → heal every day
+        if rel.favorability < 0:
+            rel.favorability = min(0, rel.favorability + 1)
+        if rel.trust < 0:
+            rel.trust = min(0, rel.trust + 1)
+
+        # Positive → decay only when stale
+        if rel.days_since_interaction >= settings.relationship_positive_stale_days:
+            if rel.favorability > 0:
+                rel.favorability -= 1
+            if rel.trust > 0:
+                rel.trust -= 1
+
+        rel.days_since_interaction += 1
     return rels

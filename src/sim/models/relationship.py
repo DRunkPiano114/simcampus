@@ -9,6 +9,7 @@ class Relationship(BaseModel):
     understanding: int = Field(default=0, ge=0, le=100)
     label: str = "同学"
     recent_interactions: list[str] = Field(default_factory=list)
+    days_since_interaction: int = 0
 
 
 class RelationshipFile(BaseModel):

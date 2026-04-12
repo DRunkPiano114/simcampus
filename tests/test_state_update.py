@@ -3,6 +3,7 @@
 from random import Random
 
 from sim.agent.state_update import (
+    DECAYABLE_EMOTIONS,
     EXTREME_EMOTIONS,
     clamp,
     decay_concerns,
@@ -270,30 +271,79 @@ def test_all_extreme_emotions_classified():
     assert Emotion.GUILTY in EXTREME_EMOTIONS
     assert Emotion.FRUSTRATED in EXTREME_EMOTIONS
     assert Emotion.TOUCHED in EXTREME_EMOTIONS
-    # Non-extreme
+    # Non-extreme (should NOT trigger re-plan)
     assert Emotion.NEUTRAL not in EXTREME_EMOTIONS
     assert Emotion.HAPPY not in EXTREME_EMOTIONS
     assert Emotion.CALM not in EXTREME_EMOTIONS
+    assert Emotion.ANXIOUS not in EXTREME_EMOTIONS
+    assert Emotion.BORED not in EXTREME_EMOTIONS
 
 
-# --- regress_relationships ---
-
-def test_regress_positive_relationships():
-    rels = RelationshipFile(relationships={
-        "b": Relationship(target_name="B", target_id="b", favorability=10, trust=5),
-    })
-    regress_relationships(rels)
-    assert rels.relationships["b"].favorability == 9
-    assert rels.relationships["b"].trust == 4
+def test_decayable_includes_anxious_bored():
+    """ANXIOUS and BORED decay overnight but don't trigger re-plan."""
+    assert Emotion.ANXIOUS in DECAYABLE_EMOTIONS
+    assert Emotion.BORED in DECAYABLE_EMOTIONS
 
 
-def test_regress_negative_relationships():
+def test_decayable_superset_of_extreme():
+    """Every extreme emotion is also decayable."""
+    assert EXTREME_EMOTIONS.issubset(DECAYABLE_EMOTIONS)
+
+
+def test_anxious_decays_overnight():
+    """ANXIOUS emotion decays to NEUTRAL with favorable rng."""
+    for seed in range(100):
+        rng = Random(seed)
+        if rng.random() < 0.5:
+            rng = Random(seed)
+            break
+    state = AgentState(emotion=Emotion.ANXIOUS)
+    maybe_decay_emotion(state, scenes_since_extreme=2, rng=rng)
+    assert state.emotion == Emotion.NEUTRAL
+
+
+# --- regress_relationships (asymmetric decay) ---
+
+def test_regress_negative_heals_every_day():
+    """Negative favorability/trust heal toward 0 every day, regardless of staleness."""
     rels = RelationshipFile(relationships={
         "b": Relationship(target_name="B", target_id="b", favorability=-10, trust=-5),
     })
     regress_relationships(rels)
     assert rels.relationships["b"].favorability == -9
     assert rels.relationships["b"].trust == -4
+
+
+def test_regress_positive_fresh_no_decay():
+    """Positive values with days_since_interaction=0 do NOT decay."""
+    rels = RelationshipFile(relationships={
+        "b": Relationship(target_name="B", target_id="b", favorability=10, trust=5, days_since_interaction=0),
+    })
+    regress_relationships(rels)
+    assert rels.relationships["b"].favorability == 10
+    assert rels.relationships["b"].trust == 5
+    assert rels.relationships["b"].days_since_interaction == 1
+
+
+def test_regress_positive_stale_decays():
+    """Positive values decay after reaching stale threshold (default 3 days)."""
+    rels = RelationshipFile(relationships={
+        "b": Relationship(target_name="B", target_id="b", favorability=10, trust=5, days_since_interaction=3),
+    })
+    regress_relationships(rels)
+    assert rels.relationships["b"].favorability == 9
+    assert rels.relationships["b"].trust == 4
+    assert rels.relationships["b"].days_since_interaction == 4
+
+
+def test_regress_positive_just_under_stale():
+    """At days_since_interaction=2 (just under default threshold 3), no positive decay."""
+    rels = RelationshipFile(relationships={
+        "b": Relationship(target_name="B", target_id="b", favorability=10, trust=5, days_since_interaction=2),
+    })
+    regress_relationships(rels)
+    assert rels.relationships["b"].favorability == 10
+    assert rels.relationships["b"].trust == 5
 
 
 def test_regress_zero_stays_zero():
@@ -314,16 +364,24 @@ def test_regress_understanding_unchanged():
     assert rels.relationships["b"].understanding == 50
 
 
-def test_regress_multiple_relationships():
+def test_regress_mixed_relationship():
+    """Mixed: positive favorability protected when fresh, negative trust heals."""
     rels = RelationshipFile(relationships={
-        "b": Relationship(target_name="B", target_id="b", favorability=5, trust=-3),
-        "c": Relationship(target_name="C", target_id="c", favorability=-1, trust=1),
+        "b": Relationship(target_name="B", target_id="b", favorability=5, trust=-3, days_since_interaction=0),
     })
     regress_relationships(rels)
-    assert rels.relationships["b"].favorability == 4
-    assert rels.relationships["b"].trust == -2
-    assert rels.relationships["c"].favorability == 0
-    assert rels.relationships["c"].trust == 0
+    assert rels.relationships["b"].favorability == 5   # fresh → no decay
+    assert rels.relationships["b"].trust == -2          # negative → heals
+
+
+def test_regress_mixed_stale():
+    """Mixed stale: positive favorability decays, negative trust heals."""
+    rels = RelationshipFile(relationships={
+        "b": Relationship(target_name="B", target_id="b", favorability=5, trust=-3, days_since_interaction=3),
+    })
+    regress_relationships(rels)
+    assert rels.relationships["b"].favorability == 4   # stale → decays
+    assert rels.relationships["b"].trust == -2          # negative → heals
 
 
 # --- Edge cases ---
@@ -331,11 +389,20 @@ def test_regress_multiple_relationships():
 def test_regress_at_one_reaches_zero():
     """Values at ±1 should reach 0, not overshoot."""
     rels = RelationshipFile(relationships={
-        "b": Relationship(target_name="B", target_id="b", favorability=1, trust=-1),
+        "b": Relationship(target_name="B", target_id="b", favorability=1, trust=-1, days_since_interaction=3),
     })
     regress_relationships(rels)
     assert rels.relationships["b"].favorability == 0
     assert rels.relationships["b"].trust == 0
+
+
+def test_regress_days_since_interaction_increments():
+    """Counter increments each call."""
+    rels = RelationshipFile(relationships={
+        "b": Relationship(target_name="B", target_id="b", favorability=0, trust=0, days_since_interaction=5),
+    })
+    regress_relationships(rels)
+    assert rels.relationships["b"].days_since_interaction == 6
 
 
 def test_pressure_recovery_clamps_to_zero():
