@@ -110,7 +110,19 @@ def apply_exam_effects(
     results: dict,
     world: WorldStorage,
     profiles: dict[str, AgentProfile],
+    today: int,
 ) -> None:
+    """Apply post-exam effects: academic_pressure, emotion, energy, and a
+    high-intensity 学业焦虑 concern when rank_change <= -3.
+
+    `today` is used as the new concern's last_reinforced_day so it doesn't
+    immediately look stale to decay_concerns.
+    """
+    # Deferred import — apply_results lives in the interaction layer and
+    # importing it at module load would create a world ↔ interaction cycle.
+    from ..interaction.apply_results import add_concern
+    from ..models.agent import ActiveConcern
+
     for aid, result in results.items():
         if aid not in profiles:
             continue
@@ -121,10 +133,27 @@ def apply_exam_effects(
 
         rank_change = result.get("rank_change", 0)
 
-        # Exam shock: rank drop → pressure increase
         if rank_change < 0:
             exam_shock = abs(rank_change) * 2
             state.academic_pressure = min(100, state.academic_pressure + exam_shock)
+
+        # Significant rank drop → high-intensity concern, bypassing the
+        # reflection-originated cap so the shock lands at 8-10.
+        if rank_change <= -3:
+            magnitude = abs(rank_change)
+            intensity = min(10, 5 + magnitude)  # 8 / 9 / 10 ladder
+            shock = ActiveConcern(
+                text=f"月考退步{magnitude}名，担心被甩开",
+                source_event=f"月考排名下滑{magnitude}名",
+                source_scene="月考",
+                source_day=today,
+                emotion="sad",
+                intensity=intensity,
+                related_people=[],
+                positive=False,
+                topic="学业焦虑",
+            )
+            add_concern(state, shock, today=today, skip_cap=True)
 
         # Emotion effects
         if rank_change >= 5:

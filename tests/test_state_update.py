@@ -175,29 +175,57 @@ def test_pressure_clamped_to_100():
 # --- decay_concerns ---
 
 def test_decay_concerns_reduces_intensity():
+    """Concerns reinforced today decay by `concern_decay_per_day`."""
     state = AgentState(active_concerns=[
-        ActiveConcern(text="test", intensity=5),
-        ActiveConcern(text="test2", intensity=3),
+        ActiveConcern(text="test", intensity=5, last_reinforced_day=1),
+        ActiveConcern(text="test2", intensity=3, last_reinforced_day=1),
     ])
-    decay_concerns(state)
-    assert state.active_concerns[0].intensity == 4
-    assert state.active_concerns[1].intensity == 2
+    decay_concerns(state, today=1)
+    assert state.active_concerns[0].intensity == 3  # 5 - 2
+    assert state.active_concerns[1].intensity == 1  # 3 - 2
 
 
 def test_decay_concerns_removes_at_zero():
+    """A concern that hits intensity 0 after decay is dropped."""
     state = AgentState(active_concerns=[
-        ActiveConcern(text="will_survive", intensity=2),
-        ActiveConcern(text="will_die", intensity=1),
+        ActiveConcern(text="will_survive", intensity=4, last_reinforced_day=1),
+        ActiveConcern(text="will_die", intensity=2, last_reinforced_day=1),
     ])
-    decay_concerns(state)
+    decay_concerns(state, today=1)
     assert len(state.active_concerns) == 1
     assert state.active_concerns[0].text == "will_survive"
 
 
 def test_decay_concerns_empty():
     state = AgentState(active_concerns=[])
-    decay_concerns(state)
+    decay_concerns(state, today=1)
     assert state.active_concerns == []
+
+
+def test_concern_decay_minus_two_per_day():
+    """`concern_decay_per_day` defaults to 2."""
+    state = AgentState(active_concerns=[
+        ActiveConcern(text="x", intensity=10, last_reinforced_day=2),
+    ])
+    decay_concerns(state, today=2)
+    assert state.active_concerns[0].intensity == 8  # 10 - 2
+
+
+def test_concern_stale_eviction_after_5_days():
+    """A concern not reinforced for ≥`concern_stale_days` is evicted
+    regardless of remaining intensity."""
+    state = AgentState(active_concerns=[
+        ActiveConcern(text="ancient", intensity=8, last_reinforced_day=1),
+        ActiveConcern(text="fresh", intensity=4, last_reinforced_day=5),
+    ])
+    # day 6: ancient is 5 days old → stale, fresh is 1 day old → kept
+    decay_concerns(state, today=6)
+    survivors = [c.text for c in state.active_concerns]
+    assert "ancient" not in survivors
+    assert "fresh" in survivors
+    # fresh decayed by 2
+    fresh = next(c for c in state.active_concerns if c.text == "fresh")
+    assert fresh.intensity == 2
 
 
 # --- maybe_decay_emotion ---

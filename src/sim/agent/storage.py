@@ -76,6 +76,11 @@ class AgentStorage:
         km.memories.append(memory)
         atomic_write_json(self._json_path("key_memories"), km.model_dump())
 
+    def write_key_memories(self, km: KeyMemoryFile) -> None:
+        """Overwrite the entire key_memories.json file. Used by the nightly
+        cap post-pass to drop the lowest-importance memories."""
+        atomic_write_json(self._json_path("key_memories"), km.model_dump())
+
     # Today markdown
     def read_today_md(self) -> str:
         path = self._md_path("today")

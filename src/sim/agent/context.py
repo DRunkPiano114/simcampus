@@ -76,6 +76,7 @@ def prepare_context(
     private_history: list[str] | None = None,
     emotion_override: Emotion | None = None,
     emotion_trace: list[str] | None = None,
+    scene_pacing_label: str = "",
 ) -> dict:
     rels = storage.load_relationships()
     today_events = storage.read_today_md()
@@ -132,6 +133,7 @@ def prepare_context(
         "scene_transcript": scene_transcript,
         "private_history": private_history or [],
         "tick_emotion": effective_emotion.value,
+        "scene_pacing_label": scene_pacing_label,
         # Concerns + self-narrative (structured)
         "active_concerns": concerns,
         "self_narrative": (narr := storage.load_self_narrative_structured()).narrative,

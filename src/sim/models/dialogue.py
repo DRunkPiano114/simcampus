@@ -3,7 +3,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-from .agent import Emotion
+from .agent import ConcernTopic, Emotion
 from .relationship import RelationshipChange
 
 
@@ -49,6 +49,9 @@ class NewEventCandidate(BaseModel):
     category: str = ""
     witnesses: list[str] = Field(default_factory=list)
     spread_probability: float = Field(default=0.5, ge=0.0, le=1.0)
+    # 1-indexed [Tick N] numbers from the conversation log this event is
+    # grounded in. Validated by apply_scene_end_results before saving.
+    cite_ticks: list[int] = Field(default_factory=list)
 
 
 class ConcernCandidate(BaseModel):
@@ -116,6 +119,7 @@ class AgentConcernCandidate(BaseModel):
     intensity: int = Field(default=5, ge=1, le=10)
     related_people: list[str] = Field(default_factory=list)
     positive: bool = False
+    topic: ConcernTopic = "其他"
 
 
 class AgentConcernUpdate(BaseModel):

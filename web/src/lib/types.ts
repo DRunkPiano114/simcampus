@@ -62,6 +62,7 @@ export interface NarrativeExtraction {
     category: string
     witnesses: string[]
     spread_probability: number
+    cite_ticks?: number[]
   }>
 }
 
@@ -159,6 +160,10 @@ export interface FamilyBackground {
   situation: string
 }
 
+export type ConcernTopic =
+  | '学业焦虑' | '家庭压力' | '人际矛盾' | '恋爱' | '自我认同'
+  | '未来规划' | '健康' | '兴趣爱好' | '期待的事' | '其他'
+
 export interface ActiveConcern {
   text: string
   source_event: string
@@ -168,6 +173,10 @@ export interface ActiveConcern {
   positive: boolean
   source_day: number
   source_scene: string
+  // Topic bucket for dedup; defaults to '其他' on the backend.
+  topic?: ConcernTopic
+  // Day this concern was last reinforced — used for stale eviction.
+  last_reinforced_day?: number
 }
 
 export interface AgentState {
@@ -266,6 +275,12 @@ export interface GameEvent {
   known_by: string[]
   spread_probability: number
   active: boolean
+  // 1-indexed tick numbers the LLM grounded this event in.
+  // Optional for backward compatibility with pre-grounding events.
+  cite_ticks?: number[]
+  // Group inside the source scene the event came out of. Null for
+  // system-generated events. cite_ticks are group-local.
+  group_index?: number | null
 }
 
 // --- Trajectory ---

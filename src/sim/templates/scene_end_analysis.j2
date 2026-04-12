@@ -25,8 +25,21 @@
 
 1. **key_moments**: 对话中的关键时刻（重要的话、转折点、有意义的互动），每条用一句话概括
 
+   **客观性约束**：
+   - key_moments 必须是客观观察到的动作/对话，不含 "刻意"、"似乎"、"明显"、"暗中"、"故意" 等推测词
+   - 不要写 "程雨桐刻意回避苏念瑶的视线" 这种带主观判断的描述
+   - 写 "程雨桐低头做题" 即可
+
 2. **fulfilled_intentions**: 哪些人的日计划意图在这段对话中实现了？格式："姓名:意图描述"
 
 3. **events_discussed**: 对话中讨论到的已知事件ID列表
 
-4. **new_events**: 对话中产生的新事件（八卦、消息、决定等），可能被传播。包含 text、category、witnesses、spread_probability
+4. **new_events**: 对话中产生的新事件（八卦、消息、决定等），可能被传播。
+   包含 text、category、witnesses、spread_probability、cite_ticks
+
+   **重要约束**：
+   - 你只能记录对话中**实际发生的**、有 tick 对应的事件
+   - 你不能推测、补全、或脑补背景事件
+   - 主观解读（"这看起来像..."、"她一定是..."）留给个体 agent 的 reflection
+   - `cite_ticks` **必须填你在对话记录里看到的 `[Tick N]` 标签里的那个数字 N**（标签从 1 开始编号）
+   - 如果找不到明确的 source tick，不要输出这条 new_event

@@ -1,5 +1,6 @@
 import random
 
+from ..config import settings
 from ..models.agent import AgentState, Emotion, PressureLevel
 from ..models.relationship import RelationshipFile
 
@@ -77,11 +78,19 @@ def update_academic_pressure(
     return state
 
 
-def decay_concerns(state: AgentState) -> AgentState:
-    """Decay all concern intensities by 1 per day. Remove when <= 0."""
+def decay_concerns(state: AgentState, today: int) -> AgentState:
+    """Decay concerns at end-of-day, dropping stale and zero-intensity ones.
+
+    A concern is stale when no scene has reinforced it within
+    `settings.concern_stale_days`. Remaining concerns lose
+    `settings.concern_decay_per_day` intensity per day; any reaching 0
+    are removed.
+    """
     surviving = []
     for c in state.active_concerns:
-        c.intensity -= 1
+        if (today - c.last_reinforced_day) >= settings.concern_stale_days:
+            continue
+        c.intensity = max(0, c.intensity - settings.concern_decay_per_day)
         if c.intensity > 0:
             surviving.append(c)
     state.active_concerns = surviving

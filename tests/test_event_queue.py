@@ -37,6 +37,39 @@ def test_add_event_increments_id():
     assert mgr.eq.next_id == 3
 
 
+def test_add_event_persists_cite_ticks_and_group_index():
+    """cite_ticks and group_index round-trip onto the persisted Event."""
+    mgr = _make_manager()
+    event = mgr.add_event(
+        text="八卦",
+        category="八卦",
+        source_scene="课间",
+        source_day=2,
+        witnesses=["a"],
+        cite_ticks=[3, 5],
+        group_index=1,
+    )
+    assert event.cite_ticks == [3, 5]
+    assert event.group_index == 1
+    stored = mgr.eq.events[0]
+    assert stored.cite_ticks == [3, 5]
+    assert stored.group_index == 1
+
+
+def test_add_event_defaults_for_system_events():
+    """System-generated events leave cite_ticks empty and group_index None."""
+    mgr = _make_manager()
+    event = mgr.add_event(
+        text="何老师找张伟谈话了",
+        category="teacher_talk",
+        source_scene="办公室",
+        source_day=1,
+        witnesses=["zhang"],
+    )
+    assert event.cite_ticks == []
+    assert event.group_index is None
+
+
 # --- get_active_events_for_group ---
 
 def test_get_active_events_spreads():

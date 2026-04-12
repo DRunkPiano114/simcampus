@@ -92,10 +92,16 @@ def format_agent_transcript(
         public_lines.append("")
 
     for i, rec in enumerate(tick_records):
+        # PDA gating: skip the agent's own private_history entry for ticks
+        # where they were gated. Their perception was reused verbatim from
+        # a prior fresh tick, so re-rendering it just produces duplicate
+        # observation/inner_thought lines and confuses downstream prompts.
+        is_self_gated = agent_id in set(rec.get("gated_agents", []))
+
         if i < summarize_cutoff:
             # Still collect private history from summarized ticks
             agent_out = rec["agent_outputs"].get(agent_id)
-            if agent_out:
+            if agent_out and not is_self_gated:
                 private_history.append(f"[Tick {rec['tick'] + 1}] {agent_out.observation}")
                 private_history.append(f"  (内心) {agent_out.inner_thought}")
             continue
@@ -123,7 +129,7 @@ def format_agent_transcript(
 
         # Private history for this agent
         agent_out = rec["agent_outputs"].get(agent_id)
-        if agent_out:
+        if agent_out and not is_self_gated:
             private_history.append(f"[Tick {tick_num + 1}] {agent_out.observation}")
             private_history.append(f"  (内心) {agent_out.inner_thought}")
 

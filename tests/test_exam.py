@@ -185,7 +185,7 @@ def test_exam_rank_drop_increases_pressure(exam_env):
     """Dropping 3 ranks should increase academic pressure by 6."""
     world, profiles = exam_env
     results = {"s1": {"rank_change": -3, "rank": 5}}
-    apply_exam_effects(results, world, profiles)
+    apply_exam_effects(results, world, profiles, today=1)
     state = world.get_agent("s1").load_state()
     assert state.academic_pressure == 46  # 40 + 3*2
 
@@ -194,7 +194,7 @@ def test_exam_no_rank_drop_no_pressure_change(exam_env):
     """No rank drop → pressure unchanged by exam shock."""
     world, profiles = exam_env
     results = {"s1": {"rank_change": 2, "rank": 3}}
-    apply_exam_effects(results, world, profiles)
+    apply_exam_effects(results, world, profiles, today=1)
     state = world.get_agent("s1").load_state()
     assert state.academic_pressure == 40
 
@@ -203,7 +203,7 @@ def test_exam_big_improvement_excited(exam_env):
     """Improving ≥5 ranks → EXCITED."""
     world, profiles = exam_env
     results = {"s1": {"rank_change": 5, "rank": 1}}
-    apply_exam_effects(results, world, profiles)
+    apply_exam_effects(results, world, profiles, today=1)
     state = world.get_agent("s1").load_state()
     assert state.emotion == Emotion.EXCITED
 
@@ -212,7 +212,7 @@ def test_exam_big_drop_sad(exam_env):
     """Dropping ≥5 ranks → SAD."""
     world, profiles = exam_env
     results = {"s1": {"rank_change": -5, "rank": 10}}
-    apply_exam_effects(results, world, profiles)
+    apply_exam_effects(results, world, profiles, today=1)
     state = world.get_agent("s1").load_state()
     assert state.emotion == Emotion.SAD
 
@@ -221,7 +221,7 @@ def test_exam_moderate_drop_no_emotion_change(exam_env):
     """Dropping 4 ranks is bad but not ≥5, no special emotion for MEDIUM pressure."""
     world, profiles = exam_env
     results = {"s1": {"rank_change": -4, "rank": 3}}
-    apply_exam_effects(results, world, profiles)
+    apply_exam_effects(results, world, profiles, today=1)
     state = world.get_agent("s1").load_state()
     # MEDIUM pressure + rank ≤ 5 → no emotion override
     assert state.emotion == Emotion.NEUTRAL
@@ -231,7 +231,7 @@ def test_exam_high_pressure_family_low_rank_anxious(exam_env):
     """HIGH pressure family + rank > 5 → ANXIOUS."""
     world, profiles = exam_env
     results = {"s2": {"rank_change": 0, "rank": 6}}
-    apply_exam_effects(results, world, profiles)
+    apply_exam_effects(results, world, profiles, today=1)
     state = world.get_agent("s2").load_state()
     assert state.emotion == Emotion.ANXIOUS
 
@@ -240,7 +240,7 @@ def test_exam_high_pressure_family_good_rank_not_anxious(exam_env):
     """HIGH pressure family but rank ≤ 5 → no anxiety."""
     world, profiles = exam_env
     results = {"s2": {"rank_change": 0, "rank": 5}}
-    apply_exam_effects(results, world, profiles)
+    apply_exam_effects(results, world, profiles, today=1)
     state = world.get_agent("s2").load_state()
     assert state.emotion != Emotion.ANXIOUS
 
@@ -249,7 +249,7 @@ def test_exam_energy_drain(exam_env):
     """Every student loses 15 energy from the exam."""
     world, profiles = exam_env
     results = {"s1": {"rank_change": 0, "rank": 3}}
-    apply_exam_effects(results, world, profiles)
+    apply_exam_effects(results, world, profiles, today=1)
     state = world.get_agent("s1").load_state()
     assert state.energy == 65  # 80 - 15
 
@@ -265,7 +265,7 @@ def test_exam_energy_clamps_at_zero(tmp_path):
     world.load_all_agents()
 
     results = {"s1": {"rank_change": 0, "rank": 1}}
-    apply_exam_effects(results, world, profiles)
+    apply_exam_effects(results, world, profiles, today=1)
     state = world.get_agent("s1").load_state()
     assert state.energy == 0  # 10 - 15 → clamped to 0
 
@@ -281,7 +281,7 @@ def test_exam_pressure_clamps_at_100(tmp_path):
     world.load_all_agents()
 
     results = {"s1": {"rank_change": -10, "rank": 15}}
-    apply_exam_effects(results, world, profiles)
+    apply_exam_effects(results, world, profiles, today=1)
     state = world.get_agent("s1").load_state()
     assert state.academic_pressure == 100  # 90 + 20 → clamped to 100
 
@@ -290,4 +290,87 @@ def test_exam_skips_unknown_agent(exam_env):
     """Agent ID not in profiles → silently skipped."""
     world, profiles = exam_env
     results = {"unknown_agent": {"rank_change": -3, "rank": 5}}
-    apply_exam_effects(results, world, profiles)  # Should not raise
+    apply_exam_effects(results, world, profiles, today=1)  # Should not raise
+
+
+# --- exam shock writes a high-intensity 学业焦虑 concern ---
+
+
+def test_exam_significant_drop_writes_high_intensity_concern(exam_env):
+    """A 5-rank drop produces a 学业焦虑 concern at intensity 10 — the
+    skip_cap path lets it bypass the autogen cap (=6)."""
+    world, profiles = exam_env
+    results = {"s1": {"rank_change": -5, "rank": 10}}
+    apply_exam_effects(results, world, profiles, today=7)
+
+    state = world.get_agent("s1").load_state()
+    learning_concerns = [c for c in state.active_concerns if c.topic == "学业焦虑"]
+    assert len(learning_concerns) == 1
+    concern = learning_concerns[0]
+    assert concern.intensity == 10  # min(10, 5 + 5)
+    assert concern.last_reinforced_day == 7
+    assert concern.source_day == 7
+    assert "退步" in concern.text
+    assert concern.positive is False
+
+
+def test_exam_minor_drop_writes_no_concern(exam_env):
+    """rank_change=-2 is below the threshold; no shock concern created."""
+    world, profiles = exam_env
+    results = {"s1": {"rank_change": -2, "rank": 4}}
+    apply_exam_effects(results, world, profiles, today=1)
+
+    state = world.get_agent("s1").load_state()
+    assert not any(c.topic == "学业焦虑" for c in state.active_concerns)
+
+
+def test_exam_improvement_writes_no_concern(exam_env):
+    """A rank improvement creates no shock concern."""
+    world, profiles = exam_env
+    results = {"s1": {"rank_change": 3, "rank": 2}}
+    apply_exam_effects(results, world, profiles, today=1)
+
+    state = world.get_agent("s1").load_state()
+    assert not any(c.topic == "学业焦虑" for c in state.active_concerns)
+
+
+def test_exam_drop_intensity_scales_with_magnitude(tmp_path):
+    """Verify the 8 / 9 / 10 ladder for -3 / -4 / -5 rank drops."""
+    agents_dir = tmp_path / "agents"
+    world_dir = tmp_path / "world"
+    agents_dir.mkdir()
+    world_dir.mkdir()
+    profiles = {
+        "a": _setup_agent(agents_dir, "a", "甲"),
+        "b": _setup_agent(agents_dir, "b", "乙"),
+        "c": _setup_agent(agents_dir, "c", "丙"),
+    }
+    world = WorldStorage(agents_dir=agents_dir, world_dir=world_dir)
+    world.load_all_agents()
+
+    apply_exam_effects(
+        {
+            "a": {"rank_change": -3, "rank": 5},
+            "b": {"rank_change": -4, "rank": 6},
+            "c": {"rank_change": -5, "rank": 7},
+        },
+        world, profiles, today=1,
+    )
+
+    def _intensity(aid: str) -> int:
+        state = world.get_agent(aid).load_state()
+        return next(c.intensity for c in state.active_concerns if c.topic == "学业焦虑")
+
+    assert _intensity("a") == 8
+    assert _intensity("b") == 9
+    assert _intensity("c") == 10
+
+
+def test_exam_shock_concern_bypasses_cap(exam_env):
+    """An exam shock concern lands above the autogen cap (=6)."""
+    world, profiles = exam_env
+    results = {"s1": {"rank_change": -4, "rank": 8}}
+    apply_exam_effects(results, world, profiles, today=2)
+    state = world.get_agent("s1").load_state()
+    intensity = next(c.intensity for c in state.active_concerns if c.topic == "学业焦虑")
+    assert intensity == 9

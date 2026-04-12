@@ -19,6 +19,23 @@ from .narrative import format_agent_transcript, format_latest_event
 from .resolution import ResolutionState, resolve_tick
 
 
+def _compute_pacing_label(tick: int, max_rounds: int) -> str:
+    """Translate tick/max_rounds ratio into an embodied pacing label.
+
+    Gives the LLM a participant-side cue ("scene is winding down") instead
+    of forcing it to count ticks. Labels are deliberately deflationary
+    ("差不多该散了") to discourage staged drama at scene boundaries.
+    """
+    if max_rounds <= 0:
+        return ""
+    progress = tick / max_rounds
+    if progress < 0.3:
+        return "刚开始"
+    if progress < 0.7:
+        return "在聊"
+    return "差不多该散了"
+
+
 async def run_perception(
     storage: AgentStorage,
     profile: AgentProfile,
@@ -35,6 +52,7 @@ async def run_perception(
     exam_context: str = "",
     emotion_trace: list[str] | None = None,
     group_index: int = 0,
+    scene_pacing_label: str = "",
 ) -> PerceptionOutput:
     ctx = prepare_context(
         storage, profile, state, scene, all_profiles,
@@ -44,6 +62,7 @@ async def run_perception(
         private_history=private_history,
         emotion_override=tick_emotion,
         emotion_trace=emotion_trace,
+        scene_pacing_label=scene_pacing_label,
     )
 
     static_msg = render("perception_static.j2", **ctx)
@@ -173,11 +192,25 @@ async def run_group_dialogue(
     last_perceive_tick: dict[str, int] = {}
     # Track the environmental_event from previous tick for gating decisions
     prev_environmental_event: str | None = None
+    # Pacing label state — only render on threshold transitions to avoid noise.
+    # Init to "刚开始" so tick 0 is silently skipped (LLM already knows the
+    # scene just started; the label would be pure noise).
+    prev_pacing_label: str = "刚开始"
 
     for tick in range(scene.max_rounds):
         active_agents = list(resolution_state.active_agents)
         if len(active_agents) < 2:
             break
+
+        # Compute pacing label for this tick — only inject when it crosses
+        # a threshold ("刚开始" → "在聊" → "差不多该散了"); otherwise pass
+        # an empty string and the template will skip rendering.
+        current_pacing_label = _compute_pacing_label(tick, scene.max_rounds)
+        if current_pacing_label != prev_pacing_label:
+            tick_pacing_label = current_pacing_label
+            prev_pacing_label = current_pacing_label
+        else:
+            tick_pacing_label = ""
 
         # Determine which agents need to perceive (skip queued agents entirely)
         non_queued = [
@@ -215,6 +248,7 @@ async def run_group_dialogue(
                     tick_emotions[aid], day, agent_exam_ctx,
                     emotion_trace=trace,
                     group_index=group_index,
+                    scene_pacing_label=tick_pacing_label,
                 )
             return aid, result
 
@@ -249,6 +283,12 @@ async def run_group_dialogue(
         tick_record = {
             "tick": tick,
             "agent_outputs": outputs,
+            # PDA gating: these agents reused last_perception verbatim this
+            # tick (no fresh LLM call). Their observation/inner_thought are
+            # stale copies and should NOT be re-rendered into transcripts or
+            # serialized mind dumps, or they pollute logs and downstream
+            # scene_end_analysis / reflection prompts with duplicate lines.
+            "gated_agents": list(gated),
             "resolved_speech": result.resolved_speech,
             "resolved_actions": result.resolved_actions,
             "environmental_event": result.environmental_event,

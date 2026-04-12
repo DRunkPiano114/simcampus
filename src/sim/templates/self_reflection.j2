@@ -69,6 +69,8 @@
 
 这段对话刚刚结束。以你的性格和经历，回想一下刚才发生的事。
 
+{% include 'partials/_intensity_scale.j2' %}
+
 请输出：
 
 1. **emotion**: 对话结束后你现在的情绪状态
@@ -84,7 +86,10 @@
    牵挂不是一时的情绪，而是会在接下来几天反复想起的心事。
    大部分日常闲聊不会产生任何牵挂。
    牵挂可以是负面的（被伤害、担忧）也可以是正面的（被温暖到、期待）。如果是正面的，标记 positive=true。
-   每条包含 text、source_event（一句话）、emotion、intensity（这份牵挂在心里的分量）、related_people、positive
+   每条包含 text、source_event（一句话）、emotion、intensity（这份牵挂在心里的分量）、related_people、positive、topic
+   - topic：从 [学业焦虑, 家庭压力, 人际矛盾, 恋爱, 自我认同, 未来规划, 健康, 兴趣爱好, 期待的事, 其他] 中选一个。
+     正面 concern（期待、喜欢、向往）应优先选 "兴趣爱好" 或 "期待的事"，不要丢给 "其他"。
+     选 "其他" 的门槛：只有当这个牵挂明确不属于前 9 类时才选。不要因为懒选 "其他"。
 
 5. **concern_updates**: 你现有的牵挂有没有因为这段对话而变化？
    每条包含 concern_text（已有牵挂的文本）、adjustment（正数=加剧，负数=缓解）

@@ -6,6 +6,11 @@
 ## 刚才发生了什么
 {{ latest_event }}
 
+{% if scene_pacing_label %}
+## 场景节奏
+{{ scene_pacing_label }}
+{% endif %}
+
 {% if private_history %}
 ## 你之前的观察和想法
 {% for entry in private_history %}

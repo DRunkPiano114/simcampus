@@ -30,7 +30,13 @@ from ..world.event_queue import EventQueueManager
 from ..world.grouping import group_agents
 from ..world.scene_generator import SceneGenerator
 from ..world.schedule import load_schedule
-from .apply_results import apply_scene_end_results, apply_solo_result, write_scene_file
+from .apply_results import (
+    apply_scene_end_results,
+    apply_solo_result,
+    apply_trivial_scene_result,
+    is_trivial_scene,
+    write_scene_file,
+)
 from .scene_end import run_scene_end_analysis
 from .self_reflection import run_all_reflections
 from .solo import run_solo_reflection
@@ -82,9 +88,18 @@ def serialize_tick_records(
         # public.exits
         exits = rec.get("exits", [])
 
-        # minds: only agents who had perception this tick
+        # minds: only agents who had a FRESH perception this tick. Gated
+        # agents reused last_perception unchanged (PDA optimization), so
+        # their observation/inner_thought are stale copies — serializing
+        # them produces the same long line across consecutive ticks in the
+        # scene JSON logs, which confuses human review and any downstream
+        # analysis. The gated_agents list is preserved separately so the
+        # frontend / debug tooling can still show "who was quiet this tick".
+        gated_set = set(rec.get("gated_agents", []))
         minds = {}
         for aid, out in rec["agent_outputs"].items():
+            if aid in gated_set:
+                continue
             dump = out.model_dump()
             # Convert action_target Chinese name → agent_id
             dump["action_target"] = _name_to_id(dump.get("action_target"))
@@ -99,6 +114,7 @@ def serialize_tick_records(
                 "exits": exits,
             },
             "minds": minds,
+            "gated_agents": sorted(gated_set),
         })
     return ticks
 
@@ -147,7 +163,7 @@ class Orchestrator:
         logger.info("Running exam...")
         previous = load_previous_exam_results(day)
         results = generate_exam_results(self.profiles, self.states, self.rng, previous)
-        apply_exam_effects(results, self.world, self.profiles)
+        apply_exam_effects(results, self.world, self.profiles, today=day)
         save_exam_results(results, day)
 
         # Reload states after apply_exam_effects wrote to disk
@@ -477,6 +493,26 @@ class Orchestrator:
                     exam_context=group_exam_ctx,
                     group_index=gc.group_index,
                 )
+
+                # Trivial scene fast path: skip narrative + reflection LLM calls.
+                # Status jumps to "applied" (not "llm_done") so resume after a
+                # crash never tries to re-run absent LLM outputs.
+                if is_trivial_scene(turn_records):
+                    apply_trivial_scene_result(
+                        group.agent_ids, self.world, group_scene, day, self.profiles,
+                    )
+                    groups_data.append({
+                        "group_index": gc.group_index,
+                        "participants": group.agent_ids,
+                        "ticks": serialize_tick_records(turn_records, self.profiles),
+                        "narrative": None,
+                        "reflections": {},
+                        "trivial": True,
+                    })
+                    gc.status = "applied"
+                    self._save_progress(progress)
+                    continue
+
                 gc.status = "llm_done"
                 self._save_progress(progress)
 
@@ -502,6 +538,7 @@ class Orchestrator:
                     narrative, reflections, self.world, group_scene,
                     group.agent_ids, day, gc.group_index,
                     self.profiles, event_manager,
+                    tick_records=turn_records,
                 )
 
                 groups_data.append({
@@ -637,7 +674,7 @@ class Orchestrator:
             storage = self.world.get_agent(aid)
             state = storage.load_state()
             state = reset_energy_for_sleep(state)
-            state = decay_concerns(state)
+            state = decay_concerns(state, day)
             state = maybe_decay_emotion(state, scenes_since_extreme=2, rng=self.rng)
             profile = self.profiles[aid]
             if profile.role == Role.STUDENT:

@@ -1,5 +1,8 @@
-"""Tests for memory retrieval: trigger extraction, overlap, ranking."""
+"""Tests for memory retrieval (trigger extraction, overlap, ranking) and
+the per-day key_memories cap."""
 
+from sim.agent.storage import AgentStorage
+from sim.memory.compression import cap_today_memories
 from sim.memory.retrieval import _extract_triggers, _overlap, get_relevant_memories
 from sim.models.agent import (
     Academics, AgentProfile, FamilyBackground, Gender, OverallRank,
@@ -160,3 +163,67 @@ def test_relevant_memories_overlap_tiebreak():
     result = get_relevant_memories(memory_file, scene, PROFILES)
     # Same importance, but more overlap should rank first
     assert result[0].text == "多重叠"
+
+
+# --- per-day memory cap (cap_today_memories) ---
+
+
+def test_per_day_cap_enforced(tmp_path):
+    """5 memories on day 3 (importances 3-9) → kept top 2."""
+    storage = AgentStorage("a", base_dir=tmp_path)
+    storage.write_key_memories(KeyMemoryFile(memories=[
+        KeyMemory(date="Day 3", day=3, text=f"m{i}", importance=imp)
+        for i, imp in enumerate([3, 5, 9, 4, 7])
+    ]))
+    dropped = cap_today_memories(storage, day=3)
+    assert dropped == 3
+
+    loaded = storage.load_key_memories()
+    today = [m for m in loaded.memories if m.day == 3]
+    importances = sorted(m.importance for m in today)
+    assert importances == [7, 9]  # top 2 by importance
+
+
+# Behavioral tests for the importance write threshold live in
+# tests/test_apply_results.py (test_importance_below_threshold_dropped,
+# test_importance_at_threshold_persists) — they exercise the actual
+# apply_scene_end_results code path that enforces the threshold.
+
+
+def test_older_day_memories_preserved_in_cap(tmp_path):
+    """The cap only touches today's memories; older days are untouched."""
+    storage = AgentStorage("a", base_dir=tmp_path)
+    storage.write_key_memories(KeyMemoryFile(memories=[
+        KeyMemory(date="Day 1", day=1, text="old1", importance=3),
+        KeyMemory(date="Day 1", day=1, text="old2", importance=5),
+        KeyMemory(date="Day 1", day=1, text="old3", importance=4),
+        KeyMemory(date="Day 2", day=2, text="new1", importance=8),
+        KeyMemory(date="Day 2", day=2, text="new2", importance=4),
+        KeyMemory(date="Day 2", day=2, text="new3", importance=6),
+    ]))
+    cap_today_memories(storage, day=2)
+    loaded = storage.load_key_memories()
+
+    # Day 1: all 3 still there
+    day1 = [m for m in loaded.memories if m.day == 1]
+    assert len(day1) == 3
+
+    # Day 2: capped to 2 (importance 8 and 6)
+    day2 = sorted([m for m in loaded.memories if m.day == 2], key=lambda m: -m.importance)
+    assert len(day2) == 2
+    assert day2[0].importance == 8
+    assert day2[1].importance == 6
+
+
+def test_cap_is_noop_when_under_threshold(tmp_path):
+    """If today's count ≤ cap, no writes happen and dropped == 0."""
+    storage = AgentStorage("a", base_dir=tmp_path)
+    storage.write_key_memories(KeyMemoryFile(memories=[
+        KeyMemory(date="Day 4", day=4, text="m1", importance=5),
+        KeyMemory(date="Day 4", day=4, text="m2", importance=7),
+    ]))
+    dropped = cap_today_memories(storage, day=4)
+    assert dropped == 0
+
+    loaded = storage.load_key_memories()
+    assert len(loaded.memories) == 2

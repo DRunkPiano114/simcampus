@@ -8,8 +8,17 @@ class EventQueueManager:
         self.eq = event_queue
         self.rng = rng or random.Random()
 
-    def add_event(self, text: str, category: str, source_scene: str, source_day: int,
-                  witnesses: list[str], spread_probability: float = 0.5) -> Event:
+    def add_event(
+        self,
+        text: str,
+        category: str,
+        source_scene: str,
+        source_day: int,
+        witnesses: list[str],
+        spread_probability: float = 0.5,
+        cite_ticks: list[int] | None = None,
+        group_index: int | None = None,
+    ) -> Event:
         event_id = f"evt_{self.eq.next_id}"
         event = Event(
             id=event_id,
@@ -20,6 +29,8 @@ class EventQueueManager:
             witnesses=witnesses,
             known_by=list(witnesses),
             spread_probability=spread_probability,
+            cite_ticks=list(cite_ticks) if cite_ticks else [],
+            group_index=group_index,
         )
         self.eq.events.append(event)
         self.eq.next_id += 1

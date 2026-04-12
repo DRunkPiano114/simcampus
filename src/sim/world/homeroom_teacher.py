@@ -7,7 +7,8 @@ from .event_queue import EventQueueManager
 
 
 class HomeroomTeacher:
-    """Rule-driven homeroom teacher (not a full agent in Phase 1)."""
+    """Rule-driven homeroom teacher — generates exam-talk and patrol events
+    without going through the per-agent PDA loop."""
 
     def __init__(self, profile: AgentProfile, rng: random.Random | None = None):
         self.profile = profile

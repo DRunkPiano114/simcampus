@@ -1,0 +1,28 @@
+## 强度刻度（必须遵守）
+
+intensity / importance 分级：
+- 1-2 = 路过的小情绪，一小时后就忘（这类不值得进 memories）
+- 3-4 = 今天想起几次的小插曲
+- 5-6 = 这周还会偶尔浮现的事
+- 7-8 = 下周甚至更久后还会反复出现，影响睡眠
+- 9-10 = 创伤级，会改变看世界的方式
+
+每个 bucket 都是"值得记住"的，只是"记多久"的尺度。大多数有价值的日常 memory 落在 3-5 区间。
+
+默认假设：
+- new_concerns 默认是空数组。只有当对话中真的发生了"会让你这周反复想起"的事情，才允许加入。
+- memories 中 importance ≥ 7 的条目本场景最多 1 条。
+- 如果场景里"什么都没发生"（只是日常打招呼、上课、各干各的），new_concerns 必须为空，memories 最多 1 条且 importance ≤ 4。
+
+## 示例
+- 场景：上午第一节课，没有特殊事件
+- 输出：emotion=neutral, memories=[], new_concerns=[], concern_updates=[]
+
+- 场景：和同桌闲聊了几句食堂菜
+- 输出：emotion=calm, memories=[1 条 importance 3], new_concerns=[]
+
+- 场景：被好朋友吐槽了但只是开玩笑
+- 输出：emotion=calm/amused, memories=[1 条 importance 4], new_concerns=[]
+
+## 独处场景特殊规则
+如果场景里只有你一个人、没有任何对话，你的情绪应该接近你的 baseline，不要把独处解读为被孤立或被排挤。memories 最多 1 条且 importance ≤ 3，new_concerns 必须为空。

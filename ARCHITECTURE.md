@@ -153,25 +153,33 @@ for tick in range(scene.max_rounds):  # per-scene cap from schedule.json
        e. A concern-related person is mentioned in latest_event
        f. 4-tick cadence: agent hasn't perceived in 4+ ticks
        If no trigger: reuse last PerceptionOutput with action_type=OBSERVE,
-       urgency decremented by 1, no emotion_history append (prevents fake drift)
+       urgency decremented by 1, no emotion_history append (prevents fake drift).
+       These agents are tracked as "gated" this tick so their stale reused
+       observation/inner_thought can be filtered out of downstream artefacts
+       (see RECORD step 4 + `gated_agents` handling below).
     2. PERCEIVE: gated-in agents concurrently (semaphore-throttled)
        - Build per-agent context via prepare_context() with PDA params
        - LLM returns PerceptionOutput
     3. RESOLVE: resolve_tick() determines what happens (see PDA Tick Resolution)
-    4. RECORD: store tick_record with all agent outputs + resolved actions
+    4. RECORD: store tick_record with all agent outputs + resolved actions +
+       `gated_agents: list[str]` listing agents that reused last perception
+       this tick (used by narrative/serialize layers to suppress stale copies)
     5. UPDATE: latest_event for next tick from resolved actions
     6. CHECK: scene ends if consecutive_quiet >= 4 and tick_count >= 3
 ```
 
 - Tick 0 starts with `scene.opening_event` as the latest event (randomly selected from `schedule.json:opening_events` per scene config)
+- **Scene `max_rounds` selection** (Fix 8A): long-form scenes are deliberately bounded to prevent open-ended drift into "literary cliché" emotional spirals. Current values: 课间 = 12 (was 20), 午饭 = 20 (was 25), 宿舍夜聊 = 22 (was 35); 早读/上课/晚自习 stay at 8. The remaining ceiling beyond what the scene actually consumes is absorbed by the natural-end check (`consecutive_quiet >= 4 AND tick_count >= 3`). `tests/test_schedule.py:test_schedule_max_rounds_sane` enforces upper-bound caps so future edits cannot regress.
 - Queued agents (losers from previous tick's speaker resolution) skip the PERCEIVE step and reuse their previous PerceptionOutput with +3 urgency per tick queued
 - **Perception gating** reduces LLM calls by 30-60% for silent background agents. Gating state (`last_perception`, `last_perceive_tick`) is local to `run_group_dialogue` scope — rebuilt from scratch on crash recovery (deterministic with same seed). Solo groups (`_run_single_scene` → `run_solo_reflection`) are not affected by gating.
 - Narrative formatting (`interaction/narrative.py`):
   - `format_public_transcript()`: public events visible to all (speech, actions, exits). Mid-scene summarization after 12 ticks: ticks 1-6 are collapsed into a one-line summary
-  - `format_agent_transcript()`: public view + agent's own prior observations and inner thoughts as private history
+  - `format_agent_transcript()`: public view + agent's own prior observations and inner thoughts as private history. **Gated-tick suppression**: when the focal agent appears in `tick_record["gated_agents"]`, that tick contributes NOTHING to their private history — the observation/inner_thought there is a verbatim reuse of an earlier fresh perception and re-rendering it produces duplicate lines that pollute downstream reflection prompts. Other agents' perspective on the same tick is unaffected.
   - `format_latest_event()`: one-line summary of what just happened, used as the "latest event" for next tick's perception prompt
 
 **Step 2c (solo)** — `interaction/solo.py`: If a group has `is_solo=true`, run `solo_reflection.j2` instead → returns `SoloReflection` with `inner_thought`, `emotion`, `activity`.
+
+**Trivial scene fast path** (Fix 3): immediately after `run_group_dialogue` returns, the orchestrator calls `is_trivial_scene(turn_records)` to detect "nothing happened" scenes (empty turn_records, no speech AND no environmental_event in any tick, or ≤2 ticks of pure observe / non-disruptive non_verbal). When true, `apply_trivial_scene_result` writes a placeholder `（场景没有特别发生什么）` line to each agent's `today.md` and the orchestrator skips both narrative extraction and per-agent self-reflection LLM calls. The group is marked `gc.status = "applied"` directly (skipping the `llm_done` intermediate state) so a crash recovery never tries to re-run absent LLM outputs. The trivial fast path does NOT touch `state.emotion`, `active_concerns`, `key_memories`, or relationships — emotion decay is independently driven by `_end_of_day` (overnight semantics), so trivial scenes do not need to advance any per-scene counter.
 
 **Step 2d — Narrative Extraction + Per-Agent Self-Reflection** (two-phase post-dialogue):
 
@@ -182,10 +190,10 @@ After the dialogue ends, two types of LLM calls run **concurrently**:
 - `long_conversation` threshold: 12 ticks
 - Feed the conversation log to LLM with `scene_end_analysis.j2` (analytical temperature 0.3) as a purely objective recorder
 - Returns `NarrativeExtraction`:
-  - `key_moments`: list of significant events as one-line summaries
+  - `key_moments`: list of significant events as one-line summaries (objectivity constraint: no 刻意 / 似乎 / 暗中 推测词)
   - `fulfilled_intentions`: list of "name:intention" strings
   - `events_discussed`: event IDs that were actually mentioned (updates `known_by`)
-  - `new_events`: gossip/conflicts/decisions that may spread to other scenes
+  - `new_events`: gossip/conflicts/decisions that may spread to other scenes — each carries a `cite_ticks: list[int]` (1-indexed `[Tick N]` numbers from the conversation log) used by Fix 13's grounding validation in `apply_scene_end_results`
 
 **Phase 2: Per-Agent Self-Reflection** (`interaction/self_reflection.py`) — N concurrent LLM calls:
 - For each agent in the group, build an agent-specific prompt with:
@@ -208,16 +216,27 @@ This two-phase design enables **asymmetric perception**: the same conversation c
 - For each agent in the group (using their individual `AgentReflection`):
   - Update emotion directly from reflection (Emotion enum, no try/except needed)
   - Append key moments from shared `NarrativeExtraction` to `today.md` (formatted as `## time scene @ location`)
-  - Save key memories with importance >= 7 from agent's own reflection to `key_memories.json`
-  - Apply relationship deltas from agent's own reflection using baseline snapshot (for idempotency): `new_value = baseline + delta`, clamped to valid range
+  - Save key memories with importance >= `settings.key_memory_write_threshold` (=3, Fix 14: lowered from 7) from agent's own reflection to `key_memories.json`
+  - Apply relationship deltas from agent's own reflection using baseline snapshot (for idempotency): `new_value = baseline + delta`, clamped to valid range. **Auto-insertion** (Fix 4): if the change targets an in-profiles agent that has no entry in this agent's `relationships.json` yet, a zero-state `Relationship` is created on the fly and the delta is applied on top. The `label` is picked from **both** source and target roles: HOMEROOM_TEACHER → student auto-inserts as `"学生"`, any agent → HOMEROOM_TEACHER as `"老师"`, otherwise `"同学"`. (Prior bug: label was picked from target role only, so a teacher auto-inserting a student fell through to `"同学"`.) Hallucinated names that don't resolve to any profile are dropped with a warning. Previously, missing targets were silently dropped — leading to permanently empty relationship maps for low-interaction agents.
+  - **recent_interactions log**: whenever any relationship_change has a non-zero delta, append the tag `"Day {day} {mark}{scene.name}"` to `rel.recent_interactions`, where `mark` is a one-character valence prefix derived from the signed `favorability + trust` delta of that row: `+` for net-positive (warm interaction), `−` (U+2212) for net-negative (friction), `·` (U+00B7) for net-zero but still interacting (e.g. understanding-only change where fav/trust cancel). Understanding is excluded from the valence sum because it measures "how well I know them", not affect. Dedup is keyed on the full tag (day + mark + scene name), so two rows with the same sign in the same scene collapse but a mixed scene where one row is `+` and another is `−` legitimately records both events — rare but possible across multi-target or multi-tick reflections. The list is capped at `settings.max_recent_interactions` (default 10, FIFO eviction). Downstream prompts (`perception_static.j2`, `self_reflection.j2`, etc.) render the log as an interaction timeline so the LLM can distinguish "Day 3 +课间@走廊" (warm) from "Day 4 −宿舍夜聊" (friction) at a glance without having to re-infer valence from the current absolute relationship scores. Lays the groundwork for Phase 2+ relationship-strength signals.
   - **Mark intention outcomes** from agent's own `intention_outcomes` (replaces old `narrative.fulfilled_intentions` substring matching):
     - `fulfilled` → mark intent as fulfilled; if `satisfies_concern` is set, decay linked concern intensity by 2
     - `frustrated` → if `satisfies_concern` is set, intensify linked concern by 1
     - `abandoned` → mark intent as abandoned (excluded from carry-forward)
     - Matching uses bidirectional substring (`concern_match` helper)
-  - Apply new concerns from agent's own reflection (structural dedup: same day + same scene + overlapping people = duplicate). Max 4 concerns; evicts lowest intensity if full. Propagates `positive` flag from `AgentConcernCandidate`.
+  - Apply new concerns from agent's own reflection via `add_concern` (Fix 2 — topic-based dedup). Propagates `positive` flag and the chosen `topic` from `AgentConcernCandidate`. See **Concern Topic Bucketing & Dedup**.
   - Apply concern intensity adjustments from agent's own reflection (substring matching on concern text). Remove concerns that reach intensity <= 0.
-- Update event queue from shared `NarrativeExtraction`: mark discussed events as known by all group members, add new events
+- Update event queue from shared `NarrativeExtraction`: mark discussed events as known by all group members; **for new events, run Fix 13's 3-layer cite_ticks grounding** before saving.
+
+**Fix 13 — `new_events` grounding** (`apply_results.py`): each `NewEventCandidate` carries `cite_ticks: list[int]` (1-indexed `[Tick N]` numbers as the LLM saw them). Before adding to the event queue, three layers run:
+
+1. **Layer 1 (non-empty)**: drop if `cite_ticks` is empty.
+2. **Layer 2 (existence + summarized exclusion)**: build `valid_ticks = {tick + 1: tick_record}` to align with the `[Tick N]` 1-indexed display in `narrative.py:54/:104`. When `len(tick_records) > 12`, exclude ticks 0–5 (0-indexed) since `format_public_transcript` collapses them into one summary line and the LLM cannot have legitimately quoted their content. Drop if any cited tick is outside `valid_ticks`.
+3. **Layer 3 (bigram overlap)**: compute Chinese-character bigrams of `event.text` and the concatenated raw content of all cited ticks (`_extract_tick_content` pulls speech / actions / environmental_event). The primary signal is `event_ratio = |overlap| / |event_bigrams|`; the threshold is 0.3. Using the event side as denominator means longer / more elaborated event text must overlap more — catching the "expansion" failure mode where the LLM cites one short tick but writes a long elaborated description. The log also reports `min_ratio = |overlap| / min(|event|, |cited|)` for tuning.
+
+Events that pass all three layers are persisted via `event_manager.add_event(...)` with `cite_ticks` and `group_index` carried through onto the `Event` model itself (Fix 13 follow-up). Persisting both fields means M1 sanity check can validate ground-truth against `event_queue.json` without re-running the LLM; the `group_index` is essential because cite_ticks are group-local — different groups in the same scene have independent tick numbering, and earlier audits that unioned visible ticks across groups would false-pass cross-group cites. System-generated events (e.g. `HomeroomTeacher.post_exam_actions`) leave `group_index=None` and are excluded from the M1 audit.
+
+The orchestrator now passes `tick_records=turn_records` into `apply_scene_end_results` so the validator has access to the raw conversation. Drops are logged with the prefix `[scene_end] drop` so post-rerun analysis can count rejections.
 - (File output moved to orchestrator — see "Scene File Output" below)
 
 ### Phase 3: Nightly Compression (`day_phase = "compression"`)
@@ -225,13 +244,14 @@ This two-phase design enables **asymmetric perception**: the same conversation c
 For each agent (concurrently):
 1. Read `today.md` content, active concerns, and unfulfilled intentions from daily plan
 2. Call LLM with `nightly_compress.j2` → returns `CompressionResult`:
-   - `daily_summary`: 1-2 sentence summary of the day. If there are unfulfilled intentions, the prompt asks the LLM to briefly note why (no opportunity? changed mind? interrupted?) — reflections enter `recent.md` with natural ~3 day half-life
-   - `permanent_memories`: candidates with importance scores
+   - `daily_summary`: 1-2 sentence summary of the day. The prompt requires neutral 中性记录式 phrasing (no 似乎/仿佛/暗流涌动 — see Fix 1). If there are unfulfilled intentions, the prompt asks the LLM to briefly note why (no opportunity? changed mind? interrupted?) — reflections enter `recent.md` with natural ~3 day half-life
+   - `permanent_memories`: candidates with importance scores (subject to the same intensity scale anchor from Fix 1)
    - `new_concerns`: concerns surfaced by reviewing the whole day (safety net for scene-end misses). Can be positive (positive=true) — e.g. anticipation, warmth
 3. Append daily summary to `recent.md` as `# Day N` section
-4. Save memories with importance >= 7 to `key_memories.json`
-5. Apply new concerns (same structural dedup + eviction as scene-end, with `source_scene=""`)
-6. Clear `today.md`
+4. Save memories with importance ≥ `settings.key_memory_write_threshold` (=3, Fix 14) to `key_memories.json`
+5. Apply new concerns via `add_concern` (Fix 2 — topic-based dedup), with `source_scene=""`
+6. **Fix 14 per-day cap post-pass**: `cap_today_memories(storage, day, profile_name)` keeps at most `settings.per_day_memory_cap` (=2) of today's memories, dropping the lowest-importance excess. Both scene-end reflections and the compression call feed into the same key_memories file at threshold ≥3, so a single busy day could otherwise blow out an agent's memory list. Older days are untouched.
+7. Clear `today.md`
 
 ### Phase 3.5: Daily Snapshots (after compression)
 
@@ -259,7 +279,7 @@ logs/day_001/agent_snapshots/
 
 For all agents (students + teacher):
 - Reset energy to 85 (sleep)
-- Decay all active concern intensities by 1 (remove when <= 0)
+- Decay all active concern intensities by `settings.concern_decay_per_day` (=2); evict any concern with intensity <= 0 OR `last_reinforced_day` more than `settings.concern_stale_days` (=5) behind today. See **Concern Decay** below for the rationale.
 - **Emotion decay**: extreme emotions (angry, excited, sad, embarrassed, jealous, guilty, frustrated, touched) have 50% chance of resetting to neutral overnight
 - **Relationship regression**: favorability and trust each nudge 1 point toward zero daily. Understanding does not regress (it represents cognitive knowledge that doesn't fade overnight)
 - **Academic pressure update** (students only): calls `update_academic_pressure()` with current countdown and days since last exam. This activates countdown pressure escalation (≤14 days: +3, ≤7 days: +8, ≤3 days: +15) and post-exam recovery (day 0 resets to base, then -2/day decay). `days_since_exam` is computed from `progress.last_exam_day`.
@@ -305,7 +325,7 @@ After all groups in a scene complete, the orchestrator writes a single frontend-
 Key details:
 - `serialize_tick_records()` in `orchestrator.py` converts in-memory tick records to the `ticks` array; Chinese names in `action_target` are converted to `agent_id`
 - `write_scene_file()` in `apply_results.py` atomically writes the assembled data
-- `minds` only includes agents who ran perception that tick (due to perception gating)
+- `minds` **excludes gated agents** — agents listed in `tick_record["gated_agents"]` reused `last_perception` verbatim (PDA optimization) and their observation/inner_thought are stale copies. Serializing them would produce the same long line across consecutive ticks in the scene JSON log, which confuses human review and downstream analysis. The serialized tick still carries a `gated_agents: list[str]` field alongside `minds` so frontend / debug tooling can render "who was quiet this tick" without relying on absence.
 - Solo groups use `is_solo: true` + `solo_reflection` (no fake ticks/narrative)
 - No `baselines` in scene file — frontend uses `reflections.relationship_changes` (delta values)
 
@@ -366,15 +386,19 @@ active_concerns: list[ActiveConcern]  # max 4 persistent emotional preoccupation
 ```
 text: str                        # "被江浩天当众嘲笑数学成绩"
 source_event: str                # Brief trigger description
-source_scene: str                # e.g. "课间" — used for structural dedup
+source_scene: str                # e.g. "课间" — legacy structural-dedup field
 source_day: int
 emotion: str                     # "羞耻"
-intensity: int (1-10)            # Decays by 1 per day, removed at 0
+intensity: int (1-10)            # Decays by `concern_decay_per_day` (=2) at end of day; 0 → removed
 related_people: list[str]
 positive: bool                   # False=negative (worry/hurt), True=positive (warmth/excitement/anticipation)
+topic: ConcernTopic              # Fix 2: 10-value Literal enum used for dedup bucket
+last_reinforced_day: int         # Fix 2: stale-eviction timestamp; updated by `add_concern`
 ```
 
-Concerns are generated at two points: per-agent self-reflection (post-scene) and nightly compression. Structural dedup prevents duplicates (same day + same scene + overlapping people). Max 4 per agent; lowest intensity evicted when full (positive and negative concerns compete equally on intensity). Self-reflection `concern_updates` can adjust intensity up or down based on events (e.g. being comforted → -2, being mocked again → +3). Templates display positive concerns separately under "你最近心里期待的事" and negative concerns under "你最近心里挥之不去的事".
+Concerns are generated at two points: per-agent self-reflection (post-scene) and nightly compression. Both go through `add_concern` which performs **topic-based dedup** (Fix 2 — see Concern Topic Bucketing & Dedup section): same topic + overlapping `related_people` merges and bumps intensity, with a Frankenstein guard for the `其他` bucket that refuses to merge empty-people pairs. Max 4 per agent; lowest intensity evicted when full (positive and negative concerns compete equally on intensity). Self-reflection `concern_updates` can adjust intensity up or down based on events (e.g. being comforted → -2, being mocked again → +3). Templates display positive concerns separately under "你最近心里期待的事" and negative concerns under "你最近心里挥之不去的事".
+
+`ConcernTopic` is a `Literal[10]` enum (`models/agent.py`): `学业焦虑 / 家庭压力 / 人际矛盾 / 恋爱 / 自我认同 / 未来规划 / 健康 / 兴趣爱好 / 期待的事 / 其他`. Both positive buckets (`兴趣爱好`, `期待的事`) ensure positive concerns aren't pushed into `其他` and outcompeted by negative ones.
 
 ### Relationship (`models/relationship.py`)
 
@@ -384,8 +408,11 @@ target_id: str
 favorability: int (-100 to 100)  # How much you like them
 trust: int (-100 to 100)         # How much you trust them
 understanding: int (0 to 100)    # How well you know them
-label: str                       # 同学 | 室友 | 同桌 | 前后桌
-recent_interactions: list[str]   # Last few key interactions
+label: str                       # 学生 | 老师 | 同学 | 室友 | 同桌 | 前后桌
+                                 # Auto-insert picks from source+target role (see Apply Results)
+recent_interactions: list[str]   # "Day N {+|−|·}scene_name" tags with valence
+                                 # prefix from signed fav+trust delta; capped at
+                                 # settings.max_recent_interactions (=10, FIFO)
 ```
 
 `RelationshipChange`: `from_agent`, `to_agent`, `favorability`/`trust`/`understanding` (delta values).
@@ -429,6 +456,8 @@ witnesses: list[str]             # Agent IDs who saw it happen
 known_by: list[str]              # Agent IDs who know about it (starts = witnesses, grows via gossip)
 spread_probability: float (0-1)  # Chance of being shared when a knower meets a non-knower
 active: bool                     # False after event_expire_days
+cite_ticks: list[int]            # Fix 13: 1-indexed [Tick N] grounding the event in the source conversation. Empty for system-generated events
+group_index: int | None          # Fix 13: which scene group the event came out of. None for system-generated events. Used by M1 sanity check for per-group cite validation
 ```
 
 ### Dialogue Models (`models/dialogue.py`)
@@ -466,10 +495,17 @@ SceneEndAnalysis:                            # Legacy model (kept for reference)
   concern_updates: list[ConcernUpdate]
 
 NarrativeExtraction:                         # Objective facts from dialogue (1 per group)
-  key_moments: list[str]                     # Significant events as one-line summaries
+  key_moments: list[str]                     # Significant events as one-line summaries (Fix 13: no 推测词)
   fulfilled_intentions: list[str]            # "name:intention" format
   events_discussed: list[str]                # Event IDs
   new_events: list[NewEventCandidate]        # Gossip/conflicts that may spread
+
+NewEventCandidate:                           # Fix 13: each new event must cite source ticks
+  text: str
+  category: str
+  witnesses: list[str]
+  spread_probability: float
+  cite_ticks: list[int]                      # 1-indexed [Tick N] from the conversation log
 
 IntentionOutcome:                            # Agent self-eval of one intention
   goal: str                                  # LLM's restatement of the intention goal
@@ -591,11 +627,27 @@ Daily regression: `favorability` and `trust` each nudge 1 point toward zero at e
 
 ### Concern Decay (`agent/state_update.py`)
 
-All active concern intensities decrease by 1 at end of day. Concerns reaching intensity 0 are removed. This is the baseline decay — per-agent self-reflection `concern_updates` provide event-driven adjustments on top (concerns can be soothed faster by comforting interactions or intensified by triggering events).
+`decay_concerns(state, today)` runs at end of day. Active concerns lose `settings.concern_decay_per_day` (=2) intensity per day; reaching 0 removes them. **Stale eviction (Fix 2)**: any concern whose `last_reinforced_day` is `>= settings.concern_stale_days` (=5) days behind `today` is removed entirely, regardless of remaining intensity. Per-agent self-reflection `concern_updates` provide event-driven adjustments on top (concerns can be soothed faster by comforting interactions or intensified by triggering events). The accelerated decay + stale eviction prevents concern lists from monotonically growing into a depressive backdrop.
+
+### Concern Topic Bucketing & Dedup (Fix 2)
+
+`ActiveConcern.topic` is a `Literal[10]` enum (`ConcernTopic` in `models/agent.py`): `学业焦虑 / 家庭压力 / 人际矛盾 / 恋爱 / 自我认同 / 未来规划 / 健康 / 兴趣爱好 / 期待的事 / 其他`. The two positive buckets (`兴趣爱好`, `期待的事`) give positive concerns a habitat so they don't get pushed into `其他` and evicted by negative ones. The Pydantic `Literal` is enforced by Instructor on every LLM call so drift like `英语焦虑` vs `学业焦虑` cannot create parallel buckets.
+
+`add_concern(state, new, today, skip_cap=False)` (in `interaction/apply_results.py`) is the single entry point for new concerns from both `apply_scene_end_results` and `nightly_compress`. Logic:
+
+1. **Find existing match** via `_find_existing_concern`:
+   - For categorized topics (everything except `其他`): same topic + any non-empty `related_people` overlap → merge.
+   - For `其他`: same topic + EXACT `related_people` set match → merge. If either side has empty people, NEVER merge (Frankenstein guard — empty-people `其他` buckets are almost always unrelated and merging produces a useless meta-concern).
+2. **Merge**: bump intensity by 1 (clamped to 10), refresh text, append the new `source_event` to the existing one with `；` as a delimiter, update `last_reinforced_day` to `today`. The merged `source_event` is capped at 500 chars by slicing `[-500:]` (keep tail, drop the oldest prefix) — intent is that readers care about "what set this concern off lately", so when many reinforcements fill the buffer the oldest triggers are evicted first while the most recent are fully preserved. Chronological order (oldest → newest, left → right) is maintained; `[:500]` (keep head) would silently discard every reinforcement after the buffer first filled.
+3. **No match**: cap intensity at `settings.concern_autogen_max_intensity` (=6) unless `skip_cap=True` (reserved for high-priority sources like exam shock that should land at full intensity), set `last_reinforced_day=today`, then either append or evict the lowest-intensity concern when at `max_active_concerns` (=4).
+
+The only production caller of `skip_cap=True` today is `apply_exam_effects` (`world/exam.py`): when a student's `rank_change <= -3` after an exam, an `ActiveConcern(topic="学业焦虑", intensity=min(10, 5 + magnitude))` is constructed (8/9/10 ladder for -3/-4/-5+) and pushed through `add_concern(skip_cap=True, today=day)`. Without `skip_cap` the cap of 6 would erase the difference between a routine worry and a real shock.
 
 ### Exam Score Generation (`world/exam.py`)
 
-**Trigger**: when `progress.next_exam_in_days` reaches 0, the orchestrator calls `_run_exam()` at the start of the day, before daily plans. Full chain: `load_previous_exam_results()` → `generate_exam_results()` → `apply_exam_effects()` → `save_exam_results()` → reload states → `HomeroomTeacher.post_exam_actions()` → set `progress.last_exam_day` and reset countdown.
+**Trigger**: when `progress.next_exam_in_days` reaches 0, the orchestrator calls `_run_exam()` at the start of the day, before daily plans. Full chain: `load_previous_exam_results()` → `generate_exam_results()` → `apply_exam_effects(today=day)` → `save_exam_results()` → reload states → `HomeroomTeacher.post_exam_actions()` → set `progress.last_exam_day` and reset countdown.
+
+`apply_exam_effects` mutates `academic_pressure` (+`abs(rank_change)*2`), `emotion`, `energy` (-15), AND now writes a high-intensity `学业焦虑` `ActiveConcern` for `rank_change <= -3` via `add_concern(skip_cap=True)` so the shock survives the autogen cap. The `today` parameter (required) sets `last_reinforced_day` so the new concern doesn't immediately look stale to `decay_concerns`.
 
 **Teacher exam context**: `format_teacher_exam_context()` produces a class-level overview (total students, class average, top 3, struggling/improved students) instead of the per-student view.
 
@@ -640,6 +692,8 @@ Ties broken randomly via the provided `rng`.
 | EXIT | Agent removed from active set |
 
 **Scene termination** (`quiet_tick`): scene ends when `consecutive_quiet >= settings.consecutive_quiet_to_end` (default 4) AND `tick_count >= settings.min_ticks_before_termination` (default 3). A "quiet tick" means no speech resolved, no queued speakers waiting, and no environmental event (disruptive action). Non-disruptive NON_VERBAL actions do not block termination.
+
+**Embodied pacing label** (Fix 8B): `_compute_pacing_label(tick, max_rounds)` in `interaction/turn.py` translates `tick / max_rounds` into one of three short Chinese strings (`刚开始` / `在聊` / `差不多该散了`). Labels are deliberately deflationary — "差不多该散了" rather than "高潮即将到来" — to discourage the LLM from staging dramatic climaxes near scene boundaries. The label is only injected into `perception_dynamic.j2` (under `## 场景节奏`) when it crosses a threshold from the previous tick: tick 0 (`刚开始`) is silently consumed by the loop's init value, the transition to `在聊` fires once, and the transition to `差不多该散了` fires once. Every other tick passes an empty `scene_pacing_label` so the template's `{% if %}` block renders nothing — preventing the same string from polluting 12-22 consecutive perception prompts.
 
 ### Gossip Propagation (`world/event_queue.py`)
 
@@ -703,6 +757,8 @@ All LLM calls go through `llm/client.py:structured_call()` which uses Instructor
 | Narrative extraction | `scene_end_analysis.j2` | `NarrativeExtraction` | 0.3 | 32000 | 1 per group |
 | Self-reflection | `self_reflection.j2` | `AgentReflection` | 0.7 | 32000 | N per group |
 | Nightly compression | `nightly_compress.j2` | `CompressionResult` | 0.5 | 32000 | — |
+
+**Reflection intensity calibration** (Fix 1) — `self_reflection.j2`, `nightly_compress.j2`, and `solo_reflection.j2` share a Jinja partial `partials/_intensity_scale.j2` that defines a 1-10 importance/intensity scale ("1-2 = 路过的小情绪 / 9-10 = 创伤级"), default-empty `new_concerns`, and explicit "trivial scene → empty memories" / "solo scene → close to baseline" rules. The partial is included once at the top of `nightly_compress.j2` so it covers both 任务2 (memories) and 任务3 (new concerns); `solo_reflection.j2` carries an inline 独处场景 anchor (≤25 字 inner_thought, banned 小说化 phrases) since it doesn't emit memory/concern lists; `nightly_compress.j2` 任务1 also gets a 中性记录式 style requirement to avoid 叙述者口吻.
 | Self-narrative | `self_narrative.j2` | `SelfNarrativeResult` | 0.7 | 32000 | — |
 | Re-plan | `replan.j2` | `ReplanResult` | 0.7 | 32000 | — |
 
@@ -754,7 +810,7 @@ agents/                          # Runtime state (gitignored, created by init_wo
     relationships.json           # Sparse relationship map {target_id: Relationship}
     self_narrative.json          # Structured self-narrative (narrative + self_concept + current_tensions)
     self_narrative.md            # Human-readable mirror of narrative text (not read as source)
-    key_memories.json            # Permanent memories (importance >= 7)
+    key_memories.json            # Permanent memories (importance ≥ key_memory_write_threshold, Fix 14: =3)
     today.md                     # Raw events from current day (cleared nightly)
     recent.md                    # Compressed daily summaries (rolling window)
 
@@ -788,6 +844,15 @@ tests/                           # Unit tests (pytest)
 scripts/
   init_world.py                  # Initialize agents/ and world/ from data/characters/
   inspect_state.py               # Debug tool to view current simulation state
+  export_frontend_data.py        # Copy simulation output → web/public/data/
+  sanity_check/                  # Phase 1+1.5 milestone scripts (M1-M6)
+    m1_ungrounded_events.py      # Fix 13: count events with missing or invalid cite_ticks
+    m2_per_day_memory_cap.py     # Fix 14: assert per-day key_memories ≤ per_day_memory_cap
+    m3_concern_topic_dedup.py    # Fix 2: assert each (agent, topic) bucket has ≤1 entry (其他 informational)
+    m4_empty_relationships.py    # Fix 4: assert no agent has an empty relationships map
+    m5_positive_emotion_ratio.py # Fix 1+3: positive emotion share across reflections ≥ 25%
+    m6_per_agent_memory_count.py # Fix 1+14: per-agent memory count + importance histogram (OBSERVE only)
+    run_all.py                   # Aggregate runner — emits a Markdown report
 
 src/sim/
   main.py                        # CLI entry point (argparse → Orchestrator.run)
@@ -826,6 +891,8 @@ src/sim/
     retrieval.py                 # get_relevant_memories() — tag-overlap retrieval
     writer.py                    # Helper wrappers for today.md and key_memory writes
   templates/                     # Jinja2 prompt templates (all in Chinese)
+    partials/
+      _intensity_scale.j2        # Shared intensity / importance 1-10 scale + default-empty new_concerns + trivial-scene rules (Fix 1)
     system_base.j2               # Shared system prompt (high school setting + dialogue rules + few-shot teen speech examples)
     perception_static.j2         # PDA perception system message — agent identity, relationships, memories, scene info (stable within a scene; enables DeepSeek prefix caching)
     perception_dynamic.j2        # PDA perception user message — transcript, latest_event, emotion trace, output format instructions (changes per tick)
@@ -868,6 +935,8 @@ All settings via `pydantic-settings` `BaseSettings`, loaded from `.env` file, ov
 | `event_expire_days` | 3 | Days before events become inactive |
 | `recent_md_max_weeks` | 4 | Rolling window for recent.md |
 | `max_key_memories` | 10 | Max key memories in context |
+| `key_memory_write_threshold` | 3 | Fix 14: minimum importance to write a memory (lowered from hardcoded 7) |
+| `per_day_memory_cap` | 2 | Fix 14: post-compression cap on today's memory count per agent |
 | `solo_energy_threshold` | 25 | Energy below this → solo |
 | `self_narrative_interval_days` | 3 | Days between self-narrative regeneration |
 | `self_narrative_temperature` | 0.7 | Self-narrative LLM temperature |
@@ -875,6 +944,10 @@ All settings via `pydantic-settings` `BaseSettings`, loaded from `.env` file, ov
 | `replan_temperature` | 0.7 | Re-plan LLM temperature |
 | `max_tokens_replan` | 32000 | Re-plan max tokens |
 | `max_active_concerns` | 4 | Max concerns per agent |
+| `concern_decay_per_day` | 2 | Fix 2: end-of-day intensity decay (was effectively 1) |
+| `concern_stale_days` | 5 | Fix 2: days without reinforcement → evict regardless of intensity |
+| `concern_autogen_max_intensity` | 6 | Fix 2: cap for reflection/compression-generated concerns; bypassed via `skip_cap=True` |
+| `max_recent_interactions` | 10 | Per-relationship FIFO cap on `recent_interactions` tag log (populated on any non-zero relationship_change) |
 
 ---
 

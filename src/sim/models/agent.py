@@ -1,6 +1,24 @@
 from enum import Enum
+from typing import Literal
 
 from pydantic import BaseModel, Field
+
+
+# Discrete concern topic enum. Using a Literal forces Pydantic / Instructor
+# to enforce the closed set, preventing LLM-driven drift like "学业焦虑" /
+# "学习压力" / "学习焦虑" leaking in as separate buckets.
+ConcernTopic = Literal[
+    "学业焦虑",
+    "家庭压力",
+    "人际矛盾",
+    "恋爱",
+    "自我认同",
+    "未来规划",
+    "健康",
+    "兴趣爱好",    # positive bucket — keeps "looking forward to X" out of "其他"
+    "期待的事",    # positive bucket
+    "其他",
+]
 
 
 class Gender(str, Enum):
@@ -106,6 +124,8 @@ class ActiveConcern(BaseModel):
     intensity: int = Field(default=5, ge=1, le=10)
     related_people: list[str] = Field(default_factory=list)
     positive: bool = False
+    topic: ConcernTopic = "其他"            # bucket key for topic-based dedup
+    last_reinforced_day: int = 0             # day this concern was last touched
 
 
 class LocationPreference(BaseModel):

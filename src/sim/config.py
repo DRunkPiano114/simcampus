@@ -43,6 +43,10 @@ class Settings(BaseSettings):
     max_key_memories: int = 10
     solo_energy_threshold: int = 25
 
+    # key_memories write controls
+    key_memory_write_threshold: int = 3       # min importance to write
+    per_day_memory_cap: int = 2               # post-pass cap on today's memories
+
     # Self-narrative
     self_narrative_interval_days: int = 3
     self_narrative_temperature: float = 0.7
@@ -59,6 +63,12 @@ class Settings(BaseSettings):
 
     # Concerns
     max_active_concerns: int = 4
+    concern_decay_per_day: int = 2            # intensity drop per end-of-day
+    concern_stale_days: int = 5               # days without reinforcement → evict
+    concern_autogen_max_intensity: int = 6    # cap for reflection-generated concerns
+
+    # Relationships
+    max_recent_interactions: int = 10         # per-relationship recent interaction log cap
 
     # Concurrency
     max_concurrent_llm_calls: int = 5
