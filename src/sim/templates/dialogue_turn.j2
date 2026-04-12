@@ -7,6 +7,7 @@
 {% for rel in relationships %}
 - {{ rel.target_name }}（{{ rel.label }}）：{{ rel.label_text }}
   {% if rel.recent_interactions %}最近互动：{{ rel.recent_interactions | join('；') }}{% endif %}
+  {% if rel.favorability is defined and rel.favorability >= 15 %}你和{{ rel.target_name }}已经比较熟了，说话可以更随意，可以聊心里话。{% endif %}
 {% endfor %}
 
 ## 今天已经发生的事
@@ -71,5 +72,5 @@
 - directed_to: 主要对谁说的（只能填：{{ scene_info.present_names | join('、') }}，或null）
 - inner_thought: 你的内心想法（可以和说的话不同）
 - action: 你同时做的动作（可以为null，比如"低头写作业""看向窗外"）
-- emotion: 你当前的情绪
+- emotion: 你当前的情绪（参考：happy=开心, excited=兴奋, proud=得意, curious=好奇, calm=平静, bored=无聊, frustrated=烦躁, anxious=焦虑, sad=难过, embarrassed=尴尬, jealous=嫉妒, guilty=愧疚, touched=感动, angry=愤怒, neutral=没什么特别的。课间闲聊大部分时候是 bored/curious/calm）
 - want_to_continue: 是否还想继续聊（如果话题聊完了、开始重复了、或者你有别的事想做，自然地结束就好，设为false）

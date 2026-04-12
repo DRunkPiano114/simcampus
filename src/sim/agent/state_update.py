@@ -90,15 +90,17 @@ def decay_concerns(state: AgentState, today: int) -> AgentState:
     """Decay concerns at end-of-day, dropping stale and zero-intensity ones.
 
     A concern is stale when no scene has reinforced it within
-    `settings.concern_stale_days`. Remaining concerns lose
-    `settings.concern_decay_per_day` intensity per day; any reaching 0
-    are removed.
+    `settings.concern_stale_days`. High-intensity concerns (>=6) decay
+    at half rate to let them linger at mid-intensity longer. The stale
+    eviction remains as a hard safety valve.
     """
     surviving = []
     for c in state.active_concerns:
         if (today - c.last_reinforced_day) >= settings.concern_stale_days:
-            continue
-        c.intensity = max(0, c.intensity - settings.concern_decay_per_day)
+            continue  # hard eviction — no exceptions, prevents zombies
+        # High-intensity concerns are emotionally sticky: decay at half rate
+        decay = 1 if c.intensity >= 6 else settings.concern_decay_per_day
+        c.intensity = max(0, c.intensity - decay)
         if c.intensity > 0:
             surviving.append(c)
     state.active_concerns = surviving

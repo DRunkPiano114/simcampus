@@ -22,7 +22,7 @@
 {% if yesterday_intentions %}
 ## 你昨天想着的事（有些可能还没做到）
 {% for intent in yesterday_intentions %}
-- {{ intent.goal }}{% if intent.target %}（找{{ intent.target }}）{% endif %}{% if intent.satisfies_concern %} [牵挂：{{ intent.satisfies_concern }}]{% endif %} — {% if intent.fulfilled %}✓ 做到了{% elif intent.abandoned %}✗ 放下了{% else %}✗ 没做成（已经连续想了{{ intent.pursued_days }}天了）{% endif %}
+- {{ intent.goal }}{% if intent.target %}（找{{ intent.target }}）{% endif %}{% if intent.satisfies_concern %} [牵挂：{{ intent.satisfies_concern }}]{% endif %} — {% if intent.fulfilled %}✓ 做到了{% elif intent.abandoned %}✗ 放下了{% elif intent.pursued_days >= 5 %}✗ 拖了{{ intent.pursued_days }}天了。你心里清楚再这样下去不行了。今天不面对，什么时候面对？{% elif intent.pursued_days >= 3 %}✗ 已经{{ intent.pursued_days }}天了，心里越来越不舒服。{% else %}✗ 没做成（已经连续想了{{ intent.pursued_days }}天了）{% endif %}
 {% endfor %}
 {% endif %}
 
@@ -31,13 +31,15 @@
 {% if negative_concerns %}
 ## 你最近心里挥之不去的事
 {% for concern in negative_concerns %}
-- {{ concern.text }}（{{ concern.emotion }}，{{ concern.intensity_label }}）
+- {{ concern.text }}（{{ concern.emotion }}，{{ concern.intensity_label }}）{% if concern.text_history %}
+  （之前的想法："{{ concern.text_history[-1] }}"）{% endif %}
 {% endfor %}
 {% endif %}
 {% if positive_concerns %}
 ## 你最近心里期待的事
 {% for concern in positive_concerns %}
-- {{ concern.text }}（{{ concern.emotion }}，{{ concern.intensity_label }}）
+- {{ concern.text }}（{{ concern.emotion }}，{{ concern.intensity_label }}）{% if concern.text_history %}
+  （之前的想法："{{ concern.text_history[-1] }}"）{% endif %}
 {% endfor %}
 {% endif %}
 
@@ -71,6 +73,14 @@
 
 ## 任务
 新的一天开始了。{% if is_student %}先想想你最近缺什么——朋友的陪伴？学业上的成就感？安静的独处？一点点刺激和新鲜感？还是某种情感上的支持？{% else %}先想想今天的重点——哪个学生需要关注？班级有什么问题要处理？有没有家长要沟通？自己的备课和批改进度如何？{% endif %}
+
+{% if joy_sources %}
+## 能让你开心的小事
+{% for src in joy_sources %}
+- {{ src }}
+{% endfor %}
+今天有没有什么值得期待的？
+{% endif %}
 
 然后根据你的性格、当前状态和最近发生的事，想想今天你隐约想做的事情（最多3件）。这些不是必须完成的任务，只是你心里模糊的想法，看情况自然发展。
 

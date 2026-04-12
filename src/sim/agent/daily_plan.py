@@ -106,6 +106,7 @@ async def generate_daily_plan(
         current_tensions=narr.current_tensions,
         inner_conflicts=profile.inner_conflicts,
         behavioral_anchors=profile.behavioral_anchors,
+        joy_sources=profile.joy_sources,
         is_student=is_student,
         free_period_configs=free_period_configs,
     )

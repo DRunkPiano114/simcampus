@@ -49,6 +49,7 @@ from ..world.exam import (
     load_previous_exam_results,
     save_exam_results,
 )
+from ..world.catalyst import CatalystChecker
 from ..world.homeroom_teacher import HomeroomTeacher
 
 
@@ -305,9 +306,36 @@ class Orchestrator:
         # Initialize trajectory for this day
         self._trajectory = DayTrajectory(day=day)
 
+        # Catalyst events: check agent state and inject events before scenes
+        catalyst_file = settings.data_dir / "catalyst_events.json"
+        if catalyst_file.exists():
+            catalyst_rng = random.Random(hash((self._seed, "catalyst", day)))
+            checker = CatalystChecker(catalyst_file, catalyst_rng)
+            eq = self.world.load_event_queue()
+            event_manager = EventQueueManager(eq, catalyst_rng)
+            agents = {
+                aid: (self.profiles[aid], self.states[aid])
+                for aid in self.profiles
+            }
+            rels = {
+                aid: self.world.get_agent(aid).load_relationships()
+                for aid in self.profiles
+            }
+            catalyst_events = checker.check_and_inject(
+                day, agents, rels, event_manager,
+            )
+            if catalyst_events:
+                logger.info(
+                    f"Day {day}: {len(catalyst_events)} catalyst events fired"
+                )
+            self.world.save_event_queue(event_manager.eq)
+
         # Per-day deterministic RNG so scene list is stable across resume
         scene_rng = random.Random(hash((self._seed, "scenes", day)))
-        gen = SceneGenerator(self.profiles, self.states, self._schedule, rng=scene_rng)
+        gen = SceneGenerator(
+            self.profiles, self.states, self._schedule,
+            rng=scene_rng, current_day=day,
+        )
         scene_index = 0
 
         for config in self._schedule:
@@ -338,6 +366,9 @@ class Orchestrator:
                 await self._maybe_replan_agents(
                     day, config, affected_agents, progress,
                 )
+
+        # Persist ambient event cooldown state after all scenes
+        gen.save_cooldown_state()
 
     async def _run_single_scene(
         self, day: int, scene: Scene, progress: Progress,

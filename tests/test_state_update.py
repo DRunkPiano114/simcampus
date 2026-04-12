@@ -204,12 +204,21 @@ def test_decay_concerns_empty():
 
 
 def test_concern_decay_minus_two_per_day():
-    """`concern_decay_per_day` defaults to 2."""
+    """`concern_decay_per_day` defaults to 2 for low-intensity concerns.
+    High-intensity (>=6) concerns decay at half rate (1/day)."""
+    # High-intensity: decays by 1 (half rate)
     state = AgentState(active_concerns=[
-        ActiveConcern(text="x", intensity=10, last_reinforced_day=2),
+        ActiveConcern(text="high", intensity=10, last_reinforced_day=2),
     ])
     decay_concerns(state, today=2)
-    assert state.active_concerns[0].intensity == 8  # 10 - 2
+    assert state.active_concerns[0].intensity == 9  # 10 - 1 (high-intensity half rate)
+
+    # Low-intensity: decays by 2 (normal rate)
+    state2 = AgentState(active_concerns=[
+        ActiveConcern(text="low", intensity=4, last_reinforced_day=2),
+    ])
+    decay_concerns(state2, today=2)
+    assert state2.active_concerns[0].intensity == 2  # 4 - 2 (normal rate)
 
 
 def test_concern_stale_eviction_after_5_days():
@@ -326,20 +335,20 @@ def test_regress_positive_fresh_no_decay():
 
 
 def test_regress_positive_stale_decays():
-    """Positive values decay after reaching stale threshold (default 3 days)."""
+    """Positive values decay after reaching stale threshold (default 5 days)."""
     rels = RelationshipFile(relationships={
-        "b": Relationship(target_name="B", target_id="b", favorability=10, trust=5, days_since_interaction=3),
+        "b": Relationship(target_name="B", target_id="b", favorability=10, trust=5, days_since_interaction=5),
     })
     regress_relationships(rels)
     assert rels.relationships["b"].favorability == 9
     assert rels.relationships["b"].trust == 4
-    assert rels.relationships["b"].days_since_interaction == 4
+    assert rels.relationships["b"].days_since_interaction == 6
 
 
 def test_regress_positive_just_under_stale():
-    """At days_since_interaction=2 (just under default threshold 3), no positive decay."""
+    """At days_since_interaction=4 (just under default threshold 5), no positive decay."""
     rels = RelationshipFile(relationships={
-        "b": Relationship(target_name="B", target_id="b", favorability=10, trust=5, days_since_interaction=2),
+        "b": Relationship(target_name="B", target_id="b", favorability=10, trust=5, days_since_interaction=4),
     })
     regress_relationships(rels)
     assert rels.relationships["b"].favorability == 10
@@ -377,7 +386,7 @@ def test_regress_mixed_relationship():
 def test_regress_mixed_stale():
     """Mixed stale: positive favorability decays, negative trust heals."""
     rels = RelationshipFile(relationships={
-        "b": Relationship(target_name="B", target_id="b", favorability=5, trust=-3, days_since_interaction=3),
+        "b": Relationship(target_name="B", target_id="b", favorability=5, trust=-3, days_since_interaction=5),
     })
     regress_relationships(rels)
     assert rels.relationships["b"].favorability == 4   # stale → decays
@@ -389,7 +398,7 @@ def test_regress_mixed_stale():
 def test_regress_at_one_reaches_zero():
     """Values at ±1 should reach 0, not overshoot."""
     rels = RelationshipFile(relationships={
-        "b": Relationship(target_name="B", target_id="b", favorability=1, trust=-1, days_since_interaction=3),
+        "b": Relationship(target_name="B", target_id="b", favorability=1, trust=-1, days_since_interaction=5),
     })
     regress_relationships(rels)
     assert rels.relationships["b"].favorability == 0

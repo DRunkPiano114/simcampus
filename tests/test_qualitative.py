@@ -85,31 +85,41 @@ def test_intensity_intense():
     assert intensity_label(10) == "强烈"
 
 
-# --- relationship_label ---
+# --- relationship_label (7-tier, favorability-driven) ---
 
-def test_relationship_close():
-    assert relationship_label(30, 30) == "亲近"
-    assert relationship_label(40, 20) == "亲近"
+def test_relationship_very_close():
+    assert relationship_label(20, 10) == "很亲近的朋友"
+    assert relationship_label(30, 30) == "很亲近的朋友"
 
 
-def test_relationship_okay():
-    assert relationship_label(10, 10) == "还行"
-    assert relationship_label(20, 8) == "还行"
+def test_relationship_good():
+    assert relationship_label(15, 5) == "关系不错"
+    assert relationship_label(19, 3) == "关系不错"
+
+
+def test_relationship_some_favor():
+    assert relationship_label(8, 0) == "还行，有些好感"
+    assert relationship_label(14, 0) == "还行，有些好感"
 
 
 def test_relationship_normal():
-    assert relationship_label(0, 0) == "一般"
-    assert relationship_label(-5, -5) == "一般"
+    assert relationship_label(0, 0) == "普通同学"
+    assert relationship_label(7, 0) == "普通同学"
 
 
 def test_relationship_distant():
-    assert relationship_label(-10, -10) == "有点疏远"
-    assert relationship_label(-20, -20) == "有点疏远"
+    assert relationship_label(-5, 0) == "有点疏远"
+    assert relationship_label(-3, -5) == "有点疏远"
+
+
+def test_relationship_tense():
+    assert relationship_label(-10, 0) == "关系紧张"
+    assert relationship_label(-8, -10) == "关系紧张"
 
 
 def test_relationship_hostile():
-    assert relationship_label(-30, -30) == "不对付"
-    assert relationship_label(-50, -10) == "不对付"
+    assert relationship_label(-11, 0) == "互相看不顺眼"
+    assert relationship_label(-30, -30) == "互相看不顺眼"
 
 
 # --- next_exam_label ---
@@ -160,10 +170,10 @@ def test_intensity_label_zero():
 
 
 def test_relationship_label_extreme_positive():
-    """Very high favorability + trust → 亲近."""
-    assert relationship_label(100, 100) == "亲近"
+    """Very high favorability + trust → 很亲近的朋友."""
+    assert relationship_label(100, 100) == "很亲近的朋友"
 
 
 def test_relationship_label_extreme_negative():
-    """Very low favorability + trust → 不对付."""
-    assert relationship_label(-100, -100) == "不对付"
+    """Very low favorability + trust → 互相看不顺眼."""
+    assert relationship_label(-100, -100) == "互相看不顺眼"

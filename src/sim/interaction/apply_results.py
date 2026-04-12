@@ -448,6 +448,9 @@ def apply_scene_end_results(
                             for c in state.active_concerns:
                                 if concern_match(c.text, intent.satisfies_concern):
                                     c.intensity = min(10, c.intensity + 1)
+                                    # Extra +1 for chronic frustration (4+ days)
+                                    if intent.pursued_days >= 4:
+                                        c.intensity = min(10, c.intensity + 1)
                                     break
                     elif outcome.status == "abandoned":
                         intent.abandoned = True

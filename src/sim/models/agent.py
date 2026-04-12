@@ -90,7 +90,7 @@ class FamilyBackground(BaseModel):
 class BehavioralAnchors(BaseModel):
     must_do: list[str] = Field(default_factory=list, max_length=5)
     never_do: list[str] = Field(default_factory=list, max_length=5)
-    speech_patterns: list[str] = Field(default_factory=list, max_length=3)
+    speech_patterns: list[str] = Field(default_factory=list, max_length=6)
 
 
 class AgentProfile(BaseModel):
@@ -109,6 +109,7 @@ class AgentProfile(BaseModel):
     backstory: str = ""
     inner_conflicts: list[str] = Field(default_factory=list)
     behavioral_anchors: BehavioralAnchors = Field(default_factory=BehavioralAnchors)
+    joy_sources: list[str] = Field(default_factory=list)
 
 
 class Intention(BaseModel):

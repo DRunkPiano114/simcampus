@@ -73,7 +73,7 @@ On day 1 and every `self_narrative_interval_days` (default 3) days:
 - For each agent (concurrently), call LLM with `self_narrative.j2` template
 - Input: profile summary (including backstory), recent 3-day summary, active concerns, relationships with qualitative labels, previous `self_concept` and `current_tensions` (for continuity)
 - Output: `SelfNarrativeResult` — structured model with three fields:
-  - `narrative`: 100-200 word first-person self-reflection
+  - `narrative`: first-person self-reflection (teacher: 100-200 chars; student: 50-100 chars in 碎碎念 style — short sentences like thoughts drifting through the mind, not essay prose)
   - `self_concept`: up to 4 bullets ("我是一个 ___ 的人"), slow-changing (prompt instructs: change at most 1 bullet per update unless major event)
   - `current_tensions`: up to 3 bullets, what the agent is struggling with this week (can change fully each update)
 - Saved to `agents/<id>/self_narrative.json` (canonical) + `self_narrative.md` (human-readable mirror). Legacy md-only data is auto-migrated on read.
@@ -84,7 +84,7 @@ On day 1 and every `self_narrative_interval_days` (default 3) days:
 
 For each agent (concurrently, up to `max_concurrent_llm_calls`):
 1. Load relationships (with qualitative labels), last 3 days of `recent.md`, yesterday's intentions (full lifecycle state), active concerns (with intensity labels), structured self-narrative (narrative + self_concept + current_tensions), and inner conflicts
-2. Call LLM with `daily_plan.j2` template → returns `DailyPlan` (1-3 `Intention` objects + `mood_forecast` + `location_preferences`). The prompt shows yesterday's intentions with fulfillment status and instructs the agent to link each new intention to a concern via `satisfies_concern`. For students, the prompt nudges reflection on unmet needs. For the teacher, it nudges teacher-specific priorities. Qualitative labels replace raw numbers (energy/pressure shown as descriptive text, not "73/100").
+2. Call LLM with `daily_plan.j2` template → returns `DailyPlan` (1-3 `Intention` objects + `mood_forecast` + `location_preferences`). The prompt shows yesterday's intentions with fulfillment status using **tiered urgency language** based on `pursued_days`: ≥5 days triggers escalated language ("拖了N天了…今天不面对，什么时候面对？"), ≥3 days triggers moderate urgency ("已经N天了，心里越来越不舒服"), default shows "没做成（已经连续想了N天了）". The prompt also shows concern `text_history` (the previous version of evolved concerns, rendered as "之前的想法"). It instructs the agent to link each new intention to a concern via `satisfies_concern`. A `joy_sources` section ("能让你开心的小事") is rendered from `profile.joy_sources` when available, passed via `daily_plan.py`. For students, the prompt nudges reflection on unmet needs. For the teacher, it nudges teacher-specific priorities. Qualitative labels replace raw numbers (energy/pressure shown as descriptive text, not "73/100").
 3. Validate location preferences against valid lists (invalid → default)
 4. **Carry-forward**: after LLM returns, each new intention is fuzzy-matched against yesterday's intentions (same target + goal substring overlap, skipping abandoned). Matched intentions inherit `origin_day` and increment `pursued_days`. Unmatched intentions get `origin_day=today, pursued_days=1`.
 5. **Audit log**: warnings for high-intensity (>=6) addressable concerns with no matching intention
@@ -96,11 +96,20 @@ For each agent (concurrently, up to `max_concurrent_llm_calls`):
 
 ### Phase 2: Scene Execution (`day_phase = "scenes"`)
 
+**Catalyst Event Injection** (before scenes): at the start of `_run_scenes()`, the orchestrator loads `data/catalyst_events.json` and runs `CatalystChecker.check_and_inject()` once per day. The checker iterates over trigger definitions and checks agent state against trigger conditions:
+
+- `concern_stalled`: a concern with matching `topic` has been unreinforced for `min_stale_days`
+- `isolation`: a student has `<= max_active_relationships` relationships with `days_since_interaction <= 3`
+- `relationship_threshold`: any student pair where `favorability >= favorability_gte`
+- `intention_stalled`: an unfulfilled, non-abandoned intention with `pursued_days >= min_pursued_days`
+
+Matching triggers fill a random template with agent names and inject the event via `EventQueueManager.add_event()` with `category="catalyst"`. Per-trigger cooldowns are persisted to `world/catalyst_cooldowns.json`. The `cooldown_scope` can be `"per_pair"` for relationship-based triggers (cooldown is keyed on the specific agent pair). After injection, the event queue is saved back to disk before scenes begin.
+
 For each scene in `data/schedule.json` (sequentially):
 
 **Step 2a — Scene Generation** (`world/scene_generator.py`):
 
-Scene generation is now **lazy per-config**: the orchestrator iterates over `schedule.json` entries and generates scene(s) for each config, reloading agent states between configs (to reflect re-planning changes).
+Scene generation is now **lazy per-config**: the orchestrator iterates over `schedule.json` entries and generates scene(s) for each config, reloading agent states between configs (to reflect re-planning changes). `SceneGenerator.__init__` takes `current_day` parameter and loads `_cooldown_state` from `world/ambient_cooldowns.json` for ambient event cooldown tracking.
 
 For **normal scenes** (`is_free_period=false`):
 - LOW density scenes roll against `trigger_probability` (default 15%). If they don't trigger, they're skipped entirely. If they trigger, density is upgraded to HIGH_LIGHT and a random classroom event is injected (balanced across negative/neutral/positive events).
@@ -120,6 +129,8 @@ For **free period scenes** (`is_free_period=true` — 课间 08:45, 午饭 12:00
 
 Available locations come from `schedule.json:valid_locations` per slot — currently 课间 → 教室/走廊/操场/小卖部/图书馆/天台; 午饭 → 食堂/教室/操场/小卖部. Editing the JSON is the only place to change these.
 
+**Ambient event cooldowns**: `scene_ambient_events.json` supports a mixed format — plain strings (no cooldown) and dicts with `text` + `cooldown_days` fields. `_load_ambient_events()` returns `dict[str, list]` (mixed `str | dict`). `_maybe_inject_ambient_event()` filters out dict events still on cooldown (comparing `current_day` against `_cooldown_state`), then selects from the remaining pool. After injection, dict events update `_cooldown_state` with key `"{location}:{text[:30]}"`. `save_cooldown_state()` persists the state to `world/ambient_cooldowns.json` — called by the orchestrator after scenes complete.
+
 **Step 2a.1 — Re-planning** (between configs):
 After all sub-scenes for a config complete, if the next config is a free period, "affected" agents may re-plan their location. An agent is affected if ANY of (checked from their individual `AgentReflection`):
 - Their reflection produced any `new_concerns`
@@ -129,7 +140,7 @@ After all sub-scenes for a config complete, if the next config is a free period,
 Re-plan uses `replan.j2` template → `ReplanResult` (changed, new_location, reason). The next slot's `pref_field` and `valid_locations` are read directly from its `SceneConfig`. If changed, updates `location_preferences` for the next slot. Only students are re-planned (teacher is excluded — she has no location preferences).
 
 **Step 2b — Grouping** (`world/grouping.py`):
-- First, identify solo agents: non-students (teacher) are never solo. For students: energy < 25, or introvert without close relationships at 50% chance, or sad + low energy at 60% chance.
+- First, identify solo agents: non-students (teacher) are never solo. For students: energy < `solo_energy_threshold` (default 20), or introvert without close relationships at 50% chance, or sad + low energy at 60% chance.
 - For 宿舍 scenes: group by dorm assignment.
 - For other scenes: greedy affinity clustering (max group size 5). Affinity = bidirectional favorability + structural label bonus (室友 +20, 同桌 +15, 前后桌 +10) + same-gender bonus (+5, or +100 in dorms) + intention targeting bonus (+25 if either agent has an unfulfilled intention targeting the other by name) + random noise ±10.
 
@@ -222,7 +233,7 @@ This two-phase design enables **asymmetric perception**: the same conversation c
   - **recent_interactions log**: whenever any relationship_change has a non-zero delta, append the tag `"Day {day} {mark}{scene.name}"` to `rel.recent_interactions`, where `mark` is a one-character valence prefix derived from the signed `favorability + trust` delta of that row: `+` for net-positive (warm interaction), `−` (U+2212) for net-negative (friction), `·` (U+00B7) for net-zero but still interacting (e.g. understanding-only change where fav/trust cancel). Understanding is excluded from the valence sum because it measures "how well I know them", not affect. Dedup is keyed on the full tag (day + mark + scene name), so two rows with the same sign in the same scene collapse but a mixed scene where one row is `+` and another is `−` legitimately records both events — rare but possible across multi-target or multi-tick reflections. The list is capped at `settings.max_recent_interactions` (default 10, FIFO eviction). Downstream prompts (`perception_static.j2`, `self_reflection.j2`, etc.) render the log as an interaction timeline so the LLM can distinguish "Day 3 +课间@走廊" (warm) from "Day 4 −宿舍夜聊" (friction) at a glance without having to re-infer valence from the current absolute relationship scores. Lays the groundwork for Phase 2+ relationship-strength signals.
   - **Mark intention outcomes** from agent's own `intention_outcomes` (replaces old `narrative.fulfilled_intentions` substring matching):
     - `fulfilled` → mark intent as fulfilled; if `satisfies_concern` is set, decay linked concern intensity by 2
-    - `frustrated` → if `satisfies_concern` is set, intensify linked concern by 1
+    - `frustrated` → if `satisfies_concern` is set, intensify linked concern by 1; **chronic frustration bonus**: if `pursued_days >= 4`, an extra +1 intensity is applied (total +2), accelerating concern escalation for long-stalled intentions
     - `abandoned` → mark intent as abandoned (excluded from carry-forward)
     - Matching uses bidirectional substring (`concern_match` helper)
   - Apply new concerns from agent's own reflection via `add_concern` (Fix 2 — topic-based dedup). Propagates `positive` flag and the chosen `topic` from `AgentConcernCandidate`. See **Concern Topic Bucketing & Dedup**.
@@ -280,7 +291,7 @@ logs/day_001/agent_snapshots/
 
 For all agents (students + teacher):
 - Reset energy to 85 (sleep)
-- Decay all active concern intensities by `settings.concern_decay_per_day` (=2); evict any concern with intensity <= 0 OR `last_reinforced_day` more than `settings.concern_stale_days` (=5) behind today. See **Concern Decay** below for the rationale.
+- Decay all active concern intensities (high-intensity concerns at half rate; see **Concern Decay** below); evict any concern with intensity <= 0 OR `last_reinforced_day` more than `settings.concern_stale_days` (=5) behind today.
 - **Emotion decay**: extreme emotions (angry, excited, sad, embarrassed, jealous, guilty, frustrated, touched) have 50% chance of resetting to neutral overnight
 - **Relationship regression**: favorability and trust each nudge 1 point toward zero daily. Understanding does not regress (it represents cognitive knowledge that doesn't fade overnight)
 - **Academic pressure update** (students only): calls `update_academic_pressure()` with current countdown and days since last exam. This activates countdown pressure escalation (≤14 days: +3, ≤7 days: +8, ≤3 days: +15) and post-exam recovery (day 0 resets to base, then -2/day decay). `days_since_exam` is computed from `progress.last_exam_day`.
@@ -363,10 +374,11 @@ inner_conflicts: list[str]       # e.g. ["渴望友情但社交笨拙", "用AI�
 behavioral_anchors: BehavioralAnchors  # Fix 5 — hard constraints for character consistency
   must_do: list[str] (max 5)           # things this character always does, regardless of mood
   never_do: list[str] (max 5)          # things this character would never do, even when provoked
-  speech_patterns: list[str] (max 3)   # signature verbal tics / phrases
+  speech_patterns: list[str] (max 6)   # signature verbal tics / phrases
+joy_sources: list[str]                 # small things that make this character happy (used in daily_plan.j2)
 ```
 
-**Character Anchoring (Fix 5):** `behavioral_anchors` are hard constraints injected into every LLM prompt (perception, reflection, daily plan, self-narrative) via the shared `templates/partials/_anchors.j2` partial. They prevent the LLM from writing characters as generic high school students. Generated once offline via `scripts/generate_behavioral_anchors.py` (reads character backstory → LLM outputs anchors → human review → written back to character JSON). Not dynamically updated during simulation.
+**Character Anchoring (Fix 5):** `behavioral_anchors` are hard constraints injected into every LLM prompt (perception, reflection, daily plan, self-narrative) via the shared `templates/partials/_anchors.j2` partial. They prevent the LLM from writing characters as generic high school students. `behavioral_anchors` (including `must_do`, `never_do`, and `speech_patterns`) and `joy_sources` are populated in all 10 character JSON files. Generated once offline via `scripts/generate_behavioral_anchors.py` (reads character backstory → LLM outputs anchors → human review → written back to character JSON). Not dynamically updated during simulation.
 
 ### AgentState (`models/agent.py`) — Mutable, updated every scene
 
@@ -401,6 +413,7 @@ related_people: list[str]
 positive: bool                   # False=negative (worry/hurt), True=positive (warmth/excitement/anticipation)
 topic: ConcernTopic              # Fix 2: 10-value Literal enum used for dedup bucket
 last_reinforced_day: int         # Fix 2: stale-eviction timestamp; updated by `add_concern`
+text_history: list[str] (max 3)  # Previous versions of concern text preserved on merge/evolution
 ```
 
 Concerns are generated at two points: per-agent self-reflection (post-scene) and nightly compression. Both go through `add_concern` which performs **topic-based dedup** (Fix 2 — see Concern Topic Bucketing & Dedup section): same topic + overlapping `related_people` merges and bumps intensity, with a Frankenstein guard for the `其他` bucket that refuses to merge empty-people pairs. Max 4 per agent; lowest intensity evicted when full (positive and negative concerns compete equally on intensity). Self-reflection `concern_updates` can adjust intensity up or down based on events (e.g. being comforted → -2, being mocked again → +3). Templates display positive concerns separately under "你最近心里期待的事" and negative concerns under "你最近心里挥之不去的事".
@@ -639,14 +652,28 @@ Two emotion sets control different behaviors:
 Asymmetric daily regression via `regress_relationships()`:
 
 - **Negative** `favorability`/`trust` heal every day (nudge 1 point toward 0), unconditionally.
-- **Positive** `favorability`/`trust` only decay after `settings.relationship_positive_stale_days` (default 3) consecutive days without interaction.
+- **Positive** `favorability`/`trust` only decay after `settings.relationship_positive_stale_days` (default 5) consecutive days without interaction.
 - **`understanding`** never regresses — it represents cognitive knowledge that doesn't fade overnight.
 
 The `days_since_interaction` counter (on `Relationship` model, default 0) increments each end-of-day call and resets to 0 whenever `apply_scene_end_results` processes any `RelationshipChange` for that pair (even if all deltas are 0 — presence in the LLM output = interacted). This means actively maintained friendships stay stable, while neglected ones slowly erode, and negative relationships always heal.
 
+### Relationship Labels (`agent/qualitative.py`)
+
+`relationship_label(favorability, trust)` produces a qualitative label for LLM prompts. Uses a 7-tier **favorability-driven** system (trust is a secondary gate only for the top tier):
+
+| Tier | Condition | Label |
+|------|-----------|-------|
+| 1 | `favorability >= 20 AND trust >= 10` | 很亲近的朋友 |
+| 2 | `favorability >= 15` | 关系不错 |
+| 3 | `favorability >= 8` | 还行，有些好感 |
+| 4 | `favorability >= 0` | 普通同学 |
+| 5 | `favorability >= -5` | 有点疏远 |
+| 6 | `favorability >= -10` | 关系紧张 |
+| 7 | `favorability < -10` | 互相看不顺眼 |
+
 ### Concern Decay (`agent/state_update.py`)
 
-`decay_concerns(state, today)` runs at end of day. Active concerns lose `settings.concern_decay_per_day` (=2) intensity per day; reaching 0 removes them. **Stale eviction (Fix 2)**: any concern whose `last_reinforced_day` is `>= settings.concern_stale_days` (=5) days behind `today` is removed entirely, regardless of remaining intensity. Per-agent self-reflection `concern_updates` provide event-driven adjustments on top (concerns can be soothed faster by comforting interactions or intensified by triggering events). The accelerated decay + stale eviction prevents concern lists from monotonically growing into a depressive backdrop.
+`decay_concerns(state, today)` runs at end of day. Active concerns lose `settings.concern_decay_per_day` (=2) intensity per day; reaching 0 removes them. **Half-rate decay for high-intensity concerns**: concerns with `intensity >= 6` decay at rate 1/day instead of the normal 2/day, letting emotionally sticky issues linger at mid-intensity longer before fading. **Stale eviction (Fix 2)**: any concern whose `last_reinforced_day` is `>= settings.concern_stale_days` (=5) days behind `today` is removed entirely, regardless of remaining intensity — this acts as a hard safety valve even for high-intensity concerns. Per-agent self-reflection `concern_updates` provide event-driven adjustments on top (concerns can be soothed faster by comforting interactions or intensified by triggering events). The accelerated decay + stale eviction prevents concern lists from monotonically growing into a depressive backdrop.
 
 ### Concern Topic Bucketing & Dedup (Fix 2)
 
@@ -657,7 +684,7 @@ The `days_since_interaction` counter (on `Relationship` model, default 0) increm
 1. **Find existing match** via `_find_existing_concern`:
    - For categorized topics (everything except `其他`): same topic + any non-empty `related_people` overlap → merge.
    - For `其他`: same topic + EXACT `related_people` set match → merge. If either side has empty people, NEVER merge (Frankenstein guard — empty-people `其他` buckets are almost always unrelated and merging produces a useless meta-concern).
-2. **Merge**: bump intensity by 1 (clamped to 10), refresh text, append the new `source_event` to the existing one with `；` as a delimiter, update `last_reinforced_day` to `today`. The merged `source_event` is capped at 500 chars by slicing `[-500:]` (keep tail, drop the oldest prefix) — intent is that readers care about "what set this concern off lately", so when many reinforcements fill the buffer the oldest triggers are evicted first while the most recent are fully preserved. Chronological order (oldest → newest, left → right) is maintained; `[:500]` (keep head) would silently discard every reinforcement after the buffer first filled.
+2. **Merge**: bump intensity by 1 (clamped to 10), preserve the old `text` in `text_history` (max 3 entries, FIFO) before overwriting with the new text, append the new `source_event` to the existing one with `；` as a delimiter, update `last_reinforced_day` to `today`. The merged `source_event` is capped at 500 chars by slicing `[-500:]` (keep tail, drop the oldest prefix) — intent is that readers care about "what set this concern off lately", so when many reinforcements fill the buffer the oldest triggers are evicted first while the most recent are fully preserved. Chronological order (oldest → newest, left → right) is maintained; `[:500]` (keep head) would silently discard every reinforcement after the buffer first filled.
 3. **No match**: cap intensity at `settings.concern_autogen_max_intensity` (=6) unless `skip_cap=True` (reserved for high-priority sources like exam shock that should land at full intensity), set `last_reinforced_day=today`, then either append or evict the lowest-intensity concern when at `max_active_concerns` (=4).
 
 The only production caller of `skip_cap=True` today is `apply_exam_effects` (`world/exam.py`): when a student's `rank_change <= -3` after an exam, an `ActiveConcern(topic="学业焦虑", intensity=min(10, 5 + magnitude))` is constructed (8/9/10 ladder for -3/-4/-5+) and pushed through `add_concern(skip_cap=True, today=day)`. Without `skip_cap` the cap of 6 would erase the difference between a routine worry and a real shock.
@@ -777,17 +804,19 @@ All LLM calls go through `llm/client.py:structured_call()` which uses Instructor
 | Self-reflection | `self_reflection.j2` | `AgentReflection` | 0.7 | 32000 | N per group |
 | Nightly compression | `nightly_compress.j2` | `CompressionResult` | 0.5 | 32000 | — |
 
+**Emotion guidance**: templates that output an `emotion` field (`perception_dynamic.j2`, `dialogue_turn.j2`, `self_reflection.j2`) now list all 15 Emotion enum values with Chinese translations (e.g. `happy=开心, excited=兴奋, ... neutral=没什么特别的`) and include a baseline anchor (`课间闲聊大部分时候是 bored/curious/calm`) to prevent drift toward dramatic emotions in mundane scenes.
+
 **Reflection intensity calibration** (Fix 1) — `self_reflection.j2`, `nightly_compress.j2`, and `solo_reflection.j2` share a Jinja partial `partials/_intensity_scale.j2` that defines a 1-10 importance/intensity scale ("1-2 = 路过的小情绪 / 9-10 = 创伤级"), default-empty `new_concerns`, and explicit "trivial scene → empty memories" / "solo scene → close to baseline" rules. The partial is included once at the top of `nightly_compress.j2` so it covers both 任务2 (memories) and 任务3 (new concerns); `solo_reflection.j2` carries an inline 独处场景 anchor (≤25 字 inner_thought, banned 小说化 phrases) since it doesn't emit memory/concern lists; `nightly_compress.j2` 任务1 also gets a 中性记录式 style requirement to avoid 叙述者口吻.
 | Self-narrative | `self_narrative.j2` | `SelfNarrativeResult` | 0.7 | 32000 | — |
 | Re-plan | `replan.j2` | `ReplanResult` | 0.7 | 32000 | — |
 
 Narrative extraction + N self-reflections run concurrently after each group dialogue (replacing the single `SceneEndAnalysis` call). Effective latency ≈ 1 LLM call despite N+1 total calls.
 
-All templates include `system_base.j2` (shared system prompt establishing the Shanghai 建宁中学 setting as a 市重点 high school, role-aware language guidance — "上海高中生" for students vs "上海高中老师" for teacher — natural dialogue requirements, role consistency rules, few-shot examples of natural Chinese teen speech patterns, and inner_thought voice guidelines with bad/good examples to prevent self-analysis-report style thinking).
+All templates include `system_base.j2` (shared system prompt establishing the Shanghai 建宁中学 setting as a 市重点 high school, role-aware language guidance — "上海��中生" for students vs "上海高中老师" for teacher — natural dialogue requirements, role consistency rules, few-shot examples of natural Chinese teen speech patterns, and inner_thought voice guidelines with bad/good examples to prevent self-analysis-report style thinking). After the 要求 section, `system_base.j2` includes a 语域约束 (register constraints) section (student vocabulary limits, colloquial replacements for formal connectives, no 成语, inner_thought ≤ 25 chars) and a 禁用词 (banned words) section listing academic/literary phrases whose presence counts as a failure.
 
 Context assembly (`agent/context.py:prepare_context()`):
 - Profile summary (name, gender, personality, speaking style, academic rank/strengths/weaknesses/study attitude/homework habit/target, position, family expectation/situation, long-term goals, backstory, inner_conflicts)
-- Relationships filtered to agents present in the scene, with qualitative `label_text` (亲近/还行/一般/有点疏远/不对付) computed from `(favorability+trust)/2`
+- Relationships filtered to agents present in the scene, with qualitative `label_text` computed from `relationship_label()` — a 7-tier favorability-driven system (see Key Algorithms)
 - Today's events so far (`today.md`)
 - Recent memory (last 3 days from `recent.md`)
 - Relevant key memories (tag-overlap retrieval, max 10)
@@ -821,7 +850,8 @@ data/
     fang_yuchen.json, he_min.json
   schedule.json                  # 8 daily scenes: 07:00 早读 → 22:00 宿舍夜聊 (3 with is_free_period=true)
   location_events.json           # Location-specific opening events for free period scenes
-  scene_ambient_events.json      # Fix 12: per-location ambient events for positive signal injection
+  scene_ambient_events.json      # Fix 12: per-location ambient events — mixed plain strings and dicts with `text` + `cooldown_days` fields
+  catalyst_events.json           # Conditional trigger definitions (5 types: concern_stalled, isolation, relationship_threshold, intention_stalled)
 
 agents/                          # Runtime state (gitignored, created by init_world.py)
   <agent_id>/
@@ -837,6 +867,8 @@ agents/                          # Runtime state (gitignored, created by init_wo
 world/                           # Global state (gitignored, created by init_world.py)
   progress.json                  # Simulation checkpoint
   event_queue.json               # Active + expired events
+  ambient_cooldowns.json         # Per-event cooldown state for ambient events with cooldown_days
+  catalyst_cooldowns.json        # Per-trigger cooldown state for catalyst events
   exam_results/                  # Per-exam result files (day_NNN.json)
   snapshots/                     # Pre-scene agent snapshots for crash recovery (transient)
     scene_N/
@@ -889,9 +921,10 @@ src/sim/
     state_update.py              # Energy, pressure, emotion, concern decay formulas
   world/                         # World-level logic
     schedule.py                  # load_schedule() from data/schedule.json
-    scene_generator.py           # SceneGenerator — lazy per-config scene generation, free period location splitting
+    scene_generator.py           # SceneGenerator — lazy per-config scene generation, free period location splitting, ambient event cooldowns
     grouping.py                  # group_agents() — solo detection + affinity-based clustering
     event_queue.py               # EventQueueManager — add, spread, expire events
+    catalyst.py                  # CatalystChecker — conditional event injection based on agent state (concern_stalled, isolation, relationship_threshold, intention_stalled)
     exam.py                      # generate_exam_results(), apply_exam_effects(), format_exam_context()
     homeroom_teacher.py          # HomeroomTeacher — rule-driven post-exam talks + patrol events
   interaction/                   # Scene execution logic
@@ -917,14 +950,14 @@ src/sim/
       _anchors.j2                # Fix 5: behavioral anchors (must_do / never_do / speech_patterns) — included in perception, reflection, daily_plan, self_narrative
     system_base.j2               # Shared system prompt (high school setting + dialogue rules + few-shot teen speech examples)
     perception_static.j2         # PDA perception system message — agent identity, relationships, memories, scene info (stable within a scene; enables DeepSeek prefix caching)
-    perception_dynamic.j2        # PDA perception user message — transcript, latest_event, emotion trace, output format instructions (changes per tick)
-    dialogue_turn.j2             # Legacy per-turn dialogue (kept for A/B comparison reference)
-    daily_plan.j2                # Morning plan with concern linkage (satisfies_concern), yesterday intentions display, self_concept + current_tensions
+    perception_dynamic.j2        # PDA perception user message — transcript, latest_event, emotion trace, output format instructions with all 15 Emotion values + Chinese translations (changes per tick)
+    dialogue_turn.j2             # Legacy per-turn dialogue (kept for A/B comparison reference) — includes all 15 Emotion values + Chinese translations, intimacy hint for close relationships (favorability >= 15)
+    daily_plan.j2                # Morning plan with concern linkage (satisfies_concern), yesterday intentions display with tiered urgency language, joy_sources section, concern text_history visibility, self_concept + current_tensions
     solo_reflection.j2           # Solo inner monologue (qualitative labels, self_concept + current_tensions)
     scene_end_analysis.j2        # Post-dialogue objective narrative extraction
-    self_reflection.j2           # Per-agent reflection (qualitative labels, intention_outcomes self-eval, self_concept + current_tensions)
+    self_reflection.j2           # Per-agent reflection (qualitative labels, intention_outcomes self-eval, self_concept + current_tensions) — includes all 15 Emotion values + Chinese translations, good/bad examples for memories and concerns output
     nightly_compress.j2          # Daily summary + permanent memory + concern extraction (qualitative intensity labels)
-    self_narrative.j2            # Periodic structured self-reflection (narrative + self_concept + current_tensions)
+    self_narrative.j2            # Periodic structured self-reflection (narrative compressed to 50-100 chars 碎碎念 style for students, self_concept + current_tensions)
     replan.j2                    # Reactive location re-planning (qualitative concern labels)
 ```
 
@@ -959,7 +992,7 @@ All settings via `pydantic-settings` `BaseSettings`, loaded from `.env` file, ov
 | `max_key_memories` | 10 | Max key memories in context |
 | `key_memory_write_threshold` | 3 | Fix 14: minimum importance to write a memory (lowered from hardcoded 7) |
 | `per_day_memory_cap` | 2 | Fix 14: post-compression cap on today's memory count per agent |
-| `solo_energy_threshold` | 25 | Energy below this → solo |
+| `solo_energy_threshold` | 20 | Energy below this → solo (Fix 18: lowered from 25) |
 | `self_narrative_interval_days` | 3 | Days between self-narrative regeneration |
 | `self_narrative_temperature` | 0.7 | Self-narrative LLM temperature |
 | `max_tokens_self_narrative` | 32000 | Self-narrative max tokens |
@@ -969,6 +1002,7 @@ All settings via `pydantic-settings` `BaseSettings`, loaded from `.env` file, ov
 | `concern_decay_per_day` | 2 | Fix 2: end-of-day intensity decay (was effectively 1) |
 | `concern_stale_days` | 5 | Fix 2: days without reinforcement → evict regardless of intensity |
 | `concern_autogen_max_intensity` | 6 | Fix 2: cap for reflection/compression-generated concerns; bypassed via `skip_cap=True` |
+| `relationship_positive_stale_days` | 5 | Days without interaction before positive favorability/trust decay starts |
 | `max_recent_interactions` | 10 | Per-relationship FIFO cap on `recent_interactions` tag log (populated on any non-zero relationship_change) |
 
 ---

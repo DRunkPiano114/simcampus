@@ -7,6 +7,7 @@
 {% for rel in relationships %}
 - {{ rel.target_name }}（{{ rel.label }}）：{{ rel.label_text }}
   {% if rel.recent_interactions %}最近互动：{{ rel.recent_interactions | join('；') }}{% endif %}
+  {% if rel.favorability is defined and rel.favorability >= 15 %}你和{{ rel.target_name }}已经比较熟了，说话可以更随意，可以聊心里话。{% endif %}
 {% endfor %}
 
 ## 今天已经发生的事

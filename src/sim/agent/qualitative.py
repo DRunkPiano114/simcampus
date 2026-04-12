@@ -39,16 +39,19 @@ def intensity_label(v: int) -> str:
 
 
 def relationship_label(favorability: int, trust: int) -> str:
-    avg = (favorability + trust) / 2
-    if avg >= 30:
-        return "亲近"
-    if avg >= 10:
-        return "还行"
-    if avg >= -5:
-        return "一般"
-    if avg >= -20:
+    if favorability >= 20 and trust >= 10:
+        return "很亲近的朋友"
+    if favorability >= 15:
+        return "关系不错"
+    if favorability >= 8:
+        return "还行，有些好感"
+    if favorability >= 0:
+        return "普通同学"
+    if favorability >= -5:
         return "有点疏远"
-    return "不对付"
+    if favorability >= -10:
+        return "关系紧张"
+    return "互相看不顺眼"
 
 
 def next_exam_label(days: int) -> str:

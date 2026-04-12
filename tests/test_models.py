@@ -164,9 +164,9 @@ def test_behavioral_anchors_max_length():
 
 
 def test_behavioral_anchors_speech_patterns_max_length():
-    """Exceeding max_length=3 for speech_patterns should be rejected."""
+    """Exceeding max_length=6 for speech_patterns should be rejected."""
     with pytest.raises(ValidationError):
-        BehavioralAnchors(speech_patterns=["a", "b", "c", "d"])
+        BehavioralAnchors(speech_patterns=["a", "b", "c", "d", "e", "f", "g"])
 
 
 # --- AgentRelChange.direct_interaction (Fix 5) ---

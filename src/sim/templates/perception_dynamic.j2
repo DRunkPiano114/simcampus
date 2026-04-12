@@ -39,7 +39,7 @@
 请输出：
 - observation: 你注意到了什么（一句话）
 - inner_thought: 你心里在想什么（一两句话，要真实）
-- emotion: 你现在的情绪
+- emotion: 你现在的情绪（参考：happy=开心, excited=兴奋, proud=得意, curious=好奇, calm=平静, bored=无聊, frustrated=烦躁, anxious=焦虑, sad=难过, embarrassed=尴尬, jealous=嫉妒, guilty=愧疚, touched=感动, angry=愤怒, neutral=没什么特别的。课间闲聊大部分时候是 bored/curious/calm）
 - action_type: speak / non_verbal / observe / exit
 - action_content: 你说的话或做的动作（如果选observe就填null）
 - action_target: 主要对谁（只能填：{{ scene_info.present_names | join('、') }}，或null）

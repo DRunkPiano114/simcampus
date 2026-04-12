@@ -1,0 +1,49 @@
+{
+  "catalyst_events": [
+    {
+      "trigger_type": "concern_stalled",
+      "trigger_params": {"min_stale_days": 4, "topic": "人际矛盾"},
+      "templates": [
+        "{agent}被{related_person}当面要求帮一个更大的忙",
+        "{related_person}在{agent}面前抱怨另一个人，让{agent}很为难"
+      ],
+      "cooldown_days": 5
+    },
+    {
+      "trigger_type": "concern_stalled",
+      "trigger_params": {"min_stale_days": 5, "topic": "学业焦虑"},
+      "templates": [
+        "何老师在班里公开表扬了{agent}最近某次作业的一个亮点",
+        "{agent}偶然看到自己这次小测成绩比预期好/差很多"
+      ],
+      "cooldown_days": 5
+    },
+    {
+      "trigger_type": "relationship_threshold",
+      "trigger_params": {"favorability_gte": 18},
+      "templates": [
+        "{agent_a}和{agent_b}被分到同一个值日组",
+        "{agent_a}偶然发现{agent_b}的一个小秘密"
+      ],
+      "cooldown_days": 21,
+      "cooldown_scope": "per_pair"
+    },
+    {
+      "trigger_type": "isolation",
+      "trigger_params": {"max_active_relationships": 2},
+      "templates": [
+        "有人主动邀请{agent}一起做某件事",
+        "{agent}的座位因为换座被安排到了一个新的位置旁边"
+      ],
+      "cooldown_days": 7
+    },
+    {
+      "trigger_type": "intention_stalled",
+      "trigger_params": {"min_pursued_days": 5},
+      "templates": [
+        "一个偶然的机会让{agent}不得不面对一直拖延的事情"
+      ],
+      "cooldown_days": 7
+    }
+  ]
+}

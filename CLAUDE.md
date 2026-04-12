@@ -14,3 +14,7 @@ What triggers a doc update:
 - Change file storage format, paths, or initialization logic
 
 The goal: a stranger should be able to fully understand this project's technical implementation, engineering details, and framework logic by reading `ARCHITECTURE.md` alone, without looking at source code.
+
+## JSON Quoting Rule
+
+JSON files under `data/` contain Chinese text. Use ASCII `"` (U+0022) for all JSON structural quotes (field names, string delimiters). Chinese curly quotes `""` (U+201C/201D) may only appear **inside** string content. After editing any JSON file, validate with `python -m json.tool`.

@@ -23,14 +23,17 @@ class SceneGenerator:
         states: dict[str, AgentState],
         schedule: list[SceneConfig],
         rng: random.Random | None = None,
+        current_day: int = 1,
     ):
         self.profiles = profiles
         self.states = states
         self.rng = rng or random.Random()
         self.schedule = schedule
+        self._current_day = current_day
         self._location_events = self._load_location_events()
         self._ambient_events = self._load_ambient_events()
         self._recent_ambient_events: dict[str, deque] = {}
+        self._cooldown_state: dict[str, int] = self._load_cooldown_state()
 
     def _load_location_events(self) -> dict:
         path = settings.data_dir / "location_events.json"
@@ -38,12 +41,23 @@ class SceneGenerator:
             return json.loads(path.read_text("utf-8"))
         return {}
 
-    def _load_ambient_events(self) -> dict[str, list[str]]:
+    def _load_ambient_events(self) -> dict[str, list]:
         path = settings.ambient_events_file
         if path.exists():
             raw = json.loads(path.read_text("utf-8"))
             return {loc: data["events"] for loc, data in raw.items()}
         return {}
+
+    def _load_cooldown_state(self) -> dict[str, int]:
+        path = settings.world_dir / "ambient_cooldowns.json"
+        if path.exists():
+            return json.loads(path.read_text("utf-8"))
+        return {}
+
+    def save_cooldown_state(self) -> None:
+        path = settings.world_dir / "ambient_cooldowns.json"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(self._cooldown_state, ensure_ascii=False, indent=2), "utf-8")
 
     def _maybe_inject_ambient_event(self, scene: Scene) -> None:
         """Inject a positive ambient event into scenes without an opening_event."""
@@ -51,22 +65,51 @@ class SceneGenerator:
             return
         if self.rng.random() >= settings.ambient_event_probability:
             return
+
         full_pool = self._ambient_events.get(scene.location, [])
         if not full_pool:
             return
+
+        # Filter: cooldown check for dict events, pass-through for plain strings
+        cooldown_ok: list = []
+        for item in full_pool:
+            if isinstance(item, str):
+                cooldown_ok.append(item)
+            else:
+                key = f"{scene.location}:{item['text'][:30]}"
+                last_used = self._cooldown_state.get(key, -999)
+                if self._current_day - last_used >= item.get("cooldown_days", 0):
+                    cooldown_ok.append(item)
+
+        if not cooldown_ok:
+            return
+
+        # Dedup: existing deque prevents any event from repeating in close succession
         maxlen = max(1, len(full_pool) - 2)
         if scene.location not in self._recent_ambient_events:
             self._recent_ambient_events[scene.location] = deque(maxlen=maxlen)
         recently_used = self._recent_ambient_events[scene.location]
-        available = [e for e in full_pool if e not in recently_used]
+
+        def _event_text(item: str | dict) -> str:
+            return item["text"] if isinstance(item, dict) else item
+
+        available = [e for e in cooldown_ok if _event_text(e) not in recently_used]
         if not available:
             return
+
         chosen = self.rng.choice(available)
-        scene.opening_event = chosen
-        recently_used.append(chosen)
+        text = _event_text(chosen)
+        scene.opening_event = text
+        recently_used.append(text)
+
+        # Update cooldown state for dict events
+        if isinstance(chosen, dict):
+            key = f"{scene.location}:{text[:30]}"
+            self._cooldown_state[key] = self._current_day
+
         logger.info(
             f"  Injected ambient event for {scene.name}@{scene.location}: "
-            f"{chosen[:40]}"
+            f"{text[:40]}"
         )
 
     def generate_scenes_for_config(
