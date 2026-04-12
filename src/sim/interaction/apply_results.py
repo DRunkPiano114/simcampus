@@ -141,6 +141,41 @@ def _clamp(v: int, lo: int, hi: int) -> int:
     return max(lo, min(hi, v))
 
 
+def _build_direct_interaction_set(
+    aid: str,
+    tick_records: list[dict],
+    profiles: dict[str, AgentProfile],
+) -> set[str]:
+    """Compute the set of agent_ids that *aid* actually directly interacted with.
+
+    Criteria (any one counts as direct):
+    - aid spoke and action_target points to someone → aid direct'd them
+    - someone else spoke and action_target is aid's name → bidirectional
+    - aid's non_verbal action has a target → aid direct'd target
+    - someone else's non_verbal action targets aid → bidirectional
+    """
+    name_to_id = {p.name: pid for pid, p in profiles.items()}
+    my_name = profiles[aid].name
+    targets: set[str] = set()
+    for rec in tick_records or []:
+        if rec.get("resolved_speech"):
+            spk_id, out = rec["resolved_speech"]
+            if spk_id == aid and out.action_target:
+                tid = name_to_id.get(out.action_target)
+                if tid:
+                    targets.add(tid)
+            elif spk_id != aid and out.action_target == my_name:
+                targets.add(spk_id)
+        for a_id, out in rec.get("resolved_actions", []):
+            if a_id == aid and out.action_target:
+                tid = name_to_id.get(out.action_target)
+                if tid:
+                    targets.add(tid)
+            elif a_id != aid and out.action_target == my_name:
+                targets.add(a_id)
+    return targets
+
+
 def _find_existing_concern(
     state: AgentState,
     new_concern: ActiveConcern,
@@ -202,6 +237,10 @@ def add_concern(
             existing.intensity = min(10, max(existing.intensity, new_concern.intensity) + 1)
         else:
             existing.intensity = min(10, existing.intensity + 1)
+        # Preserve old text in history before overwriting
+        if existing.text != new_concern.text and existing.text not in existing.text_history:
+            existing.text_history.append(existing.text)
+            existing.text_history = existing.text_history[-3:]
         existing.text = new_concern.text
         if existing.source_event and new_concern.source_event:
             merged_source = existing.source_event + "；" + new_concern.source_event
@@ -339,14 +378,24 @@ def apply_scene_end_results(
 
             rel = rels.relationships[to_id]
             base = baselines.get(aid, {}).get(to_id)
+
+            # Double-gate: LLM self-label is necessary, tick_records evidence
+            # is sufficient. Both must agree for ±3; otherwise clamp to ±1.
+            direct_set = _build_direct_interaction_set(aid, tick_records or [], profiles)
+            effective_direct = change.direct_interaction and (to_id in direct_set)
+            max_delta = 3 if effective_direct else 1
+            fav_delta = _clamp(change.favorability, -max_delta, max_delta)
+            trust_delta = _clamp(change.trust, -max_delta, max_delta)
+            und_delta = _clamp(change.understanding, -max_delta, max_delta)
+
             if base:
-                rel.favorability = _clamp(base["favorability"] + change.favorability, -100, 100)
-                rel.trust = _clamp(base["trust"] + change.trust, -100, 100)
-                rel.understanding = _clamp(base["understanding"] + change.understanding, 0, 100)
+                rel.favorability = _clamp(base["favorability"] + fav_delta, -100, 100)
+                rel.trust = _clamp(base["trust"] + trust_delta, -100, 100)
+                rel.understanding = _clamp(base["understanding"] + und_delta, 0, 100)
             else:
-                rel.favorability = _clamp(rel.favorability + change.favorability, -100, 100)
-                rel.trust = _clamp(rel.trust + change.trust, -100, 100)
-                rel.understanding = _clamp(rel.understanding + change.understanding, 0, 100)
+                rel.favorability = _clamp(rel.favorability + fav_delta, -100, 100)
+                rel.trust = _clamp(rel.trust + trust_delta, -100, 100)
+                rel.understanding = _clamp(rel.understanding + und_delta, 0, 100)
 
             # Record this scene as a recent interaction. Dedup on the
             # (day, scene_name) part of the tag so multiple

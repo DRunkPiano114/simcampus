@@ -99,6 +99,7 @@ class AgentRelChange(BaseModel):
     favorability: int = 0
     trust: int = 0
     understanding: int = 0
+    direct_interaction: bool = False
 
 
 class AgentMemoryCandidate(BaseModel):

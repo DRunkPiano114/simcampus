@@ -1,20 +1,5 @@
 # CLAUDE.md
 
-## Test Sync Rule
-
-Tests live in `tests/`. **When you modify logic in `src/sim/`, you MUST also update or add corresponding tests.** A task is not complete until tests pass.
-
-What triggers a test update:
-- Change an algorithm (grouping, speaker selection, energy, pressure, concern dedup, etc.)
-- Change state update logic (energy deltas, decay, regression, etc.)
-- Change qualitative threshold mappings
-- Add/remove/rename fields on models used in tested functions
-- Change memory retrieval, event queue, or narrative formatting logic
-
-Write tests based on what a function is **supposed to do** (its design intent), not by mirroring its current implementation. Testing against the code as-is can cement bugs into passing tests.
-
-Run `uv run python -m pytest` before considering any code change complete.
-
 ## Documentation Sync Rule
 
 Detailed technical documentation lives in `ARCHITECTURE.md`. **Every time you modify code, you MUST also update that file to reflect the changes.** A task is not complete until the doc is in sync.

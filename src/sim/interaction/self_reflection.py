@@ -52,6 +52,7 @@ async def run_agent_reflection(
         conversation_log=conversation_log,
         role_description=ctx["role_description"],
         pending_intentions=ctx["pending_intentions"],
+        behavioral_anchors=ctx["behavioral_anchors"],
     )
 
     messages = [{"role": "user", "content": prompt}]

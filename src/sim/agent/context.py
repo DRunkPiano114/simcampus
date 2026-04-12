@@ -142,4 +142,6 @@ def prepare_context(
         # Emotion chain + inner conflicts
         "emotion_trace": emotion_trace or [],
         "inner_conflicts": profile.inner_conflicts,
+        # Character anchoring (Fix 5)
+        "behavioral_anchors": profile.behavioral_anchors,
     }

@@ -65,20 +65,21 @@ def _should_be_solo(
     if profile.role != Role.STUDENT:
         return False
 
-    # Low energy → solo
-    if state.energy < 25:
+    # Low energy → solo (Fix 18: threshold lowered from 25 to settings)
+    from ..config import settings
+    if state.energy < settings.solo_energy_threshold:
         return True
 
-    # Introvert with no close relationships → 50% solo
+    # Introvert with no close relationships → 20% solo (Fix 18: from 50%)
     is_introvert = "内向" in profile.personality
     rels = relationships.get(agent_id, RelationshipFile()).relationships
     has_close = any(r.favorability >= 15 for r in rels.values())
     if is_introvert and not has_close:
-        return rng.random() < 0.5
+        return rng.random() < 0.2
 
-    # Sad + low energy → 60% solo
+    # Sad + low energy → 30% solo (Fix 18: from 60%)
     if state.emotion == Emotion.SAD and state.energy < 50:
-        return rng.random() < 0.6
+        return rng.random() < 0.3
 
     return False
 

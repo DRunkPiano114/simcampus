@@ -141,8 +141,9 @@ def test_solo_teacher_never_solo():
 
 
 def test_solo_low_energy():
+    """Energy below solo_energy_threshold (20) triggers solo."""
     profile = _make_profile("a", "张伟")
-    state = AgentState(energy=20)
+    state = AgentState(energy=15)  # Fix 18: threshold lowered to 20
     assert _should_be_solo("a", profile, state, {}, RNG) is True
 
 
@@ -195,16 +196,16 @@ def test_solo_sad_high_energy():
 
 
 def test_solo_energy_at_threshold():
-    """Energy exactly at 25 (threshold) → not solo (threshold is < 25)."""
+    """Energy exactly at threshold (20) → not solo (threshold is < 20)."""
     profile = _make_profile("a", "张伟")
-    state = AgentState(energy=25)
+    state = AgentState(energy=20)  # Fix 18: threshold now 20
     assert _should_be_solo("a", profile, state, {}, Random(42)) is False
 
 
 def test_solo_energy_just_below_threshold():
-    """Energy at 24 (just below threshold) → solo."""
+    """Energy at 19 (just below threshold) → solo."""
     profile = _make_profile("a", "张伟")
-    state = AgentState(energy=24)
+    state = AgentState(energy=19)  # Fix 18: threshold now 20
     assert _should_be_solo("a", profile, state, {}, Random(42)) is True
 
 

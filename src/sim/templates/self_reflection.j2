@@ -56,6 +56,8 @@
 {% endfor %}
 {% endif %}
 
+{% include 'partials/_anchors.j2' %}
+
 ## 场景信息
 - 时间：{{ scene_info.time }}
 - 地点：{{ scene_info.location }}
@@ -76,7 +78,11 @@
 1. **emotion**: 对话结束后你现在的情绪状态
 
 2. **relationship_changes**: 这段对话让你对谁的看法有变化？变化可以很小（随便聊两句的细微好感），也可以很大（被深深感动或伤害）。
-   每条包含 to_agent（对方名字）, favorability/trust/understanding 的变化值（delta）
+   即使你在本场景里没有和某个人直接对话，只要你对 TA 有真实的心理投入（关心、担忧、羡慕、回避），也应该输出 relationship_changes。
+   每条包含 to_agent（对方名字）, favorability/trust/understanding 的变化值（delta）, direct_interaction（布尔值）
+   - direct_interaction=true：你和 TA 直接说话/眼神接触/动作互动了。每项 ±3
+   - direct_interaction=false：纯观察/思考/远远看到。每项 ±1
+   - 单方向的暗恋或厌恶：优先更新 understanding（你对 TA 理解更深了），favorability 变化必须挂钩本场景的具体观察，不能凭空
    注意：大部分日常对话的变化应该在 ±1~3 之间，不要过度估计
 
 3. **memories**: 这段经历中，有什么对你来说值得记住的？

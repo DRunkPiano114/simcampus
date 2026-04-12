@@ -1,6 +1,8 @@
 import json
 import random
-from collections import defaultdict
+from collections import defaultdict, deque
+
+from loguru import logger
 
 from ..config import settings
 from ..models.agent import AgentProfile, AgentState, Role
@@ -27,12 +29,45 @@ class SceneGenerator:
         self.rng = rng or random.Random()
         self.schedule = schedule
         self._location_events = self._load_location_events()
+        self._ambient_events = self._load_ambient_events()
+        self._recent_ambient_events: dict[str, deque] = {}
 
     def _load_location_events(self) -> dict:
         path = settings.data_dir / "location_events.json"
         if path.exists():
             return json.loads(path.read_text("utf-8"))
         return {}
+
+    def _load_ambient_events(self) -> dict[str, list[str]]:
+        path = settings.ambient_events_file
+        if path.exists():
+            raw = json.loads(path.read_text("utf-8"))
+            return {loc: data["events"] for loc, data in raw.items()}
+        return {}
+
+    def _maybe_inject_ambient_event(self, scene: Scene) -> None:
+        """Inject a positive ambient event into scenes without an opening_event."""
+        if scene.opening_event:
+            return
+        if self.rng.random() >= settings.ambient_event_probability:
+            return
+        full_pool = self._ambient_events.get(scene.location, [])
+        if not full_pool:
+            return
+        maxlen = max(1, len(full_pool) - 2)
+        if scene.location not in self._recent_ambient_events:
+            self._recent_ambient_events[scene.location] = deque(maxlen=maxlen)
+        recently_used = self._recent_ambient_events[scene.location]
+        available = [e for e in full_pool if e not in recently_used]
+        if not available:
+            return
+        chosen = self.rng.choice(available)
+        scene.opening_event = chosen
+        recently_used.append(chosen)
+        logger.info(
+            f"  Injected ambient event for {scene.name}@{scene.location}: "
+            f"{chosen[:40]}"
+        )
 
     def generate_scenes_for_config(
         self, config: SceneConfig, day: int, start_index: int,
@@ -120,6 +155,7 @@ class SceneGenerator:
             teacher_action=teacher_action,
             opening_event=opening_event,
         )
+        self._maybe_inject_ambient_event(scene)
         return [scene]
 
     def _generate_free_period_scenes(
@@ -188,6 +224,7 @@ class SceneGenerator:
                 teacher_action=None,
                 opening_event=opening_event,
             )
+            self._maybe_inject_ambient_event(scene)
             scenes.append(scene)
             scene_idx += 1
 

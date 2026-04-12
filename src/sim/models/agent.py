@@ -87,6 +87,12 @@ class FamilyBackground(BaseModel):
     situation: str = ""
 
 
+class BehavioralAnchors(BaseModel):
+    must_do: list[str] = Field(default_factory=list, max_length=5)
+    never_do: list[str] = Field(default_factory=list, max_length=5)
+    speech_patterns: list[str] = Field(default_factory=list, max_length=3)
+
+
 class AgentProfile(BaseModel):
     agent_id: str
     name: str
@@ -102,6 +108,7 @@ class AgentProfile(BaseModel):
     long_term_goals: list[str] = Field(default_factory=list)
     backstory: str = ""
     inner_conflicts: list[str] = Field(default_factory=list)
+    behavioral_anchors: BehavioralAnchors = Field(default_factory=BehavioralAnchors)
 
 
 class Intention(BaseModel):
@@ -126,6 +133,7 @@ class ActiveConcern(BaseModel):
     positive: bool = False
     topic: ConcernTopic = "其他"            # bucket key for topic-based dedup
     last_reinforced_day: int = 0             # day this concern was last touched
+    text_history: list[str] = Field(default_factory=list, max_length=3)
 
 
 class LocationPreference(BaseModel):

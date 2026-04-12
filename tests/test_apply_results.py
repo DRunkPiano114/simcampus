@@ -599,10 +599,24 @@ def test_relationship_auto_insert_for_unknown_target(tmp_path):
     world, profiles = _setup_two_agent_world(tmp_path)
     scene = _make_scene(agent_ids=["a", "b"])
 
+    # Provide tick_records with direct speech a→b so double-gate allows ±3
+    tick_records = [_make_speech_tick(0, "a", "你好李明")]
+    tick_records[0]["resolved_speech"] = (
+        "a",
+        PerceptionOutput(
+            observation="x", inner_thought="x", emotion=Emotion.NEUTRAL,
+            action_type=ActionType.SPEAK, action_content="你好李明",
+            action_target="李明", urgency=5,
+        ),
+    )
+
     refl = AgentReflection(
         emotion=Emotion.CALM,
         relationship_changes=[
-            AgentRelChange(to_agent="李明", favorability=3, trust=2, understanding=1),
+            AgentRelChange(
+                to_agent="李明", favorability=3, trust=2, understanding=1,
+                direct_interaction=True,
+            ),
         ],
     )
 
@@ -616,13 +630,14 @@ def test_relationship_auto_insert_for_unknown_target(tmp_path):
         group_id=0,
         profiles=profiles,
         event_manager=_make_event_manager(),
+        tick_records=tick_records,
     )
 
     rels_a = world.get_agent("a").load_relationships()
     assert "b" in rels_a.relationships
     assert rels_a.relationships["b"].target_name == "李明"
     assert rels_a.relationships["b"].label == "同学"
-    # Auto-inserted at zero, then delta applied
+    # Auto-inserted at zero, then delta applied (direct_interaction + tick evidence → ±3)
     assert rels_a.relationships["b"].favorability == 3
     assert rels_a.relationships["b"].trust == 2
     assert rels_a.relationships["b"].understanding == 1
@@ -660,7 +675,8 @@ def test_relationship_change_dropped_for_hallucinated_name(tmp_path):
 
 def test_relationship_change_applied_to_existing_target(tmp_path):
     """Regression: when target already exists, the delta is applied to the
-    snapshotted baseline (idempotent)."""
+    snapshotted baseline (idempotent). Without tick evidence, double-gate
+    clamps deltas to ±1."""
     world, profiles = _setup_two_agent_world(tmp_path)
     # Pre-seed a's relationship with b at favorability=10
     rels = RelationshipFile(relationships={
@@ -692,9 +708,10 @@ def test_relationship_change_applied_to_existing_target(tmp_path):
     )
 
     rels_a = world.get_agent("a").load_relationships()
-    assert rels_a.relationships["b"].favorability == 12  # 10 + 2
+    # No tick_records + no direct_interaction → clamped to ±1
+    assert rels_a.relationships["b"].favorability == 11  # 10 + 1 (clamped from 2)
     assert rels_a.relationships["b"].trust == 4         # 5 - 1
-    assert rels_a.relationships["b"].understanding == 23  # 20 + 3
+    assert rels_a.relationships["b"].understanding == 21  # 20 + 1 (clamped from 3)
 
 
 # --- relationship label respects source role ---
@@ -1391,3 +1408,242 @@ def test_cite_ticks_valid_when_scene_short_enough(tmp_path):
         event_manager=em, tick_records=tick_records,
     )
     assert len(em.eq.events) == 1
+
+
+# --- Fix 5: double-gate bystander/direct relationship clamp ---
+
+
+from sim.interaction.apply_results import _build_direct_interaction_set
+
+
+def test_bystander_relationship_change_clamped_to_one(tmp_path):
+    """LLM outputs direct_interaction=False, favorability=5 → clamped to 1."""
+    world, profiles = _setup_two_agent_world(tmp_path)
+    scene = _make_scene(agent_ids=["a", "b"])
+
+    refl = AgentReflection(
+        emotion=Emotion.CALM,
+        relationship_changes=[
+            AgentRelChange(
+                to_agent="李明", favorability=5, trust=3, understanding=2,
+                direct_interaction=False,
+            ),
+        ],
+    )
+
+    apply_scene_end_results(
+        narrative=NarrativeExtraction(),
+        reflections={"a": refl},
+        world=world, scene=scene,
+        group_agent_ids=["a", "b"],
+        day=1, group_id=0, profiles=profiles,
+        event_manager=_make_event_manager(),
+    )
+
+    rels_a = world.get_agent("a").load_relationships()
+    assert rels_a.relationships["b"].favorability == 1
+    assert rels_a.relationships["b"].trust == 1
+    assert rels_a.relationships["b"].understanding == 1
+
+
+def test_direct_interaction_with_tick_evidence_allows_three(tmp_path):
+    """direct_interaction=True + tick_records evidence (a spoke to b) → ±3 allowed."""
+    world, profiles = _setup_two_agent_world(tmp_path)
+    scene = _make_scene(agent_ids=["a", "b"])
+
+    tick_records = [{
+        "tick": 0,
+        "agent_outputs": {},
+        "resolved_speech": (
+            "a",
+            PerceptionOutput(
+                observation="x", inner_thought="x", emotion=Emotion.NEUTRAL,
+                action_type=ActionType.SPEAK, action_content="你好",
+                action_target="李明", urgency=5,
+            ),
+        ),
+        "resolved_actions": [],
+        "environmental_event": None,
+        "exits": [],
+    }]
+
+    refl = AgentReflection(
+        emotion=Emotion.CALM,
+        relationship_changes=[
+            AgentRelChange(
+                to_agent="李明", favorability=3, trust=-2, understanding=3,
+                direct_interaction=True,
+            ),
+        ],
+    )
+
+    apply_scene_end_results(
+        narrative=NarrativeExtraction(),
+        reflections={"a": refl},
+        world=world, scene=scene,
+        group_agent_ids=["a", "b"],
+        day=1, group_id=0, profiles=profiles,
+        event_manager=_make_event_manager(),
+        tick_records=tick_records,
+    )
+
+    rels_a = world.get_agent("a").load_relationships()
+    assert rels_a.relationships["b"].favorability == 3
+    assert rels_a.relationships["b"].trust == -2
+    assert rels_a.relationships["b"].understanding == 3
+
+
+def test_direct_interaction_without_tick_evidence_clamped_to_one(tmp_path):
+    """LLM self-labels direct_interaction=True but tick_records show no a→b
+    interaction → still clamped to ±1 (double-gate key test)."""
+    world, profiles = _setup_two_agent_world(tmp_path)
+    scene = _make_scene(agent_ids=["a", "b"])
+
+    # tick_records exist but a never targets b
+    tick_records = [{
+        "tick": 0,
+        "agent_outputs": {},
+        "resolved_speech": (
+            "a",
+            PerceptionOutput(
+                observation="x", inner_thought="x", emotion=Emotion.NEUTRAL,
+                action_type=ActionType.SPEAK, action_content="自言自语",
+                action_target=None, urgency=5,
+            ),
+        ),
+        "resolved_actions": [],
+        "environmental_event": None,
+        "exits": [],
+    }]
+
+    refl = AgentReflection(
+        emotion=Emotion.CALM,
+        relationship_changes=[
+            AgentRelChange(
+                to_agent="李明", favorability=3, trust=3, understanding=3,
+                direct_interaction=True,  # LLM lies
+            ),
+        ],
+    )
+
+    apply_scene_end_results(
+        narrative=NarrativeExtraction(),
+        reflections={"a": refl},
+        world=world, scene=scene,
+        group_agent_ids=["a", "b"],
+        day=1, group_id=0, profiles=profiles,
+        event_manager=_make_event_manager(),
+        tick_records=tick_records,
+    )
+
+    rels_a = world.get_agent("a").load_relationships()
+    # Double-gate: LLM said True but tick evidence says no → clamped to ±1
+    assert rels_a.relationships["b"].favorability == 1
+    assert rels_a.relationships["b"].trust == 1
+    assert rels_a.relationships["b"].understanding == 1
+
+
+def test_build_direct_interaction_set_speech_with_target():
+    """Speech with action_target populates the direct set."""
+    profiles = {
+        "a": AgentProfile(
+            agent_id="a", name="张伟", gender=Gender.MALE, role=Role.STUDENT,
+            academics=Academics(overall_rank=OverallRank.MIDDLE),
+            family_background=FamilyBackground(pressure_level=PressureLevel.MEDIUM),
+        ),
+        "b": AgentProfile(
+            agent_id="b", name="李明", gender=Gender.MALE, role=Role.STUDENT,
+            academics=Academics(overall_rank=OverallRank.MIDDLE),
+            family_background=FamilyBackground(pressure_level=PressureLevel.MEDIUM),
+        ),
+    }
+    tick_records = [{
+        "tick": 0,
+        "resolved_speech": (
+            "a",
+            PerceptionOutput(
+                observation="x", inner_thought="x", emotion=Emotion.NEUTRAL,
+                action_type=ActionType.SPEAK, action_content="你好",
+                action_target="李明", urgency=5,
+            ),
+        ),
+        "resolved_actions": [],
+    }]
+
+    result = _build_direct_interaction_set("a", tick_records, profiles)
+    assert "b" in result
+
+
+def test_build_direct_interaction_set_action_target_bidirectional():
+    """Non-verbal action targeting agent is bidirectional."""
+    profiles = {
+        "a": AgentProfile(
+            agent_id="a", name="张伟", gender=Gender.MALE, role=Role.STUDENT,
+            academics=Academics(overall_rank=OverallRank.MIDDLE),
+            family_background=FamilyBackground(pressure_level=PressureLevel.MEDIUM),
+        ),
+        "b": AgentProfile(
+            agent_id="b", name="李明", gender=Gender.MALE, role=Role.STUDENT,
+            academics=Academics(overall_rank=OverallRank.MIDDLE),
+            family_background=FamilyBackground(pressure_level=PressureLevel.MEDIUM),
+        ),
+    }
+    # b's action targets a (张伟)
+    tick_records = [{
+        "tick": 0,
+        "resolved_speech": None,
+        "resolved_actions": [(
+            "b",
+            PerceptionOutput(
+                observation="x", inner_thought="x", emotion=Emotion.NEUTRAL,
+                action_type=ActionType.NON_VERBAL, action_content="拍肩膀",
+                action_target="张伟", urgency=5,
+            ),
+        )],
+    }]
+
+    # From a's perspective: b targeted me → b is in my direct set
+    result_a = _build_direct_interaction_set("a", tick_records, profiles)
+    assert "b" in result_a
+
+    # From b's perspective: I targeted 张伟 → a is in my direct set
+    result_b = _build_direct_interaction_set("b", tick_records, profiles)
+    assert "a" in result_b
+
+
+def test_clamp_applies_to_baseline_path(tmp_path):
+    """Pre-existing relationship + bystander change: clamp applies on top of baseline."""
+    world, profiles = _setup_two_agent_world(tmp_path)
+    rels = RelationshipFile(relationships={
+        "b": Relationship(
+            target_name="李明", target_id="b",
+            favorability=50, trust=30, understanding=40,
+        ),
+    })
+    atomic_write_json(world.agents_dir / "a" / "relationships.json", rels.model_dump())
+
+    scene = _make_scene(agent_ids=["a", "b"])
+    refl = AgentReflection(
+        emotion=Emotion.CALM,
+        relationship_changes=[
+            AgentRelChange(
+                to_agent="李明", favorability=5, trust=-5, understanding=5,
+                direct_interaction=False,
+            ),
+        ],
+    )
+
+    apply_scene_end_results(
+        narrative=NarrativeExtraction(),
+        reflections={"a": refl},
+        world=world, scene=scene,
+        group_agent_ids=["a", "b"],
+        day=1, group_id=0, profiles=profiles,
+        event_manager=_make_event_manager(),
+    )
+
+    rels_a = world.get_agent("a").load_relationships()
+    # Bystander → clamped to ±1, applied to baseline
+    assert rels_a.relationships["b"].favorability == 51   # 50 + 1
+    assert rels_a.relationships["b"].trust == 29          # 30 - 1
+    assert rels_a.relationships["b"].understanding == 41  # 40 + 1

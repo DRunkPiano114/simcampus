@@ -41,7 +41,7 @@ class Settings(BaseSettings):
     event_expire_days: int = 3
     recent_md_max_weeks: int = 4
     max_key_memories: int = 10
-    solo_energy_threshold: int = 25
+    solo_energy_threshold: int = 20  # Fix 18: lowered from 25
 
     # key_memories write controls
     key_memory_write_threshold: int = 3       # min importance to write
@@ -66,6 +66,16 @@ class Settings(BaseSettings):
     concern_decay_per_day: int = 2            # intensity drop per end-of-day
     concern_stale_days: int = 5               # days without reinforcement → evict
     concern_autogen_max_intensity: int = 6    # cap for reflection-generated concerns
+
+    # Ambient events (Fix 12)
+    ambient_event_probability: float = 0.3
+    ambient_events_file: Path = Path("data/scene_ambient_events.json")
+
+    # Consolidation (Fix 15)
+    consolidation_interval_days: int = 3
+    consolidation_lookback_days: int = 7
+    consolidation_temperature: float = 0.3
+    max_tokens_consolidation: int = 4000
 
     # Relationships
     max_recent_interactions: int = 10         # per-relationship recent interaction log cap

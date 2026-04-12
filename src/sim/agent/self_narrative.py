@@ -62,6 +62,7 @@ async def generate_self_narrative(
         relationships=relationships,
         prev_self_concept=prev.self_concept,
         prev_current_tensions=prev.current_tensions,
+        behavioral_anchors=profile.behavioral_anchors,
     )
 
     messages = [{"role": "user", "content": prompt}]

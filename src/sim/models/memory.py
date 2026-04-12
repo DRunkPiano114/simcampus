@@ -10,6 +10,8 @@ class KeyMemory(BaseModel):
     importance: int = Field(default=5, ge=1, le=10)
     topics: list[str] = Field(default_factory=list)
     text: str
+    source_days: list[int] = Field(default_factory=list)
+    text_history: list[str] = Field(default_factory=list, max_length=3)
 
 
 class KeyMemoryFile(BaseModel):

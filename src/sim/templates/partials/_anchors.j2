@@ -1,0 +1,18 @@
+{% if behavioral_anchors.must_do %}
+## 你一定会做的事（无论心情如何）
+{% for item in behavioral_anchors.must_do %}
+- {{ item }}
+{% endfor %}
+{% endif %}
+{% if behavioral_anchors.never_do %}
+## 你绝对不会做的事（即使被激怒也不会）
+{% for item in behavioral_anchors.never_do %}
+- {{ item }}
+{% endfor %}
+{% endif %}
+{% if behavioral_anchors.speech_patterns %}
+## 你说话的小习惯
+{% for item in behavioral_anchors.speech_patterns %}
+- {{ item }}
+{% endfor %}
+{% endif %}

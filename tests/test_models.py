@@ -1,10 +1,22 @@
 import pytest
 from pydantic import ValidationError
 
-from sim.models.agent import ActiveConcern, Emotion
+from sim.models.agent import (
+    Academics,
+    ActiveConcern,
+    AgentProfile,
+    BehavioralAnchors,
+    Emotion,
+    FamilyBackground,
+    Gender,
+    OverallRank,
+    PressureLevel,
+    Role,
+)
 from sim.models.dialogue import (
     ActionType,
     AgentConcernCandidate,
+    AgentRelChange,
     NewEventCandidate,
     PerceptionOutput,
 )
@@ -128,3 +140,44 @@ def test_new_event_candidate_cite_ticks_serialization():
     # Round trip
     restored = NewEventCandidate.model_validate(dump)
     assert restored.cite_ticks == [1, 3, 5]
+
+
+# --- BehavioralAnchors (Fix 5) ---
+
+
+def test_behavioral_anchors_default_empty():
+    """New profile without explicit anchors gets empty lists."""
+    profile = AgentProfile(
+        agent_id="test", name="测试", gender=Gender.MALE, role=Role.STUDENT,
+        academics=Academics(overall_rank=OverallRank.MIDDLE),
+        family_background=FamilyBackground(pressure_level=PressureLevel.MEDIUM),
+    )
+    assert profile.behavioral_anchors.must_do == []
+    assert profile.behavioral_anchors.never_do == []
+    assert profile.behavioral_anchors.speech_patterns == []
+
+
+def test_behavioral_anchors_max_length():
+    """Exceeding max_length=5 for must_do should be rejected by Pydantic."""
+    with pytest.raises(ValidationError):
+        BehavioralAnchors(must_do=["a", "b", "c", "d", "e", "f"])
+
+
+def test_behavioral_anchors_speech_patterns_max_length():
+    """Exceeding max_length=3 for speech_patterns should be rejected."""
+    with pytest.raises(ValidationError):
+        BehavioralAnchors(speech_patterns=["a", "b", "c", "d"])
+
+
+# --- AgentRelChange.direct_interaction (Fix 5) ---
+
+
+def test_agent_rel_change_direct_interaction_default_false():
+    """Unmarked LLM output defaults to observer (not direct)."""
+    change = AgentRelChange(to_agent="张伟")
+    assert change.direct_interaction is False
+
+
+def test_agent_rel_change_direct_interaction_explicit_true():
+    change = AgentRelChange(to_agent="张伟", direct_interaction=True)
+    assert change.direct_interaction is True

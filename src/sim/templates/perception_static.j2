@@ -51,6 +51,8 @@
 {% endfor %}
 {% endif %}
 
+{% include 'partials/_anchors.j2' %}
+
 {% if current_tensions %}
 ## 你最近在和这些搏斗
 {% for bullet in current_tensions %}

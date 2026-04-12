@@ -216,6 +216,11 @@ export interface Agent {
   family_background: FamilyBackground
   long_term_goals: string[]
   inner_conflicts: string[]
+  behavioral_anchors?: {
+    must_do: string[]
+    never_do: string[]
+    speech_patterns: string[]
+  }
   backstory: string
   state: AgentState
   relationships: Record<string, Relationship>
@@ -229,6 +234,8 @@ export interface Agent {
     importance: number
     topics: string[]
     text: string
+    source_days?: number[]
+    text_history?: string[]
   }>
 }
 

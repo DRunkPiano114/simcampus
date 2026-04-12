@@ -217,7 +217,8 @@ This two-phase design enables **asymmetric perception**: the same conversation c
   - Update emotion directly from reflection (Emotion enum, no try/except needed)
   - Append key moments from shared `NarrativeExtraction` to `today.md` (formatted as `## time scene @ location`)
   - Save key memories with importance >= `settings.key_memory_write_threshold` (=3, Fix 14: lowered from 7) from agent's own reflection to `key_memories.json`
-  - Apply relationship deltas from agent's own reflection using baseline snapshot (for idempotency): `new_value = baseline + delta`, clamped to valid range. **Auto-insertion** (Fix 4): if the change targets an in-profiles agent that has no entry in this agent's `relationships.json` yet, a zero-state `Relationship` is created on the fly and the delta is applied on top. The `label` is picked from **both** source and target roles: HOMEROOM_TEACHER → student auto-inserts as `"学生"`, any agent → HOMEROOM_TEACHER as `"老师"`, otherwise `"同学"`. (Prior bug: label was picked from target role only, so a teacher auto-inserting a student fell through to `"同学"`.) Hallucinated names that don't resolve to any profile are dropped with a warning. Previously, missing targets were silently dropped — leading to permanently empty relationship maps for low-interaction agents.
+  - Apply relationship deltas from agent's own reflection using baseline snapshot (for idempotency): `new_value = baseline + clamped_delta`, clamped to valid range. **Auto-insertion** (Fix 4): if the change targets an in-profiles agent that has no entry in this agent's `relationships.json` yet, a zero-state `Relationship` is created on the fly and the delta is applied on top. The `label` is picked from **both** source and target roles: HOMEROOM_TEACHER → student auto-inserts as `"学生"`, any agent → HOMEROOM_TEACHER as `"老师"`, otherwise `"同学"`. (Prior bug: label was picked from target role only, so a teacher auto-inserting a student fell through to `"同学"`.) Hallucinated names that don't resolve to any profile are dropped with a warning. Previously, missing targets were silently dropped — leading to permanently empty relationship maps for low-interaction agents.
+  - **Bystander vs Direct Interaction Clamp (Fix 5)**: each `AgentRelChange` now carries a `direct_interaction: bool` field (LLM self-label). Python applies a **double-gate** before accepting deltas > ±1: (1) LLM must have set `direct_interaction=True`, AND (2) `_build_direct_interaction_set(aid, tick_records, profiles)` must confirm that the agent actually interacted with the target in the tick records (speech with `action_target`, non-verbal action targeting, or being targeted by another agent). Only when both gates pass is `max_delta=3` allowed; otherwise `max_delta=1`. This prevents a bystander from inflating relationship scores via "far observation" while still allowing observers to accumulate small signals over time (±1 per scene). The `self_reflection.j2` template explicitly instructs the LLM that bystander relationship changes are valid and expected.
   - **recent_interactions log**: whenever any relationship_change has a non-zero delta, append the tag `"Day {day} {mark}{scene.name}"` to `rel.recent_interactions`, where `mark` is a one-character valence prefix derived from the signed `favorability + trust` delta of that row: `+` for net-positive (warm interaction), `−` (U+2212) for net-negative (friction), `·` (U+00B7) for net-zero but still interacting (e.g. understanding-only change where fav/trust cancel). Understanding is excluded from the valence sum because it measures "how well I know them", not affect. Dedup is keyed on the full tag (day + mark + scene name), so two rows with the same sign in the same scene collapse but a mixed scene where one row is `+` and another is `−` legitimately records both events — rare but possible across multi-target or multi-tick reflections. The list is capped at `settings.max_recent_interactions` (default 10, FIFO eviction). Downstream prompts (`perception_static.j2`, `self_reflection.j2`, etc.) render the log as an interaction timeline so the LLM can distinguish "Day 3 +课间@走廊" (warm) from "Day 4 −宿舍夜聊" (friction) at a glance without having to re-infer valence from the current absolute relationship scores. Lays the groundwork for Phase 2+ relationship-strength signals.
   - **Mark intention outcomes** from agent's own `intention_outcomes` (replaces old `narrative.fulfilled_intentions` substring matching):
     - `fulfilled` → mark intent as fulfilled; if `satisfies_concern` is set, decay linked concern intensity by 2
@@ -359,7 +360,13 @@ family_background: FamilyBackground
 long_term_goals: list[str]
 backstory: str
 inner_conflicts: list[str]       # e.g. ["渴望友情但社交笨拙", "用AI查题后的负罪感和对成绩的执念在拉扯"]
+behavioral_anchors: BehavioralAnchors  # Fix 5 — hard constraints for character consistency
+  must_do: list[str] (max 5)           # things this character always does, regardless of mood
+  never_do: list[str] (max 5)          # things this character would never do, even when provoked
+  speech_patterns: list[str] (max 3)   # signature verbal tics / phrases
 ```
+
+**Character Anchoring (Fix 5):** `behavioral_anchors` are hard constraints injected into every LLM prompt (perception, reflection, daily plan, self-narrative) via the shared `templates/partials/_anchors.j2` partial. They prevent the LLM from writing characters as generic high school students. Generated once offline via `scripts/generate_behavioral_anchors.py` (reads character backstory → LLM outputs anchors → human review → written back to character JSON). Not dynamically updated during simulation.
 
 ### AgentState (`models/agent.py`) — Mutable, updated every scene
 
@@ -525,6 +532,7 @@ AgentRelChange:                              # Single-direction, no from_agent (
   favorability: int                          # Delta
   trust: int                                 # Delta
   understanding: int                         # Delta
+  direct_interaction: bool = False           # Fix 5: LLM self-label; Python double-gate clamps to ±1 if False or unverified
 
 AgentMemoryCandidate:                        # No agent field (belongs to focal agent)
   text: str
@@ -802,6 +810,7 @@ data/
     fang_yuchen.json, he_min.json
   schedule.json                  # 8 daily scenes: 07:00 早读 → 22:00 宿舍夜聊 (3 with is_free_period=true)
   location_events.json           # Location-specific opening events for free period scenes
+  scene_ambient_events.json      # Fix 12: per-location ambient events for positive signal injection
 
 agents/                          # Runtime state (gitignored, created by init_world.py)
   <agent_id>/
@@ -845,6 +854,7 @@ scripts/
   init_world.py                  # Initialize agents/ and world/ from data/characters/
   inspect_state.py               # Debug tool to view current simulation state
   export_frontend_data.py        # Copy simulation output → web/public/data/
+  generate_behavioral_anchors.py # Fix 5: one-shot LLM generation of behavioral_anchors for each character
   sanity_check/                  # Phase 1+1.5 milestone scripts (M1-M6)
     m1_ungrounded_events.py      # Fix 13: count events with missing or invalid cite_ticks
     m2_per_day_memory_cap.py     # Fix 14: assert per-day key_memories ≤ per_day_memory_cap
@@ -893,6 +903,7 @@ src/sim/
   templates/                     # Jinja2 prompt templates (all in Chinese)
     partials/
       _intensity_scale.j2        # Shared intensity / importance 1-10 scale + default-empty new_concerns + trivial-scene rules (Fix 1)
+      _anchors.j2                # Fix 5: behavioral anchors (must_do / never_do / speech_patterns) — included in perception, reflection, daily_plan, self_narrative
     system_base.j2               # Shared system prompt (high school setting + dialogue rules + few-shot teen speech examples)
     perception_static.j2         # PDA perception system message — agent identity, relationships, memories, scene info (stable within a scene; enables DeepSeek prefix caching)
     perception_dynamic.j2        # PDA perception user message — transcript, latest_event, emotion trace, output format instructions (changes per tick)
