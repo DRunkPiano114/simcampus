@@ -8,12 +8,15 @@ import type { SceneGroup } from '../../lib/types'
  * boundaries automatically. The drama-intensity bars allow direct jump
  * within the current group.
  */
+
 export function TickNav() {
   const scene = useWorldStore(s => s.currentSceneFile)
   const scenes = useWorldStore(s => s.scenes)
   const sceneIdx = useWorldStore(s => s.currentSceneIndex)
   const groupIdx = useWorldStore(s => s.activeGroupIndex)
   const tick = useWorldStore(s => s.currentTick)
+  const currentDay = useWorldStore(s => s.currentDay)
+  const meta = useWorldStore(s => s.meta)
   const setTick = useWorldStore(s => s.setCurrentTick)
   const setScene = useWorldStore(s => s.setCurrentSceneIndex)
   const goNext = useWorldStore(s => s.goNext)
@@ -25,11 +28,16 @@ export function TickNav() {
   const tickScores = ticks.map(scoreTick)
   const maxScore = Math.max(1, ...tickScores)
 
-  const atVeryStart = sceneIdx === 0 && groupIdx === 0 && tick === 0
+  const days = meta?.days ?? []
+  const dayIdx = days.indexOf(currentDay)
+  const hasPrevDay = dayIdx > 0
+  const hasNextDay = dayIdx >= 0 && dayIdx < days.length - 1
+  const atVeryStart = sceneIdx === 0 && groupIdx === 0 && tick === 0 && !hasPrevDay
   const atVeryEnd =
     sceneIdx === scenes.length - 1 &&
     groupIdx === scene.groups.length - 1 &&
-    (ticks.length === 0 || tick === ticks.length - 1)
+    (ticks.length === 0 || tick === ticks.length - 1) &&
+    !hasNextDay
 
   return (
     <div className="px-4 py-2.5 border-t border-white/5 flex items-center gap-3">
@@ -92,10 +100,10 @@ export function TickNav() {
 
       <div className="flex items-center gap-1 ml-1">
         <button
-          onClick={() => sceneIdx > 0 && setScene(sceneIdx - 1)}
+          onClick={() => sceneIdx > 0 && setScene(sceneIdx - 1, true)}
           disabled={sceneIdx === 0}
           className="text-white/40 hover:text-white/70 text-xs px-1 disabled:opacity-30"
-          title="上一场景"
+          title="上一场景（最后一拍）"
         >
           ◀场
         </button>

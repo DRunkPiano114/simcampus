@@ -1,6 +1,5 @@
 import { useWorldStore } from '../../stores/useWorldStore'
 import { EMOTION_COLORS, EMOTION_LABELS } from '../../lib/constants'
-import { getAgentColor } from '../world/CharacterSprite'
 import { ShareButtons } from './ShareButtons'
 import type { Tick, Emotion, MindState, GroupData } from '../../lib/types'
 
@@ -245,7 +244,7 @@ function CharacterCard({
     return (
       <div className={className} style={cardStyle}>
         <div className="char-card-head">
-          <Avatar agentId={agentId} displayName={displayName} talking={isSpeaker} emotion={emotion} />
+          <Avatar agentId={agentId} displayName={displayName} talking={isSpeaker} />
           <div className="char-card-meta">{headerContent}</div>
         </div>
         <div className="char-card-body">{bodyContent}</div>
@@ -256,7 +255,7 @@ function CharacterCard({
 
   return (
     <div className={className} style={cardStyle}>
-      <Avatar agentId={agentId} displayName={displayName} talking={isSpeaker} emotion={emotion} />
+      <Avatar agentId={agentId} displayName={displayName} talking={isSpeaker} />
       <div className="char-card-content">
         <div className="char-card-head">{headerContent}</div>
         <div className="char-card-body">{bodyContent}</div>
@@ -270,18 +269,17 @@ interface AvatarProps {
   agentId: string
   displayName: string
   talking: boolean
-  emotion: Emotion | undefined
 }
 
-function Avatar({ agentId, displayName, talking, emotion }: AvatarProps) {
-  const color = `#${getAgentColor(agentId).toString(16).padStart(6, '0')}`
-  const tint = emotion ? EMOTION_COLORS[emotion] : null
+function Avatar({ agentId, displayName, talking }: AvatarProps) {
   return (
     <div className={`avatar${talking ? ' avatar-talking' : ''}`}>
-      <div className="avatar-body" style={{ background: color }}>
-        <span className="avatar-initials">{displayName.slice(0, 1)}</span>
-      </div>
-      {tint && <div className="avatar-tint" style={{ background: tint }} />}
+      <img
+        className="avatar-sprite"
+        src={`/data/map_sprites/${agentId}.png`}
+        alt={displayName}
+        draggable={false}
+      />
     </div>
   )
 }

@@ -77,3 +77,13 @@ export function findFirstSpeechTick(group: { is_solo?: boolean; ticks?: Tick[] }
   const idx = group.ticks.findIndex(t => t.public?.speech != null)
   return idx >= 0 ? idx : 0
 }
+
+/**
+ * Last tick in a group. Used when rewinding across a boundary so the
+ * previous unit lands on its final tick (gives the "connected" feel of
+ * continuing backward in time rather than restarting a unit).
+ */
+export function findLastSpeechTick(group: { is_solo?: boolean; ticks?: Tick[] } | undefined): number {
+  if (!group || group.is_solo || !group.ticks || group.ticks.length === 0) return 0
+  return group.ticks.length - 1
+}

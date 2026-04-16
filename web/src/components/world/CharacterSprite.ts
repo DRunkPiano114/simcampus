@@ -54,16 +54,13 @@ export async function preloadMapSprites(agentIds: string[]): Promise<void> {
   )
 }
 
-const HALO_RADIUS = TILE * 0.6
-
 /**
- * Create a character display object (Container with pixel sprite + halo + label).
+ * Create a character display object (Container with pixel sprite + label).
  * Returns a PixiJS Container that can be added to a room layer.
  *
  * Layout (container origin at tile center):
- *   halo (Graphics)          z=0, hidden unless talking
- *   sprite (32x64 pixel art) z=1, anchor (0.5, 0.5) → centered on tile
- *   label (Text)             z=2, below sprite
+ *   sprite (32x64 pixel art) z=0, anchor (0.5, 0.5) → centered on tile
+ *   label (Text)             z=1, below sprite
  */
 export function createCharacterSprite(
   agentId: string,
@@ -73,15 +70,6 @@ export function createCharacterSprite(
   container.label = agentId
 
   const color = getAgentColor(agentId)
-
-  // Talking halo — a colored disc behind the character. Hidden by default;
-  // shown via updateSpriteState when this agent is the active speaker.
-  const halo = new Graphics()
-  halo.circle(0, 0, HALO_RADIUS).fill({ color, alpha: 0.35 })
-  halo.circle(0, 0, HALO_RADIUS).stroke({ color, width: 2, alpha: 0.9 })
-  halo.visible = false
-  halo.label = '__halo'
-  container.addChild(halo)
 
   // Pixel-art character sprite (32×64 native; rendered at 1× pixel scale).
   // Pixi v8's Texture.from(url) returns EMPTY unless the asset is preloaded;
@@ -135,7 +123,7 @@ export function createCharacterSprite(
 }
 
 /**
- * Update sprite visual state (talking halo, dimming, slight float).
+ * Update sprite visual state (dimming, slight float while talking).
  */
 export function updateSpriteState(
   container: Container,
@@ -143,8 +131,6 @@ export function updateSpriteState(
   dimmed: boolean,
 ) {
   container.alpha = dimmed ? 0.4 : 1
-  const halo = container.getChildByLabel('__halo') as Graphics | null
-  if (halo) halo.visible = state === 'talking'
   const body = container.getChildByLabel('__body') as Sprite | null
   if (body) body.y = state === 'talking' ? -3 : 0
 }

@@ -168,12 +168,18 @@ export function DailyReport() {
           <div className="daily-actions">
             <ShareButtons cardEndpoint={`/api/card/daily/${summary.day}`} cardLabel="今日日报" />
           </div>
-          {summary.headline && <DailyHeadline headline={summary.headline} dayId={dayId} />}
-          {summary.golden_quote && <DailyQuote quote={summary.golden_quote} />}
-          <DailySecondaries beats={summary.secondaries} dayId={dayId} />
-          <MoodMap entries={summary.mood_map} />
-          {summary.cp && <CPTracker cp={summary.cp} />}
-          <SceneStrip thumbs={summary.scene_thumbs} dayId={dayId} />
+          <div className="daily-body">
+            <div className="daily-col daily-col-left">
+              {summary.headline && <DailyHeadline headline={summary.headline} dayId={dayId} />}
+              {summary.golden_quote && <DailyQuote quote={summary.golden_quote} />}
+              <DailySecondaries beats={summary.secondaries} dayId={dayId} />
+            </div>
+            <div className="daily-col daily-col-right">
+              <MoodMap entries={summary.mood_map} />
+              {summary.cp && <CPTracker cp={summary.cp} />}
+              <SceneStrip thumbs={summary.scene_thumbs} dayId={dayId} />
+            </div>
+          </div>
           <div className="daily-footer-link">
             <Link to={`/characters/day/${dayId}`}>人物志 →</Link>
           </div>
@@ -304,9 +310,10 @@ function MoodMap({ entries }: { entries: MoodEntry[] }) {
       <ul className="mood-grid">
         {entries.map(e => (
           <li key={e.agent_id} className="mood-cell">
-            <div
-              className="mood-chip"
-              style={{ background: e.main_color }}
+            <img
+              className="mood-sprite"
+              src={`/data/map_sprites/${e.agent_id}.png`}
+              alt=""
               aria-hidden
             />
             <div className="mood-name">{e.agent_name}</div>

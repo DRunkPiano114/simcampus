@@ -163,14 +163,14 @@ export class BubbleOverlay {
         position: 'absolute',
         left: '0',
         top: '0',
-        maxWidth: '180px',
-        padding: '2px 6px',
-        borderRadius: '4px',
-        fontSize: '11px',
-        lineHeight: '1.3',
+        maxWidth: '220px',
+        padding: '3px 8px',
+        borderRadius: '5px',
+        fontSize: '14px',
+        lineHeight: '1.4',
         fontFamily: '"Noto Sans SC", sans-serif',
         fontStyle: 'italic',
-        color: 'rgba(255,255,255,0.6)',
+        color: 'rgba(255,255,255,0.65)',
         background: 'rgba(0,0,0,0.25)',
         whiteSpace: 'pre-wrap',
         overflowWrap: 'break-word',
@@ -184,11 +184,11 @@ export class BubbleOverlay {
         position: 'absolute',
         left: '0',
         top: '0',
-        maxWidth: '220px',
-        padding: '6px 10px',
-        borderRadius: '8px',
-        fontSize: '13px',
-        lineHeight: '1.4',
+        maxWidth: '300px',
+        padding: '9px 14px',
+        borderRadius: '10px',
+        fontSize: '17px',
+        lineHeight: '1.55',
         fontFamily: '"Noto Sans SC", sans-serif',
         whiteSpace: 'pre-wrap',
         overflowWrap: 'break-word',
@@ -238,7 +238,7 @@ export class BubbleOverlay {
       color: '#2c2c2c',
     })
 
-    const nameHtml = `<span style="font-weight:600;font-size:11px;opacity:0.7">${b.displayName}</span><br/>`
+    const nameHtml = `<span style="font-weight:600;font-size:13px;opacity:0.75">${b.displayName}</span><br/>`
     el.innerHTML = `${nameHtml}${b.text}`
 
     const arrow = el.querySelector('.bubble-arrow') as HTMLDivElement | null
