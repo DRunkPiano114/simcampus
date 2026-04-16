@@ -93,7 +93,7 @@ export function ShareButtons({ cardEndpoint, cardLabel = '分享卡' }: ShareBut
         return
       }
       const blob = await pngRes.blob()
-      const filename = meta?.filename ?? 'simclass_card.png'
+      const filename = meta?.filename ?? 'simcampus_card.png'
 
       // Progressive: Web Share API first (mobile native share sheet), then
       // download fallback (desktop).

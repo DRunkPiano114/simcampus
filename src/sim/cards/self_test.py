@@ -63,7 +63,7 @@ def render_portrait_grid() -> Image.Image:
     draw = ImageDraw.Draw(canvas, "RGBA")
 
     title_fnt = font_serif(40, bold=True)
-    draw.text((pad, 10), "SimClass · Portraits Sheet", font=title_fnt, fill=INK_BLACK)
+    draw.text((pad, 10), "SimCampus · Portraits Sheet", font=title_fnt, fill=INK_BLACK)
 
     fnt = font_wen(30)
     for i, agent_id in enumerate(ordered):
@@ -242,7 +242,7 @@ def render_prototype_scene_card() -> Image.Image:
     brand = render_seal("班", size=120, font_size=80)
     img.paste(brand, (CANVAS_W - 72 - 120, CANVAS_H - 72 - 120), brand)
 
-    tagline = "SimClass · AI 班级模拟器"
+    tagline = "SimCampus · AI 校园模拟器"
     sub_tag = "每天都在上演"
     draw.text((90, CANVAS_H - 120), tagline, font=font_serif(32, bold=True), fill=INK_BLACK)
     draw.text((90, CANVAS_H - 80), sub_tag, font=font_wen(26), fill=INK_GRAY)

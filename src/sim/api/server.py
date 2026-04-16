@@ -23,7 +23,7 @@ from .models import AgentReaction, AgentReactionLLM, ChatRequest, RolePlayReques
 
 _TOKEN_LIMIT_MSG = "对话太长了，请关闭后重新开始对话"
 
-app = FastAPI(title="SimClass API")
+app = FastAPI(title="SimCampus API")
 
 app.add_middleware(
     CORSMiddleware,
@@ -191,7 +191,7 @@ def _cd_header(filename_cjk: str) -> str:
     Chinese filename through. The ASCII fallback is for ancient UAs that
     ignore `filename*`.
     """
-    ascii_fallback = "simclass_card.png"
+    ascii_fallback = "simcampus_card.png"
     return (
         f'attachment; filename="{ascii_fallback}"; '
         f"filename*=UTF-8''{quote(filename_cjk, safe='')}"

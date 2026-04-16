@@ -341,7 +341,7 @@ def _render_card(spec: AgentLayoutSpec) -> Image.Image:
     img.paste(brand, (CANVAS_W - 72 - 120, CANVAS_H - 72 - 120), brand)
     draw.text(
         (90, CANVAS_H - 120),
-        "SimClass · AI 班级模拟器",
+        "SimCampus · AI 校园模拟器",
         font=font_serif(32, bold=True),
         fill=INK_BLACK,
     )

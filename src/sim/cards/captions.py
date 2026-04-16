@@ -8,7 +8,7 @@ from __future__ import annotations
 from typing import Any
 
 # Base tags that ride on every card
-BASE_HASHTAGS: tuple[str, ...] = ("#SimClass", "#AI高中生", "#青春日记")
+BASE_HASHTAGS: tuple[str, ...] = ("#SimCampus", "#AI高中生", "#青春日记")
 
 LOCATION_TAGS = {
     "教室": "#教室日常",
@@ -39,7 +39,7 @@ def scene_filename(day: int, name: str, location: str) -> str:
     """Return a human-readable filename for a scene card download."""
     safe_name = _sanitize_filename_component(name)
     safe_loc = _sanitize_filename_component(location)
-    return f"simclass_第{day:03d}天_{safe_name}@{safe_loc}.png"
+    return f"simcampus_第{day:03d}天_{safe_name}@{safe_loc}.png"
 
 
 def pick_hashtags(
@@ -90,7 +90,7 @@ def scene_caption(
     elif featured_quote:
         body_parts.append(featured_quote)
     body_parts.append("")
-    body_parts.append("SimClass · AI 班级模拟器 · 每天都在上演")
+    body_parts.append("SimCampus · AI 校园模拟器 · 每天都在上演")
     caption = "\n".join(body_parts).strip()
 
     return {
@@ -101,7 +101,7 @@ def scene_caption(
 
 
 def daily_filename(day: int) -> str:
-    return f"simclass_班级日报_第{day:03d}天.png"
+    return f"simcampus_班级日报_第{day:03d}天.png"
 
 
 def daily_caption(
@@ -119,7 +119,7 @@ def daily_caption(
     if cp_pair:
         body.append(f"今日 CP：{cp_pair[0]} × {cp_pair[1]}")
     body.append("")
-    body.append("SimClass · AI 班级模拟器 · 每天都在上演")
+    body.append("SimCampus · AI 校园模拟器 · 每天都在上演")
     tags = list(BASE_HASHTAGS) + ["#班级日报"]
     return {
         "caption": "\n".join(body).strip(),
@@ -130,7 +130,7 @@ def daily_caption(
 
 def agent_filename(day: int, agent_name_cn: str) -> str:
     safe = _sanitize_filename_component(agent_name_cn)
-    return f"simclass_{safe}_档案_第{day:03d}天.png"
+    return f"simcampus_{safe}_档案_第{day:03d}天.png"
 
 
 def agent_caption(
@@ -151,7 +151,7 @@ def agent_caption(
         body.append("")
         body.append(f"「{featured_quote}」")
     body.append("")
-    body.append("SimClass · AI 班级模拟器 · 每天都在上演")
+    body.append("SimCampus · AI 校园模拟器 · 每天都在上演")
     tags = list(BASE_HASHTAGS) + ["#人物志"]
     return {
         "caption": "\n".join(body).strip(),

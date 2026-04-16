@@ -14,7 +14,7 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-paper/80 backdrop-blur-sm border-b border-thought-border">
       <div className="max-w-6xl mx-auto px-4 h-12 flex items-center justify-between">
         <Link to="/" className="font-hand text-xl text-ink hover:text-amber transition-colors min-h-[44px] flex items-center">
-          SimClass
+          SimCampus
         </Link>
         <nav className="flex gap-1">
           {NAV_ITEMS.map((item) => {

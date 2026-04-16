@@ -1,5 +1,5 @@
 {
-  "_comment": "Visual bible for SimClass share cards. main_color is exported to web/public/data/agent_colors.json by export_frontend_data.py; CharacterSprite.ts carries a fallback copy. LimeZu premade sheets lay out four 32x64 idle frames per row in the order [left, up, right, down], so crop.x=96 is the front-facing (down) idle — always use that unless you specifically want a side/back pose. Re-run generate_portraits.py + generate_map_sprites.py + export_frontend_data.py after any change here.",
+  "_comment": "Visual bible for SimCampus share cards. main_color is exported to web/public/data/agent_colors.json by export_frontend_data.py; CharacterSprite.ts carries a fallback copy. LimeZu premade sheets lay out four 32x64 idle frames per row in the order [left, up, right, down], so crop.x=96 is the front-facing (down) idle — always use that unless you specifically want a side/back pose. Re-run generate_portraits.py + generate_map_sprites.py + export_frontend_data.py after any change here.",
   "fang_yuchen": {
     "name_cn": "方语晨",
     "sprite_source": "Premade_Character_32x32_14.png",

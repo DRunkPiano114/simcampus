@@ -135,7 +135,7 @@ def test_scene_filename_sanitizes_unsafe_chars():
 
 
 def test_scene_filename_includes_zero_padded_day():
-    assert scene_filename(7, "早读", "教室").startswith("simclass_第007天_")
+    assert scene_filename(7, "早读", "教室").startswith("simcampus_第007天_")
 
 
 def test_pick_hashtags_includes_base_set():
@@ -201,4 +201,4 @@ def test_scene_caption_handles_no_quote():
     )
     # Still produces a caption (title-only).
     assert out["caption"].strip()
-    assert "SimClass" in out["caption"]
+    assert "SimCampus" in out["caption"]
