@@ -24,7 +24,7 @@
 {% endif %}
 
 {% if pending_intentions %}
-## 你今天隐约想着的事（不一定要做，看情况自然发展）
+## 你今天心里想着的事
 {% for intent in pending_intentions %}
 - {% if intent.target %}想找{{ intent.target }}{% endif %}{{ intent.goal }}（因为{{ intent.reason }}）{% if intent.satisfies_concern %} [为了处理：{{ intent.satisfies_concern }}]{% endif %}{% if intent.pursued_days > 1 %} （已经想了{{ intent.pursued_days }}天了）{% endif %}
 {% endfor %}

@@ -122,15 +122,27 @@
 {% if pending_intentions %}
 你今天想着的事：
 {% for intent in pending_intentions %}
-- {{ intent.goal }}{% if intent.target %}（想找{{ intent.target }}）{% endif %}{% if intent.satisfies_concern %} [为了处理：{{ intent.satisfies_concern }}]{% endif %}
+- {{ intent.goal }}{% if intent.target %}（想找{{ intent.target }}）{% endif %}{% if intent.satisfies_concern %} [为了处理：{{ intent.satisfies_concern }}]{% endif %}{% if intent.pursued_days >= 3 %} — 已经追了 {{ intent.pursued_days }} 天{% endif %}
 {% endfor %}
 
 对每一条意图，判断在刚才的对话中：
 - **fulfilled**: 做到了或基本做到了
-- **attempted**: 试了，有一定进展但没完全做到
-- **frustrated**: 想做但被阻止、被打断、没机会
-- **abandoned**: 对话中你改主意了，不再想做这个了
-- **missed_opportunity**: 想找这个人说话，TA 也在现场，但我最后没有和 TA 交流
+- **attempted**: 试了，有**具体行动**但没完全做到。brief_reason 必须写出你做了什么具体动作（例："我开口问了但他打岔过去了"）。心理活动（"心里挣扎了一下""想了想没敢说"）不算 attempted，那属于 missed_opportunity。
+- **frustrated**: 有具体想做的行动，但被外部因素阻止（别人打断、话题转场、铃响）
+- **abandoned**: 在这场对话里你真的想通了，**连带背后的那件牵挂也让它淡下来**——不是"今天跳过，明天再捡起来"，是"这件事我不再要了"。如果你只是今天不想面对，下次见到 TA 可能还想做，那属于 missed_opportunity，不是 abandoned。**如果这个意图有挂钩的牵挂（`satisfies_concern` 是 6 位 ref），选 abandoned 时请同时在 `concern_updates` 里 emit 一条负向 adjustment（例如 -2）对应那个牵挂——让 engine 知道你真的把这件事放下了，否则 engine 下一天仍会按牵挂 intensity 逼你挂钩新 intention，等于你今天放下了明天又要重来。**
+- **missed_opportunity**: TA 在场而你没有和 TA 交流（适用于你有顾虑、害怕、错过时机的情况）
+- **pending**: 场景里完全没有出现任何机会——TA 不在、场景话题完全无关、场景结束前你都没接触到这件事的契机
+
+{% set long_pursued = pending_intentions | selectattr('pursued_days', 'ge', 3) | list %}
+{% if long_pursued %}
+⚠ 下列意图已经追了 3 天或以上：
+{% for intent in long_pursued %}
+- {{ intent.goal[:40] }}{% if intent.target %}（想找{{ intent.target }}）{% endif %}
+{% endfor %}
+对这些意图，只有在**这场对话里 TA 完全不在场、话题也和这件事无关**时才可以选 pending。
+如果 TA 在场你却没行动，是 missed_opportunity（有顾虑没开口）或 abandoned（已经不想做了）——
+选 pending 等于骗自己计数器又拖一天。
+{% endif %}
 
 {% if is_teacher %}
 每条包含 goal（意图内容）、status、brief_reason（一句话说明）。评估你作为班主任的意图完成情况，包括对学生行为的观察和引导。

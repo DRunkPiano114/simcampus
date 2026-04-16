@@ -26,9 +26,22 @@
 {{ tick_emotion }}
 {% endif %}
 
-{% if intended_targets_present %}
+{% if urgent_pursued_targets_present %}
+## 机会
+你已经想找 {{ urgent_pursued_targets_present | join('、') }} 好几天了，TA 现在就在这个场景里。
+这可能是今天唯一的机会。你可以选择直接行动、等更好的时机、或者承认自己已经不想做了——
+但不要既想做又什么都不做。
+{% endif %}
+{% if long_pursued_targets_present %}
 ## 注意
-你今天想找的人里，现在就在场：{{ intended_targets_present | join('、') }}
+你今天想找的 {{ long_pursued_targets_present | join('、') }} 现在就在场，这件事在你心里已经好几天了。
+{% endif %}
+{% set other_targets = intended_targets_present
+    | reject('in', urgent_pursued_targets_present)
+    | reject('in', long_pursued_targets_present) | list %}
+{% if other_targets %}
+## 注意
+你今天想找的人里，现在就在场：{{ other_targets | join('、') }}
 {% endif %}
 
 ## 你的反应

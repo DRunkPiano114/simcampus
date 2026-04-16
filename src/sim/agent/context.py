@@ -129,6 +129,25 @@ def prepare_context(
         if i.target and i.target in scene_names
     ]
 
+    # Escalation tiers aligned with daily_plan.j2:25's tiered urgency language
+    # and catalyst_events.json's intention_stalled trigger (min_pursued_days=5):
+    #   pd >= 5   → urgent ("今天不面对什么时候面对")
+    #   3 <= pd<5 → long   ("心里越来越不舒服")
+    # Tiers are disjoint by construction (range), but one agent holding two
+    # intentions against the same target at the same tier is legal — dedup
+    # with dict.fromkeys (order-preserving) so join('、') doesn't render
+    # "陆思远、陆思远". Perception template uses three independent if-blocks
+    # (not elif), so each target still gets surfaced at its own tier.
+    urgent_pursued_targets_present = list(dict.fromkeys(
+        i.target for i in pending_intentions
+        if i.target and i.target in scene_names and i.pursued_days >= 5
+    ))
+    long_pursued_targets_present = list(dict.fromkeys(
+        i.target for i in pending_intentions
+        if i.target and i.target in scene_names
+        and 3 <= i.pursued_days < 5
+    ))
+
     role_desc = "学生" if profile.role == Role.STUDENT else "班主任兼语文老师"
 
     effective_emotion = emotion_override if emotion_override else state.emotion
@@ -156,6 +175,8 @@ def prepare_context(
         "key_memories": key_memories,
         "pending_intentions": pending_intentions,
         "intended_targets_present": intended_targets_present,
+        "urgent_pursued_targets_present": urgent_pursued_targets_present,
+        "long_pursued_targets_present": long_pursued_targets_present,
         "scene_info": _scene_info(scene, all_profiles),
         "known_events": known_events,
         "next_exam_in_days": next_exam_in_days,
