@@ -411,19 +411,11 @@ body {
   flex-wrap: wrap;
   min-width: 0;
 }
-.char-card-vertical .avatar {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-}
-.char-card-vertical .avatar-initials {
-  font-size: 13px;
-}
 
 .char-card-name {
   font-family: 'LXGW WenKai', serif;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 18.5px;
   color: #2a2620;
   background: none;
   border: none;
@@ -435,7 +427,7 @@ body {
 
 .char-card-emotion {
   font-family: 'Noto Serif SC', serif;
-  font-size: 10.5px;
+  font-size: 13px;
   color: #8a7a5e;
   letter-spacing: 0.1em;
   white-space: nowrap;
@@ -444,11 +436,11 @@ body {
 .char-card-speak-label {
   margin-left: auto;
   font-family: 'Noto Serif SC', serif;
-  font-size: 11px;
+  font-size: 13.5px;
   color: #8a5e1c;
   background: #faecc4;
   border: 1px solid #d4a853;
-  padding: 1px 9px;
+  padding: 1px 10px;
   border-radius: 12px;
   letter-spacing: 0.1em;
   flex-shrink: 0;
@@ -476,18 +468,18 @@ body {
 .char-card-body::-webkit-scrollbar-track { background: transparent; }
 
 .char-card-speech {
-  font-size: 15px;
+  font-size: 18px;
   color: #2a2620;
 }
 /* Thought bubble — soft lavender container. Meant to feel like a visible
    instance of "thinking" rather than just italicized text. */
 .char-card-thought {
-  font-size: 13.5px;
+  font-size: 16px;
   color: #5e6b8a;
   font-style: italic;
   background: #f0ecf5;
   border-left: 3px solid #b8a8c8;
-  padding: 5px 10px;
+  padding: 6px 11px;
   border-radius: 0 4px 4px 0;
 }
 /* Footer = "内部 + 物理层" zone pinned to the card bottom. Holds the thought
@@ -509,7 +501,7 @@ body {
 
 .char-card-action-line {
   font-family: 'LXGW WenKai', serif;
-  font-size: 12.5px;
+  font-size: 15px;
   color: #7a5e30;
   font-style: italic;
   line-height: 1.5;
@@ -530,8 +522,8 @@ body {
   margin-right: 8px;
   font-family: 'Noto Serif SC', serif;
   font-style: normal;
-  font-size: 10.5px;
-  padding: 0 7px;
+  font-size: 13px;
+  padding: 0 8px;
   border-radius: 10px;
   letter-spacing: 0.1em;
   line-height: 1.7;
@@ -543,61 +535,121 @@ body {
   border: 1px solid #b8a8c8;
 }
 
-/* Compact sizing for tighter grids */
-.grid-cards-n3 .char-card-horizontal {
-  padding: 6px 10px;
-  gap: 8px;
-}
-.grid-cards-n3 .avatar {
-  width: 36px;
-  height: 36px;
-}
-.grid-cards-n3 .avatar-initials {
-  font-size: 14px;
-}
 .grid-cards-n3 .char-card-body {
   line-height: 1.55;
 }
 
-/* ---- Avatar (mirrors Pixi sprite: colored circle + initial) ---- */
+/* Font-size tiers by grid density. Defaults are tuned for the densest case
+   (n=9, 3×3). As card count drops, each card has more real estate, so we
+   scale type up to fill that space and stay readable.
+   Tier A (n ≤ 3): big 1-2 card layouts — generous, script-like feel.
+   Tier B (n = 4 or 6): medium — clearly readable across a 2×2 / 2×3 grid. */
+.grid-cards-n1 .char-card-name,
+.grid-cards-n2 .char-card-name,
+.grid-cards-n3 .char-card-name {
+  font-size: 23px;
+}
+.grid-cards-n1 .char-card-emotion,
+.grid-cards-n2 .char-card-emotion,
+.grid-cards-n3 .char-card-emotion {
+  font-size: 15px;
+}
+.grid-cards-n1 .char-card-speak-label,
+.grid-cards-n2 .char-card-speak-label,
+.grid-cards-n3 .char-card-speak-label {
+  font-size: 15.5px;
+}
+.grid-cards-n1 .char-card-speech,
+.grid-cards-n2 .char-card-speech,
+.grid-cards-n3 .char-card-speech {
+  font-size: 22px;
+  line-height: 1.7;
+}
+.grid-cards-n1 .char-card-thought,
+.grid-cards-n2 .char-card-thought,
+.grid-cards-n3 .char-card-thought {
+  font-size: 19px;
+  line-height: 1.6;
+}
+.grid-cards-n1 .char-card-action-line,
+.grid-cards-n2 .char-card-action-line,
+.grid-cards-n3 .char-card-action-line {
+  font-size: 17px;
+}
+.grid-cards-n1 .char-card-tag,
+.grid-cards-n2 .char-card-tag,
+.grid-cards-n3 .char-card-tag {
+  font-size: 14.5px;
+}
+
+.grid-cards-n4 .char-card-name,
+.grid-cards-n6 .char-card-name {
+  font-size: 20.5px;
+}
+.grid-cards-n4 .char-card-emotion,
+.grid-cards-n6 .char-card-emotion {
+  font-size: 14px;
+}
+.grid-cards-n4 .char-card-speak-label,
+.grid-cards-n6 .char-card-speak-label {
+  font-size: 14.5px;
+}
+.grid-cards-n4 .char-card-speech,
+.grid-cards-n6 .char-card-speech {
+  font-size: 20px;
+  line-height: 1.7;
+}
+.grid-cards-n4 .char-card-thought,
+.grid-cards-n6 .char-card-thought {
+  font-size: 17px;
+}
+.grid-cards-n4 .char-card-action-line,
+.grid-cards-n6 .char-card-action-line {
+  font-size: 16px;
+}
+.grid-cards-n4 .char-card-tag,
+.grid-cards-n6 .char-card-tag {
+  font-size: 14px;
+}
+
+/* ---- Avatar (pixel sprite — matches the tilemap character art) ---- */
 
 .avatar {
   position: relative;
-  width: 44px;
-  height: 44px;
+  width: 32px;
+  height: 64px;
   flex-shrink: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
-.avatar-body {
+.avatar-sprite {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid rgba(255, 255, 255, 0.65);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
-}
-.avatar-initials {
-  color: #ffffff;
-  font-family: 'Noto Sans SC', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
-}
-.avatar-tint {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  opacity: 0.22;
-  pointer-events: none;
-  mix-blend-mode: multiply;
-  transition: background 250ms ease;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 .avatar-talking { animation: avatar-pulse 1.4s ease-in-out infinite; }
 
 @keyframes avatar-pulse {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.08); }
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-2px); }
+}
+
+/* Compact avatar sizing for the vertical card layout (n ≥ 4) — keeps the
+   head row short so body/footer have room to breathe in a 2×3 / 3×3 grid. */
+.char-card-vertical .avatar {
+  width: 24px;
+  height: 48px;
+}
+
+/* The compact n=3 grid keeps the horizontal card but tightens sprite size. */
+.grid-cards-n3 .avatar {
+  width: 28px;
+  height: 56px;
 }
 
 /* ---- Tick nav ---- */
@@ -731,6 +783,16 @@ body {
   filter: drop-shadow(0 2px 5px rgba(160, 122, 31, 0.45));
 }
 
+/* Larger seal — primary CTA on the TopBar (入戏). About 24% bigger than the
+   default 50px stamp so it visibly outranks 日报 in the same row. */
+.seal-btn--lg {
+  width: 62px;
+  height: 62px;
+}
+.seal-btn--lg .seal-btn-text {
+  font-size: 21px;
+}
+
 /* Pin a seal to the viewport's top-right corner — used on the daily-report
    page to mirror the TopBar seal position from the scene view, so flipping
    between views feels like tapping the same spot. */
@@ -741,48 +803,104 @@ body {
   z-index: 40;
 }
 
-/* ---- Share buttons (save PNG + copy caption) ---- */
+/* ---- Share dock (save PNG + copy caption) ----
+   Promoted to the page's primary CTA: every dialog tick is a moment users
+   might want to capture, so the share affordance lives at the bottom of the
+   dialog panel as an always-visible dock with a labeled heading. The primary
+   button is filled gold (high-contrast vermillion-adjacent), the secondary
+   is outlined — visible hierarchy for the "save vs copy" choice. */
+
+.share-dock {
+  flex-shrink: 0;
+  padding: 10px 4px 6px;
+  margin-top: 6px;
+  border-top: 1px dashed #d8cdb5;
+}
+
+.share-dock-label {
+  text-align: center;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  color: #8a7f6a;
+  margin-bottom: 8px;
+}
 
 .share-buttons {
   position: relative;
   display: flex;
-  gap: 10px;
+  gap: 12px;
   justify-content: center;
-  padding: 10px 0 6px;
   flex-shrink: 0;
 }
 
 .share-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  background: #fef3d6;
-  border: 1px solid #d4a853;
-  border-radius: 16px;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 22px;
   font-family: 'Noto Serif SC', serif;
-  font-size: 12px;
-  color: #8a5e1c;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   cursor: pointer;
-  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+  transition: transform 150ms ease, background 150ms ease, border-color 150ms ease,
+              color 150ms ease, box-shadow 150ms ease;
+  min-width: 132px;
+  justify-content: center;
 }
 .share-btn:hover:not(:disabled) {
-  background: #fce1a7;
-  border-color: #b88834;
+  transform: translateY(-1px);
+}
+.share-btn:active:not(:disabled) {
+  transform: translateY(0);
 }
 .share-btn:disabled {
   cursor: not-allowed;
   opacity: 0.42;
+}
+
+/* Primary — filled gold gradient. The "make my screenshot" CTA. */
+.share-btn--primary {
+  background: linear-gradient(135deg, #d4a853 0%, #b88834 100%);
+  border: 1px solid #a07a1f;
+  color: #fff8e8;
+  box-shadow: 0 2px 8px rgba(160, 122, 31, 0.3);
+}
+.share-btn--primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #e0b766 0%, #c4953f 100%);
+  box-shadow: 0 4px 12px rgba(160, 122, 31, 0.4);
+}
+.share-btn--primary:disabled {
+  background: #ede0c5;
+  border-color: #d8cdb5;
+  color: #8a7f6a;
+  box-shadow: none;
+}
+
+/* Secondary — outlined gold, same footprint, lower visual weight. */
+.share-btn--secondary {
+  background: #fef3d6;
+  border: 1px solid #d4a853;
+  color: #8a5e1c;
+}
+.share-btn--secondary:hover:not(:disabled) {
+  background: #fce1a7;
+  border-color: #b88834;
+}
+.share-btn--secondary:disabled {
   background: #ede0c5;
   border-color: #d8cdb5;
   color: #8a7f6a;
 }
+
 .share-btn-busy .share-btn-icon {
   display: inline-block;
   animation: share-spin 900ms linear infinite;
 }
 .share-btn-icon {
-  font-size: 13px;
+  font-size: 17px;
 }
 .share-btn-label {
   line-height: 1;
@@ -814,17 +932,24 @@ body {
   to { opacity: 1; transform: translate(-50%, 0); }
 }
 
-/* ---- Daily report (landing) ---- */
+/* ---- Daily report (landing) ----
+   Single-viewport layout: hero + share row on top, then a 2-column body
+   (left = text beats, right = visual summary), then the人物志 footer link.
+   Everything fits in 100vh; the only internal scroll allowance is the
+   secondaries list when it exceeds its allotted column height. */
 
 .daily-root {
-  min-height: 100vh;
-  max-width: 720px;
+  height: 100vh;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 24px 24px 72px;
+  padding: 14px 24px 12px;
   background:
     linear-gradient(to bottom, #f5efe0, #ebe2c8 160px, #ebe2c8);
   color: #3a3530;
   font-family: 'Noto Serif SC', serif;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .daily-loading,
@@ -833,6 +958,38 @@ body {
   padding: 48px 24px;
   text-align: center;
   color: #6b6356;
+}
+
+.daily-body {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 18px;
+  padding-top: 10px;
+  overflow: hidden;
+}
+.daily-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+  overflow: hidden;
+}
+/* Secondaries (left) and scene strip (right) are the two variable-length
+   sections — let them absorb the extra column height and scroll internally
+   when they overflow. Headline / quote / mood map / CP stay fixed-height. */
+.daily-col-left .daily-secondaries {
+  flex: 1;
+  min-height: 0;
+}
+.daily-col-left .daily-secondaries .daily-secondary-list {
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.daily-col-right .daily-scene-strip {
+  flex: 1;
+  min-height: 0;
 }
 
 .daily-offline-cmd code {
@@ -855,9 +1012,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4px 0 16px;
+  padding: 2px 0 10px;
   border-bottom: 1px dashed #c8b998;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
+  flex-shrink: 0;
 }
 .daily-nav-label {
   font-size: 12px;
@@ -883,67 +1041,83 @@ body {
 
 .daily-hero {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  padding: 12px 0 28px;
+  justify-content: center;
+  gap: 16px;
+  padding: 4px 0 10px;
   border-bottom: 1px solid #d8cdb5;
+  flex-shrink: 0;
 }
 .daily-hero-seal {
   background: #b0281c;
   color: #fff8e8;
-  padding: 8px 18px;
-  border-radius: 8px;
-  font-size: 14px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
-  margin-bottom: 14px;
 }
 .daily-hero-title {
-  font-size: 48px;
+  font-size: 26px;
   font-weight: 700;
   margin: 0;
   letter-spacing: 0.15em;
   color: #2a2520;
 }
 .daily-hero-subtitle {
-  margin: 6px 0 0;
+  margin: 0;
   color: #8a7f6a;
-  font-size: 14px;
+  font-size: 12px;
   letter-spacing: 0.06em;
 }
 
 .daily-actions {
   display: flex;
   justify-content: center;
-  padding: 14px 0;
+  padding: 4px 0 2px;
+  flex-shrink: 0;
+}
+/* Daily-actions context: drop the scene-panel divider/label since the dock
+   sits in a tidy header strip, not below a stream of dialog cards. */
+.daily-actions .share-dock {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+.daily-actions .share-dock-label {
+  display: none;
 }
 
 .daily-section {
-  padding: 18px 0;
-  border-bottom: 1px solid #e0d5b9;
-}
-.daily-section:last-child {
-  border-bottom: none;
+  padding: 10px 12px;
+  background: rgba(255, 248, 228, 0.55);
+  border: 1px solid #e0d5b9;
+  border-radius: 8px;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 .daily-section-title {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700;
-  margin: 0 0 12px;
+  margin: 0 0 6px;
   color: #2a2520;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
+  flex-shrink: 0;
 }
 
 .daily-headline-meta {
-  font-size: 13px;
+  font-size: 12px;
   color: #8a7f6a;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   letter-spacing: 0.04em;
 }
 .daily-speech,
 .daily-thought {
-  margin: 8px 0;
-  line-height: 1.6;
-  font-size: 16px;
+  margin: 4px 0;
+  line-height: 1.55;
+  font-size: 14px;
 }
 .daily-speech-speaker {
   color: #8a5e1c;
@@ -960,15 +1134,15 @@ body {
 .daily-thought-label {
   color: #a095b8;
   margin-right: 4px;
-  font-size: 14px;
+  font-size: 12px;
 }
 .daily-headline-link {
-  margin-top: 10px;
+  margin-top: 6px;
   text-align: right;
 }
 .daily-headline-link a {
   color: #8a5e1c;
-  font-size: 13px;
+  font-size: 12px;
   text-decoration: none;
   border-bottom: 1px solid currentColor;
 }
@@ -978,20 +1152,20 @@ body {
 
 .daily-quote {
   background: #ede5d0;
-  border-left: 4px solid #d4a853;
+  border-left: 3px solid #d4a853;
   margin: 0;
-  padding: 14px 18px;
-  border-radius: 0 8px 8px 0;
+  padding: 8px 12px;
+  border-radius: 0 6px 6px 0;
 }
 .daily-quote-text {
   display: block;
-  font-size: 18px;
-  line-height: 1.7;
+  font-size: 14px;
+  line-height: 1.55;
   color: #2a2520;
 }
 .daily-quote-footer {
-  margin-top: 8px;
-  font-size: 13px;
+  margin-top: 4px;
+  font-size: 11px;
   color: #8a7f6a;
   font-style: normal;
 }
@@ -1002,14 +1176,13 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
 }
-.daily-secondary-item {}
 .daily-secondary-link {
   display: block;
-  padding: 10px 12px;
+  padding: 6px 10px;
   background: #efe7d0;
-  border-radius: 8px;
+  border-radius: 6px;
   text-decoration: none;
   color: inherit;
   transition: background 150ms ease;
@@ -1019,16 +1192,16 @@ body {
 }
 .daily-secondary-meta {
   display: block;
-  font-size: 12px;
+  font-size: 11px;
   color: #8a7f6a;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   letter-spacing: 0.04em;
 }
 .daily-secondary-body {
   display: block;
-  font-size: 14px;
+  font-size: 12.5px;
   color: #3a3530;
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
 .mood-grid {
@@ -1037,32 +1210,34 @@ body {
   margin: 0;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 12px;
+  gap: 6px 8px;
 }
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .mood-grid { grid-template-columns: repeat(3, 1fr); }
 }
 .mood-cell {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   text-align: center;
 }
-.mood-chip {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 2px solid #2a2520;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+.mood-sprite {
+  width: 32px;
+  height: 56px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  object-fit: contain;
+  object-position: center top;
+  flex-shrink: 0;
 }
 .mood-name {
-  font-size: 13px;
+  font-size: 12px;
   color: #2a2520;
   font-weight: 600;
 }
 .mood-emotion {
-  font-size: 11px;
+  font-size: 10.5px;
   color: #8a7f6a;
 }
 
@@ -1070,23 +1245,23 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  margin-bottom: 8px;
+  gap: 14px;
+  margin-bottom: 4px;
 }
 .cp-name {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   color: #2a2520;
 }
 .cp-heart {
   color: #b0281c;
-  font-size: 28px;
+  font-size: 20px;
 }
 .cp-deltas {
   display: flex;
   justify-content: center;
-  gap: 14px;
-  font-size: 13px;
+  gap: 12px;
+  font-size: 11.5px;
   color: #8a7f6a;
   letter-spacing: 0.04em;
 }
@@ -1096,16 +1271,18 @@ body {
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 6px;
+  overflow-y: auto;
+  min-height: 0;
 }
 .scene-strip-link {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
+  gap: 8px;
+  padding: 6px 8px;
   background: #efe7d0;
-  border-radius: 10px;
+  border-radius: 8px;
   text-decoration: none;
   color: inherit;
   transition: background 150ms ease;
@@ -1114,33 +1291,38 @@ body {
   background: #e5d9ba;
 }
 .scene-strip-icon {
-  font-size: 26px;
+  font-size: 20px;
 }
 .scene-strip-meta {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
+  min-width: 0;
 }
 .scene-strip-time {
-  font-size: 11px;
+  font-size: 10px;
   color: #8a7f6a;
   letter-spacing: 0.06em;
 }
 .scene-strip-name {
-  font-size: 14px;
+  font-size: 12px;
   color: #2a2520;
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .scene-strip-loc {
-  font-size: 11px;
+  font-size: 10px;
   color: #8a7f6a;
 }
 
 .daily-footer-link {
-  padding: 24px 0 8px;
+  padding: 6px 0 2px;
   text-align: center;
-  font-size: 15px;
+  font-size: 12px;
   letter-spacing: 0.08em;
+  flex-shrink: 0;
 }
 .daily-footer-link a {
   color: #8a5e1c;

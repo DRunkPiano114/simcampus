@@ -157,28 +157,31 @@ export function ShareButtons({ cardEndpoint, cardLabel = '分享卡' }: ShareBut
           : '启动 API 服务后可用（uv run api）'
 
   return (
-    <div className="share-buttons" role="group" aria-label="分享操作">
-      <button
-        type="button"
-        className={`share-btn${saving ? ' share-btn-busy' : ''}`}
-        onClick={saveCard}
-        disabled={disabled || saving}
-        title={title || (saving ? '保存中…' : '保存图')}
-      >
-        <span className="share-btn-icon">📥</span>
-        <span className="share-btn-label">{saving ? '保存中…' : '保存图'}</span>
-      </button>
-      <button
-        type="button"
-        className={`share-btn${copying ? ' share-btn-busy' : ''}`}
-        onClick={copyCaption}
-        disabled={disabled || copying}
-        title={title || (copying ? '复制中…' : '复制文案')}
-      >
-        <span className="share-btn-icon">📋</span>
-        <span className="share-btn-label">{copying ? '复制中…' : '复制文案'}</span>
-      </button>
-      {toast && <div className="share-toast" role="status">{toast}</div>}
+    <div className="share-dock">
+      <div className="share-dock-label" aria-hidden>✂️ 把这一刻分享出去</div>
+      <div className="share-buttons" role="group" aria-label="分享操作">
+        <button
+          type="button"
+          className={`share-btn share-btn--primary${saving ? ' share-btn-busy' : ''}`}
+          onClick={saveCard}
+          disabled={disabled || saving}
+          title={title || (saving ? '保存中…' : '保存图')}
+        >
+          <span className="share-btn-icon">📥</span>
+          <span className="share-btn-label">{saving ? '保存中…' : '保存图'}</span>
+        </button>
+        <button
+          type="button"
+          className={`share-btn share-btn--secondary${copying ? ' share-btn-busy' : ''}`}
+          onClick={copyCaption}
+          disabled={disabled || copying}
+          title={title || (copying ? '复制中…' : '复制文案')}
+        >
+          <span className="share-btn-icon">📋</span>
+          <span className="share-btn-label">{copying ? '复制中…' : '复制文案'}</span>
+        </button>
+        {toast && <div className="share-toast" role="status">{toast}</div>}
+      </div>
     </div>
   )
 }

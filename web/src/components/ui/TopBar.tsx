@@ -59,17 +59,17 @@ export function TopBar() {
   }, [sceneMenuOpen, dayMenuOpen])
 
   return (
-    <div className="relative z-30 flex items-center justify-between px-4 py-2 bg-gray-900/85 backdrop-blur flex-shrink-0 border-b border-white/10 pointer-events-none">
-      {/* Left: day + scene dropdown */}
-      <div className="flex items-center gap-3 pointer-events-auto">
+    <div className="relative z-30 flex items-center justify-between px-5 py-2.5 bg-gray-900/85 backdrop-blur flex-shrink-0 border-b border-white/10 pointer-events-none">
+      {/* Left: day + scene dropdown — single breadcrumb feel */}
+      <div className="flex items-center gap-2 pointer-events-auto">
         <div ref={dayMenuRef} className="relative">
           <button
             onClick={() => setDayMenuOpen(o => !o)}
-            className="flex items-center gap-1.5 px-3 py-1 rounded bg-white/10 hover:bg-white/20 text-xs text-white/80"
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-white/10 hover:bg-white/20 text-sm text-white/85 transition-colors"
           >
-            <span className="text-white/60">Day</span>
-            <span className="font-mono font-medium">{dayNum}</span>
-            <span className="text-white/40">▾</span>
+            <span className="text-white/55 text-[11px] uppercase tracking-wider">Day</span>
+            <span className="font-mono font-semibold text-white">{dayNum}</span>
+            <span className="text-white/40 text-xs">▾</span>
           </button>
           {dayMenuOpen && (
             <div className="absolute top-full left-0 mt-1 bg-gray-900/95 backdrop-blur border border-white/10 rounded-lg shadow-xl max-h-[60vh] overflow-y-auto min-w-[120px] py-1">
@@ -93,19 +93,22 @@ export function TopBar() {
           )}
         </div>
 
+        <span className="text-white/30 text-sm select-none">·</span>
+
         <div ref={menuRef} className="relative">
           <button
             onClick={() => setSceneMenuOpen(o => !o)}
-            className="flex items-center gap-1.5 px-3 py-1 rounded bg-white/10 hover:bg-white/20 text-xs text-white/80"
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-white/10 hover:bg-white/20 text-sm text-white/85 transition-colors"
           >
             {currentScene && (
               <>
-                <span className="text-white/40">{currentScene.time}</span>
-                <span>{LOCATION_ICONS[currentScene.location] ?? '📍'}</span>
-                <span>{currentScene.name}@{currentScene.location}</span>
+                <span className="font-mono text-white/65">{currentScene.time}</span>
+                <span className="text-base leading-none">{LOCATION_ICONS[currentScene.location] ?? '📍'}</span>
+                <span className="text-white">{currentScene.name}</span>
+                <span className="text-white/55">@ {currentScene.location}</span>
               </>
             )}
-            <span className="text-white/40">▾</span>
+            <span className="text-white/40 text-xs">▾</span>
           </button>
           {sceneMenuOpen && (
             <div className="absolute top-full left-0 mt-1 bg-gray-900/95 backdrop-blur border border-white/10 rounded-lg shadow-xl max-h-[60vh] overflow-y-auto min-w-[280px] py-1">
@@ -160,14 +163,8 @@ export function TopBar() {
 
       </div>
 
-      {/* Center: title */}
-      <div className="text-white/90 text-sm font-medium tracking-wide pointer-events-none">
-        SimCampus <span className="text-white/40">—</span>{' '}
-        <span className="text-amber-400/80">第{dayNum}天</span>
-      </div>
-
-      {/* Right: 日报 (gold archive seal) + 入戏 (vermillion role-play seal) */}
-      <div className="flex items-center gap-3 pointer-events-auto">
+      {/* Right: 日报 (gold archive seal, secondary) + 入戏 (vermillion seal, primary CTA) */}
+      <div className="flex items-center gap-4 pointer-events-auto">
         <button
           onClick={() => navigate(`/day/${currentDay}`)}
           aria-label="日报 — 查看今天的班级日报"
@@ -187,7 +184,7 @@ export function TopBar() {
                 ? '入戏 — 扮演一名角色与同班同学对话'
                 : '启动 API 服务后可用（uv run api）'
           }
-          className={`seal-btn${apiOnline !== true ? ' seal-btn-disabled' : ''}`}
+          className={`seal-btn seal-btn--lg${apiOnline !== true ? ' seal-btn-disabled' : ''}`}
         >
           <span className="seal-btn-text">入戏</span>
         </button>
