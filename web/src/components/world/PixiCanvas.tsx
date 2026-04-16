@@ -1,6 +1,7 @@
 import { Application, extend, useApplication, useTick } from '@pixi/react'
 import { Container, Graphics } from 'pixi.js'
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useWorldStore } from '../../stores/useWorldStore'
 import { loadMeta, loadScenes, loadSceneFile, prefetchDay, loadAgentColors, loadTilesetManifest, loadAnimatedManifest } from '../../lib/data'
 import { ROOMS, TILE, derivePositions } from '../../lib/roomConfig'
@@ -29,10 +30,16 @@ const UI_INSET = { top: 8, bottom: 8, left: 8, right: 8 }
 // --- data loading ---
 
 function useDataLoader() {
+  const { dayId: urlDayId, sceneFile: urlSceneFile } = useParams<{ dayId: string; sceneFile: string }>()
+  const navigate = useNavigate()
+  const location = useLocation()
+
   const setMeta = useWorldStore(s => s.setMeta)
   const setScenes = useWorldStore(s => s.setScenes)
   const setSceneFile = useWorldStore(s => s.setCurrentSceneFile)
   const setSceneIdx = useWorldStore(s => s.setCurrentSceneIndex)
+  const setCurrentDay = useWorldStore(s => s.setCurrentDay)
+  const consumePendingDayLanding = useWorldStore(s => s.consumePendingDayLanding)
   const currentDay = useWorldStore(s => s.currentDay)
   const sceneIdx = useWorldStore(s => s.currentSceneIndex)
   const scenes = useWorldStore(s => s.scenes)
@@ -59,15 +66,40 @@ function useDataLoader() {
     })
   }, [setMeta])
 
+  // URL → store: keep `currentDay` in lockstep with `:dayId`. The URL is the
+  // single source of truth on this route — without this, deep links from the
+  // daily report (and the back/forward buttons) would silently fall back to
+  // the store's initial day_001.
   useEffect(() => {
+    if (urlDayId && urlDayId !== currentDay) {
+      setCurrentDay(urlDayId)
+    }
+  }, [urlDayId, currentDay, setCurrentDay])
+
+  useEffect(() => {
+    // Wait for the URL→store day sync before fetching scenes, so we don't
+    // briefly load and render the wrong day's scene list.
+    if (urlDayId && urlDayId !== currentDay) return
     const myGen = ++genRef.current
     loadScenes(currentDay).then(s => {
       if (myGen !== genRef.current) return
       setScenes(s)
-      if (s.length > 0) setSceneIdx(0)
+      if (s.length === 0) return
+      // Explicit scene file in the URL takes priority over both the rewind
+      // landing and the default-to-zero. Stale/invalid file → fall through.
+      if (urlSceneFile && urlSceneFile !== 'first') {
+        const idx = s.findIndex(e => e.file === urlSceneFile)
+        if (idx >= 0) {
+          setSceneIdx(idx)
+          return
+        }
+      }
+      const landing = consumePendingDayLanding()
+      if (landing === 'end') setSceneIdx(s.length - 1, true)
+      else setSceneIdx(0)
     })
     prefetchDay(currentDay).catch(() => {})
-  }, [currentDay, setScenes, setSceneIdx])
+  }, [currentDay, urlDayId, urlSceneFile, setScenes, setSceneIdx, consumePendingDayLanding])
 
   useEffect(() => {
     const entry = scenes[sceneIdx]
@@ -78,6 +110,17 @@ function useDataLoader() {
       setSceneFile(file)
     })
   }, [currentDay, sceneIdx, scenes, setSceneFile])
+
+  // store → URL: when keyboard / TopBar / TickNav advances the store past the
+  // URL, replace the URL so refreshing or sharing reflects what's on screen.
+  useEffect(() => {
+    const entry = scenes[sceneIdx]
+    if (!entry) return
+    const expected = `/day/${currentDay}/scene/${entry.file}`
+    if (location.pathname !== expected) {
+      navigate(expected, { replace: true })
+    }
+  }, [currentDay, sceneIdx, scenes, location.pathname, navigate])
 }
 
 // --- world scene ---
