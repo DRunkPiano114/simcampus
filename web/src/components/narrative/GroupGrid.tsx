@@ -22,13 +22,22 @@ export function GroupGrid() {
   // day_001 → 1; the API uses a bare integer.
   const dayNum = parseInt(currentDay.replace('day_', ''), 10)
   const cardEndpoint = `/api/card/scene/${dayNum}/${currentSceneIndex}`
+  // Pin the share card to the viewer's current group so the caption + image
+  // match what they're looking at. Solo groups have no scene card — omit the
+  // param so the server falls back to its featured multi-agent pick instead
+  // of 404'ing the share buttons.
+  const shareGroupQuery = group && !group.is_solo ? `group=${groupIdx}` : undefined
 
   return (
     <div className="grid-stage">
       <div className="grid-page">
         <GroupPills groups={sceneFile.groups} activeIdx={groupIdx} names={names} />
         <GroupBody group={group} currentTick={currentTick} names={names} />
-        <ShareButtons cardEndpoint={cardEndpoint} cardLabel="场景卡" />
+        <ShareButtons
+          cardEndpoint={cardEndpoint}
+          cardLabel="场景卡"
+          endpointQuery={shareGroupQuery}
+        />
       </div>
     </div>
   )

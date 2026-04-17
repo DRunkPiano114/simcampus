@@ -22,6 +22,10 @@ export interface ShareButtonsProps {
    * are skipped — use it to hide nav chrome and the share dock itself.
    * Metadata (caption / filename) still comes from `cardEndpoint.json`. */
   captureTarget?: RefObject<HTMLElement | null>
+  /** Optional query string (no leading `?`) appended after the `.json` / `.png`
+   * suffix. Used by the scene card to pass the currently active group so the
+   * shared caption and image match what the viewer is looking at. */
+  endpointQuery?: string
 }
 
 /**
@@ -36,7 +40,9 @@ export function ShareButtons({
   cardLabel = '分享卡',
   showCopy = true,
   captureTarget,
+  endpointQuery,
 }: ShareButtonsProps) {
+  const qs = endpointQuery ? `?${endpointQuery}` : ''
   const [healthStatus, setHealthStatus] = useState<'unknown' | 'online' | 'offline'>('unknown')
   const [cardStatus, setCardStatus] = useState<'unknown' | 'available' | 'not_available'>('unknown')
   const [toast, setToast] = useState<string | null>(null)
@@ -63,11 +69,11 @@ export function ShareButtons({
     }
     let alive = true
     setCardStatus('unknown')
-    fetch(`${cardEndpoint}.json`)
+    fetch(`${cardEndpoint}.json${qs}`)
       .then(r => { if (alive) setCardStatus(r.ok ? 'available' : 'not_available') })
       .catch(() => { if (alive) setCardStatus('not_available') })
     return () => { alive = false }
-  }, [cardEndpoint, healthStatus])
+  }, [cardEndpoint, qs, healthStatus])
 
   const apiStatus: ApiStatus =
     healthStatus === 'offline'
@@ -85,7 +91,7 @@ export function ShareButtons({
 
   async function fetchMeta(): Promise<ShareCardMeta | null> {
     try {
-      const res = await fetch(`${cardEndpoint}.json`)
+      const res = await fetch(`${cardEndpoint}.json${qs}`)
       if (!res.ok) return null
       return (await res.json()) as ShareCardMeta
     } catch {
@@ -152,7 +158,7 @@ export function ShareButtons({
       } else {
         const [m, pngRes] = await Promise.all([
           fetchMeta(),
-          fetch(`${cardEndpoint}.png`),
+          fetch(`${cardEndpoint}.png${qs}`),
         ])
         if (!pngRes.ok) {
           flashToast('卡片生成失败')

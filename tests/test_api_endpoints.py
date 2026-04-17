@@ -160,3 +160,109 @@ class TestOrchestratorSnapshots:
         assert "state.json" in Orchestrator.DAILY_SNAPSHOT_FILES
         assert "relationships.json" in Orchestrator.DAILY_SNAPSHOT_FILES
         assert "self_narrative.json" in Orchestrator.DAILY_SNAPSHOT_FILES
+
+
+class TestResolveSceneGroupIndex:
+    """Scene card should share the viewer's current group, not always the
+    server's featured pick."""
+
+    @staticmethod
+    def _scene(groups: list[dict]) -> dict:
+        return {
+            "scene": {"day": 1, "time": "07:00", "name": "早读", "location": "教室"},
+            "groups": groups,
+        }
+
+    @staticmethod
+    def _mind(urgency: int = 0, thought: str = "") -> dict:
+        return {
+            "observation": "",
+            "inner_thought": thought,
+            "emotion": "neutral",
+            "action_type": "observe",
+            "action_content": None,
+            "action_target": None,
+            "urgency": urgency,
+            "is_disruptive": False,
+        }
+
+    def _multi_group(self, participants: list[str], urgency: int = 2) -> dict:
+        return {
+            "is_solo": False,
+            "participants": participants,
+            "ticks": [
+                {
+                    "tick": 0,
+                    "public": {
+                        "speech": {
+                            "agent": participants[0],
+                            "target": participants[1],
+                            "content": "嗨",
+                        },
+                        "actions": [],
+                        "environmental_event": None,
+                        "exits": [],
+                    },
+                    "minds": {aid: self._mind(urgency, "想点事") for aid in participants},
+                }
+            ],
+        }
+
+    def _solo_group(self, aid: str) -> dict:
+        return {
+            "is_solo": True,
+            "participants": [aid],
+            "solo_reflection": {
+                "inner_thought": "一个人",
+                "emotion": "neutral",
+                "activity": None,
+            },
+            "ticks": [],
+        }
+
+    def test_caller_group_is_honored(self):
+        from sim.api.server import _resolve_scene_group_index
+
+        # Group 0 has the higher drama score, but caller pinned group 1 —
+        # returning the caller's choice is the whole point.
+        scene = self._scene([
+            self._multi_group(["a", "b"], urgency=9),
+            self._multi_group(["c", "d"], urgency=1),
+        ])
+        assert _resolve_scene_group_index(scene, 1) == 1
+
+    def test_no_caller_falls_back_to_featured(self):
+        from sim.api.server import _resolve_scene_group_index
+
+        scene = self._scene([
+            self._multi_group(["a", "b"], urgency=1),
+            self._multi_group(["c", "d"], urgency=9),
+        ])
+        assert _resolve_scene_group_index(scene, None) == 1
+
+    def test_out_of_range_raises_404(self):
+        from fastapi import HTTPException
+        from sim.api.server import _resolve_scene_group_index
+
+        scene = self._scene([self._multi_group(["a", "b"])])
+        with pytest.raises(HTTPException) as exc:
+            _resolve_scene_group_index(scene, 5)
+        assert exc.value.status_code == 404
+
+    def test_solo_group_raises_404(self):
+        from fastapi import HTTPException
+        from sim.api.server import _resolve_scene_group_index
+
+        scene = self._scene([self._solo_group("a"), self._multi_group(["b", "c"])])
+        with pytest.raises(HTTPException) as exc:
+            _resolve_scene_group_index(scene, 0)
+        assert exc.value.status_code == 404
+
+    def test_no_multi_agent_group_and_no_caller_raises_404(self):
+        from fastapi import HTTPException
+        from sim.api.server import _resolve_scene_group_index
+
+        scene = self._scene([self._solo_group("a")])
+        with pytest.raises(HTTPException) as exc:
+            _resolve_scene_group_index(scene, None)
+        assert exc.value.status_code == 404

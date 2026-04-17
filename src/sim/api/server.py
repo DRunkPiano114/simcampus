@@ -198,19 +198,42 @@ def _cd_header(filename_cjk: str) -> str:
     )
 
 
-def _scene_meta(day: int, scene_idx: int) -> dict:
+def _resolve_scene_group_index(
+    scene_data: dict, group_index: int | None
+) -> int:
+    """Pick which group the share card should feature.
+
+    Caller-supplied `group_index` wins when valid (in range, multi-agent, has
+    ticks) — this is how the narrative UI shares the group the viewer is
+    actually looking at. Otherwise fall back to the server's featured pick.
+    Raises 404 HTTPException with a user-facing reason on any failure.
+    """
+    if group_index is not None:
+        groups = scene_data.get("groups", [])
+        if group_index < 0 or group_index >= len(groups):
+            raise HTTPException(status_code=404, detail="该组不存在")
+        group = groups[group_index]
+        if group.get("is_solo") or len(group.get("participants", [])) < 2:
+            raise HTTPException(
+                status_code=404, detail="独白组没有场景卡，请切到多人组"
+            )
+        if not group.get("ticks"):
+            raise HTTPException(status_code=404, detail="该组无内容")
+        return group_index
+    featured = scene_card.select_featured_group(scene_data)
+    if featured is None:
+        raise HTTPException(status_code=404, detail="该场景无对话，不生成场景卡")
+    return featured
+
+
+def _scene_meta(day: int, scene_idx: int, group_index: int | None = None) -> dict:
     """Compute caption/hashtags/filename from the scene LayoutSpec.
 
-    Raises 404 HTTPException if the scene has no multi-agent group.
+    Raises 404 HTTPException if no renderable group is available.
     """
     scene_data = scene_card.load_scene_by_array_index(day, scene_idx)
-    group_index = scene_card.select_featured_group(scene_data)
-    if group_index is None:
-        raise HTTPException(
-            status_code=404,
-            detail="该场景无对话，不生成场景卡",
-        )
-    spec = scene_card.scene_to_layout_spec(scene_data, group_index)
+    gi = _resolve_scene_group_index(scene_data, group_index)
+    spec = scene_card.scene_to_layout_spec(scene_data, gi)
     # Motif emoji from the strongest speaker, if we found one.
     motif_emoji = ""
     if spec.bubbles:
@@ -226,30 +249,29 @@ def _scene_meta(day: int, scene_idx: int) -> dict:
         featured_speaker=spec.featured_speaker_name,
         motif_emoji=motif_emoji,
     )
-    payload["group_index"] = group_index
+    payload["group_index"] = gi
     return payload
 
 
 @app.get("/api/card/scene/{day}/{scene_idx}.png")
-async def card_scene_png(day: int, scene_idx: int) -> Response:
+async def card_scene_png(
+    day: int, scene_idx: int, group: int | None = None
+) -> Response:
     try:
         scene_data = scene_card.load_scene_by_array_index(day, scene_idx)
     except (FileNotFoundError, IndexError) as e:
         raise HTTPException(status_code=404, detail=str(e))
-    group_index = scene_card.select_featured_group(scene_data)
-    if group_index is None:
-        raise HTTPException(
-            status_code=404,
-            detail="该场景无对话，不生成场景卡",
-        )
-    key = f"scene_{day:03d}_{scene_idx}"
+    gi = _resolve_scene_group_index(scene_data, group)
+    # Cache key is per-group so different viewers' current-group shares don't
+    # collide on the same scene key.
+    key = f"scene_{day:03d}_{scene_idx}_g{gi}"
 
     def _render():
-        spec = scene_card.scene_to_layout_spec(scene_data, group_index)
+        spec = scene_card.scene_to_layout_spec(scene_data, gi)
         return scene_card._render_card(spec)
 
     path = card_cache.get_or_render(key, _render)
-    meta = _scene_meta(day, scene_idx)
+    meta = _scene_meta(day, scene_idx, group_index=gi)
     return Response(
         content=path.read_bytes(),
         media_type="image/png",
@@ -261,9 +283,11 @@ async def card_scene_png(day: int, scene_idx: int) -> Response:
 
 
 @app.get("/api/card/scene/{day}/{scene_idx}.json")
-async def card_scene_meta(day: int, scene_idx: int) -> dict:
+async def card_scene_meta(
+    day: int, scene_idx: int, group: int | None = None
+) -> dict:
     try:
-        return _scene_meta(day, scene_idx)
+        return _scene_meta(day, scene_idx, group_index=group)
     except FileNotFoundError as e:
         raise HTTPException(status_code=404, detail=str(e))
     except IndexError as e:
