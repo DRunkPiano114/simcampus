@@ -63,7 +63,7 @@ export function TopBar() {
             <span className="text-white/40 text-xs">▾</span>
           </button>
           {dayMenuOpen && (
-            <div className="absolute top-full left-0 mt-1 bg-gray-900/95 backdrop-blur border border-white/10 rounded-lg shadow-xl max-h-[60vh] overflow-y-auto min-w-[120px] py-1">
+            <div className="absolute top-full left-0 mt-1 bg-gray-900/95 backdrop-blur border border-white/10 rounded-lg shadow-xl max-h-[60vh] overflow-y-auto min-w-[160px] py-1.5">
               {days.map(d => {
                 const n = d.replace('day_', '')
                 const isActive = d === currentDay
@@ -71,12 +71,12 @@ export function TopBar() {
                   <button
                     key={d}
                     onClick={() => { setCurrentDay(d); setDayMenuOpen(false) }}
-                    className={`w-full text-left flex items-center gap-2 px-3 py-1.5 text-sm font-mono ${
-                      isActive ? 'bg-white/15 text-white' : 'text-white/60 hover:bg-white/10 hover:text-white'
+                    className={`w-full text-left flex items-center gap-2.5 px-4 py-2.5 text-base font-mono ${
+                      isActive ? 'bg-white/15 text-white' : 'text-white/70 hover:bg-white/10 hover:text-white'
                     }`}
                   >
-                    <span className="text-white/40">Day</span>
-                    <span>{n}</span>
+                    <span className="text-white/45 text-sm uppercase tracking-wider">Day</span>
+                    <span className="font-semibold">{n}</span>
                   </button>
                 )
               })}
@@ -102,7 +102,7 @@ export function TopBar() {
             <span className="text-white/40 text-xs">▾</span>
           </button>
           {sceneMenuOpen && (
-            <div className="absolute top-full left-0 mt-1 bg-gray-900/95 backdrop-blur border border-white/10 rounded-lg shadow-xl max-h-[60vh] overflow-y-auto min-w-[280px] py-1">
+            <div className="absolute top-full left-0 mt-1 bg-gray-900/95 backdrop-blur border border-white/10 rounded-lg shadow-xl max-h-[70vh] overflow-y-auto min-w-[320px] py-1.5">
               {slots.map(slot => {
                 const slotActive = slot.scenes.some(s => sceneArrayIndex.get(s) === sceneIdx)
                 if (slot.scenes.length === 1) {
@@ -113,21 +113,23 @@ export function TopBar() {
                     <button
                       key={slot.key}
                       onClick={() => { setSceneIndex(arrIdx); setSceneMenuOpen(false) }}
-                      className={`w-full text-left flex items-center gap-2 px-3 py-1.5 text-sm ${
-                        isActive ? 'bg-white/15 text-white' : 'text-white/60 hover:bg-white/10 hover:text-white'
+                      className={`w-full text-left flex items-center gap-2.5 px-4 py-2.5 text-base ${
+                        isActive ? 'bg-white/15 text-white' : 'text-white/70 hover:bg-white/10 hover:text-white'
                       }`}
                     >
-                      <span className="text-white/40 w-10 shrink-0">{scene.time}</span>
-                      <span>{LOCATION_ICONS[scene.location] ?? '📍'}</span>
+                      <span className="font-mono text-white/45 w-12 shrink-0 text-sm">{scene.time}</span>
+                      <span className="text-lg leading-none">{LOCATION_ICONS[scene.location] ?? '📍'}</span>
                       <span>{scene.name}</span>
-                      <span className="text-white/40 ml-auto">{scene.location}</span>
+                      <span className="text-white/45 ml-auto text-sm">{scene.location}</span>
                     </button>
                   )
                 }
                 return (
                   <div key={slot.key}>
-                    <div className={`px-3 py-1 text-xs uppercase tracking-wider ${slotActive ? 'text-amber-400/80' : 'text-white/30'}`}>
-                      {slot.time} · {slot.name}
+                    <div className={`px-4 pt-2 pb-1 text-sm font-medium tracking-wide ${slotActive ? 'text-amber-400/90' : 'text-white/45'}`}>
+                      <span className="font-mono">{slot.time}</span>
+                      <span className="text-white/30 mx-1.5">·</span>
+                      <span>{slot.name}</span>
                     </div>
                     {slot.scenes.map(scene => {
                       const arrIdx = sceneArrayIndex.get(scene)!
@@ -136,11 +138,11 @@ export function TopBar() {
                         <button
                           key={arrIdx}
                           onClick={() => { setSceneIndex(arrIdx); setSceneMenuOpen(false) }}
-                          className={`w-full text-left flex items-center gap-2 pl-8 pr-3 py-1.5 text-sm ${
-                            isActive ? 'bg-white/15 text-white' : 'text-white/60 hover:bg-white/10 hover:text-white'
+                          className={`w-full text-left flex items-center gap-2.5 pl-10 pr-4 py-2.5 text-base ${
+                            isActive ? 'bg-white/15 text-white' : 'text-white/70 hover:bg-white/10 hover:text-white'
                           }`}
                         >
-                          <span>{LOCATION_ICONS[scene.location] ?? '📍'}</span>
+                          <span className="text-lg leading-none">{LOCATION_ICONS[scene.location] ?? '📍'}</span>
                           <span>{scene.location}</span>
                         </button>
                       )
