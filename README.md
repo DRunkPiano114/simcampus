@@ -4,6 +4,9 @@
 
 A multi-agent LLM simulation engine. Define a cast of characters — each with a personality, goals, concerns, and relationships — plus a daily schedule of shared scenes, and the simulation runs day-by-day, producing emergent dialogue, memories, and narrative with no hand-written script.
 
+![Daily Report](docs/daily-report.png)
+![Live Scene](docs/live-scene.png)
+
 ---
 
 ## Table of Contents

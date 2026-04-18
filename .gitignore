@@ -22,7 +22,6 @@ __pycache__/
 uv.lock
 
 # development
-docs/
 .claude/
 
 # web
