@@ -81,6 +81,8 @@ uv run python scripts/export_frontend_data.py
 cd web && pnpm install && pnpm dev   # → http://localhost:5173
 ```
 
+> **费用估算**：用 `google/gemini-3.1-flash-lite-preview`（OpenRouter）跑 10 天花了约 $5.4，大约每天 $0.5。
+
 
 ## 换角色
 

@@ -81,6 +81,8 @@ uv run python scripts/export_frontend_data.py
 cd web && pnpm install && pnpm dev   # → http://localhost:5173
 ```
 
+> **Cost estimate**: running 10 days with `google/gemini-3.1-flash-lite-preview` via OpenRouter cost about $5.4 — roughly $0.5 per simulated day.
+
 
 ## Customize the cast
 
