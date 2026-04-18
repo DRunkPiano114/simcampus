@@ -1,4 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import { PixiCanvas } from './components/world/PixiCanvas'
 import { DailyReport, DailyReportHome } from './components/daily/DailyReport'
 import { CharacterGallery, CharacterArchivePage } from './components/gallery/CharacterGallery'
@@ -34,6 +36,8 @@ export default function App() {
       </Routes>
       <GodModeChat />
       <RolePlayChat />
+      <Analytics />
+      <SpeedInsights />
       <a
         href="https://github.com/DRunkPiano114/simcampus"
         target="_blank"
