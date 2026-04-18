@@ -56,23 +56,24 @@ Prereqs: Python 3.12+ via [uv](https://docs.astral.sh/uv/), Node 18+ with [pnpm]
 > **Heads up**: step 2 below wipes `simulation/state|world|days` — including the pre-run data.
 
 ```bash
+# 1. Install Python dependencies
 uv sync
 
-# Configure your LLM API key
+# 2. Configure your LLM API key
 cp .env.example .env
 # Edit .env and fill in OPENROUTER_API_KEY (or switch to another provider — see .env.example notes + src/sim/config.py)
 
-# Initialize the world
+# 3. Initialize the world
 uv run python scripts/init_world.py
 
-# Run 5 days of simulation
+# 4. Run 5 days of simulation
 uv run sim --days 5
 
-# Start the API server — required for Role Play / God Mode chat in the frontend.
+# 5. Start the API server — required for Role Play / God Mode chat in the frontend.
 # Run in a separate terminal.
 uv run api                           # → http://localhost:8000
 
-# Export to the frontend + view
+# 6. Export to the frontend + view
 uv run python scripts/export_frontend_data.py
 cd web && pnpm install && pnpm dev   # → http://localhost:5173
 ```

@@ -56,23 +56,24 @@ pnpm dev # → http://localhost:5173
 > **注意**：下面第 2 步会清空 `simulation/state|world|days`——包括自带的 demo 数据。
 
 ```bash
+# 1. 安装 Python 依赖
 uv sync
 
-# 配置 LLM API key
+# 2. 配置 LLM API key
 cp .env.example .env
 # 编辑 .env，填入 OPENROUTER_API_KEY（或切换到其他 provider，见 .env.example 注释 + src/sim/config.py）
 
-# 初始化世界
+# 3. 初始化世界
 uv run python scripts/init_world.py
 
-# 跑 5 天
+# 4. 跑 5 天
 uv run sim --days 5
 
-# 启动 API server——前端的 Role Play / God Mode 聊天需要。
+# 5. 启动 API server——前端的 Role Play / God Mode 聊天需要。
 # 另开一个 terminal 跑。
 uv run api                           # → http://localhost:8000
 
-# 导出到前端 + 查看
+# 6. 导出到前端 + 查看
 uv run python scripts/export_frontend_data.py
 cd web && pnpm install && pnpm dev   # → http://localhost:5173
 ```
