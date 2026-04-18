@@ -11,10 +11,6 @@ A multi-agent LLM simulation engine. Define a cast of characters — each with a
 - [What is this](#what-is-this)
 - [Quick Start](#quick-start)
 - [Customize the cast](#customize-the-cast)
-- [Cost reference](#cost-reference)
-- [Art assets](#art-assets)
-- [Tests](#tests)
-- [License](#license)
 
 ---
 
@@ -119,57 +115,3 @@ Paste this to Claude Code / Cursor / Codex:
 > I want to use this project to simulate my own scenario. Please follow the workflow in `skills/build-cast.md` to guide me through editing the characters.
 
 The agent reads the schema, asks you for fields in batches, polishes backstory drafts, validates JSON, updates the relationship preset, and tells you what to run next. A full cast swap takes 30–60 minutes of back-and-forth.
-
-## Cost reference
-
-Measured on a 9-day baseline run (primary model at that time was DeepSeek V3.2 — the token volume and call distribution are still representative for the current default, Gemini 3.1 Flash Lite):
-
-| Metric | 9-day total | Per-day avg |
-|---|---|---|
-| LLM calls | 3,357 | ~370 |
-| Prompt tokens | 16.0M | ~1.8M |
-| Completion tokens | 631K | ~70K |
-| Scenes | 105 | ~12 |
-| Ticks | 1,283 | ~140 |
-
-About **77% of tokens are spent on perception** (every in-scene agent runs one per tick). On a cheap model like Gemini Flash Lite or DeepSeek, a 9-day run typically lands in the **single-digit-dollars** range. Switching to Claude Sonnet / GPT-4 is an order of magnitude more expensive. Start with `uv run sim --days 1` to calibrate pacing and cost before longer runs.
-
-## Art assets
-
-Share-card rendering (`src/sim/cards/`) uses [LimeZu Modern Interiors](https://limezu.itch.io/moderninteriors) premade sprite sheets plus a few UI theme packs — these are **commercial assets** and are not in git. Place them locally before running anything under `src/sim/cards/`:
-
-```bash
-cp -r /path/to/your/assets/* ./assets/
-# You need ./assets/moderninteriors-win/... and ./assets/Complete_UI_Essential_Pack_v2.4/...
-```
-
-`./assets/` is gitignored by default; only `./assets/fonts/` (OFL-licensed fonts) is whitelisted and tracked. The character portrait PNGs under `canon/cast/portraits/` **are** checked in, so a fresh clone can render cards without re-running the generator.
-
-**Convention**: after editing `canon/cast/visual_bible.json` (`sprite_source` or crop fields), regenerate or the PNGs will drift from the config:
-
-```bash
-uv run python scripts/generate_portraits.py     # regenerate canon/cast/portraits/*.png
-uv run python -m sim.cards.self_test            # sanity check → .cache/self_test/
-```
-
-The share-card render cache lives in `.cache/cards/` (gitignored). Clear it after a sim rerun so cards reflect new data:
-
-```bash
-rm -rf .cache/cards
-```
-
-## Tests
-
-```bash
-uv run python -m pytest                         # all tests
-uv run python -m pytest tests/test_foo.py -v    # single file
-uv run python -m pytest -k "test_name"          # by name
-```
-
-Project rule (see `CLAUDE.md`): when you change logic under `src/sim/`, you must also update or add corresponding tests. A task is not complete until pytest passes.
-
-## License
-
-Code is released under the [MIT License](LICENSE).
-
-Art assets (LimeZu Modern Interiors, etc.) are **not included** — you must obtain your own licenses. PNGs under `canon/cast/portraits/`, `canon/cast/map_sprites/`, and `canon/tilesets/` are derivatives generated from those assets and inherit the source licenses. Fonts under `./assets/fonts/` are distributed under the SIL Open Font License.

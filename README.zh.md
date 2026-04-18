@@ -11,10 +11,6 @@
 - [这是什么](#这是什么)
 - [快速开始](#快速开始)
 - [换角色](#换角色)
-- [成本参考](#成本参考)
-- [美术素材](#美术素材)
-- [测试](#测试)
-- [许可证](#许可证)
 
 ---
 
@@ -119,57 +115,3 @@ cd web && pnpm install && pnpm dev   # → http://localhost:5173
 > 我想用这个项目模拟我自己的场景。请按照 `skills/build-cast.md` 的流程，带我一步步编辑角色。
 
 AI 会读 schema、一批批问字段、帮你打磨 backstory、验证 JSON、更新关系表，最后告诉你接下来跑什么。整个 session 大概 30–60 分钟换完一整套。
-
-## 成本参考
-
-基于 9 天 baseline 实测（彼时主模型是 DeepSeek V3.2——token 量级和调用分布对当前默认的 Gemini 3.1 Flash Lite 同样有参考价值）：
-
-| 指标 | 9 天总量 | 每天均值 |
-|---|---|---|
-| LLM 调用数 | 3,357 | ~370 |
-| Prompt tokens | 16.0M | ~1.8M |
-| Completion tokens | 631K | ~70K |
-| 场景数 | 105 | ~12 |
-| Ticks | 1,283 | ~140 |
-
-调用分布里 **perception 占 ~77% token**（每个 tick 每个在场 agent 都要跑一次）。换算到价格：用 Gemini Flash Lite 或 DeepSeek 这类便宜模型，9 天通常 **几美金以内**；切 Claude Sonnet / GPT-4 会贵一个数量级。跑之前先 `uv run sim --days 1` 试一天看看节奏和成本。
-
-## 美术素材
-
-角色卡渲染（`src/sim/cards/`）需要 [LimeZu Modern Interiors](https://limezu.itch.io/moderninteriors) 预制精灵图和几个 UI 主题包——这些是**商业素材**，不在 git 里。本地放进去再跑 `src/sim/cards/` 下的渲染：
-
-```bash
-cp -r /path/to/your/assets/* ./assets/
-# 需要 ./assets/moderninteriors-win/... 和 ./assets/Complete_UI_Essential_Pack_v2.4/...
-```
-
-`./assets/` 默认被 gitignore，只有 `./assets/fonts/`（OFL-licensed 字体）被白名单跟踪。角色头像 PNG 在 `canon/cast/portraits/` 是**已生成并跟踪**的——clone 下来就能渲染卡片，不用重跑生成器。
-
-**约定**：改过 `canon/cast/visual_bible.json` 的 `sprite_source` 或 crop 字段后，重新生成头像，否则 PNG 会和配置漂移：
-
-```bash
-uv run python scripts/generate_portraits.py     # 重新生成 canon/cast/portraits/*.png
-uv run python -m sim.cards.self_test            # 自检 → .cache/self_test/
-```
-
-角色卡渲染缓存在 `.cache/cards/`（gitignored）。重跑 sim 后记得清掉以反映新数据：
-
-```bash
-rm -rf .cache/cards
-```
-
-## 测试
-
-```bash
-uv run python -m pytest                         # 所有测试
-uv run python -m pytest tests/test_foo.py -v    # 单文件
-uv run python -m pytest -k "test_name"          # 按名字过滤
-```
-
-项目约定（见 `CLAUDE.md`）：改动 `src/sim/` 里的逻辑时必须同步 `tests/`，跑通 pytest 才算完成。
-
-## 许可证
-
-代码按 [MIT License](LICENSE) 发布。
-
-美术素材（LimeZu Modern Interiors 等）**不在本仓库**，使用方需自行购买授权。仓库里 `canon/cast/portraits/`、`canon/cast/map_sprites/`、`canon/tilesets/` 下的 PNG 是基于这些素材生成的衍生物，按原素材授权使用。`./assets/fonts/` 下的字体按 SIL Open Font License 发布。
