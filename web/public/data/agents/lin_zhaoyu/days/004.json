@@ -1,0 +1,62 @@
+{
+  "agent_id": "lin_zhaoyu",
+  "name_cn": "林昭宇",
+  "day": 4,
+  "is_teacher": false,
+  "motif_emoji": "🌧️",
+  "motif_tag": "书呆子",
+  "main_color": "#4A7BC4",
+  "emotion_label": "挫败",
+  "energy_label": "精神还行",
+  "pressure_label": "压力不小",
+  "featured_quote": "英语阅读怎么选都不对，烦死了，要是这次月考英语又拉胯，妈肯定又要唠叨家里钱怎么怎么不够花了。",
+  "featured_scene": "15:30 · 课间",
+  "relationships": [
+    {
+      "target_name": "陆思远",
+      "favorability": 28,
+      "trust": 23,
+      "label_text": "很亲近的朋友"
+    },
+    {
+      "target_name": "沈逸凡",
+      "favorability": 12,
+      "trust": 7,
+      "label_text": "还行，有些好感"
+    },
+    {
+      "target_name": "唐诗涵",
+      "favorability": 8,
+      "trust": 5,
+      "label_text": "还行，有些好感"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 3",
+      "text": "陆思远帮我解围后去图书馆门口等我，感觉还是他最懂我。",
+      "importance": 6
+    },
+    {
+      "date": "Day 1",
+      "text": "物理大题卡住了，最后和陆思远约好晚自习一起研究，这种感觉稍微踏实点。",
+      "importance": 6
+    }
+  ],
+  "top_concern": {
+    "text": "最近压力太大，本想听听许嵩的新歌放松一下，但因为学习任务没能实现。",
+    "intensity_label": "轻微",
+    "positive": false
+  },
+  "self_narrative": "在班里像个透明人，只敢和陆思远说话。英语还没起色，怕妈电话轰炸。用AI查题总觉得心虚，删记录删得手抖。周五打局王者，才觉得活着。",
+  "caption_payload": {
+    "caption": "🌧️ 林昭宇 · 第004天 档案\n\n标签：书呆子\n此刻心情：挫败\n\n「英语阅读怎么选都不对，烦死了，要是这次月考英语又拉胯，妈肯定又要唠叨家里钱怎么怎么不够花了。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_林昭宇_档案_第004天.png"
+  }
+}

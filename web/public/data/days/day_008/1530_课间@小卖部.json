@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 6,
+    "time": "15:30",
+    "name": "课间",
+    "location": "小卖部",
+    "description": "下午课间休息",
+    "day": 8
+  },
+  "participant_names": {
+    "he_jiajun": "何家骏"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "he_jiajun"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "希望晚上打游戏别太坑，姜皓天应该不介意吧。",
+        "emotion": "touched",
+        "activity": "在小卖部买了一瓶冰水，靠在墙边刷着手机里物流视频。"
+      }
+    }
+  ]
+}

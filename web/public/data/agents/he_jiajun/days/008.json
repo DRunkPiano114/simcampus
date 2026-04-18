@@ -1,0 +1,62 @@
+{
+  "agent_id": "he_jiajun",
+  "name_cn": "何家骏",
+  "day": 8,
+  "is_teacher": false,
+  "motif_emoji": "🌫️",
+  "motif_tag": "寡言少年",
+  "main_color": "#7B8FA8",
+  "emotion_label": "感动",
+  "energy_label": "精神还行",
+  "pressure_label": "轻松",
+  "featured_quote": "还好没被发现，再补几个公式我就能装作是在认真订正了，千万别出岔子。",
+  "featured_scene": "08:45 · 课间",
+  "relationships": [
+    {
+      "target_name": "姜皓天",
+      "favorability": 17,
+      "trust": 10,
+      "label_text": "关系不错"
+    },
+    {
+      "target_name": "林昭宇",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "唐诗涵",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 7",
+      "text": "因为担心物理错题本被老师发现抄袭，全天都处于焦虑中，拒绝了姜皓天的打球邀请，感觉自己越来越边缘化。",
+      "importance": 6
+    },
+    {
+      "date": "Day 6",
+      "text": "姜皓天说晚上带我打王者，还说要带我躺赢。",
+      "importance": 6
+    }
+  ],
+  "top_concern": {
+    "text": "物理错题本抄袭痕迹太明显，担心周五检查时被何老师当众揭穿。",
+    "intensity_label": "强烈",
+    "positive": false
+  },
+  "self_narrative": "在班里像个透明人。姜皓天好像想带我，但我总怕拖他后腿。错题本抄了答案，周五要是被老师抓包就完了。想玩游戏又怕被嫌弃。那个……算了，先这样吧。",
+  "caption_payload": {
+    "caption": "🌫️ 何家骏 · 第008天 档案\n\n标签：寡言少年\n此刻心情：感动\n\n「还好没被发现，再补几个公式我就能装作是在认真订正了，千万别出岔子。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_何家骏_档案_第008天.png"
+  }
+}

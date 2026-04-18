@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 8,
+    "time": "15:30",
+    "name": "课间",
+    "location": "走廊",
+    "description": "下午课间休息",
+    "day": 2
+  },
+  "participant_names": {
+    "jiang_haotian": "姜皓天"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "jiang_haotian"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "这歌词挺带劲，晚上带家骏上分肯定爽。",
+        "emotion": "excited",
+        "activity": "靠在走廊栏杆上，戴着耳机单曲循环新出的说唱，手指跟着节奏在裤腿上敲。"
+      }
+    }
+  ]
+}

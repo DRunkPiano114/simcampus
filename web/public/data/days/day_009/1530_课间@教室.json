@@ -1,0 +1,1023 @@
+{
+  "scene": {
+    "scene_index": 10,
+    "time": "15:30",
+    "name": "课间",
+    "location": "教室",
+    "description": "下午课间休息",
+    "day": 9
+  },
+  "participant_names": {
+    "fang_yuchen": "方语晨",
+    "shen_yifan": "沈逸凡"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "fang_yuchen",
+        "shen_yifan"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "shen_yifan",
+              "content": "诶沈逸凡，你刚才帮姜皓天转那个奶茶钱没呀？我也想看看他那个拼单的群消息。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "方语晨坐在座位上，教室里有人在午休，气氛相对安静。",
+              "inner_thought": "这几天一直绷着，感觉方语晨看班长的眼神都有点怪，算了吧，别提纪律了。",
+              "emotion": "neutral",
+              "action_type": "speak",
+              "action_content": "下午这节课要交的作业，你准备好了吗？",
+              "action_target": "fang_yuchen",
+              "urgency": 4,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "沈逸凡一个人坐在那儿，手机放在桌角，屏保没看清。",
+              "inner_thought": "这家伙手机屏幕朝哪边呢，怎么看都看不见，烦死了。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "诶沈逸凡，你刚才帮姜皓天转那个奶茶钱没呀？我也想看看他那个拼单的群消息。",
+              "action_target": "shen_yifan",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "fang_yuchen",
+              "content": "下午这节课要交的作业，你准备好了吗？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "沈逸凡把手机往旁边挪了一下，依旧没把屏幕朝上放。",
+              "inner_thought": "藏这么严实干嘛，肯定有猫腻，气死我了。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "切，神神秘秘的，搞得像里面装了什么宝贝一样，看都不给看。",
+              "action_target": "shen_yifan",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "shen_yifan",
+              "content": "切，神神秘秘的，搞得像里面装了什么宝贝一样，看都不给看。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "方语晨并没有直接回答作业的事，而是又把话题往姜皓天身上引。",
+              "inner_thought": "一天到晚关注姜皓天那种人干嘛，又不是什么光彩事。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "你关心他干嘛，有空管管自己。",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "fang_yuchen",
+              "content": "你关心他干嘛，有空管管自己。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "沈逸凡又把手机往抽屉里推了推，根本不打算理我。",
+              "inner_thought": "真没劲，问他几句就扯到作业，装什么模范生啊。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "行行行，算你狠，数学作业还没抄完呢，先不跟你瞎扯了。",
+              "action_target": "shen_yifan",
+              "urgency": 5,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 4,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "shen_yifan",
+              "content": "行行行，算你狠，数学作业还没抄完呢，先不跟你瞎扯了。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "方语晨撇了撇嘴，看起来对我的说教不以为然，但我确实不想多谈姜皓天了。",
+              "inner_thought": "真烦，怎么一个个都盯着他，这帮人懂什么叫班级秩序吗。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "行了行了，有这闲工夫，你物理题做完了没？",
+              "action_target": "fang_yuchen",
+              "urgency": 4,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 5,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "fang_yuchen",
+              "content": "行了行了，有这闲工夫，你物理题做完了没？"
+            },
+            "actions": [
+              {
+                "agent": "fang_yuchen",
+                "type": "non_verbal",
+                "content": "翻了个大白眼，转过身去用力翻开数学练习册，笔尖在纸上划出刺耳的摩擦声。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "沈逸凡又把手机往抽屉里推了点，完全不想理人的样子。",
+              "inner_thought": "神气什么啊，不就是数学好点吗，迟早让他哭。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "翻了个大白眼，转过身去用力翻开数学练习册，笔尖在纸上划出刺耳的摩擦声。",
+              "action_target": "shen_yifan",
+              "urgency": 3,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 6,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "fang_yuchen",
+                "type": "non_verbal",
+                "content": "故意把书本重重合上，发出啪的一声，然后戴上耳机开始刷视频。"
+              }
+            ],
+            "environmental_event": "【动作】方语晨: 故意把书本重重合上，发出啪的一声，然后戴上耳机开始刷视频。",
+            "exits": []
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "方语晨不再理我，开始专心写数学作业。",
+              "inner_thought": "算了，反正我也懒得再说了，爱写不写。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "沈逸凡在催我做物理，手机还往抽屉里更深处推了推。",
+              "inner_thought": "真扫兴，理科生都这么无趣吗？懒得理他了。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "故意把书本重重合上，发出啪的一声，然后戴上耳机开始刷视频。",
+              "action_target": "shen_yifan",
+              "urgency": 4,
+              "is_disruptive": true
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 7,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "方语晨戴上耳机开始刷视频，动作里明显带着情绪。",
+              "inner_thought": "现在的学生怎么都这样，听不进劝还摆烂，算了，我管这么多干嘛。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "沈逸凡又把手机往抽屉深处推了推，看都不看我一眼。",
+              "inner_thought": "装什么清高，不就是个破手机吗，懒得理你。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 8,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "fang_yuchen",
+                "type": "non_verbal",
+                "content": "戴上耳机，把音量调大，盯着手机屏幕上跳动的短视频进度条发呆。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "沈逸凡又把身体转过去看书了，手机完全消失在课桌抽屉深处。",
+              "inner_thought": "搞什么啊，难道那手机里有金子？真是无语，懒得再看他那副清高样了。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "戴上耳机，把音量调大，盯着手机屏幕上跳动的短视频进度条发呆。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "shen_yifan"
+          ]
+        },
+        {
+          "tick": 9,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "沈逸凡又把身体转过去看书了，手机完全消失在课桌抽屉深处。",
+              "inner_thought": "装什么清高，不就是个破手机吗，懒得理你。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "shen_yifan"
+          ]
+        },
+        {
+          "tick": 10,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "fang_yuchen",
+                "type": "non_verbal",
+                "content": "把耳机音量调得更大，身体往外侧倾斜，彻底把背对着他。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "沈逸凡一直埋头苦读，把手机藏得死死的，根本不给我一点机会。",
+              "inner_thought": "真没劲，这种木头人有什么好看的，无聊死。",
+              "emotion": "bored",
+              "action_type": "non_verbal",
+              "action_content": "把耳机音量调得更大，身体往外侧倾斜，彻底把背对着他。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "shen_yifan"
+          ]
+        }
+      ],
+      "narrative": {
+        "key_moments": [
+          "方语晨询问沈逸凡关于姜皓天奶茶拼单群消息的事。",
+          "沈逸凡询问方语晨作业准备情况。",
+          "方语晨翻开数学练习册书写。",
+          "方语晨合上书本并戴上耳机观看手机视频。",
+          "方语晨调整耳机音量并将身体背对沈逸凡。"
+        ],
+        "fulfilled_intentions": [
+          "方语晨:完成数学作业",
+          "沈逸凡:确认作业完成情况"
+        ],
+        "events_discussed": [
+          "姜皓天奶茶拼单",
+          "下午课程作业",
+          "数学作业",
+          "物理题"
+        ],
+        "new_events": [
+          {
+            "text": "姜皓天发起了奶茶拼单群。",
+            "category": "社交信息",
+            "witnesses": [
+              "方语晨",
+              "沈逸凡"
+            ],
+            "spread_probability": 0.6,
+            "cite_ticks": [
+              1
+            ]
+          }
+        ]
+      },
+      "reflections": {
+        "fang_yuchen": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "沈逸凡",
+              "favorability": -2,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "沈逸凡这家伙又在那装模作样催我学习，根本不让我看一眼姜皓天的手机，烦死个人！",
+              "emotion": "frustrated",
+              "importance": 4,
+              "people": [
+                "沈逸凡"
+              ],
+              "location": "教室",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "e88a6c",
+              "adjustment": -1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "假装问他奶茶拼单的事，顺便瞄一眼他手机屏保是不是猫猫图（想找姜皓天）",
+              "status": "frustrated",
+              "brief_reason": "姜皓天没在现场，沈逸凡又在那挡着，根本没机会看手机。"
+            },
+            {
+              "goal": "午饭时试探她和林昭宇最近到底在搞什么鬼（想找苏念瑶）",
+              "status": "missed_opportunity",
+              "brief_reason": "苏念瑶不在身边，没法问。"
+            },
+            {
+              "goal": "拉着她一起刷一下新出的谷子预览图，缓解一下烦躁心情（想找唐诗涵）",
+              "status": "missed_opportunity",
+              "brief_reason": "唐诗涵不在，只能自己刷手机发呆。"
+            }
+          ]
+        },
+        "shen_yifan": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "方语晨",
+              "favorability": -2,
+              "trust": -1,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "方语晨为了看姜皓天的群消息跟我吵，最后还戴上耳机不理我，真不知道她们在想什么。",
+              "emotion": "frustrated",
+              "importance": 4,
+              "people": [
+                "方语晨",
+                "姜皓天"
+              ],
+              "location": "教室",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "de8422",
+              "adjustment": 2
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "找个机会跟他好好谈谈，把纪律红线说清楚，不能再让他这么没完没了地挑衅了。",
+              "status": "pending",
+              "brief_reason": "现在课间都在讨论他的八卦，根本没法静下心来谈。"
+            },
+            {
+              "goal": "语气放软点，跟他说说宿舍卫生的事，别搞得大家见面都尴尬。",
+              "status": "pending",
+              "brief_reason": "还没碰到室友，这会儿心烦意乱的。"
+            },
+            {
+              "goal": "去操场跑个步，出一身汗。",
+              "status": "frustrated",
+              "brief_reason": "被班级琐事绊住，还没能抽身。"
+            }
+          ]
+        }
+      },
+      "share_tick_layouts": [
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "诶沈逸凡，你刚才帮姜皓天转那个奶茶钱没呀？我也想看看他那个拼单的群消息。"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "这几天一直绷着，感觉方语晨看班长的眼神都有点怪，算了吧，别提纪律了。"
+            }
+          ],
+          "featured_quote": "这家伙手机屏幕朝哪边呢，怎么看都看不见，烦死了。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 0
+        },
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "下午这节课要交的作业，你准备好了吗？"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "藏这么严实干嘛，肯定有猫腻，气死我了。"
+            }
+          ],
+          "featured_quote": "藏这么严实干嘛，肯定有猫腻，气死我了。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 1
+        },
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "切，神神秘秘的，搞得像里面装了什么宝贝一样，看都不给看。"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "一天到晚关注姜皓天那种人干嘛，又不是什么光彩事。"
+            }
+          ],
+          "featured_quote": "一天到晚关注姜皓天那种人干嘛，又不是什么光彩事。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 2
+        },
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "你关心他干嘛，有空管管自己。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "真没劲，问他几句就扯到作业，装什么模范生啊。"
+            }
+          ],
+          "featured_quote": "真没劲，问他几句就扯到作业，装什么模范生啊。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 3
+        },
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "行行行，算你狠，数学作业还没抄完呢，先不跟你瞎扯了。"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "真烦，怎么一个个都盯着他，这帮人懂什么叫班级秩序吗。"
+            }
+          ],
+          "featured_quote": "真烦，怎么一个个都盯着他，这帮人懂什么叫班级秩序吗。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 4
+        },
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "行了行了，有这闲工夫，你物理题做完了没？"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "神气什么啊，不就是数学好点吗，迟早让他哭。"
+            }
+          ],
+          "featured_quote": "神气什么啊，不就是数学好点吗，迟早让他哭。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 5
+        },
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "真扫兴，理科生都这么无趣吗？懒得理他了。"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "算了，反正我也懒得再说了，爱写不写。"
+            }
+          ],
+          "featured_quote": "真扫兴，理科生都这么无趣吗？懒得理他了。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 6
+        },
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "现在的学生怎么都这样，听不进劝还摆烂，算了，我管这么多干嘛。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "装什么清高，不就是个破手机吗，懒得理你。"
+            }
+          ],
+          "featured_quote": "现在的学生怎么都这样，听不进劝还摆烂，算了，我管这么多干嘛。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 7
+        },
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "搞什么啊，难道那手机里有金子？真是无语，懒得再看他那副清高样了。"
+            }
+          ],
+          "featured_quote": "搞什么啊，难道那手机里有金子？真是无语，懒得再看他那副清高样了。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 8
+        },
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "装什么清高，不就是个破手机吗，懒得理你。"
+            }
+          ],
+          "featured_quote": "装什么清高，不就是个破手机吗，懒得理你。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 9
+        },
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "真没劲，这种木头人有什么好看的，无聊死。"
+            }
+          ],
+          "featured_quote": "真没劲，这种木头人有什么好看的，无聊死。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 10
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第009天 · 课间 · 教室 ☀️\n\n「方语晨」这家伙手机屏幕朝哪边呢，怎么看都看不见，烦死了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@教室_t01.png",
+          "group_index": 0,
+          "tick_index": 0
+        },
+        {
+          "caption": "第009天 · 课间 · 教室 🔥\n\n「方语晨」藏这么严实干嘛，肯定有猫腻，气死我了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@教室_t02.png",
+          "group_index": 0,
+          "tick_index": 1
+        },
+        {
+          "caption": "第009天 · 课间 · 教室 ☀️\n\n「沈逸凡」一天到晚关注姜皓天那种人干嘛，又不是什么光彩事。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@教室_t03.png",
+          "group_index": 0,
+          "tick_index": 2
+        },
+        {
+          "caption": "第009天 · 课间 · 教室 🔥\n\n「方语晨」真没劲，问他几句就扯到作业，装什么模范生啊。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@教室_t04.png",
+          "group_index": 0,
+          "tick_index": 3
+        },
+        {
+          "caption": "第009天 · 课间 · 教室 ☀️\n\n「沈逸凡」真烦，怎么一个个都盯着他，这帮人懂什么叫班级秩序吗。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@教室_t05.png",
+          "group_index": 0,
+          "tick_index": 4
+        },
+        {
+          "caption": "第009天 · 课间 · 教室 🔥\n\n「方语晨」神气什么啊，不就是数学好点吗，迟早让他哭。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@教室_t06.png",
+          "group_index": 0,
+          "tick_index": 5
+        },
+        {
+          "caption": "第009天 · 课间 · 教室 ☀️\n\n「方语晨」真扫兴，理科生都这么无趣吗？懒得理他了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@教室_t07.png",
+          "group_index": 0,
+          "tick_index": 6
+        },
+        {
+          "caption": "第009天 · 课间 · 教室 🔥\n\n「沈逸凡」现在的学生怎么都这样，听不进劝还摆烂，算了，我管这么多干嘛。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@教室_t08.png",
+          "group_index": 0,
+          "tick_index": 7
+        },
+        {
+          "caption": "第009天 · 课间 · 教室 ☀️\n\n「方语晨」搞什么啊，难道那手机里有金子？真是无语，懒得再看他那副清高样了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@教室_t09.png",
+          "group_index": 0,
+          "tick_index": 8
+        },
+        {
+          "caption": "第009天 · 课间 · 教室 ☀️\n\n「方语晨」装什么清高，不就是个破手机吗，懒得理你。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@教室_t10.png",
+          "group_index": 0,
+          "tick_index": 9
+        },
+        {
+          "caption": "第009天 · 课间 · 教室 ☀️\n\n「方语晨」真没劲，这种木头人有什么好看的，无聊死。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@教室_t11.png",
+          "group_index": 0,
+          "tick_index": 10
+        }
+      ]
+    }
+  ]
+}

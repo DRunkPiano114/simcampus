@@ -1,0 +1,924 @@
+{
+  "scene": {
+    "scene_index": 2,
+    "time": "08:45",
+    "name": "课间",
+    "location": "操场",
+    "description": "上午第一个课间休息，同学们在教室里活动",
+    "day": 6
+  },
+  "participant_names": {
+    "fang_yuchen": "方语晨",
+    "shen_yifan": "沈逸凡"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "fang_yuchen",
+        "shen_yifan"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "shen_yifan",
+              "content": "沈逸凡，你周末又去图书馆啊？那儿有这么好玩吗？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "方语晨站在操场边，看起来没在忙什么正事，正好路过。",
+              "inner_thought": "心烦，刚被姜皓天气得不行，这课间还没完。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "在这干嘛呢？不去复习复习？",
+              "action_target": "fang_yuchen",
+              "urgency": 4,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "沈逸凡一个人在操场边转悠，看样子挺悠闲的。",
+              "inner_thought": "这人周末去图书馆到底去干嘛？真的只是订正错题吗？",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "沈逸凡，你周末又去图书馆啊？那儿有这么好玩吗？",
+              "action_target": "shen_yifan",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "fang_yuchen",
+              "content": "在这干嘛呢？不去复习复习？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "沈逸凡被我突然一问，反应有点僵硬，不像平时那么淡定。",
+              "inner_thought": "他眼神有点闪躲，肯定有鬼，周末绝对不只是去学习！",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "不是吧，你怎么不说话？难道图书馆里有什么我不知道的秘密宝藏？",
+              "action_target": "shen_yifan",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "shen_yifan",
+              "content": "不是吧，你怎么不说话？难道图书馆里有什么我不知道的秘密宝藏？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "方语晨站在操场上，似乎没打算回教室，我刚才语气可能重了些。",
+              "inner_thought": "算了，态度好点吧，确实管太宽了。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "没，也就随便问问，下次考试别挂科就行。",
+              "action_target": "fang_yuchen",
+              "urgency": 5,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "fang_yuchen",
+              "content": "没，也就随便问问，下次考试别挂科就行。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "沈逸凡又没正面回答，一直在绕话题。",
+              "inner_thought": "装什么深沉，周末去图书馆肯定藏着大瓜，我一定要挖出来。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "切，不说就不说，我还懒得听呢。哎，你那手机桌面背景换得挺勤快啊，最近又有新瓜了？",
+              "action_target": "shen_yifan",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 4,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "shen_yifan",
+              "content": "切，不说就不说，我还懒得听呢。哎，你那手机桌面背景换得挺勤快啊，最近又有新瓜了？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "方语晨在那儿笑着看我，好像觉得我刚才说话挺好玩的，我开始觉得有点不自在了。",
+              "inner_thought": "我是不是管得太宽了，这人怎么看起来一点都不怕我，算了，语气确实太硬了。",
+              "emotion": "guilty",
+              "action_type": "speak",
+              "action_content": "行吧，不说了，你赶紧抓紧时间复习。",
+              "action_target": "fang_yuchen",
+              "urgency": 5,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 5,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "fang_yuchen",
+              "content": "行吧，不说了，你赶紧抓紧时间复习。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "沈逸凡听到背景图话题后，下意识地把手机往口袋里塞了塞。",
+              "inner_thought": "他居然还躲？手机里肯定有秘密，这人真的不对劲。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "哎，你这反应也太夸张了吧？我又不会抢你手机看，至于吗？",
+              "action_target": "shen_yifan",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 6,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "shen_yifan",
+              "content": "哎，你这反应也太夸张了吧？我又不会抢你手机看，至于吗？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "方语晨耸了耸肩，一副懒得理我的样子，看来刚才那句确实让她觉得扫兴了。",
+              "inner_thought": "我是不是语气太冲了？她只是找我聊两句，我又不是教导主任。",
+              "emotion": "guilty",
+              "action_type": "speak",
+              "action_content": "刚才抱歉啊，有点急，你别往心里去。",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 7,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "fang_yuchen",
+              "content": "刚才抱歉啊，有点急，你别往心里去。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "沈逸凡又想走掉，看来真的被我踩到痛脚了，这人越藏越有问题。",
+              "inner_thought": "逃什么逃，心虚了吧，肯定有问题。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "行行行，不说就不说，急什么呀，我不问了还不行吗？",
+              "action_target": "shen_yifan",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 8,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "shen_yifan",
+              "content": "行行行，不说就不说，急什么呀，我不问了还不行吗？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "方语晨并没有因为我刚才生硬的语气而真的生气，反而还在那儿看着我等下文。",
+              "inner_thought": "看来她没放心上，我真是神经绷太紧了，放松点吧。",
+              "emotion": "guilty",
+              "action_type": "speak",
+              "action_content": "其实就是书看得有点多，也没啥秘密。那你呢，周末准备去哪儿？",
+              "action_target": "fang_yuchen",
+              "urgency": 5,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 9,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": [
+              "fang_yuchen"
+            ]
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "沈逸凡道歉后显然想尽快离开这个话题，对我没什么多余的交流意向。",
+              "inner_thought": "算了，反正这人嘴这么严，再问也问不出什么，先找念瑶讨论周末穿搭要紧。",
+              "emotion": "bored",
+              "action_type": "exit",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 3,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        }
+      ],
+      "narrative": {
+        "key_moments": [
+          "方语晨询问沈逸凡周末去图书馆的情况。",
+          "沈逸凡建议方语晨利用课间复习。",
+          "方语晨询问沈逸凡手机桌面背景更换情况。",
+          "沈逸凡向方语晨道歉并表示刚才比较急。",
+          "方语晨离开操场。"
+        ],
+        "fulfilled_intentions": [
+          "沈逸凡:督促方语晨复习"
+        ],
+        "events_discussed": [
+          "沈逸凡周末去图书馆",
+          "下次考试",
+          "沈逸凡手机桌面背景更换"
+        ],
+        "new_events": [
+          {
+            "text": "沈逸凡周末前往图书馆",
+            "category": "个人行踪",
+            "witnesses": [
+              "方语晨"
+            ],
+            "spread_probability": 0.3,
+            "cite_ticks": [
+              1
+            ]
+          },
+          {
+            "text": "沈逸凡更换了手机桌面背景",
+            "category": "个人行为",
+            "witnesses": [
+              "方语晨"
+            ],
+            "spread_probability": 0.2,
+            "cite_ticks": [
+              5
+            ]
+          }
+        ]
+      },
+      "reflections": {
+        "fang_yuchen": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "沈逸凡",
+              "favorability": -2,
+              "trust": -1,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "沈逸凡这家伙嘴真严，问他手机背景图的事居然跟我急，神神秘秘的。",
+              "emotion": "frustrated",
+              "importance": 4,
+              "people": [
+                "沈逸凡"
+              ],
+              "location": "操场",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "c727f6",
+              "adjustment": 2
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "试图试探沈逸凡手机里的秘密",
+              "status": "frustrated",
+              "brief_reason": "沈逸凡反应很大，明确拒绝讨论，没问出什么。"
+            }
+          ]
+        },
+        "shen_yifan": {
+          "emotion": "embarrassed",
+          "relationship_changes": [
+            {
+              "to_agent": "方语晨",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "方语晨问我手机背景的事，我反应太大了，语气太冲，其实没必要。",
+              "emotion": "embarrassed",
+              "importance": 4,
+              "people": [
+                "方语晨"
+              ],
+              "location": "操场",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "dc9947",
+              "adjustment": 1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "找个时间正式谈一次，明确纪律红线",
+              "status": "missed_opportunity",
+              "brief_reason": "现在是在操场，且对方不是姜皓天，不合适提。"
+            },
+            {
+              "goal": "语气放软一点，聊聊宿舍卫生的事",
+              "status": "missed_opportunity",
+              "brief_reason": "对象不对，林昭宇不在场。"
+            },
+            {
+              "goal": "去操场跑两圈，出一身汗",
+              "status": "pending",
+              "brief_reason": "还没开始跑就被方语晨拦住说话了。"
+            }
+          ]
+        }
+      },
+      "share_tick_layouts": [
+        {
+          "day": 6,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "沈逸凡，你周末又去图书馆啊？那儿有这么好玩吗？"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "心烦，刚被姜皓天气得不行，这课间还没完。"
+            }
+          ],
+          "featured_quote": "这人周末去图书馆到底去干嘛？真的只是订正错题吗？",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 0
+        },
+        {
+          "day": 6,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "在这干嘛呢？不去复习复习？"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "他眼神有点闪躲，肯定有鬼，周末绝对不只是去学习！"
+            }
+          ],
+          "featured_quote": "他眼神有点闪躲，肯定有鬼，周末绝对不只是去学习！",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 1
+        },
+        {
+          "day": 6,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "不是吧，你怎么不说话？难道图书馆里有什么我不知道的秘密宝藏？"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "算了，态度好点吧，确实管太宽了。"
+            }
+          ],
+          "featured_quote": "算了，态度好点吧，确实管太宽了。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 2
+        },
+        {
+          "day": 6,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "没，也就随便问问，下次考试别挂科就行。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "装什么深沉，周末去图书馆肯定藏着大瓜，我一定要挖出来。"
+            }
+          ],
+          "featured_quote": "装什么深沉，周末去图书馆肯定藏着大瓜，我一定要挖出来。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 3
+        },
+        {
+          "day": 6,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "切，不说就不说，我还懒得听呢。哎，你那手机桌面背景换得挺勤快啊，最近又有新瓜了？"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "我是不是管得太宽了，这人怎么看起来一点都不怕我，算了，语气确实太硬了。"
+            }
+          ],
+          "featured_quote": "我是不是管得太宽了，这人怎么看起来一点都不怕我，算了，语气确实太硬了。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 4
+        },
+        {
+          "day": 6,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "行吧，不说了，你赶紧抓紧时间复习。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "他居然还躲？手机里肯定有秘密，这人真的不对劲。"
+            }
+          ],
+          "featured_quote": "他居然还躲？手机里肯定有秘密，这人真的不对劲。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 5
+        },
+        {
+          "day": 6,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "哎，你这反应也太夸张了吧？我又不会抢你手机看，至于吗？"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "我是不是语气太冲了？她只是找我聊两句，我又不是教导主任。"
+            }
+          ],
+          "featured_quote": "我是不是语气太冲了？她只是找我聊两句，我又不是教导主任。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 6
+        },
+        {
+          "day": 6,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "刚才抱歉啊，有点急，你别往心里去。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "逃什么逃，心虚了吧，肯定有问题。"
+            }
+          ],
+          "featured_quote": "逃什么逃，心虚了吧，肯定有问题。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 7
+        },
+        {
+          "day": 6,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "行行行，不说就不说，急什么呀，我不问了还不行吗？"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "看来她没放心上，我真是神经绷太紧了，放松点吧。"
+            }
+          ],
+          "featured_quote": "看来她没放心上，我真是神经绷太紧了，放松点吧。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 8
+        },
+        {
+          "day": 6,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "算了，反正这人嘴这么严，再问也问不出什么，先找念瑶讨论周末穿搭要紧。"
+            }
+          ],
+          "featured_quote": "算了，反正这人嘴这么严，再问也问不出什么，先找念瑶讨论周末穿搭要紧。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 9
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第006天 · 课间 · 操场 ☀️\n\n「方语晨」这人周末去图书馆到底去干嘛？真的只是订正错题吗？\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第006天_课间@操场_t01.png",
+          "group_index": 0,
+          "tick_index": 0
+        },
+        {
+          "caption": "第006天 · 课间 · 操场 🔥\n\n「方语晨」他眼神有点闪躲，肯定有鬼，周末绝对不只是去学习！\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第006天_课间@操场_t02.png",
+          "group_index": 0,
+          "tick_index": 1
+        },
+        {
+          "caption": "第006天 · 课间 · 操场 ☀️\n\n「沈逸凡」算了，态度好点吧，确实管太宽了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第006天_课间@操场_t03.png",
+          "group_index": 0,
+          "tick_index": 2
+        },
+        {
+          "caption": "第006天 · 课间 · 操场 🔥\n\n「方语晨」装什么深沉，周末去图书馆肯定藏着大瓜，我一定要挖出来。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第006天_课间@操场_t04.png",
+          "group_index": 0,
+          "tick_index": 3
+        },
+        {
+          "caption": "第006天 · 课间 · 操场 ☀️\n\n「沈逸凡」我是不是管得太宽了，这人怎么看起来一点都不怕我，算了，语气确实太硬了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第006天_课间@操场_t05.png",
+          "group_index": 0,
+          "tick_index": 4
+        },
+        {
+          "caption": "第006天 · 课间 · 操场 🔥\n\n「方语晨」他居然还躲？手机里肯定有秘密，这人真的不对劲。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第006天_课间@操场_t06.png",
+          "group_index": 0,
+          "tick_index": 5
+        },
+        {
+          "caption": "第006天 · 课间 · 操场 ☀️\n\n「沈逸凡」我是不是语气太冲了？她只是找我聊两句，我又不是教导主任。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第006天_课间@操场_t07.png",
+          "group_index": 0,
+          "tick_index": 6
+        },
+        {
+          "caption": "第006天 · 课间 · 操场 🔥\n\n「方语晨」逃什么逃，心虚了吧，肯定有问题。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第006天_课间@操场_t08.png",
+          "group_index": 0,
+          "tick_index": 7
+        },
+        {
+          "caption": "第006天 · 课间 · 操场 ☀️\n\n「沈逸凡」看来她没放心上，我真是神经绷太紧了，放松点吧。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第006天_课间@操场_t09.png",
+          "group_index": 0,
+          "tick_index": 8
+        },
+        {
+          "caption": "第006天 · 课间 · 操场 ☀️\n\n「方语晨」算了，反正这人嘴这么严，再问也问不出什么，先找念瑶讨论周末穿搭要紧。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第006天_课间@操场_t10.png",
+          "group_index": 0,
+          "tick_index": 9
+        }
+      ]
+    }
+  ]
+}

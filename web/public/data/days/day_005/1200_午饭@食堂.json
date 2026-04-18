@@ -1,0 +1,864 @@
+{
+  "scene": {
+    "scene_index": 9,
+    "time": "12:00",
+    "name": "午饭",
+    "location": "食堂",
+    "description": "午饭时间，同学们结伴去食堂吃饭",
+    "day": 5
+  },
+  "participant_names": {
+    "lu_siyuan": "陆思远",
+    "tang_shihan": "唐诗涵"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "lu_siyuan",
+        "tang_shihan"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "lu_siyuan",
+              "content": "陆思远，这队要排到天荒地老吧，你还不饿吗？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "陆思远就在旁边，食堂排队的人群堵得水泄不通，挤得要死。",
+              "inner_thought": "这队伍长得离谱，要不还是等会儿再去买吧，反正也不急。",
+              "emotion": "bored",
+              "action_type": "speak",
+              "action_content": "陆思远，这队要排到天荒地老吧，你还不饿吗？",
+              "action_target": "lu_siyuan",
+              "urgency": 5,
+              "is_disruptive": false
+            },
+            "lu_siyuan": {
+              "observation": "食堂人挤人，唐诗涵也在排队买新出的菜，看起来有点没耐心。",
+              "inner_thought": "新菜看着一般，排队好累啊，还是快点吃完去图书馆写草稿吧。",
+              "emotion": "calm",
+              "action_type": "speak",
+              "action_content": "今天人好多，这菜真有那么好吃吗？",
+              "action_target": "tang_shihan",
+              "urgency": 4,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": {
+              "agent": "lu_siyuan",
+              "target": "tang_shihan",
+              "content": "今天人好多，这菜真有那么好吃吗？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "陆思远站在前面看手机，食堂排队的人群一点都没动，真让人火大。",
+              "inner_thought": "离谱，下午还要上物理课，要是还没吃饱就要困死了，烦。",
+              "emotion": "bored",
+              "action_type": "speak",
+              "action_content": "算了，这队排得我心肌梗塞，我去小卖部买个面包垫垫算了，你呢？",
+              "action_target": "lu_siyuan",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "lu_siyuan",
+              "content": "算了，这队排得我心肌梗塞，我去小卖部买个面包垫垫算了，你呢？"
+            },
+            "actions": [
+              {
+                "agent": "lu_siyuan",
+                "type": "non_verbal",
+                "content": "拿出手机低头查看消息，假装看时间"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "lu_siyuan": {
+              "observation": "唐诗涵还在看排队的队伍，食堂里吵吵闹闹的。",
+              "inner_thought": "算了，反正也要排，不如刷刷网易云看看昨晚那个评论有没有人回。",
+              "emotion": "bored",
+              "action_type": "non_verbal",
+              "action_content": "拿出手机低头查看消息，假装看时间",
+              "action_target": null,
+              "urgency": 3,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": {
+              "agent": "lu_siyuan",
+              "target": "tang_shihan",
+              "content": "那我也不排了，一起去吧。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "陆思远低头看手机没理我，估计又是在回谁的消息，没劲。",
+              "inner_thought": "神神秘秘的，肯定在看沈逸凡发什么八卦，无语。",
+              "emotion": "bored",
+              "action_type": "speak",
+              "action_content": "行吧，那我不等你了，小卖部见，别饿死在这。",
+              "action_target": "lu_siyuan",
+              "urgency": 5,
+              "is_disruptive": false
+            },
+            "lu_siyuan": {
+              "observation": "唐诗涵准备去小卖部买面包，食堂队伍确实排得太慢了。",
+              "inner_thought": "早知道不去排了，我也去买面包算了，省得浪费时间。",
+              "emotion": "bored",
+              "action_type": "speak",
+              "action_content": "那我也不排了，一起去吧。",
+              "action_target": "tang_shihan",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 4,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "lu_siyuan",
+              "content": "行吧，那我不等你了，小卖部见，别饿死在这。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "lu_siyuan": {
+              "observation": "唐诗涵准备转身离开食堂排队区，向小卖部方向走去。",
+              "inner_thought": "还好不用排队了，正好抓紧时间去图书馆，下午还有物理要理。",
+              "emotion": "bored",
+              "action_type": "speak",
+              "action_content": "行，那走吧，反正食堂人太多了。",
+              "action_target": "tang_shihan",
+              "urgency": 5,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 5,
+          "public": {
+            "speech": {
+              "agent": "lu_siyuan",
+              "target": "tang_shihan",
+              "content": "行，那走吧，反正食堂人太多了。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "陆思远答应一起去小卖部，我转身准备往外走。",
+              "inner_thought": "还好他跟上来了，不然一个人走挺无聊的，快点买完还能回去刷会儿小红书。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "搞快点，等下奶茶排队又要排到怀疑人生，去晚了新品被买光就破防了。",
+              "action_target": "lu_siyuan",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 6,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "lu_siyuan",
+              "content": "搞快点，等下奶茶排队又要排到怀疑人生，去晚了新品被买光就破防了。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "lu_siyuan": {
+              "observation": "唐诗涵已经转过身往小卖部方向走去，周围还是有很多人在挤。",
+              "inner_thought": "终于不用排队了，奶茶店不去图书馆肯定又被占满了。",
+              "emotion": "bored",
+              "action_type": "speak",
+              "action_content": "那我也先走了，下午还得去图书馆占位置。",
+              "action_target": "tang_shihan",
+              "urgency": 4,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 7,
+          "public": {
+            "speech": {
+              "agent": "lu_siyuan",
+              "target": "tang_shihan",
+              "content": "那我也先走了，下午还得去图书馆占位置。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "陆思远走在我旁边，看起来不太着急的样子。",
+              "inner_thought": "他这慢吞吞的步子是想急死我吗？奶茶要是没了我就真破防了。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "你快点走啊，再磨蹭我要跑了啊！",
+              "action_target": "lu_siyuan",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 8,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": [
+              "lu_siyuan"
+            ]
+          },
+          "minds": {
+            "lu_siyuan": {
+              "observation": "唐诗涵已经转过头准备往小卖部跑，食堂的人群还在继续拥挤。",
+              "inner_thought": "早点走就行，不然图书馆位子真的全没了。",
+              "emotion": "bored",
+              "action_type": "exit",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        }
+      ],
+      "narrative": {
+        "key_moments": [
+          "唐诗涵表示食堂排队人数过多，决定去小卖部购买面包。",
+          "陆思远拿出手机查看消息。",
+          "陆思远决定放弃排队，与唐诗涵一同离开食堂。",
+          "唐诗涵提到下午需要购买奶茶。",
+          "陆思远提到下午需要去图书馆占位置。",
+          "陆思远离开食堂。"
+        ],
+        "fulfilled_intentions": [
+          "唐诗涵:放弃在食堂排队购买午餐",
+          "陆思远:放弃在食堂排队购买午餐",
+          "陆思远:离开食堂前往图书馆"
+        ],
+        "events_discussed": [
+          "食堂排队",
+          "小卖部购买面包",
+          "奶茶购买",
+          "图书馆占位"
+        ],
+        "new_events": [
+          {
+            "text": "唐诗涵决定放弃在食堂排队，前往小卖部购买面包。",
+            "category": "决定",
+            "witnesses": [
+              "陆思远"
+            ],
+            "spread_probability": 0.2,
+            "cite_ticks": [
+              3
+            ]
+          },
+          {
+            "text": "陆思远决定放弃在食堂排队，前往图书馆占位置。",
+            "category": "决定",
+            "witnesses": [
+              "唐诗涵"
+            ],
+            "spread_probability": 0.2,
+            "cite_ticks": [
+              4,
+              8
+            ]
+          }
+        ]
+      },
+      "reflections": {
+        "lu_siyuan": {
+          "emotion": "calm",
+          "relationship_changes": [
+            {
+              "to_agent": "唐诗涵",
+              "favorability": 1,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "和唐诗涵在食堂排队，最后放弃了去小卖部",
+              "emotion": "calm",
+              "importance": 3,
+              "people": [
+                "唐诗涵"
+              ],
+              "location": "食堂",
+              "topics": [
+                "其他"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "24ee3e",
+              "adjustment": -1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "给积攒的草稿起个标题，尝试删减字数后发布一篇",
+              "status": "frustrated",
+              "brief_reason": "本想趁吃饭空档处理公众号，结果被排队和琐事打断了。"
+            }
+          ]
+        },
+        "tang_shihan": {
+          "emotion": "excited",
+          "relationship_changes": [
+            {
+              "to_agent": "陆思远",
+              "favorability": 1,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "食堂排队太久，最后和陆思远决定去小卖部买面包，感觉这人其实也没那么难说话。",
+              "emotion": "calm",
+              "importance": 3,
+              "people": [
+                "陆思远"
+              ],
+              "location": "食堂",
+              "topics": [
+                "其他"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "6434ad",
+              "adjustment": 1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "找林昭宇试探",
+              "status": "missed_opportunity",
+              "brief_reason": "林昭宇不在现场，一直在和陆思远说话。"
+            },
+            {
+              "goal": "给蛋仔买娃衣",
+              "status": "pending",
+              "brief_reason": "中午时间太赶，还没来得及看。"
+            }
+          ]
+        }
+      },
+      "share_tick_layouts": [
+        {
+          "day": 5,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "陆思远，这队要排到天荒地老吧，你还不饿吗？"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "thought",
+              "text": "新菜看着一般，排队好累啊，还是快点吃完去图书馆写草稿吧。"
+            }
+          ],
+          "featured_quote": "这队伍长得离谱，要不还是等会儿再去买吧，反正也不急。",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 0
+        },
+        {
+          "day": 5,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "speech",
+              "text": "今天人好多，这菜真有那么好吃吗？"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "离谱，下午还要上物理课，要是还没吃饱就要困死了，烦。"
+            }
+          ],
+          "featured_quote": "离谱，下午还要上物理课，要是还没吃饱就要困死了，烦。",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 1
+        },
+        {
+          "day": 5,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "算了，这队排得我心肌梗塞，我去小卖部买个面包垫垫算了，你呢？"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "thought",
+              "text": "算了，反正也要排，不如刷刷网易云看看昨晚那个评论有没有人回。"
+            }
+          ],
+          "featured_quote": "算了，反正也要排，不如刷刷网易云看看昨晚那个评论有没有人回。",
+          "featured_speaker_name": "陆思远",
+          "tick_index": 2
+        },
+        {
+          "day": 5,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "speech",
+              "text": "那我也不排了，一起去吧。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "神神秘秘的，肯定在看沈逸凡发什么八卦，无语。"
+            }
+          ],
+          "featured_quote": "早知道不去排了，我也去买面包算了，省得浪费时间。",
+          "featured_speaker_name": "陆思远",
+          "tick_index": 3
+        },
+        {
+          "day": 5,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "行吧，那我不等你了，小卖部见，别饿死在这。"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "thought",
+              "text": "还好不用排队了，正好抓紧时间去图书馆，下午还有物理要理。"
+            }
+          ],
+          "featured_quote": "还好不用排队了，正好抓紧时间去图书馆，下午还有物理要理。",
+          "featured_speaker_name": "陆思远",
+          "tick_index": 4
+        },
+        {
+          "day": 5,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "speech",
+              "text": "行，那走吧，反正食堂人太多了。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "还好他跟上来了，不然一个人走挺无聊的，快点买完还能回去刷会儿小红书。"
+            }
+          ],
+          "featured_quote": "还好他跟上来了，不然一个人走挺无聊的，快点买完还能回去刷会儿小红书。",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 5
+        },
+        {
+          "day": 5,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "搞快点，等下奶茶排队又要排到怀疑人生，去晚了新品被买光就破防了。"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "thought",
+              "text": "终于不用排队了，奶茶店不去图书馆肯定又被占满了。"
+            }
+          ],
+          "featured_quote": "终于不用排队了，奶茶店不去图书馆肯定又被占满了。",
+          "featured_speaker_name": "陆思远",
+          "tick_index": 6
+        },
+        {
+          "day": 5,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "speech",
+              "text": "那我也先走了，下午还得去图书馆占位置。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "他这慢吞吞的步子是想急死我吗？奶茶要是没了我就真破防了。"
+            }
+          ],
+          "featured_quote": "他这慢吞吞的步子是想急死我吗？奶茶要是没了我就真破防了。",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 7
+        },
+        {
+          "day": 5,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "thought",
+              "text": "早点走就行，不然图书馆位子真的全没了。"
+            }
+          ],
+          "featured_quote": "早点走就行，不然图书馆位子真的全没了。",
+          "featured_speaker_name": "陆思远",
+          "tick_index": 8
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第005天 · 午饭 · 食堂 🌿\n\n「唐诗涵」这队伍长得离谱，要不还是等会儿再去买吧，反正也不急。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第005天_午饭@食堂_t01.png",
+          "group_index": 0,
+          "tick_index": 0
+        },
+        {
+          "caption": "第005天 · 午饭 · 食堂 🌱\n\n「唐诗涵」离谱，下午还要上物理课，要是还没吃饱就要困死了，烦。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第005天_午饭@食堂_t02.png",
+          "group_index": 0,
+          "tick_index": 1
+        },
+        {
+          "caption": "第005天 · 午饭 · 食堂 🌿\n\n「陆思远」算了，反正也要排，不如刷刷网易云看看昨晚那个评论有没有人回。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第005天_午饭@食堂_t03.png",
+          "group_index": 0,
+          "tick_index": 2
+        },
+        {
+          "caption": "第005天 · 午饭 · 食堂 🌱\n\n「陆思远」早知道不去排了，我也去买面包算了，省得浪费时间。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第005天_午饭@食堂_t04.png",
+          "group_index": 0,
+          "tick_index": 3
+        },
+        {
+          "caption": "第005天 · 午饭 · 食堂 🌿\n\n「陆思远」还好不用排队了，正好抓紧时间去图书馆，下午还有物理要理。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第005天_午饭@食堂_t05.png",
+          "group_index": 0,
+          "tick_index": 4
+        },
+        {
+          "caption": "第005天 · 午饭 · 食堂 🌱\n\n「唐诗涵」还好他跟上来了，不然一个人走挺无聊的，快点买完还能回去刷会儿小红书。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第005天_午饭@食堂_t06.png",
+          "group_index": 0,
+          "tick_index": 5
+        },
+        {
+          "caption": "第005天 · 午饭 · 食堂 🌿\n\n「陆思远」终于不用排队了，奶茶店不去图书馆肯定又被占满了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第005天_午饭@食堂_t07.png",
+          "group_index": 0,
+          "tick_index": 6
+        },
+        {
+          "caption": "第005天 · 午饭 · 食堂 🌱\n\n「唐诗涵」他这慢吞吞的步子是想急死我吗？奶茶要是没了我就真破防了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第005天_午饭@食堂_t08.png",
+          "group_index": 0,
+          "tick_index": 7
+        },
+        {
+          "caption": "第005天 · 午饭 · 食堂 🌱\n\n「陆思远」早点走就行，不然图书馆位子真的全没了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第005天_午饭@食堂_t09.png",
+          "group_index": 0,
+          "tick_index": 8
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 6,
+    "time": "15:30",
+    "name": "课间",
+    "location": "小卖部",
+    "description": "下午课间休息",
+    "day": 3
+  },
+  "participant_names": {
+    "tang_shihan": "唐诗涵"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "tang_shihan"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "林昭宇到底烦不烦我啊，算了不去想了，先买个奶茶。",
+        "emotion": "curious",
+        "activity": "我在小卖部排队买奶茶，顺便盯着手机看有没有人发消息。"
+      }
+    }
+  ]
+}

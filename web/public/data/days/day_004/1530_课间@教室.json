@@ -1,0 +1,587 @@
+{
+  "scene": {
+    "scene_index": 8,
+    "time": "15:30",
+    "name": "课间",
+    "location": "教室",
+    "description": "下午课间休息",
+    "day": 4
+  },
+  "participant_names": {
+    "cheng_yutong": "程雨桐",
+    "fang_yuchen": "方语晨"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "cheng_yutong",
+        "fang_yuchen"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "cheng_yutong",
+              "content": "诶，刚才何老师叫何家骏去办公室，你说是不是因为他那错题本又乱写啊？"
+            },
+            "actions": [
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "戴上了降噪耳机，继续低头在方格本上推演物理题。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "cheng_yutong": {
+              "observation": "方语晨还在摆弄她的那些琐碎东西，教室里很吵，离上课还有几分钟。",
+              "inner_thought": "智学网怎么还不更新，这种不可控感真糟糕。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "戴上了降噪耳机，继续低头在方格本上推演物理题。",
+              "action_target": null,
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "程雨桐正一个人坐在位子上，看起来也没什么特别的事在做。",
+              "inner_thought": "无聊死了，念瑶还没回来，正好问问程雨桐点八卦打发时间。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "诶，刚才何老师叫何家骏去办公室，你说是不是因为他那错题本又乱写啊？",
+              "action_target": "cheng_yutong",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "没有任何反应，继续盯着草稿纸演算，笔尖在纸上发出沙沙声。"
+              },
+              {
+                "agent": "fang_yuchen",
+                "type": "non_verbal",
+                "content": "撇了撇嘴，把转了一半的笔摔在桌子上，拿起手机开始刷短视频。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "cheng_yutong": {
+              "observation": "方语晨还在试图跟我搭话，完全无视了我的降噪耳机。",
+              "inner_thought": "何家骏改不改错题跟我有什么关系，别打扰我推导辅助线。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "没有任何反应，继续盯着草稿纸演算，笔尖在纸上发出沙沙声。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "程雨桐戴上了降噪耳机，完全不想理我。",
+              "inner_thought": "啧，这就戴上耳机了？装什么学霸啊，真没劲。",
+              "emotion": "bored",
+              "action_type": "non_verbal",
+              "action_content": "撇了撇嘴，把转了一半的笔摔在桌子上，拿起手机开始刷短视频。",
+              "action_target": null,
+              "urgency": 3,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "在草稿纸边缘画下一条精确的辅助线，笔尖力度加重。"
+              },
+              {
+                "agent": "fang_yuchen",
+                "type": "non_verbal",
+                "content": "翻了个白眼，把手机音量调大，继续刷短剧。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "cheng_yutong": {
+              "observation": "方语晨终于没再找我说话，开始低头刷手机。",
+              "inner_thought": "世界终于安静了，那道电磁感应题的第二问辅助线应该从A点引出。",
+              "emotion": "calm",
+              "action_type": "non_verbal",
+              "action_content": "在草稿纸边缘画下一条精确的辅助线，笔尖力度加重。",
+              "action_target": null,
+              "urgency": 4,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "程雨桐完全沉浸在物理题里，戴着耳机理都不理我一下。",
+              "inner_thought": "装什么清高呢，算了，跟书呆子聊不到一起去，看剧去喽。",
+              "emotion": "bored",
+              "action_type": "non_verbal",
+              "action_content": "翻了个白眼，把手机音量调大，继续刷短剧。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "皱起眉，将原本平整的草稿纸对折，声音平静地将书本挪开一段距离以拉开物理距离。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "cheng_yutong": {
+              "observation": "方语晨的手机外放音量有些过大，影响了计算的思维连续性。",
+              "inner_thought": "声音太吵了，辅助线画歪了，还得重算一遍。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "皱起眉，将原本平整的草稿纸对折，声音平静地将书本挪开一段距离以拉开物理距离。",
+              "action_target": "fang_yuchen",
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "程雨桐还在死磕那道物理题，笔尖划破了草稿纸的一角。",
+              "inner_thought": "啧，这么拼命干嘛，二本又不难考，看着都累。",
+              "emotion": "bored",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 4,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "将降噪耳机加压戴紧，并在草稿纸空白处重重画下一个点。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "cheng_yutong": {
+              "observation": "方语晨的视频外放声还在持续，干扰了我的专注度。",
+              "inner_thought": "再吵我就去走廊，这道题必须得算出来。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "将降噪耳机加压戴紧，并在草稿纸空白处重重画下一个点。",
+              "action_target": "fang_yuchen",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "fang_yuchen"
+          ]
+        }
+      ],
+      "narrative": {
+        "key_moments": [
+          "方语晨询问程雨桐关于何家骏被叫去办公室的原因。",
+          "程雨桐戴上降噪耳机并持续进行物理题推演。",
+          "方语晨将笔摔在桌子上并开始刷短视频。",
+          "方语晨调大手机音量。",
+          "程雨桐将草稿纸对折并移动书本。",
+          "程雨桐加压戴紧降噪耳机并在草稿纸上画点。"
+        ],
+        "fulfilled_intentions": [
+          "程雨桐:进行物理题推演",
+          "方语晨:刷短视频"
+        ],
+        "events_discussed": [
+          "何家骏被何老师叫去办公室"
+        ],
+        "new_events": [
+          {
+            "text": "何老师叫何家骏去办公室",
+            "category": "校园事务",
+            "witnesses": [
+              "方语晨",
+              "程雨桐"
+            ],
+            "spread_probability": 0.6,
+            "cite_ticks": [
+              1
+            ]
+          }
+        ]
+      },
+      "reflections": {
+        "cheng_yutong": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "方语晨",
+              "favorability": -2,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "方语晨在课间刷短剧的声音严重干扰了我的解题思路，不得不戴上耳机隔绝。",
+              "emotion": "bored",
+              "importance": 4,
+              "people": [
+                "方语晨"
+              ],
+              "location": "教室",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "998933",
+              "adjustment": 1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "确认月考最终排名",
+              "status": "frustrated",
+              "brief_reason": "周围环境太吵，无法集中精力持续盯着手机核对。"
+            }
+          ]
+        },
+        "fang_yuchen": {
+          "emotion": "bored",
+          "relationship_changes": [
+            {
+              "to_agent": "程雨桐",
+              "favorability": -2,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "程雨桐戴着降噪耳机在那死磕物理，理都不理我，没劲透了。",
+              "emotion": "bored",
+              "importance": 3,
+              "people": [
+                "程雨桐"
+              ],
+              "location": "教室",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [],
+          "intention_outcomes": [
+            {
+              "goal": "旁敲侧击问清楚沈逸凡周末去图书馆到底是不是去约会",
+              "status": "missed_opportunity",
+              "brief_reason": "程雨桐一直在那儿做题，根本没法聊天。"
+            },
+            {
+              "goal": "找机会再试探一下他手机里的秘密",
+              "status": "missed_opportunity",
+              "brief_reason": "姜皓天根本不在场。"
+            },
+            {
+              "goal": "偷偷刷一会儿微短剧",
+              "status": "fulfilled",
+              "brief_reason": "反正是无聊，刷刷剧打发时间。"
+            }
+          ]
+        }
+      },
+      "share_tick_layouts": [
+        {
+          "day": 4,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "诶，刚才何老师叫何家骏去办公室，你说是不是因为他那错题本又乱写啊？"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "智学网怎么还不更新，这种不可控感真糟糕。"
+            }
+          ],
+          "featured_quote": "智学网怎么还不更新，这种不可控感真糟糕。",
+          "featured_speaker_name": "程雨桐",
+          "tick_index": 0
+        },
+        {
+          "day": 4,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "啧，这就戴上耳机了？装什么学霸啊，真没劲。"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "何家骏改不改错题跟我有什么关系，别打扰我推导辅助线。"
+            }
+          ],
+          "featured_quote": "啧，这就戴上耳机了？装什么学霸啊，真没劲。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 1
+        },
+        {
+          "day": 4,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "世界终于安静了，那道电磁感应题的第二问辅助线应该从A点引出。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "装什么清高呢，算了，跟书呆子聊不到一起去，看剧去喽。"
+            }
+          ],
+          "featured_quote": "世界终于安静了，那道电磁感应题的第二问辅助线应该从A点引出。",
+          "featured_speaker_name": "程雨桐",
+          "tick_index": 2
+        },
+        {
+          "day": 4,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "声音太吵了，辅助线画歪了，还得重算一遍。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "啧，这么拼命干嘛，二本又不难考，看着都累。"
+            }
+          ],
+          "featured_quote": "声音太吵了，辅助线画歪了，还得重算一遍。",
+          "featured_speaker_name": "程雨桐",
+          "tick_index": 3
+        },
+        {
+          "day": 4,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "再吵我就去走廊，这道题必须得算出来。"
+            }
+          ],
+          "featured_quote": "再吵我就去走廊，这道题必须得算出来。",
+          "featured_speaker_name": "程雨桐",
+          "tick_index": 4
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第004天 · 课间 · 教室 ☀️\n\n「程雨桐」智学网怎么还不更新，这种不可控感真糟糕。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@教室_t01.png",
+          "group_index": 0,
+          "tick_index": 0
+        },
+        {
+          "caption": "第004天 · 课间 · 教室 ☀️\n\n「方语晨」啧，这就戴上耳机了？装什么学霸啊，真没劲。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@教室_t02.png",
+          "group_index": 0,
+          "tick_index": 1
+        },
+        {
+          "caption": "第004天 · 课间 · 教室 📚\n\n「程雨桐」世界终于安静了，那道电磁感应题的第二问辅助线应该从A点引出。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@教室_t03.png",
+          "group_index": 0,
+          "tick_index": 2
+        },
+        {
+          "caption": "第004天 · 课间 · 教室 📚\n\n「程雨桐」声音太吵了，辅助线画歪了，还得重算一遍。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@教室_t04.png",
+          "group_index": 0,
+          "tick_index": 3
+        },
+        {
+          "caption": "第004天 · 课间 · 教室 📚\n\n「程雨桐」再吵我就去走廊，这道题必须得算出来。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@教室_t05.png",
+          "group_index": 0,
+          "tick_index": 4
+        }
+      ]
+    }
+  ]
+}

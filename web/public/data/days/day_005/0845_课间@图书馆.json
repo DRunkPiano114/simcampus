@@ -1,0 +1,404 @@
+{
+  "scene": {
+    "scene_index": 1,
+    "time": "08:45",
+    "name": "课间",
+    "location": "图书馆",
+    "description": "上午第一个课间休息，同学们在教室里活动",
+    "day": 5
+  },
+  "participant_names": {
+    "lin_zhaoyu": "林昭宇",
+    "su_nianyao": "苏念瑶"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "lin_zhaoyu",
+        "su_nianyao"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "su_nianyao",
+                "type": "non_verbal",
+                "content": "假装去靠窗的饮水机接水，路过时脚步明显慢了一拍，又赶紧低头走开。"
+              },
+              {
+                "agent": "lin_zhaoyu",
+                "type": "non_verbal",
+                "content": "默默把试卷往上挪了挪，挡住脸，假装极其专注地低头看书。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "林昭宇坐在离我不远处，正低头盯着手里的物理题册，眉头微微皱着。",
+              "inner_thought": "他也在为物理头疼吗，真想去瞄一眼题目，算了，会被发现的。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "假装去靠窗的饮水机接水，路过时脚步明显慢了一拍，又赶紧低头走开。",
+              "action_target": "lin_zhaoyu",
+              "urgency": 6,
+              "is_disruptive": false
+            },
+            "lin_zhaoyu": {
+              "observation": "苏念瑶坐在不远处，似乎时不时朝我这边看过来。",
+              "inner_thought": "老看我干嘛啊，搞得我题都刷不进去了，心慌。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "默默把试卷往上挪了挪，挡住脸，假装极其专注地低头看书。",
+              "action_target": "su_nianyao",
+              "urgency": 4,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "su_nianyao",
+                "type": "non_verbal",
+                "content": "默默把接水用的保温杯盖子拧紧，快速回到自己的座位坐下。"
+              },
+              {
+                "agent": "lin_zhaoyu",
+                "type": "non_verbal",
+                "content": "继续低头做题，笔尖在草稿纸上不停地划动，假装没看见。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "我走过去的时候，林昭宇把试卷挪高挡住了脸，好像不太想理我。",
+              "inner_thought": "他肯定是知道我在看他，好丢人，还是先去接水吧。",
+              "emotion": "embarrassed",
+              "action_type": "non_verbal",
+              "action_content": "默默把接水用的保温杯盖子拧紧，快速回到自己的座位坐下。",
+              "action_target": "lin_zhaoyu",
+              "urgency": 4,
+              "is_disruptive": false
+            },
+            "lin_zhaoyu": {
+              "observation": "苏念瑶在饮水机边停留的时间太久了，而且总感觉她在偷偷瞄我这边。",
+              "inner_thought": "她到底想干嘛……那个，还是别管了吧，万一搭话更尴尬。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "继续低头做题，笔尖在草稿纸上不停地划动，假装没看见。",
+              "action_target": null,
+              "urgency": 4,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "su_nianyao",
+                "type": "non_verbal",
+                "content": "埋头翻开一本摘抄本，用力地在书页上写下几个字，假装自己在认真整理笔记。"
+              },
+              {
+                "agent": "lin_zhaoyu",
+                "type": "non_verbal",
+                "content": "把草稿纸上的一道受力分析题改了三遍，还是没算清楚，用力把笔头按在纸上划了一道横线。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "林昭宇现在的动作刻意得让人一眼就能看穿，那种为了躲避视线而把书本竖起来的行为实在太明显了。",
+              "inner_thought": "他装什么装啊，刚才那书都快怼到脸上了，尴尬死了，我再也不想往他那边看了。",
+              "emotion": "embarrassed",
+              "action_type": "non_verbal",
+              "action_content": "埋头翻开一本摘抄本，用力地在书页上写下几个字，假装自己在认真整理笔记。",
+              "action_target": null,
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "lin_zhaoyu": {
+              "observation": "苏念瑶坐回了座位，但还是没动静，我感觉那种被注视的视线一直没消失。",
+              "inner_thought": "到底要不要问问？算了，那个……还是别自作多情了，万一人家只是路过。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "把草稿纸上的一道受力分析题改了三遍，还是没算清楚，用力把笔头按在纸上划了一道横线。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "su_nianyao",
+                "type": "non_verbal",
+                "content": "默默把摘抄本合上，把刚才那页写得乱七八糟的字撕掉，假装若无其事地整理书包。"
+              },
+              {
+                "agent": "lin_zhaoyu",
+                "type": "non_verbal",
+                "content": "把刚划乱的草稿纸揉成一团，塞进书桌角落，假装在书包里翻找笔袋。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "林昭宇在那儿对着草稿纸狂躁地划横线，看来那道物理题真的把他难住了。",
+              "inner_thought": "他物理也那么差吗，这下平衡了，但还是好丢脸。",
+              "emotion": "embarrassed",
+              "action_type": "non_verbal",
+              "action_content": "默默把摘抄本合上，把刚才那页写得乱七八糟的字撕掉，假装若无其事地整理书包。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "lin_zhaoyu": {
+              "observation": "苏念瑶在写东西的时候又往这边瞥了两次，神情看着有点不太自然。",
+              "inner_thought": "老看我，到底有什么事啊，那个……不会是班主任找我有事吧？",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "把刚划乱的草稿纸揉成一团，塞进书桌角落，假装在书包里翻找笔袋。",
+              "action_target": "su_nianyao",
+              "urgency": 4,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        }
+      ],
+      "narrative": null,
+      "reflections": {},
+      "trivial": true,
+      "share_tick_layouts": [
+        {
+          "day": 5,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "图书馆",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "他也在为物理头疼吗，真想去瞄一眼题目，算了，会被发现的。"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "display_name": "林昭宇",
+              "kind": "thought",
+              "text": "老看我干嘛啊，搞得我题都刷不进去了，心慌。"
+            }
+          ],
+          "featured_quote": "他也在为物理头疼吗，真想去瞄一眼题目，算了，会被发现的。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 0
+        },
+        {
+          "day": 5,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "图书馆",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "他肯定是知道我在看他，好丢人，还是先去接水吧。"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "display_name": "林昭宇",
+              "kind": "thought",
+              "text": "她到底想干嘛……那个，还是别管了吧，万一搭话更尴尬。"
+            }
+          ],
+          "featured_quote": "她到底想干嘛……那个，还是别管了吧，万一搭话更尴尬。",
+          "featured_speaker_name": "林昭宇",
+          "tick_index": 1
+        },
+        {
+          "day": 5,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "图书馆",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "他装什么装啊，刚才那书都快怼到脸上了，尴尬死了，我再也不想往他那边看了。"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "display_name": "林昭宇",
+              "kind": "thought",
+              "text": "到底要不要问问？算了，那个……还是别自作多情了，万一人家只是路过。"
+            }
+          ],
+          "featured_quote": "他装什么装啊，刚才那书都快怼到脸上了，尴尬死了，我再也不想往他那边看了。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 2
+        },
+        {
+          "day": 5,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "图书馆",
+          "portraits": [
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "lin_zhaoyu",
+              "display_name": "林昭宇",
+              "kind": "thought",
+              "text": "老看我，到底有什么事啊，那个……不会是班主任找我有事吧？"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "他物理也那么差吗，这下平衡了，但还是好丢脸。"
+            }
+          ],
+          "featured_quote": "老看我，到底有什么事啊，那个……不会是班主任找我有事吧？",
+          "featured_speaker_name": "林昭宇",
+          "tick_index": 3
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第005天 · 课间 · 图书馆 🌸\n\n「苏念瑶」他也在为物理头疼吗，真想去瞄一眼题目，算了，会被发现的。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#图书馆",
+            "#课间"
+          ],
+          "filename": "simcampus_第005天_课间@图书馆_t01.png",
+          "group_index": 0,
+          "tick_index": 0
+        },
+        {
+          "caption": "第005天 · 课间 · 图书馆 🌸\n\n「林昭宇」她到底想干嘛……那个，还是别管了吧，万一搭话更尴尬。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#图书馆",
+            "#课间"
+          ],
+          "filename": "simcampus_第005天_课间@图书馆_t02.png",
+          "group_index": 0,
+          "tick_index": 1
+        },
+        {
+          "caption": "第005天 · 课间 · 图书馆 🌸\n\n「苏念瑶」他装什么装啊，刚才那书都快怼到脸上了，尴尬死了，我再也不想往他那边看了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#图书馆",
+            "#课间"
+          ],
+          "filename": "simcampus_第005天_课间@图书馆_t03.png",
+          "group_index": 0,
+          "tick_index": 2
+        },
+        {
+          "caption": "第005天 · 课间 · 图书馆 🌧️\n\n「林昭宇」老看我，到底有什么事啊，那个……不会是班主任找我有事吧？\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#图书馆",
+            "#课间"
+          ],
+          "filename": "simcampus_第005天_课间@图书馆_t04.png",
+          "group_index": 0,
+          "tick_index": 3
+        }
+      ]
+    }
+  ]
+}

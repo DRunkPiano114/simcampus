@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 0,
+    "time": "08:45",
+    "name": "课间",
+    "location": "操场",
+    "description": "上午第一个课间休息，同学们在教室里活动",
+    "day": 7
+  },
+  "participant_names": {
+    "jiang_haotian": "姜皓天"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "jiang_haotian"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "这沈逸凡怎么还没来，正好，先练两个三分球。",
+        "emotion": "excited",
+        "activity": "我站在篮球场三分线外，手里运着球，准备趁课间没结束多投几个篮。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "agent_id": "tang_shihan",
+  "name_cn": "唐诗涵",
+  "day": 3,
+  "is_teacher": false,
+  "motif_emoji": "🌿",
+  "motif_tag": "大大咧咧学委",
+  "main_color": "#4AC4A8",
+  "emotion_label": "平静",
+  "energy_label": "精神还行",
+  "pressure_label": "稍有压力",
+  "featured_quote": "卧槽？沈逸凡居然开窍了，这瓜好大！我刚才还想问他题来着，幸好没去。",
+  "featured_scene": "12:00 · 午饭",
+  "relationships": [
+    {
+      "target_name": "方语晨",
+      "favorability": 21,
+      "trust": 14,
+      "label_text": "很亲近的朋友"
+    },
+    {
+      "target_name": "苏念瑶",
+      "favorability": 12,
+      "trust": 6,
+      "label_text": "还行，有些好感"
+    },
+    {
+      "target_name": "程雨桐",
+      "favorability": 3,
+      "trust": 5,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 2",
+      "text": "林昭宇又躲着我跟陆思远讨论物理，理都不理我一下，真没意思。",
+      "importance": 5
+    },
+    {
+      "date": "Day 2",
+      "text": "和方语晨、苏念瑶约好周末去玩恐怖本《深渊录》，还要一起去买零食和奶茶，超期待！",
+      "importance": 5
+    }
+  ],
+  "top_concern": {
+    "text": "想找机会问林昭宇物理题来确认他是否反感我，但因为怕被无视而退缩了。",
+    "intensity_label": "中等",
+    "positive": false
+  },
+  "self_narrative": "开学真忙，收作业收得头都要炸了。大家都说我人脉广，其实我就是闲不住。每天都在班里转来转去，生怕谁把我忘了。同桌林昭宇太沉闷了，想找他说话又怕没回应。其实我挺累的，但为了维持大家的开心，还得继续装作没心没肺。",
+  "caption_payload": {
+    "caption": "🌿 唐诗涵 · 第003天 档案\n\n标签：大大咧咧学委\n此刻心情：平静\n\n「卧槽？沈逸凡居然开窍了，这瓜好大！我刚才还想问他题来着，幸好没去。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_唐诗涵_档案_第003天.png"
+  }
+}

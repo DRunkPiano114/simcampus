@@ -1,0 +1,1295 @@
+{
+  "scene": {
+    "scene_index": 2,
+    "time": "08:45",
+    "name": "课间",
+    "location": "走廊",
+    "description": "上午第一个课间休息，同学们在教室里活动",
+    "day": 4
+  },
+  "participant_names": {
+    "fang_yuchen": "方语晨",
+    "jiang_haotian": "姜皓天",
+    "su_nianyao": "苏念瑶"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "fang_yuchen",
+        "su_nianyao",
+        "jiang_haotian"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "su_nianyao",
+              "content": "诶念瑶，我不信沈逸凡周末去图书馆真是复习，你不觉得这路数太熟了吗？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "方语晨和苏念瑶在走廊窗边聊得挺起劲，没注意到我。",
+              "inner_thought": "这两人神神秘秘的，肯定又在聊什么八卦。",
+              "emotion": "bored",
+              "action_type": "speak",
+              "action_content": "哟，啥事这么热闹？说出来让哥们也乐呵乐呵呗。",
+              "action_target": "fang_yuchen",
+              "urgency": 4,
+              "is_disruptive": false
+            },
+            "su_nianyao": {
+              "observation": "方语晨和姜皓天在走廊窗边聊天，看起来聊得挺开心。",
+              "inner_thought": "正好找语晨问问周末恐怖本的事，顺便透透气。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "哎语晨，周末那个本子，我们要不要先拉个群对下攻略？",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "姜皓天站在走廊另一边，看起来心事重重，苏念瑶就在我旁边。",
+              "inner_thought": "姜皓天那家伙肯定有事瞒着，找个机会诈他一下。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "诶念瑶，我不信沈逸凡周末去图书馆真是复习，你不觉得这路数太熟了吗？",
+              "action_target": "su_nianyao",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "fang_yuchen",
+              "content": "哎语晨，周末那个本子，我们要不要先拉个群对下攻略？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "姜皓天站在走廊那边盯着手机，苏念瑶没接我话茬，感觉这两人今天都不太对劲。",
+              "inner_thought": "沈逸凡那猫背景图太可疑，姜皓天又在这装深沉，必须问清楚。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "哎，你倒是吱个声啊！你不觉得猫背景图这种细节很暴露吗？",
+              "action_target": "su_nianyao",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "su_nianyao",
+              "content": "哎，你倒是吱个声啊！你不觉得猫背景图这种细节很暴露吗？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "方语晨还在刨根问底沈逸凡的事，但我更关心周末的恐怖本游戏。",
+              "inner_thought": "她怎么还在纠结沈逸凡啊，换个话题，我可不想一直聊这个。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "哎呀别管他啦，那个本子我也看了介绍，感觉我们要带点复古饰品才带感，你到时候去吗？",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "fang_yuchen",
+              "content": "哎呀别管他啦，那个本子我也看了介绍，感觉我们要带点复古饰品才带感，你到时候去吗？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "念瑶在岔开话题，而姜皓天那家伙还在走廊那边抱着手机看，完全没动静。",
+              "inner_thought": "念瑶肯定知道点什么才敷衍我，姜皓天那手机里绝对有猛料。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "行吧，攻略回头再说。诶，姜皓天！你手机里是有什么绝密情报啊，看那么入迷？",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": true
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 4,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "jiang_haotian",
+              "content": "行吧，攻略回头再说。诶，姜皓天！你手机里是有什么绝密情报啊，看那么入迷？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "方语晨还在追问沈逸凡的事，但我只想赶紧把话题彻底转到周末的恐怖本上。",
+              "inner_thought": "她怎么这么执着那只猫，沈逸凡的事有什么好八卦的，烦死了。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "港风那种裙子你有吗？就是那种旧上海的感觉。",
+              "action_target": "fang_yuchen",
+              "urgency": 7,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 5,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "fang_yuchen",
+              "content": "港风那种裙子你有吗？就是那种旧上海的感觉。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "方语晨凑过来问我在看什么，打断了我的思绪。",
+              "inner_thought": "被发现了，差点忘了把界面切掉，烦死了。",
+              "emotion": "bored",
+              "action_type": "speak",
+              "action_content": "看什么绝密，我看集锦呢。你们女生的八卦频道能不能别切我这儿？",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "姜皓天抬头看了我一眼，眼神闪躲了一下，还是没打算把手机给我看。",
+              "inner_thought": "这家伙果然有鬼，藏得这么深，肯定有大瓜，我一定要套出来。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "不是吧，你怎么还藏着掖着啊，难道是什么见不得人的大八卦？",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 6,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "jiang_haotian",
+              "content": "不是吧，你怎么还藏着掖着啊，难道是什么见不得人的大八卦？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "方语晨终于没再追问沈逸凡的事，转而开始思考穿搭问题。",
+              "inner_thought": "终于把话题从那只猫身上扯开了，还是讨论裙子比较轻松。",
+              "emotion": "calm",
+              "action_type": "speak",
+              "action_content": "我衣柜里倒是有件丝绒的，复古感够够的，但就是怕穿去剧本杀店太招摇。",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 7,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "fang_yuchen",
+              "content": "看什么绝密，我看集锦呢。你们女生的八卦频道能不能别切我这儿？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "姜皓天抬头看了我一眼，眼神闪躲了一下，还是没打算把手机给我看。",
+              "inner_thought": "这家伙绝对有猫腻，看他那心虚的样子，肯定有大瓜。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "啧，别装了，是不是又在看什么我不该知道的？给我瞄一眼呗？",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 8,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "jiang_haotian",
+              "content": "啧，别装了，是不是又在看什么我不该知道的？给我瞄一眼呗？"
+            },
+            "actions": [
+              {
+                "agent": "jiang_haotian",
+                "type": "non_verbal",
+                "content": "随手把手机塞回校服口袋里，靠在墙上百无聊赖地晃了晃腿。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "方语晨和苏念瑶还在聊什么复古裙子，根本没打算理我刚刚的话。",
+              "inner_thought": "真没劲，女生的衣服有什么好聊的，浪费时间。",
+              "emotion": "bored",
+              "action_type": "non_verbal",
+              "action_content": "随手把手机塞回校服口袋里，靠在墙上百无聊赖地晃了晃腿。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 9,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "fang_yuchen",
+              "content": "我衣柜里倒是有件丝绒的，复古感够够的，但就是怕穿去剧本杀店太招摇。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": [
+              "jiang_haotian"
+            ]
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "方语晨和苏念瑶还在那聊什么裙子，完全没把我的话当回事。",
+              "inner_thought": "这两人真烦，聊衣服能聊到天荒地老，没心思跟她们扯了。",
+              "emotion": "bored",
+              "action_type": "exit",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 4,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "姜皓天把手机藏进兜里，一副不想搭理人的样子。",
+              "inner_thought": "越藏越可疑，等他落单了再去弄明白。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "行吧行吧，那你藏好咯，别让我抓到。",
+              "action_target": "jiang_haotian",
+              "urgency": 3,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 10,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "fang_yuchen",
+              "content": "就咱俩那种店，穿什么其实都没人看的，舒服最重要。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "姜皓天终于走了，走廊里清静了一些，方语晨正等着我接话。",
+              "inner_thought": "终于把姜皓天打发走了，这人刚才一直凑在这里真的很烦。",
+              "emotion": "calm",
+              "action_type": "speak",
+              "action_content": "就咱俩那种店，穿什么其实都没人看的，舒服最重要。",
+              "action_target": "fang_yuchen",
+              "urgency": 5,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 11,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "su_nianyao",
+              "content": "行吧，那就穿上次那件丝绒的，反正也没人管我们。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "姜皓天终于走了，走廊里清静了一些，方语晨正等着我接话。",
+              "inner_thought": "终于把姜皓天打发走了，这人刚才一直凑在这里真的很烦。",
+              "emotion": "calm",
+              "action_type": "speak",
+              "action_content": "对了，那家店位置远不远？",
+              "action_target": "fang_yuchen",
+              "urgency": 5,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "姜皓天已经走远了，苏念瑶还在跟我讨论周末穿搭的事。",
+              "inner_thought": "算了，姜皓天那家伙滑得跟泥鳅一样，以后再找机会吧。还是和念瑶聊点实际的。",
+              "emotion": "calm",
+              "action_type": "speak",
+              "action_content": "行吧，那就穿上次那件丝绒的，反正也没人管我们。",
+              "action_target": "su_nianyao",
+              "urgency": 4,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        }
+      ],
+      "narrative": {
+        "key_moments": [
+          "方语晨询问苏念瑶关于沈逸凡周末去图书馆的看法。",
+          "苏念瑶提议建立群组讨论周末剧本杀攻略。",
+          "方语晨询问姜皓天手机内容，姜皓天回应在看集锦。",
+          "姜皓天将手机放入校服口袋并离开。",
+          "苏念瑶与方语晨讨论剧本杀的服装搭配。",
+          "方语晨与苏念瑶决定穿丝绒材质的服装参加剧本杀。"
+        ],
+        "fulfilled_intentions": [
+          "苏念瑶:与方语晨讨论周末剧本杀的准备工作",
+          "方语晨:与苏念瑶确定剧本杀的着装方案"
+        ],
+        "events_discussed": [
+          "沈逸凡周末图书馆行程",
+          "周末剧本杀活动"
+        ],
+        "new_events": [
+          {
+            "text": "苏念瑶与方语晨计划建立群组讨论剧本杀攻略",
+            "category": "社交计划",
+            "witnesses": [
+              "方语晨",
+              "苏念瑶"
+            ],
+            "spread_probability": 0.2,
+            "cite_ticks": [
+              2
+            ]
+          },
+          {
+            "text": "方语晨与苏念瑶决定穿丝绒材质服装参加剧本杀",
+            "category": "活动准备",
+            "witnesses": [
+              "方语晨",
+              "苏念瑶"
+            ],
+            "spread_probability": 0.1,
+            "cite_ticks": [
+              10,
+              11,
+              12
+            ]
+          }
+        ]
+      },
+      "reflections": {
+        "fang_yuchen": {
+          "emotion": "curious",
+          "relationship_changes": [
+            {
+              "to_agent": "苏念瑶",
+              "favorability": 1,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "姜皓天",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "姜皓天这人太警惕了，手机里肯定有大料，下次得换个战术。",
+              "emotion": "curious",
+              "importance": 4,
+              "people": [
+                "姜皓天"
+              ],
+              "location": "走廊",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "13a135",
+              "adjustment": 1
+            },
+            {
+              "concern_text": "756877",
+              "adjustment": 0
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "旁敲侧击问清楚沈逸凡周末去图书馆到底是不是去约会",
+              "status": "attempted",
+              "brief_reason": "念瑶一直在拉我聊剧本杀穿搭，没给机会深挖沈逸凡的事。"
+            },
+            {
+              "goal": "找机会再试探一下他手机里的秘密",
+              "status": "frustrated",
+              "brief_reason": "姜皓天防备心太强，直接把手机收起来了，根本没机会看。"
+            }
+          ]
+        },
+        "su_nianyao": {
+          "emotion": "calm",
+          "relationship_changes": [
+            {
+              "to_agent": "方语晨",
+              "favorability": 1,
+              "trust": 1,
+              "understanding": 1,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "姜皓天",
+              "favorability": 0,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "和语晨商量好周末恐怖本穿那件丝绒裙子，虽然有点怕太招摇。",
+              "emotion": "excited",
+              "importance": 4,
+              "people": [
+                "方语晨"
+              ],
+              "location": "走廊",
+              "topics": [
+                "期待的事",
+                "兴趣爱好"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "7d8a16",
+              "adjustment": -1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "去接水时路过他的座位，看一眼他在干嘛",
+              "status": "frustrated",
+              "brief_reason": "一直在和语晨聊剧本杀，根本没机会往他那边走。"
+            },
+            {
+              "goal": "午饭时和方语晨聊聊周末恐怖本的组队情况",
+              "status": "fulfilled",
+              "brief_reason": "已经和语晨敲定了穿搭和攻略的事。"
+            }
+          ]
+        },
+        "jiang_haotian": {
+          "emotion": "bored",
+          "relationship_changes": [
+            {
+              "to_agent": "方语晨",
+              "favorability": 0,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "苏念瑶",
+              "favorability": 0,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": false
+            }
+          ],
+          "memories": [
+            {
+              "text": "方语晨和苏念瑶在走廊聊剧本杀和复古裙子，烦死了，全是女生的八卦。",
+              "emotion": "bored",
+              "importance": 2,
+              "people": [
+                "方语晨",
+                "苏念瑶"
+              ],
+              "location": "走廊",
+              "topics": [
+                "其他"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [],
+          "intention_outcomes": [
+            {
+              "goal": "找机会问问他毕业后打算干嘛，探探口风",
+              "status": "missed_opportunity",
+              "brief_reason": "陆思远不在现场，没法问。"
+            },
+            {
+              "goal": "带他去操场投几个篮，让他别在教室闷坏了",
+              "status": "missed_opportunity",
+              "brief_reason": "何家骏不在走廊，没碰上。"
+            },
+            {
+              "goal": "故意在他面前晃悠，逗逗他",
+              "status": "missed_opportunity",
+              "brief_reason": "沈逸凡没出现，这课间晃悠得没意思。"
+            }
+          ]
+        }
+      },
+      "share_tick_layouts": [
+        {
+          "day": 4,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "诶念瑶，我不信沈逸凡周末去图书馆真是复习，你不觉得这路数太熟了吗？"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "正好找语晨问问周末恐怖本的事，顺便透透气。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "这两人神神秘秘的，肯定又在聊什么八卦。"
+            }
+          ],
+          "featured_quote": "姜皓天那家伙肯定有事瞒着，找个机会诈他一下。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 0
+        },
+        {
+          "day": 4,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "哎语晨，周末那个本子，我们要不要先拉个群对下攻略？"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "沈逸凡那猫背景图太可疑，姜皓天又在这装深沉，必须问清楚。"
+            }
+          ],
+          "featured_quote": "沈逸凡那猫背景图太可疑，姜皓天又在这装深沉，必须问清楚。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 1
+        },
+        {
+          "day": 4,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "哎，你倒是吱个声啊！你不觉得猫背景图这种细节很暴露吗？"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "她怎么还在纠结沈逸凡啊，换个话题，我可不想一直聊这个。"
+            }
+          ],
+          "featured_quote": "她怎么还在纠结沈逸凡啊，换个话题，我可不想一直聊这个。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 2
+        },
+        {
+          "day": 4,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "哎呀别管他啦，那个本子我也看了介绍，感觉我们要带点复古饰品才带感，你到时候去吗？"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "念瑶肯定知道点什么才敷衍我，姜皓天那手机里绝对有猛料。"
+            }
+          ],
+          "featured_quote": "念瑶肯定知道点什么才敷衍我，姜皓天那手机里绝对有猛料。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 3
+        },
+        {
+          "day": 4,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "行吧，攻略回头再说。诶，姜皓天！你手机里是有什么绝密情报啊，看那么入迷？"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "她怎么这么执着那只猫，沈逸凡的事有什么好八卦的，烦死了。"
+            }
+          ],
+          "featured_quote": "她怎么这么执着那只猫，沈逸凡的事有什么好八卦的，烦死了。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 4
+        },
+        {
+          "day": 4,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "港风那种裙子你有吗？就是那种旧上海的感觉。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "这家伙果然有鬼，藏得这么深，肯定有大瓜，我一定要套出来。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "被发现了，差点忘了把界面切掉，烦死了。"
+            }
+          ],
+          "featured_quote": "这家伙果然有鬼，藏得这么深，肯定有大瓜，我一定要套出来。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 5
+        },
+        {
+          "day": 4,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "不是吧，你怎么还藏着掖着啊，难道是什么见不得人的大八卦？"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "终于把话题从那只猫身上扯开了，还是讨论裙子比较轻松。"
+            }
+          ],
+          "featured_quote": "终于把话题从那只猫身上扯开了，还是讨论裙子比较轻松。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 6
+        },
+        {
+          "day": 4,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "看什么绝密，我看集锦呢。你们女生的八卦频道能不能别切我这儿？"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "这家伙绝对有猫腻，看他那心虚的样子，肯定有大瓜。"
+            }
+          ],
+          "featured_quote": "这家伙绝对有猫腻，看他那心虚的样子，肯定有大瓜。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 7
+        },
+        {
+          "day": 4,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "啧，别装了，是不是又在看什么我不该知道的？给我瞄一眼呗？"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "真没劲，女生的衣服有什么好聊的，浪费时间。"
+            }
+          ],
+          "featured_quote": "真没劲，女生的衣服有什么好聊的，浪费时间。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 8
+        },
+        {
+          "day": 4,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "我衣柜里倒是有件丝绒的，复古感够够的，但就是怕穿去剧本杀店太招摇。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "越藏越可疑，等他落单了再去弄明白。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "这两人真烦，聊衣服能聊到天荒地老，没心思跟她们扯了。"
+            }
+          ],
+          "featured_quote": "这两人真烦，聊衣服能聊到天荒地老，没心思跟她们扯了。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 9
+        },
+        {
+          "day": 4,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "就咱俩那种店，穿什么其实都没人看的，舒服最重要。"
+            }
+          ],
+          "featured_quote": "终于把姜皓天打发走了，这人刚才一直凑在这里真的很烦。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 10
+        },
+        {
+          "day": 4,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "行吧，那就穿上次那件丝绒的，反正也没人管我们。"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "终于把姜皓天打发走了，这人刚才一直凑在这里真的很烦。"
+            }
+          ],
+          "featured_quote": "终于把姜皓天打发走了，这人刚才一直凑在这里真的很烦。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 11
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第004天 · 课间 · 走廊 ☀️\n\n「方语晨」姜皓天那家伙肯定有事瞒着，找个机会诈他一下。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@走廊_t01.png",
+          "group_index": 0,
+          "tick_index": 0
+        },
+        {
+          "caption": "第004天 · 课间 · 走廊 🌸\n\n「方语晨」沈逸凡那猫背景图太可疑，姜皓天又在这装深沉，必须问清楚。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@走廊_t02.png",
+          "group_index": 0,
+          "tick_index": 1
+        },
+        {
+          "caption": "第004天 · 课间 · 走廊 ☀️\n\n「苏念瑶」她怎么还在纠结沈逸凡啊，换个话题，我可不想一直聊这个。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@走廊_t03.png",
+          "group_index": 0,
+          "tick_index": 2
+        },
+        {
+          "caption": "第004天 · 课间 · 走廊 🌸\n\n「方语晨」念瑶肯定知道点什么才敷衍我，姜皓天那手机里绝对有猛料。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@走廊_t04.png",
+          "group_index": 0,
+          "tick_index": 3
+        },
+        {
+          "caption": "第004天 · 课间 · 走廊 ☀️\n\n「苏念瑶」她怎么这么执着那只猫，沈逸凡的事有什么好八卦的，烦死了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@走廊_t05.png",
+          "group_index": 0,
+          "tick_index": 4
+        },
+        {
+          "caption": "第004天 · 课间 · 走廊 🌸\n\n「方语晨」这家伙果然有鬼，藏得这么深，肯定有大瓜，我一定要套出来。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@走廊_t06.png",
+          "group_index": 0,
+          "tick_index": 5
+        },
+        {
+          "caption": "第004天 · 课间 · 走廊 ☀️\n\n「苏念瑶」终于把话题从那只猫身上扯开了，还是讨论裙子比较轻松。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@走廊_t07.png",
+          "group_index": 0,
+          "tick_index": 6
+        },
+        {
+          "caption": "第004天 · 课间 · 走廊 ⚽\n\n「方语晨」这家伙绝对有猫腻，看他那心虚的样子，肯定有大瓜。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@走廊_t08.png",
+          "group_index": 0,
+          "tick_index": 7
+        },
+        {
+          "caption": "第004天 · 课间 · 走廊 ☀️\n\n「姜皓天」真没劲，女生的衣服有什么好聊的，浪费时间。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@走廊_t09.png",
+          "group_index": 0,
+          "tick_index": 8
+        },
+        {
+          "caption": "第004天 · 课间 · 走廊 🌸\n\n「姜皓天」这两人真烦，聊衣服能聊到天荒地老，没心思跟她们扯了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@走廊_t10.png",
+          "group_index": 0,
+          "tick_index": 9
+        },
+        {
+          "caption": "第004天 · 课间 · 走廊 🌸\n\n「苏念瑶」终于把姜皓天打发走了，这人刚才一直凑在这里真的很烦。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@走廊_t11.png",
+          "group_index": 0,
+          "tick_index": 10
+        },
+        {
+          "caption": "第004天 · 课间 · 走廊 ☀️\n\n「苏念瑶」终于把姜皓天打发走了，这人刚才一直凑在这里真的很烦。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@走廊_t12.png",
+          "group_index": 0,
+          "tick_index": 11
+        }
+      ]
+    }
+  ]
+}

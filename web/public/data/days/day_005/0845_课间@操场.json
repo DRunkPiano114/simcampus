@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 2,
+    "time": "08:45",
+    "name": "课间",
+    "location": "操场",
+    "description": "上午第一个课间休息，同学们在教室里活动",
+    "day": 5
+  },
+  "participant_names": {
+    "cheng_yutong": "程雨桐"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "cheng_yutong"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "排名还没出，烦死了。晚上回去得看那本小说。",
+        "emotion": "frustrated",
+        "activity": "站在操场边上，盯着远处的单杠，手里转着那支百乐P-500。"
+      }
+    }
+  ]
+}

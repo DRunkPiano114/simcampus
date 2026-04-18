@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 8,
+    "time": "15:30",
+    "name": "课间",
+    "location": "走廊",
+    "description": "下午课间休息",
+    "day": 8
+  },
+  "participant_names": {
+    "fang_yuchen": "方语晨"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "fang_yuchen"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "姜皓天那家伙，奶茶钱到底转我没啊，磨磨蹭蹭的。",
+        "emotion": "curious",
+        "activity": "靠在走廊栏杆上刷手机，查看刚才群里的聊天记录。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 9,
+    "time": "15:30",
+    "name": "课间",
+    "location": "操场",
+    "description": "下午课间休息",
+    "day": 7
+  },
+  "participant_names": {
+    "shen_yifan": "沈逸凡"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "shen_yifan"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "姜皓天那家伙，真想直接找他把事说明白。",
+        "emotion": "frustrated",
+        "activity": "沿着操场跑道快走，平复心情。"
+      }
+    }
+  ]
+}

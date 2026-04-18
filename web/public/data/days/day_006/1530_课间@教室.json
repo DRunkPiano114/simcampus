@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 10,
+    "time": "15:30",
+    "name": "课间",
+    "location": "教室",
+    "description": "下午课间休息",
+    "day": 6
+  },
+  "participant_names": {
+    "lin_zhaoyu": "林昭宇"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "lin_zhaoyu"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "英语阅读又要崩，许嵩的新歌还没听，烦。",
+        "emotion": "anxious",
+        "activity": "我盯着草稿纸上陆思远写的语法分析，又拿起笔在错题集上补了几个例句。"
+      }
+    }
+  ]
+}

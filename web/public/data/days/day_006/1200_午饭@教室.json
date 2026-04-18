@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 5,
+    "time": "12:00",
+    "name": "午饭",
+    "location": "教室",
+    "description": "午饭时间，同学们结伴去食堂吃饭",
+    "day": 6
+  },
+  "participant_names": {
+    "cheng_yutong": "程雨桐"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "cheng_yutong"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "排名还没出，真磨叽。今晚就能看主角打脸了。",
+        "emotion": "bored",
+        "activity": "边吃午饭边用手机查看《仙路独行》的更新状态。"
+      }
+    }
+  ]
+}

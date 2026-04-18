@@ -1,0 +1,58 @@
+{
+  "agent_id": "su_nianyao",
+  "name_cn": "苏念瑶",
+  "day": 1,
+  "is_teacher": false,
+  "motif_emoji": "🌸",
+  "motif_tag": "玻璃心诗人",
+  "main_color": "#D4748B",
+  "emotion_label": "平静",
+  "energy_label": "精神还行",
+  "pressure_label": "稍有压力",
+  "featured_quote": "这丫头一有八卦就两眼放光，希望这瓜够劲爆，别让我失望。",
+  "featured_scene": "12:00 · 午饭",
+  "relationships": [
+    {
+      "target_name": "方语晨",
+      "favorability": 20,
+      "trust": 15,
+      "label_text": "很亲近的朋友"
+    },
+    {
+      "target_name": "程雨桐",
+      "favorability": 10,
+      "trust": 5,
+      "label_text": "还行，有些好感"
+    },
+    {
+      "target_name": "唐诗涵",
+      "favorability": 10,
+      "trust": 5,
+      "label_text": "还行，有些好感"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 1",
+      "text": "躲在被子里写日记，被程雨桐嫌弃台灯光线太亮",
+      "importance": 4
+    },
+    {
+      "date": "Day 1",
+      "text": "和方语晨、唐诗涵在食堂吃饭，方语晨卖关子不肯说那个男生的名字，还在那显摆她的娃衣。",
+      "importance": 3
+    }
+  ],
+  "top_concern": null,
+  "self_narrative": "",
+  "caption_payload": {
+    "caption": "🌸 苏念瑶 · 第001天 档案\n\n标签：玻璃心诗人\n此刻心情：平静\n\n「这丫头一有八卦就两眼放光，希望这瓜够劲爆，别让我失望。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_苏念瑶_档案_第001天.png"
+  }
+}

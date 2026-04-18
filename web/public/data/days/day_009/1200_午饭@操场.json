@@ -1,0 +1,567 @@
+{
+  "scene": {
+    "scene_index": 4,
+    "time": "12:00",
+    "name": "午饭",
+    "location": "操场",
+    "description": "午饭时间，同学们结伴去食堂吃饭",
+    "day": 9
+  },
+  "participant_names": {
+    "cheng_yutong": "程雨桐",
+    "shen_yifan": "沈逸凡",
+    "su_nianyao": "苏念瑶"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "cheng_yutong",
+        "su_nianyao",
+        "shen_yifan"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "cheng_yutong",
+              "content": "雨桐，你也出来晒太阳啊？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": [
+              "cheng_yutong"
+            ]
+          },
+          "minds": {
+            "cheng_yutong": {
+              "observation": "沈逸凡在看手机，苏念瑶站在旁边，操场上的人已经在陆续回教学楼了。",
+              "inner_thought": "排名还没出，浪费时间在这里站着毫无意义。",
+              "emotion": "frustrated",
+              "action_type": "exit",
+              "action_content": "先回教室了。",
+              "action_target": "su_nianyao",
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "su_nianyao": {
+              "observation": "程雨桐正低头盯着手机看，沈逸凡走在不远处，两人都没理我。",
+              "inner_thought": "老是这样冷冰冰的，我到底做错什么了，心累。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "雨桐，你也出来晒太阳啊？",
+              "action_target": "cheng_yutong",
+              "urgency": 6,
+              "is_disruptive": false
+            },
+            "shen_yifan": {
+              "observation": "程雨桐和苏念瑶在前面慢慢走，姜皓天在不远处的场地上投篮。",
+              "inner_thought": "又看见那家伙了，真是阴魂不散。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "太阳这么大，还不回教室复习，磨蹭什么呢。",
+              "action_target": "cheng_yutong",
+              "urgency": 4,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "程雨桐连话都没接就直接扭头走了，背影看过去特别决绝。",
+              "inner_thought": "难道我真的这么招人烦吗？算了，热脸贴冷屁股，真没劲。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {},
+          "gated_agents": [
+            "shen_yifan",
+            "su_nianyao"
+          ]
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {},
+          "gated_agents": [
+            "shen_yifan",
+            "su_nianyao"
+          ]
+        },
+        {
+          "tick": 4,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "姜皓天在篮球场边投篮，苏念瑶站在不远处，程雨桐已经往回走了。",
+              "inner_thought": "投篮投得再准也没用，纪律分该扣还是得扣。算了，不想管他。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "su_nianyao"
+          ]
+        }
+      ],
+      "narrative": {
+        "key_moments": [
+          "苏念瑶向程雨桐询问是否在操场晒太阳。",
+          "程雨桐离开操场返回教室。"
+        ],
+        "fulfilled_intentions": [],
+        "events_discussed": [],
+        "new_events": [
+          {
+            "text": "程雨桐在操场出现后离开并返回教室。",
+            "category": "行为记录",
+            "witnesses": [
+              "苏念瑶"
+            ],
+            "spread_probability": 0.2,
+            "cite_ticks": [
+              1
+            ]
+          }
+        ]
+      },
+      "reflections": {
+        "cheng_yutong": {
+          "emotion": "bored",
+          "relationship_changes": [
+            {
+              "to_agent": "苏念瑶",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "午饭时间被苏念瑶在操场搭话，打断了我的思绪。",
+              "emotion": "bored",
+              "importance": 3,
+              "people": [
+                "苏念瑶"
+              ],
+              "location": "操场",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "ae385e",
+              "adjustment": 0
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "确认月考排名",
+              "status": "frustrated",
+              "brief_reason": "在操场被无关闲聊打断，无法集中精力查看数据。"
+            },
+            {
+              "goal": "完成物理错题逻辑闭环",
+              "status": "pending",
+              "brief_reason": "午休时间被干扰，计划进度滞后。"
+            }
+          ]
+        },
+        "su_nianyao": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "程雨桐",
+              "favorability": -2,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "想找雨桐搭话，结果她头也不回直接走掉了，好尴尬。",
+              "emotion": "frustrated",
+              "importance": 5,
+              "people": [
+                "程雨桐"
+              ],
+              "location": "操场",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "6bad6e",
+              "adjustment": 2
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "尝试和程雨桐随便聊两句，看能不能缓和气氛",
+              "status": "frustrated",
+              "brief_reason": "主动开口却被对方冷淡拒绝，完全没能缓和关系。"
+            }
+          ]
+        },
+        "shen_yifan": {
+          "emotion": "neutral",
+          "relationship_changes": [
+            {
+              "to_agent": "苏念瑶",
+              "favorability": 1,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "程雨桐",
+              "favorability": 0,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "苏念瑶在操场晒太阳，聊了两句，程雨桐正好回教室了。",
+              "emotion": "neutral",
+              "importance": 3,
+              "people": [
+                "苏念瑶",
+                "程雨桐"
+              ],
+              "location": "操场",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "1da105",
+              "adjustment": -1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "找个机会跟姜皓天谈谈",
+              "status": "missed_opportunity",
+              "brief_reason": "操场上没看到他，只有苏念瑶和程雨桐在。"
+            },
+            {
+              "goal": "跟林昭宇说说宿舍卫生的事",
+              "status": "missed_opportunity",
+              "brief_reason": "他没在操场，没法开口。"
+            },
+            {
+              "goal": "去操场跑个步",
+              "status": "attempted",
+              "brief_reason": "在操场巡视纪律，还没来得及开始跑。"
+            }
+          ]
+        }
+      },
+      "share_tick_layouts": [
+        {
+          "day": 9,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "雨桐，你也出来晒太阳啊？"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "排名还没出，浪费时间在这里站着毫无意义。"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "又看见那家伙了，真是阴魂不散。"
+            }
+          ],
+          "featured_quote": "排名还没出，浪费时间在这里站着毫无意义。",
+          "featured_speaker_name": "程雨桐",
+          "tick_index": 0
+        },
+        {
+          "day": 9,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "难道我真的这么招人烦吗？算了，热脸贴冷屁股，真没劲。"
+            }
+          ],
+          "featured_quote": "难道我真的这么招人烦吗？算了，热脸贴冷屁股，真没劲。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 1
+        },
+        {
+          "day": 9,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [],
+          "featured_quote": null,
+          "featured_speaker_name": null,
+          "tick_index": 2
+        },
+        {
+          "day": 9,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [],
+          "featured_quote": null,
+          "featured_speaker_name": null,
+          "tick_index": 3
+        },
+        {
+          "day": 9,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "投篮投得再准也没用，纪律分该扣还是得扣。算了，不想管他。"
+            }
+          ],
+          "featured_quote": "投篮投得再准也没用，纪律分该扣还是得扣。算了，不想管他。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 4
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第009天 · 午饭 · 操场 🌸\n\n「程雨桐」排名还没出，浪费时间在这里站着毫无意义。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#午饭"
+          ],
+          "filename": "simcampus_第009天_午饭@操场_t01.png",
+          "group_index": 0,
+          "tick_index": 0
+        },
+        {
+          "caption": "第009天 · 午饭 · 操场 🌸\n\n「苏念瑶」难道我真的这么招人烦吗？算了，热脸贴冷屁股，真没劲。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#午饭"
+          ],
+          "filename": "simcampus_第009天_午饭@操场_t02.png",
+          "group_index": 0,
+          "tick_index": 1
+        },
+        {
+          "caption": "第009天 · 午饭 · 操场\n\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#午饭"
+          ],
+          "filename": "simcampus_第009天_午饭@操场_t03.png",
+          "group_index": 0,
+          "tick_index": 2
+        },
+        {
+          "caption": "第009天 · 午饭 · 操场\n\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#午饭"
+          ],
+          "filename": "simcampus_第009天_午饭@操场_t04.png",
+          "group_index": 0,
+          "tick_index": 3
+        },
+        {
+          "caption": "第009天 · 午饭 · 操场 🔥\n\n「沈逸凡」投篮投得再准也没用，纪律分该扣还是得扣。算了，不想管他。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#午饭"
+          ],
+          "filename": "simcampus_第009天_午饭@操场_t05.png",
+          "group_index": 0,
+          "tick_index": 4
+        }
+      ]
+    }
+  ]
+}

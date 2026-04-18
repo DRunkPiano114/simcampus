@@ -1,0 +1,62 @@
+{
+  "agent_id": "he_jiajun",
+  "name_cn": "何家骏",
+  "day": 4,
+  "is_teacher": false,
+  "motif_emoji": "🌫️",
+  "motif_tag": "寡言少年",
+  "main_color": "#7B8FA8",
+  "emotion_label": "焦虑",
+  "energy_label": "精神还行",
+  "pressure_label": "轻松",
+  "featured_quote": "他怎么还不回答，是不是觉得我水平太菜了？有点后悔开口了。",
+  "featured_scene": "15:30 · 课间",
+  "relationships": [
+    {
+      "target_name": "姜皓天",
+      "favorability": 3,
+      "trust": 2,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "林昭宇",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "唐诗涵",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 4",
+      "text": "姜皓天和沈逸凡在操场吵架，沈逸凡盯着我看，感觉很不好。",
+      "importance": 6
+    },
+    {
+      "date": "Day 3",
+      "text": "沈逸凡当众说我动静太大，吵到他们了，脸好烫。",
+      "importance": 6
+    }
+  ],
+  "top_concern": {
+    "text": "错题本整理进度缓慢，担心周五向何老师讲解时表现太差。",
+    "intensity_label": "较强",
+    "positive": false
+  },
+  "self_narrative": "班里角落里的影子。没人注意最好。昨天数学卷子又是一团糟，算了，反正就这样。想开口和姜皓天聊聊，话到嘴边又咽下去了。爸爸昨晚又没见着人，微波炉里的饭还是冷的。没什么好说的，那个……没事。",
+  "caption_payload": {
+    "caption": "🌫️ 何家骏 · 第004天 档案\n\n标签：寡言少年\n此刻心情：焦虑\n\n「他怎么还不回答，是不是觉得我水平太菜了？有点后悔开口了。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_何家骏_档案_第004天.png"
+  }
+}

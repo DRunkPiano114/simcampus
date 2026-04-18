@@ -1,0 +1,62 @@
+{
+  "agent_id": "lu_siyuan",
+  "name_cn": "陆思远",
+  "day": 3,
+  "is_teacher": false,
+  "motif_emoji": "🌱",
+  "motif_tag": "好好先生",
+  "main_color": "#5BAA5B",
+  "emotion_label": "平静",
+  "energy_label": "精神还行",
+  "pressure_label": "稍有压力",
+  "featured_quote": "好想问问下午能不能去图书馆，数学笔记还没找回来，有点心慌。",
+  "featured_scene": "08:45 · 课间",
+  "relationships": [
+    {
+      "target_name": "林昭宇",
+      "favorability": 23,
+      "trust": 17,
+      "label_text": "很亲近的朋友"
+    },
+    {
+      "target_name": "沈逸凡",
+      "favorability": 1,
+      "trust": 0,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "程雨桐",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 3",
+      "text": "终于从姜皓天那里拿回了数学笔记，虽然他说话还是那么难听，但笔记总算回来了。",
+      "importance": 5
+    },
+    {
+      "date": "Day 2",
+      "text": "姜皓天在熄灯后还追问我的未来规划，搞得沈逸凡很不高兴。",
+      "importance": 5
+    }
+  ],
+  "top_concern": {
+    "text": "姜皓天始终没有归还数学笔记，导致数学学习受到影响，心里感到有些委屈和焦虑。",
+    "intensity_label": "中等",
+    "positive": false
+  },
+  "self_narrative": "班里的万金油，谁叫都去帮忙。姜皓天又拿我开涮，算了，随他去吧。物理题好难，爸妈盯着211，我只想躲在被窝里听民谣。公众号草稿又多了一篇，写完还是不敢点发布，这就是我吧。",
+  "caption_payload": {
+    "caption": "🌱 陆思远 · 第003天 档案\n\n标签：好好先生\n此刻心情：平静\n\n「好想问问下午能不能去图书馆，数学笔记还没找回来，有点心慌。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_陆思远_档案_第003天.png"
+  }
+}

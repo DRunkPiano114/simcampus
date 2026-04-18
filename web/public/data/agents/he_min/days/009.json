@@ -1,0 +1,43 @@
+{
+  "agent_id": "he_min",
+  "name_cn": "何老师",
+  "day": 9,
+  "is_teacher": true,
+  "motif_emoji": "📐",
+  "motif_tag": "班主任",
+  "main_color": "#8B6E4E",
+  "emotion_label": "平常",
+  "energy_label": "精神还行",
+  "pressure_label": "稍有压力",
+  "featured_quote": null,
+  "featured_scene": null,
+  "relationships": [],
+  "memories": [
+    {
+      "date": "Day 7",
+      "text": "何家骏在食堂拒绝了姜皓天的练球邀请，主动选择整理错题本，表现出学习态度的转变。",
+      "importance": 6
+    },
+    {
+      "date": "Day 7",
+      "text": "姜皓天在食堂公然对我表现出抵触情绪，现在的孩子真是越来越难管。",
+      "importance": 5
+    }
+  ],
+  "top_concern": {
+    "text": "姜皓天这孩子身上的戾气太重，得找个机会单独敲打一下，不能让他影响班级风气。",
+    "intensity_label": "中等",
+    "positive": false
+  },
+  "self_narrative": "这几天忙得脚不沾地，何家骏那边稍微有了点起色，至少肯把错题本掏出来看了。看着那孩子在食堂吃饭的样子，我心里其实挺不是滋味的，这届学生比我想象中要难带，AI写作业的事儿像根刺一样卡在喉咙里。林昭宇那孩子最近总是绷着，我心里急，可每天被那几十条钉钉消息一轰炸，连多问他一句的时间都挤不出来。有时候看着讲台上那摞卷子，真觉得这班主任当得像在走钢丝。我不能在学生面前露怯，毕竟我是他们的主心骨，只要我还没倒下，这班就得带着他们往前走。",
+  "caption_payload": {
+    "caption": "📐 何老师 · 第009天 档案\n\n标签：班主任\n此刻心情：平常\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_何老师_档案_第009天.png"
+  }
+}

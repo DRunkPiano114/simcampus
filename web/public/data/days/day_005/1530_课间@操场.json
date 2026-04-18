@@ -1,0 +1,607 @@
+{
+  "scene": {
+    "scene_index": 12,
+    "time": "15:30",
+    "name": "课间",
+    "location": "操场",
+    "description": "下午课间休息",
+    "day": 5
+  },
+  "participant_names": {
+    "jiang_haotian": "姜皓天",
+    "shen_yifan": "沈逸凡"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "jiang_haotian",
+        "shen_yifan"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "jiang_haotian",
+              "content": "姜皓天，你过来，我们谈谈。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "沈逸凡一个人在操场边晃悠，看起来正经得要死。",
+              "inner_thought": "这货怎么阴魂不散的，正好过去逗逗他。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "哟，班长大人大课间不去写竞赛题，跑这儿来视察民情啦？",
+              "action_target": "shen_yifan",
+              "urgency": 6,
+              "is_disruptive": true
+            },
+            "shen_yifan": {
+              "observation": "姜皓天在操场边晃悠，看起来又要找人闹事。",
+              "inner_thought": "一天到晚就知道晃，到底想干嘛？得找个机会解决了。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "姜皓天，你过来，我们谈谈。",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": true
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "shen_yifan",
+              "content": "哟，班长大人大课间不去写竞赛题，跑这儿来视察民情啦？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "姜皓天停下了脚步，一脸吊儿郎当地看着我，好像在等我又要说什么规矩。",
+              "inner_thought": "这次一定要让他明白，在学校里老实点没坏处。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "你身为学生，应该把心思放在学习上，而不是整天在操场晃悠挑衅。你要是再敢闹事，我就只能直接找陈老师处理了。",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": true
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "jiang_haotian",
+              "content": "你身为学生，应该把心思放在学习上，而不是整天在操场晃悠挑衅。你要是再敢闹事，我就只能直接找陈老师处理了。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "沈逸凡眉头皱了一下，看起来很不爽。",
+              "inner_thought": "看他这死样子就烦，估计又要念叨纪律了。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "怎么着，不会又是哪儿该扣分了吧？我这人耳朵都起茧子了，换个词儿说呗。",
+              "action_target": "shen_yifan",
+              "urgency": 7,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "shen_yifan",
+              "content": "怎么着，不会又是哪儿该扣分了吧？我这人耳朵都起茧子了，换个词儿说呗。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "姜皓天根本没把我的警告当回事，那种欠揍的表情还在脸上挂着。",
+              "inner_thought": "这人怎么油盐不进？再耗下去也是浪费体力，烦死了。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "随你便吧，到时候别怪我没提醒过你。",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 4,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "jiang_haotian",
+              "content": "随你便吧，到时候别怪我没提醒过你。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "沈逸凡又皱着眉盯着我，一副随时要把我名字记下来的样子。",
+              "inner_thought": "一天到晚就会这一套，真觉得自己是教导主任了，烦得要死。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "行行行，你赶紧去告状吧，反正你也只会这一招了，没劲。",
+              "action_target": "shen_yifan",
+              "urgency": 8,
+              "is_disruptive": true
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 5,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": [
+              "shen_yifan"
+            ]
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "姜皓天完全把我的警告当耳旁风，一脸戏谑地看着我。",
+              "inner_thought": "跟这种人说话纯属浪费时间，气死我了。",
+              "emotion": "frustrated",
+              "action_type": "exit",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        }
+      ],
+      "narrative": {
+        "key_moments": [
+          "沈逸凡在操场要求与姜皓天谈话。",
+          "沈逸凡警告姜皓天若继续闹事将向陈老师报告。",
+          "姜皓天回应沈逸凡关于扣分的指责。",
+          "沈逸凡离开操场。"
+        ],
+        "fulfilled_intentions": [
+          "沈逸凡:与姜皓天进行谈话",
+          "沈逸凡:警告姜皓天关于闹事后果"
+        ],
+        "events_discussed": [],
+        "new_events": [
+          {
+            "text": "沈逸凡警告姜皓天若再闹事将向陈老师报告",
+            "category": "纪律警告",
+            "witnesses": [
+              "姜皓天",
+              "沈逸凡"
+            ],
+            "spread_probability": 0.6,
+            "cite_ticks": [
+              3,
+              5
+            ]
+          }
+        ]
+      },
+      "reflections": {
+        "jiang_haotian": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "沈逸凡",
+              "favorability": -2,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "沈逸凡又跑来操场晃悠，拿老师压我，真把自己当盘菜了。",
+              "emotion": "frustrated",
+              "importance": 5,
+              "people": [
+                "沈逸凡"
+              ],
+              "location": "操场",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "df3acc",
+              "adjustment": -1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "带何家骏去操场投几个三分球，顺便带他上分",
+              "status": "missed_opportunity",
+              "brief_reason": "被沈逸凡半路拦截，没能和何家骏碰上"
+            },
+            {
+              "goal": "故意在沈逸凡面前哼新出的说唱，看他那种想管又管不了的表情",
+              "status": "attempted",
+              "brief_reason": "虽然没哼歌，但和他对着干了一通，看他那副死样子就烦"
+            }
+          ]
+        },
+        "shen_yifan": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "姜皓天",
+              "favorability": -2,
+              "trust": -3,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "姜皓天在操场上还是那副死猪不怕开水烫的样子，根本没把纪律当回事。",
+              "emotion": "frustrated",
+              "importance": 7,
+              "people": [
+                "姜皓天"
+              ],
+              "location": "操场",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "42fa81",
+              "adjustment": 2
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "找个时间和他正式谈一次，明确纪律红线（想找姜皓天）",
+              "status": "frustrated",
+              "brief_reason": "姜皓天根本不听劝，谈话完全没起到作用，反而让我更恼火。"
+            },
+            {
+              "goal": "去操场跑两圈，出一身汗",
+              "status": "missed_opportunity",
+              "brief_reason": "被姜皓天搅了心情，完全没心思跑步了。"
+            }
+          ]
+        }
+      },
+      "share_tick_layouts": [
+        {
+          "day": 5,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "姜皓天，你过来，我们谈谈。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "这货怎么阴魂不散的，正好过去逗逗他。"
+            }
+          ],
+          "featured_quote": "一天到晚就知道晃，到底想干嘛？得找个机会解决了。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 0
+        },
+        {
+          "day": 5,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "哟，班长大人大课间不去写竞赛题，跑这儿来视察民情啦？"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "这次一定要让他明白，在学校里老实点没坏处。"
+            }
+          ],
+          "featured_quote": "这次一定要让他明白，在学校里老实点没坏处。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 1
+        },
+        {
+          "day": 5,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "你身为学生，应该把心思放在学习上，而不是整天在操场晃悠挑衅。你要是再敢闹事，我就只能直接找陈老师处理了。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "看他这死样子就烦，估计又要念叨纪律了。"
+            }
+          ],
+          "featured_quote": "看他这死样子就烦，估计又要念叨纪律了。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 2
+        },
+        {
+          "day": 5,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "怎么着，不会又是哪儿该扣分了吧？我这人耳朵都起茧子了，换个词儿说呗。"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "这人怎么油盐不进？再耗下去也是浪费体力，烦死了。"
+            }
+          ],
+          "featured_quote": "这人怎么油盐不进？再耗下去也是浪费体力，烦死了。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 3
+        },
+        {
+          "day": 5,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "随你便吧，到时候别怪我没提醒过你。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "一天到晚就会这一套，真觉得自己是教导主任了，烦得要死。"
+            }
+          ],
+          "featured_quote": "一天到晚就会这一套，真觉得自己是教导主任了，烦得要死。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 4
+        },
+        {
+          "day": 5,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "跟这种人说话纯属浪费时间，气死我了。"
+            }
+          ],
+          "featured_quote": "跟这种人说话纯属浪费时间，气死我了。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 5
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第005天 · 课间 · 操场 🔥\n\n「沈逸凡」一天到晚就知道晃，到底想干嘛？得找个机会解决了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第005天_课间@操场_t01.png",
+          "group_index": 0,
+          "tick_index": 0
+        },
+        {
+          "caption": "第005天 · 课间 · 操场 ⚽\n\n「沈逸凡」这次一定要让他明白，在学校里老实点没坏处。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第005天_课间@操场_t02.png",
+          "group_index": 0,
+          "tick_index": 1
+        },
+        {
+          "caption": "第005天 · 课间 · 操场 🔥\n\n「姜皓天」看他这死样子就烦，估计又要念叨纪律了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第005天_课间@操场_t03.png",
+          "group_index": 0,
+          "tick_index": 2
+        },
+        {
+          "caption": "第005天 · 课间 · 操场 ⚽\n\n「沈逸凡」这人怎么油盐不进？再耗下去也是浪费体力，烦死了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第005天_课间@操场_t04.png",
+          "group_index": 0,
+          "tick_index": 3
+        },
+        {
+          "caption": "第005天 · 课间 · 操场 🔥\n\n「姜皓天」一天到晚就会这一套，真觉得自己是教导主任了，烦得要死。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第005天_课间@操场_t05.png",
+          "group_index": 0,
+          "tick_index": 4
+        },
+        {
+          "caption": "第005天 · 课间 · 操场 🔥\n\n「沈逸凡」跟这种人说话纯属浪费时间，气死我了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第005天_课间@操场_t06.png",
+          "group_index": 0,
+          "tick_index": 5
+        }
+      ]
+    }
+  ]
+}

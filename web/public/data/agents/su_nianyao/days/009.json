@@ -1,0 +1,62 @@
+{
+  "agent_id": "su_nianyao",
+  "name_cn": "苏念瑶",
+  "day": 9,
+  "is_teacher": false,
+  "motif_emoji": "🌸",
+  "motif_tag": "玻璃心诗人",
+  "main_color": "#D4748B",
+  "emotion_label": "挫败",
+  "energy_label": "精神还行",
+  "pressure_label": "稍有压力",
+  "featured_quote": "心累，感觉全世界都在针对我，这气氛我是一分钟都待不下去了。",
+  "featured_scene": "10:30 · 上课",
+  "relationships": [
+    {
+      "target_name": "方语晨",
+      "favorability": 22,
+      "trust": 24,
+      "label_text": "很亲近的朋友"
+    },
+    {
+      "target_name": "唐诗涵",
+      "favorability": 5,
+      "trust": 6,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "林昭宇",
+      "favorability": 3,
+      "trust": 0,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 9",
+      "text": "课间想找雨桐缓和一下关系，结果她戴着耳机完全不理我，气氛好僵。",
+      "importance": 6
+    },
+    {
+      "date": "Day 8",
+      "text": "方语晨在食堂当众逼问我和林昭宇的事，大家都听见了，尴尬死我了。",
+      "importance": 6
+    }
+  ],
+  "top_concern": {
+    "text": "程雨桐是不是真的特别讨厌我，感觉连呼吸都让她烦。",
+    "intensity_label": "较强",
+    "positive": false
+  },
+  "self_narrative": "在班里就是个话痨，虽然成绩总是卡在中间，但好歹还有方语晨陪我八卦。最近心总是静不下来，随笔写了又删，总觉得被课业琐事填满了。路过林昭宇座位时心跳快半拍，赶紧装作若无其事。唉，真是EMO了。",
+  "caption_payload": {
+    "caption": "🌸 苏念瑶 · 第009天 档案\n\n标签：玻璃心诗人\n此刻心情：挫败\n\n「心累，感觉全世界都在针对我，这气氛我是一分钟都待不下去了。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_苏念瑶_档案_第009天.png"
+  }
+}

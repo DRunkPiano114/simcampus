@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 8,
+    "time": "15:30",
+    "name": "课间",
+    "location": "小卖部",
+    "description": "下午课间休息",
+    "day": 9
+  },
+  "participant_names": {
+    "he_jiajun": "何家骏"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "he_jiajun"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "抄的步骤还得改改，别被看出笔迹不对。",
+        "emotion": "anxious",
+        "activity": "靠在小卖部旁边的墙上，一边喝冰水一边刷手机视频。"
+      }
+    }
+  ]
+}

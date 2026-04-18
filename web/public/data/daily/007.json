@@ -1,0 +1,437 @@
+{
+  "day": 7,
+  "headline": {
+    "scene_time": "14:00",
+    "scene_name": "上课",
+    "scene_location": "教室",
+    "scene_file": "1400_上课.json",
+    "group_index": 0,
+    "tick_index": 4,
+    "speaker_id": "",
+    "speaker_name": "",
+    "speech": null,
+    "thought_id": "lin_zhaoyu",
+    "thought_name": "林昭宇",
+    "thought": "终于消停了，赶紧趁现在把那道受力分析题最后的矢量方向确定好，不然晚自习又要熬夜。",
+    "urgency": 8
+  },
+  "secondaries": [
+    {
+      "scene_time": "15:30",
+      "scene_name": "课间",
+      "scene_location": "图书馆",
+      "scene_file": "1530_课间@图书馆.json",
+      "group_index": 0,
+      "tick_index": 7,
+      "speaker_id": "lin_zhaoyu",
+      "speaker_name": "林昭宇",
+      "speech": "刚才那个内能的公式，是不是还能推广到那个……那个多物体系统？",
+      "thought_id": "lin_zhaoyu",
+      "thought_name": "林昭宇",
+      "thought": "他刚才删掉的那段话，到底写的什么啊……算了，还是别问了，每个人都有不想说的心事，专心搞物理吧。",
+      "urgency": 6
+    },
+    {
+      "scene_time": "08:45",
+      "scene_name": "课间",
+      "scene_location": "教室",
+      "scene_file": "0845_课间@教室.json",
+      "group_index": 1,
+      "tick_index": 8,
+      "speaker_id": "tang_shihan",
+      "speaker_name": "唐诗涵",
+      "speech": "行行行，红色行了吧？我去买绿茶了，你们去吗？",
+      "thought_id": "fang_yuchen",
+      "thought_name": "方语晨",
+      "thought": "何家骏这怂样，估计又是去找陆思远救命了。懒得管他，还是再问问诗涵裙子的事。",
+      "urgency": 8
+    },
+    {
+      "scene_time": "22:00",
+      "scene_name": "宿舍夜聊",
+      "scene_location": "宿舍",
+      "scene_file": "2200_宿舍夜聊.json",
+      "group_index": 1,
+      "tick_index": 10,
+      "speaker_id": "su_nianyao",
+      "speaker_name": "苏念瑶",
+      "speech": "哎呀，你别盯着我了，我感觉我要被你盯穿了。到时候恐怖本还没开始，我就先被你吓死了。",
+      "thought_id": "fang_yuchen",
+      "thought_name": "方语晨",
+      "thought": "这丫头心理素质也太好了吧，真的睡着了还是在硬抗？算了，明天早读再问。",
+      "urgency": 8
+    }
+  ],
+  "mood_map": [
+    {
+      "agent_id": "fang_yuchen",
+      "agent_name": "方语晨",
+      "dominant_emotion": "curious",
+      "emotion_counts": {
+        "excited": 1,
+        "curious": 25,
+        "frustrated": 7,
+        "bored": 5
+      },
+      "main_color": "#B06AB3",
+      "motif_emoji": "☀️"
+    },
+    {
+      "agent_id": "su_nianyao",
+      "agent_name": "苏念瑶",
+      "dominant_emotion": "bored",
+      "emotion_counts": {
+        "calm": 7,
+        "bored": 8,
+        "frustrated": 6
+      },
+      "main_color": "#D4748B",
+      "motif_emoji": "🌸"
+    },
+    {
+      "agent_id": "tang_shihan",
+      "agent_name": "唐诗涵",
+      "dominant_emotion": "frustrated",
+      "emotion_counts": {
+        "curious": 1,
+        "frustrated": 30
+      },
+      "main_color": "#4AC4A8",
+      "motif_emoji": "🌿"
+    },
+    {
+      "agent_id": "cheng_yutong",
+      "agent_name": "程雨桐",
+      "dominant_emotion": "frustrated",
+      "emotion_counts": {
+        "bored": 6,
+        "frustrated": 15,
+        "calm": 8
+      },
+      "main_color": "#E8A838",
+      "motif_emoji": "📚"
+    },
+    {
+      "agent_id": "lin_zhaoyu",
+      "agent_name": "林昭宇",
+      "dominant_emotion": "calm",
+      "emotion_counts": {
+        "anxious": 6,
+        "calm": 30,
+        "frustrated": 13,
+        "guilty": 1
+      },
+      "main_color": "#4A7BC4",
+      "motif_emoji": "🌧️"
+    },
+    {
+      "agent_id": "lu_siyuan",
+      "agent_name": "陆思远",
+      "dominant_emotion": "calm",
+      "emotion_counts": {
+        "calm": 29,
+        "bored": 3,
+        "anxious": 5
+      },
+      "main_color": "#5BAA5B",
+      "motif_emoji": "🌱"
+    },
+    {
+      "agent_id": "shen_yifan",
+      "agent_name": "沈逸凡",
+      "dominant_emotion": "frustrated",
+      "emotion_counts": {
+        "neutral": 1,
+        "frustrated": 28
+      },
+      "main_color": "#C4524A",
+      "motif_emoji": "🔥"
+    },
+    {
+      "agent_id": "jiang_haotian",
+      "agent_name": "姜皓天",
+      "dominant_emotion": "frustrated",
+      "emotion_counts": {
+        "excited": 1,
+        "frustrated": 26,
+        "bored": 1
+      },
+      "main_color": "#E87B42",
+      "motif_emoji": "⚽"
+    },
+    {
+      "agent_id": "he_jiajun",
+      "agent_name": "何家骏",
+      "dominant_emotion": "anxious",
+      "emotion_counts": {
+        "anxious": 26,
+        "embarrassed": 1
+      },
+      "main_color": "#7B8FA8",
+      "motif_emoji": "🌫️"
+    },
+    {
+      "agent_id": "he_min",
+      "agent_name": "何老师",
+      "dominant_emotion": "calm",
+      "emotion_counts": {
+        "calm": 6,
+        "frustrated": 1
+      },
+      "main_color": "#8B6E4E",
+      "motif_emoji": "📐"
+    }
+  ],
+  "cp": {
+    "a_id": "lin_zhaoyu",
+    "a_name": "林昭宇",
+    "b_id": "lu_siyuan",
+    "b_name": "陆思远",
+    "favorability_delta": 18,
+    "trust_delta": 18,
+    "understanding_delta": 14
+  },
+  "golden_quote": {
+    "agent_id": "lin_zhaoyu",
+    "agent_name": "林昭宇",
+    "text": "他刚才删掉的那段话，到底写的什么啊……算了，还是别问了，每个人都有不想说的心事，专心搞物理吧。",
+    "scene_time": "15:30",
+    "scene_name": "课间"
+  },
+  "scene_thumbs": [
+    {
+      "time": "08:45",
+      "name": "课间",
+      "location": "操场",
+      "file": "0845_课间@操场.json",
+      "participants": [
+        "jiang_haotian"
+      ]
+    },
+    {
+      "time": "08:45",
+      "name": "课间",
+      "location": "教室",
+      "file": "0845_课间@教室.json",
+      "participants": [
+        "cheng_yutong",
+        "fang_yuchen",
+        "he_jiajun",
+        "lin_zhaoyu",
+        "lu_siyuan",
+        "shen_yifan",
+        "tang_shihan"
+      ]
+    },
+    {
+      "time": "08:45",
+      "name": "课间",
+      "location": "走廊",
+      "file": "0845_课间@走廊.json",
+      "participants": [
+        "su_nianyao"
+      ]
+    },
+    {
+      "time": "12:00",
+      "name": "午饭",
+      "location": "教室",
+      "file": "1200_午饭@教室.json",
+      "participants": [
+        "cheng_yutong"
+      ]
+    },
+    {
+      "time": "12:00",
+      "name": "午饭",
+      "location": "食堂",
+      "file": "1200_午饭@食堂.json",
+      "participants": [
+        "fang_yuchen",
+        "he_jiajun",
+        "he_min",
+        "jiang_haotian",
+        "lin_zhaoyu",
+        "lu_siyuan",
+        "shen_yifan",
+        "su_nianyao",
+        "tang_shihan"
+      ]
+    },
+    {
+      "time": "14:00",
+      "name": "上课",
+      "location": "教室",
+      "file": "1400_上课.json",
+      "participants": [
+        "cheng_yutong",
+        "fang_yuchen",
+        "he_jiajun",
+        "jiang_haotian",
+        "lin_zhaoyu",
+        "lu_siyuan",
+        "shen_yifan",
+        "su_nianyao",
+        "tang_shihan"
+      ]
+    },
+    {
+      "time": "15:30",
+      "name": "课间",
+      "location": "图书馆",
+      "file": "1530_课间@图书馆.json",
+      "participants": [
+        "lin_zhaoyu",
+        "lu_siyuan"
+      ]
+    },
+    {
+      "time": "15:30",
+      "name": "课间",
+      "location": "天台",
+      "file": "1530_课间@天台.json",
+      "participants": [
+        "cheng_yutong",
+        "su_nianyao"
+      ]
+    },
+    {
+      "time": "15:30",
+      "name": "课间",
+      "location": "小卖部",
+      "file": "1530_课间@小卖部.json",
+      "participants": [
+        "he_jiajun"
+      ]
+    },
+    {
+      "time": "15:30",
+      "name": "课间",
+      "location": "操场",
+      "file": "1530_课间@操场.json",
+      "participants": [
+        "shen_yifan"
+      ]
+    },
+    {
+      "time": "15:30",
+      "name": "课间",
+      "location": "走廊",
+      "file": "1530_课间@走廊.json",
+      "participants": [
+        "fang_yuchen",
+        "jiang_haotian",
+        "tang_shihan"
+      ]
+    },
+    {
+      "time": "22:00",
+      "name": "宿舍夜聊",
+      "location": "宿舍",
+      "file": "2200_宿舍夜聊.json",
+      "participants": [
+        "cheng_yutong",
+        "fang_yuchen",
+        "jiang_haotian",
+        "lin_zhaoyu",
+        "lu_siyuan",
+        "shen_yifan",
+        "su_nianyao",
+        "tang_shihan"
+      ]
+    }
+  ],
+  "top_event": {
+    "text": "方语晨询问苏念瑶在食堂看林昭宇的眼神含义",
+    "category": "八卦",
+    "scene_file": "2200_宿舍夜聊.json",
+    "scene_time": "22:00",
+    "scene_name": "宿舍夜聊",
+    "witnesses": [
+      {
+        "agent_id": "tang_shihan",
+        "agent_name": "唐诗涵"
+      },
+      {
+        "agent_id": "fang_yuchen",
+        "agent_name": "方语晨"
+      },
+      {
+        "agent_id": "su_nianyao",
+        "agent_name": "苏念瑶"
+      }
+    ],
+    "non_witnesses": [
+      {
+        "agent_id": "cheng_yutong",
+        "agent_name": "程雨桐"
+      },
+      {
+        "agent_id": "lin_zhaoyu",
+        "agent_name": "林昭宇"
+      },
+      {
+        "agent_id": "lu_siyuan",
+        "agent_name": "陆思远"
+      },
+      {
+        "agent_id": "shen_yifan",
+        "agent_name": "沈逸凡"
+      },
+      {
+        "agent_id": "jiang_haotian",
+        "agent_name": "姜皓天"
+      },
+      {
+        "agent_id": "he_jiajun",
+        "agent_name": "何家骏"
+      },
+      {
+        "agent_id": "he_min",
+        "agent_name": "何老师"
+      }
+    ],
+    "pull_quote": "到底瞒着什么啊，真当我是空气吗，烦死了。",
+    "pull_quote_agent_id": "tang_shihan",
+    "pull_quote_agent_name": "唐诗涵",
+    "group_index": 1,
+    "tick_index": 1
+  },
+  "contrast": {
+    "kind": "failed_intent",
+    "payload": {
+      "agent_id": "he_jiajun",
+      "agent_name": "何家骏",
+      "goal": "在检查前把物理错题本里抄的答案改得自然点",
+      "status": "frustrated",
+      "brief_reason": "被何老师盯着催促，根本没时间改，还要去教学楼入口找他。",
+      "urgency_proxy": 9
+    },
+    "scene_time": "12:00",
+    "scene_name": "午饭",
+    "scene_file": "1200_午饭@食堂.json",
+    "group_index": 2,
+    "tick_index": 1
+  },
+  "concern_spotlight": {
+    "agent_id": "he_min",
+    "agent_name": "何老师",
+    "text": "姜皓天这孩子身上的戾气太重，得找个机会单独敲打一下，不能让他影响班级风气。",
+    "topic": "人际矛盾",
+    "intensity": 6,
+    "reinforcement_count": 0,
+    "days_active": 1,
+    "first_day": 7,
+    "reinforced_today": true
+  },
+  "caption_payload": {
+    "caption": "📰 第007天 班级日报\n\n今日头条 · 「林昭宇」终于消停了，赶紧趁现在把那道受力分析题最后的矢量方向确定好，不然晚自习又要熬夜。\n今日 CP：林昭宇 × 陆思远\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#班级日报"
+    ],
+    "filename": "simcampus_班级日报_第007天.png"
+  }
+}

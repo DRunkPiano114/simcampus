@@ -1,0 +1,20 @@
+{
+  "pendulum_clock": {
+    "frame_w": 32,
+    "frame_h": 96,
+    "count": 4,
+    "fps": 3
+  },
+  "old_tv": {
+    "frame_w": 64,
+    "frame_h": 64,
+    "count": 6,
+    "fps": 4
+  },
+  "fridge_cake": {
+    "frame_w": 32,
+    "frame_h": 96,
+    "count": 12,
+    "fps": 4
+  }
+}

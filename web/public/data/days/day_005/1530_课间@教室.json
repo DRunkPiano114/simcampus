@@ -1,0 +1,528 @@
+{
+  "scene": {
+    "scene_index": 13,
+    "time": "15:30",
+    "name": "课间",
+    "location": "教室",
+    "description": "下午课间休息",
+    "day": 5
+  },
+  "participant_names": {
+    "fang_yuchen": "方语晨",
+    "lin_zhaoyu": "林昭宇"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "fang_yuchen",
+        "lin_zhaoyu"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "lin_zhaoyu",
+              "content": "林昭宇，你真要去图书馆啊？"
+            },
+            "actions": [
+              {
+                "agent": "lin_zhaoyu",
+                "type": "non_verbal",
+                "content": "皱起眉头，把耳机塞进耳朵里但没连蓝牙，试图用模拟的安静来隔绝周围的吵闹声。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "lin_zhaoyu": {
+              "observation": "方语晨就在旁边，教室里闹哄哄的，大家都在聊周末的计划，吵得让人头疼。",
+              "inner_thought": "好烦啊，又在聊什么恐怖本，能不能安静一点，我英语错题还没订正呢。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "皱起眉头，把耳机塞进耳朵里但没连蓝牙，试图用模拟的安静来隔绝周围的吵闹声。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "林昭宇坐在座位上，看起来正准备去图书馆，而我正觉得无聊。",
+              "inner_thought": "这人怎么还不走啊，盯着他看半天了，怪无聊的。",
+              "emotion": "bored",
+              "action_type": "speak",
+              "action_content": "林昭宇，你真要去图书馆啊？",
+              "action_target": "lin_zhaoyu",
+              "urgency": 4,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": {
+              "agent": "lin_zhaoyu",
+              "target": "fang_yuchen",
+              "content": "嗯，要订正错题。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "lin_zhaoyu": {
+              "observation": "方语晨还在追问我去图书馆的事情，教室里这会儿真的好吵。",
+              "inner_thought": "烦死了，还要问，难道我不去图书馆难道在教室里跟你们一起闹吗？",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "嗯，要订正错题。",
+              "action_target": "fang_yuchen",
+              "urgency": 4,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "林昭宇塞上耳机不想理我，一副学霸姿态。",
+              "inner_thought": "这人装什么呢，明明没连蓝牙还要装清高，真没劲。",
+              "emotion": "bored",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "lin_zhaoyu",
+              "content": "行吧行吧，那你去吧，正好我也要找思瑶聊天。"
+            },
+            "actions": [
+              {
+                "agent": "lin_zhaoyu",
+                "type": "non_verbal",
+                "content": "重新埋头在练习册里，用笔尖用力地在纸上勾画题目，不再搭理旁边。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "lin_zhaoyu": {
+              "observation": "方语晨还在看着我，教室里大家谈论周末计划的声音越来越大。",
+              "inner_thought": "离上课还有一会儿，实在是不想再多说了，赶紧弄完作业才行。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "重新埋头在练习册里，用笔尖用力地在纸上勾画题目，不再搭理旁边。",
+              "action_target": null,
+              "urgency": 6,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "林昭宇塞着没连蓝牙的耳机，摆出一副要专心学习订正错题的样子。",
+              "inner_thought": "装得挺像，谁不知道他要去和陆思远搞图书馆秘密会谈啊，懒得拆穿他。",
+              "emotion": "bored",
+              "action_type": "speak",
+              "action_content": "行吧行吧，那你去吧，正好我也要找思瑶聊天。",
+              "action_target": "lin_zhaoyu",
+              "urgency": 3,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "lin_zhaoyu",
+                "type": "non_verbal",
+                "content": "松开一直紧握着的笔，手指抵住太阳穴揉了揉，继续盯着卷子上的受力分析图。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": [
+              "fang_yuchen"
+            ]
+          },
+          "minds": {
+            "lin_zhaoyu": {
+              "observation": "方语晨终于没再问了，转身走向苏念瑶她们那边。",
+              "inner_thought": "终于安静了，抓紧时间把这道受力分析再看一眼。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "松开一直紧握着的笔，手指抵住太阳穴揉了揉，继续盯着卷子上的受力分析图。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "林昭宇在那装模作样地写题，笔尖都要戳破纸了，真没意思。",
+              "inner_thought": "算了，不理这书呆子，去小卖部晃荡一圈找找八卦。",
+              "emotion": "bored",
+              "action_type": "exit",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        }
+      ],
+      "narrative": {
+        "key_moments": [
+          "方语晨询问林昭宇是否要去图书馆。",
+          "林昭宇表示要去订正错题。",
+          "方语晨表示要去寻找思瑶。",
+          "林昭宇在练习册上勾画题目。",
+          "林昭宇揉太阳穴并继续查看受力分析图。",
+          "方语晨离开了教室。"
+        ],
+        "fulfilled_intentions": [
+          "林昭宇:订正错题",
+          "方语晨:找思瑶聊天"
+        ],
+        "events_discussed": [],
+        "new_events": [
+          {
+            "text": "林昭宇计划前往图书馆订正错题。",
+            "category": "个人计划",
+            "witnesses": [
+              "方语晨",
+              "林昭宇"
+            ],
+            "spread_probability": 0.3,
+            "cite_ticks": [
+              1,
+              2
+            ]
+          },
+          {
+            "text": "方语晨计划寻找思瑶聊天。",
+            "category": "个人计划",
+            "witnesses": [
+              "方语晨",
+              "林昭宇"
+            ],
+            "spread_probability": 0.2,
+            "cite_ticks": [
+              3
+            ]
+          }
+        ]
+      },
+      "reflections": {
+        "fang_yuchen": {
+          "emotion": "bored",
+          "relationship_changes": [
+            {
+              "to_agent": "林昭宇",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "林昭宇在那儿装模作样戴耳机订正错题，真没劲，还是找念瑶玩去吧。",
+              "emotion": "bored",
+              "importance": 3,
+              "people": [
+                "林昭宇"
+              ],
+              "location": "教室",
+              "topics": [
+                "其他"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "756877",
+              "adjustment": -1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "旁敲侧击问清楚沈逸凡周末去图书馆到底是不是去约会",
+              "status": "missed_opportunity",
+              "brief_reason": "林昭宇全程在装冷漠，根本没法从他那儿打听到沈逸凡的事。"
+            },
+            {
+              "goal": "找机会再试探一下他手机里的秘密",
+              "status": "pending",
+              "brief_reason": "姜皓天没在现场。"
+            }
+          ]
+        },
+        "lin_zhaoyu": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "方语晨",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "方语晨课间找我说话，有点吵，只想赶紧去图书馆。",
+              "emotion": "frustrated",
+              "importance": 3,
+              "people": [
+                "方语晨"
+              ],
+              "location": "教室",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "3247a4",
+              "adjustment": 1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "找陆思远请教英语阅读理解的逻辑",
+              "status": "pending",
+              "brief_reason": "还在教室，还没去图书馆。"
+            },
+            {
+              "goal": "在午休或者晚自习前偷偷戴耳机听一下许嵩的新歌",
+              "status": "pending",
+              "brief_reason": "周围人太多，没法静下心听。"
+            },
+            {
+              "goal": "观察一下苏念瑶是不是真的在看我",
+              "status": "pending",
+              "brief_reason": "刚才注意力都在方语晨身上。"
+            }
+          ]
+        }
+      },
+      "share_tick_layouts": [
+        {
+          "day": 5,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "林昭宇，你真要去图书馆啊？"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "display_name": "林昭宇",
+              "kind": "thought",
+              "text": "好烦啊，又在聊什么恐怖本，能不能安静一点，我英语错题还没订正呢。"
+            }
+          ],
+          "featured_quote": "这人怎么还不走啊，盯着他看半天了，怪无聊的。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 0
+        },
+        {
+          "day": 5,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "lin_zhaoyu",
+              "display_name": "林昭宇",
+              "kind": "speech",
+              "text": "嗯，要订正错题。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "这人装什么呢，明明没连蓝牙还要装清高，真没劲。"
+            }
+          ],
+          "featured_quote": "烦死了，还要问，难道我不去图书馆难道在教室里跟你们一起闹吗？",
+          "featured_speaker_name": "林昭宇",
+          "tick_index": 1
+        },
+        {
+          "day": 5,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "行吧行吧，那你去吧，正好我也要找思瑶聊天。"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "display_name": "林昭宇",
+              "kind": "thought",
+              "text": "离上课还有一会儿，实在是不想再多说了，赶紧弄完作业才行。"
+            }
+          ],
+          "featured_quote": "离上课还有一会儿，实在是不想再多说了，赶紧弄完作业才行。",
+          "featured_speaker_name": "林昭宇",
+          "tick_index": 2
+        },
+        {
+          "day": 5,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "算了，不理这书呆子，去小卖部晃荡一圈找找八卦。"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "display_name": "林昭宇",
+              "kind": "thought",
+              "text": "终于安静了，抓紧时间把这道受力分析再看一眼。"
+            }
+          ],
+          "featured_quote": "算了，不理这书呆子，去小卖部晃荡一圈找找八卦。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 3
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第005天 · 课间 · 教室 ☀️\n\n「方语晨」这人怎么还不走啊，盯着他看半天了，怪无聊的。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第005天_课间@教室_t01.png",
+          "group_index": 0,
+          "tick_index": 0
+        },
+        {
+          "caption": "第005天 · 课间 · 教室 🌧️\n\n「林昭宇」烦死了，还要问，难道我不去图书馆难道在教室里跟你们一起闹吗？\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第005天_课间@教室_t02.png",
+          "group_index": 0,
+          "tick_index": 1
+        },
+        {
+          "caption": "第005天 · 课间 · 教室 ☀️\n\n「林昭宇」离上课还有一会儿，实在是不想再多说了，赶紧弄完作业才行。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第005天_课间@教室_t03.png",
+          "group_index": 0,
+          "tick_index": 2
+        },
+        {
+          "caption": "第005天 · 课间 · 教室 ☀️\n\n「方语晨」算了，不理这书呆子，去小卖部晃荡一圈找找八卦。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第005天_课间@教室_t04.png",
+          "group_index": 0,
+          "tick_index": 3
+        }
+      ]
+    }
+  ]
+}

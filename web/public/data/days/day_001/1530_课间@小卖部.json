@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 6,
+    "time": "15:30",
+    "name": "课间",
+    "location": "小卖部",
+    "description": "下午课间休息",
+    "day": 1
+  },
+  "participant_names": {
+    "tang_shihan": "唐诗涵"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "tang_shihan"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "刚那把王者赢了真的爽，林昭宇要是能一起玩就好了。",
+        "emotion": "excited",
+        "activity": "站在小卖部货架前，手里拿着刚买的冰红茶，低头盯着手机屏幕回味刚才的对局。"
+      }
+    }
+  ]
+}

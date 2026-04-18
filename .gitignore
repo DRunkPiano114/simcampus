@@ -28,7 +28,6 @@ docs/
 # web
 web/node_modules/
 web/dist/
-web/public/data/
 .gstack/
 
 # External media: ignore commercial asset packs by default; whitelist

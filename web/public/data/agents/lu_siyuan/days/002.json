@@ -1,0 +1,62 @@
+{
+  "agent_id": "lu_siyuan",
+  "name_cn": "陆思远",
+  "day": 2,
+  "is_teacher": false,
+  "motif_emoji": "🌱",
+  "motif_tag": "好好先生",
+  "main_color": "#5BAA5B",
+  "emotion_label": "焦虑",
+  "energy_label": "精神还行",
+  "pressure_label": "稍有压力",
+  "featured_quote": "干嘛突然问这么沉重的话题，笔记的事情还没着落，心里七上八下的。",
+  "featured_scene": "22:00 · 宿舍夜聊",
+  "relationships": [
+    {
+      "target_name": "林昭宇",
+      "favorability": 19,
+      "trust": 14,
+      "label_text": "关系不错"
+    },
+    {
+      "target_name": "姜皓天",
+      "favorability": 2,
+      "trust": 4,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "唐诗涵",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 2",
+      "text": "姜皓天在熄灯后还追问我的未来规划，搞得沈逸凡很不高兴。",
+      "importance": 5
+    },
+    {
+      "date": "Day 1",
+      "text": "在图书馆帮姜皓天誊抄物理作业，内心感到一阵委屈和无奈。",
+      "importance": 5
+    }
+  ],
+  "top_concern": {
+    "text": "公众号草稿箱里写好的感悟，想发却始终不敢点击发布。",
+    "intensity_label": "中等",
+    "positive": false
+  },
+  "self_narrative": "班里的万金油，谁叫都去帮忙。姜皓天又拿我开涮，算了，随他去吧。物理题好难，爸妈盯着211，我只想躲在被窝里听民谣。公众号草稿又多了一篇，写完还是不敢点发布，这就是我吧。",
+  "caption_payload": {
+    "caption": "🌱 陆思远 · 第002天 档案\n\n标签：好好先生\n此刻心情：焦虑\n\n「干嘛突然问这么沉重的话题，笔记的事情还没着落，心里七上八下的。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_陆思远_档案_第002天.png"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "agent_id": "fang_yuchen",
+  "name_cn": "方语晨",
+  "day": 9,
+  "is_teacher": false,
+  "motif_emoji": "☀️",
+  "motif_tag": "小太阳",
+  "main_color": "#B06AB3",
+  "emotion_label": "挫败",
+  "energy_label": "精神还行",
+  "pressure_label": "稍有压力",
+  "featured_quote": "一个个都装死，行，我有的是办法让她们开口，真以为我不知道她们在瞒着我吗？",
+  "featured_scene": "22:00 · 宿舍夜聊",
+  "relationships": [
+    {
+      "target_name": "唐诗涵",
+      "favorability": 31,
+      "trust": 22,
+      "label_text": "很亲近的朋友"
+    },
+    {
+      "target_name": "苏念瑶",
+      "favorability": 15,
+      "trust": 21,
+      "label_text": "关系不错"
+    },
+    {
+      "target_name": "姜皓天",
+      "favorability": 2,
+      "trust": 0,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 9",
+      "text": "宿舍夜聊时试图找话题却被苏念瑶和唐诗涵集体冷处理，感到被排挤在她们的秘密之外。",
+      "importance": 6
+    },
+    {
+      "date": "Day 7",
+      "text": "食堂里念瑶看林昭宇的眼神简直拉丝了，肯定有情况！",
+      "importance": 6
+    }
+  ],
+  "top_concern": {
+    "text": "苏念瑶和林昭宇到底是什么情况，总觉得她瞒着我什么，下次一定要问清楚。",
+    "intensity_label": "中等",
+    "positive": false
+  },
+  "self_narrative": "不是吧，这几天脑子里全是被沈逸凡和姜皓天的瓜塞满的！每天忙着和念瑶、诗涵研究周末丝绒裙穿搭，根本没空复习。我就像个八卦雷达，虽然看起来整天嘻嘻哈哈买谷子，但大家那点小心思，我其实都看在眼里呢。二本目标嘛，哎呀，再懒两天应该没事吧？",
+  "caption_payload": {
+    "caption": "☀️ 方语晨 · 第009天 档案\n\n标签：小太阳\n此刻心情：挫败\n\n「一个个都装死，行，我有的是办法让她们开口，真以为我不知道她们在瞒着我吗？」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_方语晨_档案_第009天.png"
+  }
+}

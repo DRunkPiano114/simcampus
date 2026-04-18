@@ -1,0 +1,34 @@
+{
+  "agent_id": "he_min",
+  "name_cn": "何老师",
+  "day": 2,
+  "is_teacher": true,
+  "motif_emoji": "📐",
+  "motif_tag": "班主任",
+  "main_color": "#8B6E4E",
+  "emotion_label": "平静",
+  "energy_label": "精神还行",
+  "pressure_label": "稍有压力",
+  "featured_quote": "这孩子在家可能真没啥人顾得上，眼神里全是防备，先别逼太紧。",
+  "featured_scene": "15:30 · 课间",
+  "relationships": [],
+  "memories": [
+    {
+      "date": "Day 2",
+      "text": "何家骏拿着乱糟糟的卷子，手都在抖，这孩子底子薄还没人管，看着真揪心。",
+      "importance": 5
+    }
+  ],
+  "top_concern": null,
+  "self_narrative": "又是开学季，这届学生比以前更难带，心思野，还学聪明了会用AI写作文。我每天在钉钉和智学网之间打转，盯着那几个成绩起伏大的学生，心里比谁都急。何家骏那孩子底子薄，家里又没人管，我看着心疼；林昭宇那孩子绷得太紧，我怕他哪天真断了。我常告诉他们努力有用，可看着他们迷茫的眼神，我自己有时也犯嘀咕。但我不能露怯，我是班主任，只要我还在讲台上站着，就得把这四十多个人稳稳当当地送过去。",
+  "caption_payload": {
+    "caption": "📐 何老师 · 第002天 档案\n\n标签：班主任\n此刻心情：平静\n\n「这孩子在家可能真没啥人顾得上，眼神里全是防备，先别逼太紧。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_何老师_档案_第002天.png"
+  }
+}

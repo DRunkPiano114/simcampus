@@ -1,0 +1,52 @@
+{
+  "fang_yuchen": {
+    "main_color": "#B06AB3",
+    "accent_color": "#7A4A7D",
+    "motif_emoji": "☀️"
+  },
+  "su_nianyao": {
+    "main_color": "#D4748B",
+    "accent_color": "#9C4F62",
+    "motif_emoji": "🌸"
+  },
+  "tang_shihan": {
+    "main_color": "#4AC4A8",
+    "accent_color": "#2E8A76",
+    "motif_emoji": "🌿"
+  },
+  "cheng_yutong": {
+    "main_color": "#E8A838",
+    "accent_color": "#A87420",
+    "motif_emoji": "📚"
+  },
+  "lin_zhaoyu": {
+    "main_color": "#4A7BC4",
+    "accent_color": "#2F5288",
+    "motif_emoji": "🌧️"
+  },
+  "lu_siyuan": {
+    "main_color": "#5BAA5B",
+    "accent_color": "#3A743A",
+    "motif_emoji": "🌱"
+  },
+  "shen_yifan": {
+    "main_color": "#C4524A",
+    "accent_color": "#8C3830",
+    "motif_emoji": "🔥"
+  },
+  "jiang_haotian": {
+    "main_color": "#E87B42",
+    "accent_color": "#A8542A",
+    "motif_emoji": "⚽"
+  },
+  "he_jiajun": {
+    "main_color": "#7B8FA8",
+    "accent_color": "#526074",
+    "motif_emoji": "🌫️"
+  },
+  "he_min": {
+    "main_color": "#8B6E4E",
+    "accent_color": "#5A4630",
+    "motif_emoji": "📐"
+  }
+}

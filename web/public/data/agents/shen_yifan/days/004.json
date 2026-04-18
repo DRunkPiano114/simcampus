@@ -1,0 +1,62 @@
+{
+  "agent_id": "shen_yifan",
+  "name_cn": "沈逸凡",
+  "day": 4,
+  "is_teacher": false,
+  "motif_emoji": "🔥",
+  "motif_tag": "正义班长",
+  "main_color": "#C4524A",
+  "emotion_label": "挫败",
+  "energy_label": "精神还行",
+  "pressure_label": "稍有压力",
+  "featured_quote": "真当校规是摆设吗？这种刺头再不治治，班里的纪律彻底完了。",
+  "featured_scene": "15:30 · 课间",
+  "relationships": [
+    {
+      "target_name": "林昭宇",
+      "favorability": 11,
+      "trust": 6,
+      "label_text": "还行，有些好感"
+    },
+    {
+      "target_name": "方语晨",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "陆思远",
+      "favorability": -2,
+      "trust": 0,
+      "label_text": "有点疏远"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 4",
+      "text": "姜皓天在操场当众挑衅，还用肩膀撞我，简直无法无天。",
+      "importance": 8
+    },
+    {
+      "date": "Day 3",
+      "text": "姜皓天当众嘲讽我，还带走陆思远，完全没把班长的提醒当回事。",
+      "importance": 6
+    }
+  ],
+  "top_concern": {
+    "text": "在宿舍管理上，我与姜皓天的矛盾不断升级，必须找机会进行一次正式谈话，彻底明确纪律底线，不再让这种拉锯战影响我的情绪。",
+    "intensity_label": "较强",
+    "positive": false
+  },
+  "self_narrative": "班长又得当恶人。姜皓天那手机藏了又藏，看着心烦。父亲说纪律就是生命，可班里这帮人哪懂。又要管人又想讨好，真是两头受气。算了，不说了，先把这次考勤表填完。",
+  "caption_payload": {
+    "caption": "🔥 沈逸凡 · 第004天 档案\n\n标签：正义班长\n此刻心情：挫败\n\n「真当校规是摆设吗？这种刺头再不治治，班里的纪律彻底完了。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_沈逸凡_档案_第004天.png"
+  }
+}

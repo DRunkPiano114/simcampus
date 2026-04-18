@@ -1,0 +1,52 @@
+{
+  "agent_id": "shen_yifan",
+  "name_cn": "沈逸凡",
+  "day": 1,
+  "is_teacher": false,
+  "motif_emoji": "🔥",
+  "motif_tag": "正义班长",
+  "main_color": "#C4524A",
+  "emotion_label": "挫败",
+  "energy_label": "精神还行",
+  "pressure_label": "稍有压力",
+  "featured_quote": "一个个都这么懒散，难怪班级纪律抓不严，真想把他们都轰走。",
+  "featured_scene": "15:30 · 课间",
+  "relationships": [
+    {
+      "target_name": "林昭宇",
+      "favorability": 10,
+      "trust": 5,
+      "label_text": "还行，有些好感"
+    },
+    {
+      "target_name": "姜皓天",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 1",
+      "text": "姜皓天大半夜还在宿舍吵闹，根本不把班规和休息当回事。",
+      "importance": 6
+    },
+    {
+      "date": "Day 1",
+      "text": "姜皓天又在课间带头起哄，还把方语晨也扯进来，简直没法沟通。",
+      "importance": 5
+    }
+  ],
+  "top_concern": null,
+  "self_narrative": "",
+  "caption_payload": {
+    "caption": "🔥 沈逸凡 · 第001天 档案\n\n标签：正义班长\n此刻心情：挫败\n\n「一个个都这么懒散，难怪班级纪律抓不严，真想把他们都轰走。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_沈逸凡_档案_第001天.png"
+  }
+}

@@ -1,0 +1,1114 @@
+{
+  "scene": {
+    "scene_index": 2,
+    "time": "08:45",
+    "name": "课间",
+    "location": "走廊",
+    "description": "上午第一个课间休息，同学们在教室里活动",
+    "day": 2
+  },
+  "participant_names": {
+    "fang_yuchen": "方语晨",
+    "su_nianyao": "苏念瑶"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "fang_yuchen",
+        "su_nianyao"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "fang_yuchen",
+              "content": "诶，别玩了，那个翻墙的男生到底是谁啊？你快跟我说说。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "方语晨在那儿摆弄挂件，看起来还没发现我走过来。",
+              "inner_thought": "那个翻墙的瓜到底是不是我们班的？急死我了。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "诶，别玩了，那个翻墙的男生到底是谁啊？你快跟我说说。",
+              "action_target": "fang_yuchen",
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "走廊上大家都在聊天，苏念瑶正靠在栏杆边看远处的操场。",
+              "inner_thought": "那两人到底是不是在谈恋爱啊，憋死我了。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "诶，你说昨天那俩人到底怎么回事？我越想越觉得不对劲，你不觉得吗？",
+              "action_target": "su_nianyao",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "su_nianyao",
+              "content": "诶，你说昨天那俩人到底怎么回事？我越想越觉得不对劲，你不觉得吗？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "方语晨还在摆弄她那个娃衣，完全没把我的话放心上，甚至还挑了挑眉。",
+              "inner_thought": "神神秘秘的，肯定是个大瓜，吊我胃口真是没谁了。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "你再卖关子我要生气了，到底谁啊？快给我透露一点！",
+              "action_target": "fang_yuchen",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "fang_yuchen",
+              "content": "你再卖关子我要生气了，到底谁啊？快给我透露一点！"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "苏念瑶凑近了一点，似乎也在等我爆料，走廊人多，得压低声音。",
+              "inner_thought": "她果然也闻到瓜味了，这波必须给点猛料。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "我跟你说啊，昨天晚自习前我亲眼看见那男的递了一瓶奶茶，还特意挑的去冰三分糖！那可是那女的最爱，你说这还不明显？",
+              "action_target": "su_nianyao",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "su_nianyao",
+              "content": "我跟你说啊，昨天晚自习前我亲眼看见那男的递了一瓶奶茶，还特意挑的去冰三分糖！那可是那女的最爱，你说这还不明显？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "方语晨还在慢悠悠地整理她的娃衣配件，完全没把我当回事。",
+              "inner_thought": "这人真是，急死人了，该不会是她自己编的吧。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "别弄你那破娃衣了，快说，到底是不是隔壁班的？",
+              "action_target": "fang_yuchen",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 4,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "fang_yuchen",
+              "content": "别弄你那破娃衣了，快说，到底是不是隔壁班的？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "苏念瑶听完八卦后眼睛睁大了，正盯着我等进一步的爆料。",
+              "inner_thought": "她果然也觉得有问题！这瓜稳了，必须乘胜追击。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "而且！那天那男的还帮她把物理练习册全改了一遍呢，你说正常人谁闲着没事干啊？真的假的，我觉得他俩肯定成了！",
+              "action_target": "su_nianyao",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 5,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "su_nianyao",
+              "content": "而且！那天那男的还帮她把物理练习册全改了一遍呢，你说正常人谁闲着没事干啊？真的假的，我觉得他俩肯定成了！"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "方语晨还在慢吞吞地摆弄她的娃衣小配饰，完全没有正面回答我的问题。",
+              "inner_thought": "急死人了，她到底在卖什么关子，再不说我就自己猜了。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "哎呀你快点说嘛，到底是不是？再不说我真去翻贴吧看了。",
+              "action_target": "fang_yuchen",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 6,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "fang_yuchen",
+              "content": "哎呀你快点说嘛，到底是不是？再不说我真去翻贴吧看了。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "苏念瑶听完之后一脸不可思议的表情，看来也被这个细节震惊到了。",
+              "inner_thought": "嘿嘿，我就说吧，这瓜肯定保熟，念瑶这反应太到位了。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "而且我还听说，他俩周末好像还要约去图书馆，说是复习，你信吗？我不信！",
+              "action_target": "su_nianyao",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 7,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "su_nianyao",
+              "content": "而且我还听说，他俩周末好像还要约去图书馆，说是复习，你信吗？我不信！"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "方语晨还在慢吞吞地摆弄那个娃衣的微缩眼镜，根本没在意我刚才说要去翻贴吧的威胁。",
+              "inner_thought": "她这心理素质我服了，肯定是想等我主动投降，不能让她看出来我这么急。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "行行行，算我输了。你只要告诉我是一个班的还是年级里的，以后奶茶我包了，怎么样？",
+              "action_target": "fang_yuchen",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 8,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "fang_yuchen",
+              "content": "行行行，算我输了。你只要告诉我是一个班的还是年级里的，以后奶茶我包了，怎么样？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "苏念瑶听完我的话后，一脸怀疑地看着我，看来她也觉得图书馆复习这种事儿水分很大。",
+              "inner_thought": "不行，除了这一手，我还有别的料，这瓜必须得让念瑶全盘接收！",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "但这还不是最劲爆的！我听说那男的连家里的猫都拍给那女的看了，这正常吗？你没发现吗？",
+              "action_target": "su_nianyao",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 9,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "su_nianyao",
+              "content": "但这还不是最劲爆的！我听说那男的连家里的猫都拍给那女的看了，这正常吗？你没发现吗？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "方语晨终于舍得放下那个娃衣，露出了那种要招供的得意嘴脸。",
+              "inner_thought": "快说吧，这奶茶我请定了，别再卡壳了。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "给个痛快话，到底是谁？",
+              "action_target": "fang_yuchen",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 10,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "fang_yuchen",
+              "content": "给个痛快话，到底是谁？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "苏念瑶已经被我的猛料震住了，正一脸不可思议地看着我，等着揭晓最终答案。",
+              "inner_thought": "这瓜喂得差不多了，是时候收网了，再不说她真要急死了。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "哎呀，我直接告诉你吧，就是咱们班那个沈逸凡！我昨天路过他桌子瞄了一眼，聊天记录背景就是那猫！",
+              "action_target": "su_nianyao",
+              "urgency": 9,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 11,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "su_nianyao",
+              "content": "哎呀，我直接告诉你吧，就是咱们班那个沈逸凡！我昨天路过他桌子瞄了一眼，聊天记录背景就是那猫！"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "方语晨终于放下那些琐碎的娃衣配件，表情变得有些耐人寻味。",
+              "inner_thought": "这妮子，再不讲名字我真要上去挠她了。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "搞快点，再磨叽我就不管你周末那个恐怖本了啊。",
+              "action_target": "fang_yuchen",
+              "urgency": 9,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        }
+      ],
+      "narrative": {
+        "key_moments": [
+          "苏念瑶询问翻墙男生的身份。",
+          "方语晨描述了男生递给女生去冰三分糖奶茶的行为。",
+          "方语晨提到男生帮女生修改物理练习册。",
+          "方语晨提到两人计划周末去图书馆复习。",
+          "方语晨提到男生向女生展示家中猫的照片。",
+          "方语晨确认翻墙男生为沈逸凡，并称其聊天背景为该猫的照片。"
+        ],
+        "fulfilled_intentions": [
+          "方语晨:向苏念瑶透露沈逸凡的相关信息",
+          "苏念瑶:从方语晨处获取翻墙男生的身份信息"
+        ],
+        "events_discussed": [],
+        "new_events": [
+          {
+            "text": "沈逸凡在晚自习前递给一名女生一瓶去冰三分糖奶茶。",
+            "category": "社交行为",
+            "witnesses": [
+              "方语晨"
+            ],
+            "spread_probability": 0.8,
+            "cite_ticks": [
+              4
+            ]
+          },
+          {
+            "text": "沈逸凡帮一名女生修改了物理练习册。",
+            "category": "学术行为",
+            "witnesses": [
+              "方语晨"
+            ],
+            "spread_probability": 0.7,
+            "cite_ticks": [
+              6
+            ]
+          },
+          {
+            "text": "沈逸凡与一名女生计划周末在图书馆复习。",
+            "category": "社交计划",
+            "witnesses": [
+              "方语晨"
+            ],
+            "spread_probability": 0.6,
+            "cite_ticks": [
+              8
+            ]
+          },
+          {
+            "text": "沈逸凡向一名女生展示了家中猫的照片，且该照片被设为聊天记录背景。",
+            "category": "社交行为",
+            "witnesses": [
+              "方语晨"
+            ],
+            "spread_probability": 0.9,
+            "cite_ticks": [
+              10,
+              12
+            ]
+          }
+        ]
+      },
+      "reflections": {
+        "fang_yuchen": {
+          "emotion": "excited",
+          "relationship_changes": [
+            {
+              "to_agent": "苏念瑶",
+              "favorability": 2,
+              "trust": 1,
+              "understanding": 2,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "终于把沈逸凡和那个女生的八卦告诉念瑶了，聊天背景是猫真的太好磕了！",
+              "emotion": "excited",
+              "importance": 6,
+              "people": [
+                "苏念瑶",
+                "沈逸凡"
+              ],
+              "location": "走廊",
+              "topics": [
+                "恋爱"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "e800c7",
+              "adjustment": 2
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "旁敲侧击打听那两人是不是在谈恋爱",
+              "status": "fulfilled",
+              "brief_reason": "成功把沈逸凡的八卦分享给念瑶了，证据确凿。"
+            },
+            {
+              "goal": "翻翻史政地笔记，稍微看两眼求个心安",
+              "status": "missed_opportunity",
+              "brief_reason": "一直在和念瑶聊八卦，完全把笔记的事给忘了。"
+            },
+            {
+              "goal": "和诗涵敲定周末恐怖本的行程",
+              "status": "missed_opportunity",
+              "brief_reason": "诗涵不在现场，没机会说。"
+            }
+          ]
+        },
+        "su_nianyao": {
+          "emotion": "excited",
+          "relationship_changes": [
+            {
+              "to_agent": "方语晨",
+              "favorability": 2,
+              "trust": 2,
+              "understanding": 1,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "沈逸凡",
+              "favorability": 0,
+              "trust": 0,
+              "understanding": 2,
+              "direct_interaction": false
+            }
+          ],
+          "memories": [
+            {
+              "text": "方语晨终于说了那个翻墙男生的八卦，竟然是沈逸凡，还拍了猫的照片，这也太甜了。",
+              "emotion": "excited",
+              "importance": 5,
+              "people": [
+                "方语晨",
+                "沈逸凡"
+              ],
+              "location": "走廊",
+              "topics": [
+                "恋爱"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "fc7830",
+              "adjustment": -3
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "向方语晨打听那个翻墙去买手办的男生的八卦",
+              "status": "fulfilled",
+              "brief_reason": "方语晨终于把名字告诉我了，原来是沈逸凡。"
+            }
+          ]
+        }
+      },
+      "share_tick_layouts": [
+        {
+          "day": 2,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "诶，别玩了，那个翻墙的男生到底是谁啊？你快跟我说说。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "那两人到底是不是在谈恋爱啊，憋死我了。"
+            }
+          ],
+          "featured_quote": "那个翻墙的瓜到底是不是我们班的？急死我了。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 0
+        },
+        {
+          "day": 2,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "诶，你说昨天那俩人到底怎么回事？我越想越觉得不对劲，你不觉得吗？"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "神神秘秘的，肯定是个大瓜，吊我胃口真是没谁了。"
+            }
+          ],
+          "featured_quote": "神神秘秘的，肯定是个大瓜，吊我胃口真是没谁了。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 1
+        },
+        {
+          "day": 2,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "你再卖关子我要生气了，到底谁啊？快给我透露一点！"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "她果然也闻到瓜味了，这波必须给点猛料。"
+            }
+          ],
+          "featured_quote": "她果然也闻到瓜味了，这波必须给点猛料。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 2
+        },
+        {
+          "day": 2,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "我跟你说啊，昨天晚自习前我亲眼看见那男的递了一瓶奶茶，还特意挑的去冰三分糖！那可是那女的最爱，你说这还不明显？"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "这人真是，急死人了，该不会是她自己编的吧。"
+            }
+          ],
+          "featured_quote": "这人真是，急死人了，该不会是她自己编的吧。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 3
+        },
+        {
+          "day": 2,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "别弄你那破娃衣了，快说，到底是不是隔壁班的？"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "她果然也觉得有问题！这瓜稳了，必须乘胜追击。"
+            }
+          ],
+          "featured_quote": "她果然也觉得有问题！这瓜稳了，必须乘胜追击。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 4
+        },
+        {
+          "day": 2,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "而且！那天那男的还帮她把物理练习册全改了一遍呢，你说正常人谁闲着没事干啊？真的假的，我觉得他俩肯定成了！"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "急死人了，她到底在卖什么关子，再不说我就自己猜了。"
+            }
+          ],
+          "featured_quote": "急死人了，她到底在卖什么关子，再不说我就自己猜了。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 5
+        },
+        {
+          "day": 2,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "哎呀你快点说嘛，到底是不是？再不说我真去翻贴吧看了。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "嘿嘿，我就说吧，这瓜肯定保熟，念瑶这反应太到位了。"
+            }
+          ],
+          "featured_quote": "嘿嘿，我就说吧，这瓜肯定保熟，念瑶这反应太到位了。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 6
+        },
+        {
+          "day": 2,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "而且我还听说，他俩周末好像还要约去图书馆，说是复习，你信吗？我不信！"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "她这心理素质我服了，肯定是想等我主动投降，不能让她看出来我这么急。"
+            }
+          ],
+          "featured_quote": "她这心理素质我服了，肯定是想等我主动投降，不能让她看出来我这么急。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 7
+        },
+        {
+          "day": 2,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "行行行，算我输了。你只要告诉我是一个班的还是年级里的，以后奶茶我包了，怎么样？"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "不行，除了这一手，我还有别的料，这瓜必须得让念瑶全盘接收！"
+            }
+          ],
+          "featured_quote": "不行，除了这一手，我还有别的料，这瓜必须得让念瑶全盘接收！",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 8
+        },
+        {
+          "day": 2,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "但这还不是最劲爆的！我听说那男的连家里的猫都拍给那女的看了，这正常吗？你没发现吗？"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "快说吧，这奶茶我请定了，别再卡壳了。"
+            }
+          ],
+          "featured_quote": "快说吧，这奶茶我请定了，别再卡壳了。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 9
+        },
+        {
+          "day": 2,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "给个痛快话，到底是谁？"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "这瓜喂得差不多了，是时候收网了，再不说她真要急死了。"
+            }
+          ],
+          "featured_quote": "这瓜喂得差不多了，是时候收网了，再不说她真要急死了。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 10
+        },
+        {
+          "day": 2,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "哎呀，我直接告诉你吧，就是咱们班那个沈逸凡！我昨天路过他桌子瞄了一眼，聊天记录背景就是那猫！"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "这妮子，再不讲名字我真要上去挠她了。"
+            }
+          ],
+          "featured_quote": "这妮子，再不讲名字我真要上去挠她了。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 11
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第002天 · 课间 · 走廊 🌸\n\n「苏念瑶」那个翻墙的瓜到底是不是我们班的？急死我了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@走廊_t01.png",
+          "group_index": 0,
+          "tick_index": 0
+        },
+        {
+          "caption": "第002天 · 课间 · 走廊 ☀️\n\n「苏念瑶」神神秘秘的，肯定是个大瓜，吊我胃口真是没谁了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@走廊_t02.png",
+          "group_index": 0,
+          "tick_index": 1
+        },
+        {
+          "caption": "第002天 · 课间 · 走廊 🌸\n\n「方语晨」她果然也闻到瓜味了，这波必须给点猛料。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@走廊_t03.png",
+          "group_index": 0,
+          "tick_index": 2
+        },
+        {
+          "caption": "第002天 · 课间 · 走廊 ☀️\n\n「苏念瑶」这人真是，急死人了，该不会是她自己编的吧。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@走廊_t04.png",
+          "group_index": 0,
+          "tick_index": 3
+        },
+        {
+          "caption": "第002天 · 课间 · 走廊 🌸\n\n「方语晨」她果然也觉得有问题！这瓜稳了，必须乘胜追击。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@走廊_t05.png",
+          "group_index": 0,
+          "tick_index": 4
+        },
+        {
+          "caption": "第002天 · 课间 · 走廊 ☀️\n\n「苏念瑶」急死人了，她到底在卖什么关子，再不说我就自己猜了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@走廊_t06.png",
+          "group_index": 0,
+          "tick_index": 5
+        },
+        {
+          "caption": "第002天 · 课间 · 走廊 🌸\n\n「方语晨」嘿嘿，我就说吧，这瓜肯定保熟，念瑶这反应太到位了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@走廊_t07.png",
+          "group_index": 0,
+          "tick_index": 6
+        },
+        {
+          "caption": "第002天 · 课间 · 走廊 ☀️\n\n「苏念瑶」她这心理素质我服了，肯定是想等我主动投降，不能让她看出来我这么急。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@走廊_t08.png",
+          "group_index": 0,
+          "tick_index": 7
+        },
+        {
+          "caption": "第002天 · 课间 · 走廊 🌸\n\n「方语晨」不行，除了这一手，我还有别的料，这瓜必须得让念瑶全盘接收！\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@走廊_t09.png",
+          "group_index": 0,
+          "tick_index": 8
+        },
+        {
+          "caption": "第002天 · 课间 · 走廊 ☀️\n\n「苏念瑶」快说吧，这奶茶我请定了，别再卡壳了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@走廊_t10.png",
+          "group_index": 0,
+          "tick_index": 9
+        },
+        {
+          "caption": "第002天 · 课间 · 走廊 🌸\n\n「方语晨」这瓜喂得差不多了，是时候收网了，再不说她真要急死了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@走廊_t11.png",
+          "group_index": 0,
+          "tick_index": 10
+        },
+        {
+          "caption": "第002天 · 课间 · 走廊 ☀️\n\n「苏念瑶」这妮子，再不讲名字我真要上去挠她了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@走廊_t12.png",
+          "group_index": 0,
+          "tick_index": 11
+        }
+      ]
+    }
+  ]
+}

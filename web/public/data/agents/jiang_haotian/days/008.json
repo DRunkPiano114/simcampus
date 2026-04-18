@@ -1,0 +1,62 @@
+{
+  "agent_id": "jiang_haotian",
+  "name_cn": "姜皓天",
+  "day": 8,
+  "is_teacher": false,
+  "motif_emoji": "⚽",
+  "motif_tag": "运动健将",
+  "main_color": "#E87B42",
+  "emotion_label": "挫败",
+  "energy_label": "精神还行",
+  "pressure_label": "轻松",
+  "featured_quote": "这哥们真是服了，脑子里装的都是浆糊吗？非要我拉他一把。",
+  "featured_scene": "12:00 · 午饭",
+  "relationships": [
+    {
+      "target_name": "何家骏",
+      "favorability": 18,
+      "trust": 9,
+      "label_text": "关系不错"
+    },
+    {
+      "target_name": "林昭宇",
+      "favorability": 9,
+      "trust": 5,
+      "label_text": "还行，有些好感"
+    },
+    {
+      "target_name": "方语晨",
+      "favorability": 2,
+      "trust": 0,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 6",
+      "text": "熄灯了还被沈逸凡盯着管，这日子简直没法过，烦死了。",
+      "importance": 6
+    },
+    {
+      "date": "Day 4",
+      "text": "在操场被沈逸凡当众要求收起手机，我用肩膀撞了他并威胁要抠出眼珠。",
+      "importance": 6
+    }
+  ],
+  "top_concern": {
+    "text": "何家骏越来越不爱理人，整天闷头刷题，想带他出来透透气都找不到机会，这哥们状态太紧绷了。",
+    "intensity_label": "中等",
+    "positive": false
+  },
+  "self_narrative": "又是被沈逸凡盯着的一天，烦死了。想找陆思远聊聊未来，总被那管家婆打断。家里厂子订单的事儿不敢问，只能在球场上找点存在感。何家骏那小子抄答案都心惊胆战的，看着真替他累。我这开心果当得，心里其实慌得一批，反正走一步看一步吧。",
+  "caption_payload": {
+    "caption": "⚽ 姜皓天 · 第008天 档案\n\n标签：运动健将\n此刻心情：挫败\n\n「这哥们真是服了，脑子里装的都是浆糊吗？非要我拉他一把。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_姜皓天_档案_第008天.png"
+  }
+}

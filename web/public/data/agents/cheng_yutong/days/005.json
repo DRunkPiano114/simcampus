@@ -1,0 +1,62 @@
+{
+  "agent_id": "cheng_yutong",
+  "name_cn": "程雨桐",
+  "day": 5,
+  "is_teacher": false,
+  "motif_emoji": "📚",
+  "motif_tag": "沉默第二名",
+  "main_color": "#E8A838",
+  "emotion_label": "挫败",
+  "energy_label": "精神还行",
+  "pressure_label": "压力不小",
+  "featured_quote": "离上课还有几分钟，她们能不能稍微安静一点，背英语也是背，为什么要浪费时间在这些琐事上？",
+  "featured_scene": "07:00 · 早读",
+  "relationships": [
+    {
+      "target_name": "苏念瑶",
+      "favorability": 2,
+      "trust": 5,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "唐诗涵",
+      "favorability": 1,
+      "trust": 5,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "陆思远",
+      "favorability": 1,
+      "trust": 1,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 3",
+      "text": "熄灯后在被窝里偷偷阅读《仙路独行》，这是我保持完美形象背后的唯一叛逃。",
+      "importance": 6
+    },
+    {
+      "date": "Day 5",
+      "text": "课间方语晨和苏念瑶传纸条又买东西，吵得完全没法思考。",
+      "importance": 4
+    }
+  ],
+  "top_concern": {
+    "text": "月考排名尚未公布，对成绩的悬念导致持续的焦虑感。",
+    "intensity_label": "强烈",
+    "positive": false
+  },
+  "self_narrative": "班里的隐形人。月考排名还没出，节奏被打乱。苏念瑶的台灯晃眼，很烦。物理卷核对完了，陆思远水平一般。被窝里看《仙路独行》是唯一的出口。维持完美人设，真的很累。",
+  "caption_payload": {
+    "caption": "📚 程雨桐 · 第005天 档案\n\n标签：沉默第二名\n此刻心情：挫败\n\n「离上课还有几分钟，她们能不能稍微安静一点，背英语也是背，为什么要浪费时间在这些琐事上？」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_程雨桐_档案_第005天.png"
+  }
+}

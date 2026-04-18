@@ -1,0 +1,1255 @@
+{
+  "scene": {
+    "scene_index": 10,
+    "time": "15:30",
+    "name": "课间",
+    "location": "走廊",
+    "description": "下午课间休息",
+    "day": 7
+  },
+  "participant_names": {
+    "fang_yuchen": "方语晨",
+    "jiang_haotian": "姜皓天",
+    "tang_shihan": "唐诗涵"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "fang_yuchen",
+        "tang_shihan",
+        "jiang_haotian"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "fang_yuchen",
+              "content": "哎，那个剧最新一集你看了没？剧情离谱死了，笑死。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "方语晨和姜皓天在那儿说话，林昭宇不在旁边。",
+              "inner_thought": "她们俩刚才怎么回事，难道又要瞒着我聊什么？",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "哎，那个剧最新一集你看了没？剧情离谱死了，笑死。",
+              "action_target": "fang_yuchen",
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "jiang_haotian": {
+              "observation": "方语晨和唐诗涵在走廊边上嘀咕，不知道在聊什么奶茶。",
+              "inner_thought": "这奶茶还没喝上呢，烦死了，沈逸凡那怂货千万别在这时候冒出来。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "诶，方语晨，我的那杯奶茶还没下单呢吧？",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "走廊上大家都在各聊天，姜皓天在那儿一脸郁闷地靠着墙。",
+              "inner_thought": "姜皓天这人刚才还被陈老师拎去教训，现在又在这儿晃，不知道憋着什么呢。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "哎，姜皓天，你刚才又干啥了，看你一脸不爽的样。",
+              "action_target": "jiang_haotian",
+              "urgency": 5,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "jiang_haotian",
+              "content": "哎，姜皓天，你刚才又干啥了，看你一脸不爽的样。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "方语晨和姜皓天聊了几句，完全没注意到我刚才的话，还在那嘀嘀咕咕的。",
+              "inner_thought": "离谱，她们俩到底有什么好聊的，又瞒着我？",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "喂，你们俩聊什么呢我也要听。",
+              "action_target": "fang_yuchen",
+              "urgency": 7,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "fang_yuchen",
+              "content": "诶，方语晨，我的那杯奶茶还没下单呢吧？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "姜皓天一脸的不耐烦，刚从物理作业的打击里回过神，看来又是被陈老师说了。",
+              "inner_thought": "他这表情真的很想让人逗他一下，不知道他手机里到底有没有劲爆的东西。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "啧，又被老陈训了？刚才看你站在那里，脸臭得跟什么似的。",
+              "action_target": "jiang_haotian",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "fang_yuchen",
+              "content": "喂，你们俩聊什么呢我也要听。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "方语晨和唐诗涵聊得挺乐呵，看来奶茶的事还没着落。",
+              "inner_thought": "这奶茶再不下单晚自习前都喝不上了，赶紧问问。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "快点帮我定了吧，多加份珍珠，不然我真要渴死了。",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 4,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "jiang_haotian",
+              "content": "啧，又被老陈训了？刚才看你站在那里，脸臭得跟什么似的。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "姜皓天没理我，还在跟方语晨扯奶茶的事，搞得我像个外人。",
+              "inner_thought": "离谱，有这么好聊吗，当我不存在啊？",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "行行行，你们聊，我去买还不成吗，真是的。",
+              "action_target": "fang_yuchen",
+              "urgency": 7,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 5,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "fang_yuchen",
+              "content": "快点帮我定了吧，多加份珍珠，不然我真要渴死了。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "姜皓天一脸别扭，还在等着奶茶，唐诗涵也在旁边凑热闹。",
+              "inner_thought": "这男的手机屏保到底是不是那个，得想个办法炸他一下。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "行了行了，奶茶肯定没跑，你刚才手机亮的时候背景那猫谁拍的啊？",
+              "action_target": "jiang_haotian",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 6,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "fang_yuchen",
+              "content": "行行行，你们聊，我去买还不成吗，真是的。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "方语晨和唐诗涵聊得正起劲，还没动手机帮我买奶茶。",
+              "inner_thought": "这奶茶比课还难等，她们俩到底在磨叽什么？",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "求求了，两位美女，我这命都快渴没了，下单那事儿还没准信吗？",
+              "action_target": "fang_yuchen",
+              "urgency": 7,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 7,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "jiang_haotian",
+              "content": "行了行了，奶茶肯定没跑，你刚才手机亮的时候背景那猫谁拍的啊？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "方语晨还在跟姜皓天磨叽奶茶的事，完全没注意到我刚才的不爽。",
+              "inner_thought": "烦死了，到底还去不去买，在这儿浪费时间。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "搞快点，再磨蹭小卖部都要关门了。",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 8,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "fang_yuchen",
+              "content": "求求了，两位美女，我这命都快渴没了，下单那事儿还没准信吗？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "姜皓天听到我问猫猫屏保的事，表情明显变了一下，有点不自在。",
+              "inner_thought": "有鬼，绝对有鬼，这反应肯定藏着秘密！",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "哎，你这什么表情？我就问问，难道是不能说的秘密？",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 9,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "jiang_haotian",
+              "content": "哎，你这什么表情？我就问问，难道是不能说的秘密？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "唐诗涵好像准备去买奶茶了，但还在磨蹭。",
+              "inner_thought": "再不下单就真的来不及了，这群女的一天到晚磨磨叽叽。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "快去吧，回来请你包邮，这课间都要结束了。",
+              "action_target": "tang_shihan",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 10,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "fang_yuchen",
+              "content": "搞快点，再磨蹭小卖部都要关门了。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "姜皓天听到屏保的问题后明显眼神躲闪，还在硬扯奶茶的话题。",
+              "inner_thought": "这男的肯定心虚，屏保那猫准有猫腻，看我不把他拆穿。",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "没准信！你就说是不是不能说？遮遮掩掩反倒更可疑了哦。",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 11,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "jiang_haotian",
+              "content": "没准信！你就说是不是不能说？遮遮掩掩反倒更可疑了哦。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "方语晨和姜皓天还在缠着奶茶和猫的话题，完全没把小卖部进度放心上。",
+              "inner_thought": "离谱，烦死了，再不去我真的要渴死了。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "行了行了，姜皓天你到底喝不喝？不喝我走了啊。",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        }
+      ],
+      "narrative": {
+        "key_moments": [
+          "唐诗涵询问方语晨关于电视剧的观看情况。",
+          "姜皓天向方语晨确认奶茶下单情况。",
+          "方语晨询问姜皓天手机背景照片的拍摄者。",
+          "姜皓天再次催促方语晨下单奶茶。",
+          "唐诗涵表示准备前往小卖部购买奶茶。"
+        ],
+        "fulfilled_intentions": [
+          "唐诗涵:前往小卖部购买奶茶"
+        ],
+        "events_discussed": [
+          "电视剧最新一集剧情",
+          "姜皓天被老陈训斥",
+          "姜皓天手机背景猫的照片来源",
+          "购买奶茶事宜"
+        ],
+        "new_events": [
+          {
+            "text": "姜皓天被老陈训斥",
+            "category": "校园生活",
+            "witnesses": [
+              "方语晨",
+              "唐诗涵"
+            ],
+            "spread_probability": 0.6,
+            "cite_ticks": [
+              5
+            ]
+          },
+          {
+            "text": "姜皓天手机背景照片为猫",
+            "category": "个人信息",
+            "witnesses": [
+              "方语晨"
+            ],
+            "spread_probability": 0.3,
+            "cite_ticks": [
+              8
+            ]
+          },
+          {
+            "text": "唐诗涵前往小卖部购买奶茶",
+            "category": "日常活动",
+            "witnesses": [
+              "方语晨",
+              "姜皓天"
+            ],
+            "spread_probability": 0.4,
+            "cite_ticks": [
+              7,
+              11
+            ]
+          }
+        ]
+      },
+      "reflections": {
+        "fang_yuchen": {
+          "emotion": "curious",
+          "relationship_changes": [
+            {
+              "to_agent": "姜皓天",
+              "favorability": 1,
+              "trust": 0,
+              "understanding": 2,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "姜皓天这人果然有猫腻，我问他手机壁纸他居然在那儿装傻充愣，肯定有问题！",
+              "emotion": "curious",
+              "importance": 4,
+              "people": [
+                "姜皓天"
+              ],
+              "location": "走廊",
+              "topics": [
+                "人际矛盾",
+                "八卦"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "c727f6",
+              "adjustment": 2
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "假装借作业看，顺势瞄一眼他手机屏幕或桌面通知，看看那个猫猫背景是怎么回事",
+              "status": "attempted",
+              "brief_reason": "直接开口问了姜皓天关于背景图的事，但他明显在打马虎眼，没套出实话。"
+            }
+          ]
+        },
+        "tang_shihan": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "方语晨",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "姜皓天",
+              "favorability": 0,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "方语晨和姜皓天聊得火热，完全没理我，还说什么秘密，烦死了。",
+              "emotion": "frustrated",
+              "importance": 4,
+              "people": [
+                "方语晨",
+                "姜皓天"
+              ],
+              "location": "走廊",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "450fb6",
+              "adjustment": 1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "假装借文具顺便问他物理题，看看他什么反应",
+              "status": "missed_opportunity",
+              "brief_reason": "一直在和语晨、姜皓天纠结奶茶和八卦，根本没机会找林昭宇。"
+            },
+            {
+              "goal": "给蛋仔买新娃衣并拍照片发小红书",
+              "status": "frustrated",
+              "brief_reason": "被这群人磨磨唧唧搞得心情全无，根本没空看娃衣。"
+            },
+            {
+              "goal": "午饭时套话，搞清楚她和苏念瑶到底瞒着什么",
+              "status": "frustrated",
+              "brief_reason": "语晨还在跟我打太极，甚至还在和姜皓天聊些莫名其妙的秘密，气死我了。"
+            }
+          ]
+        },
+        "jiang_haotian": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "方语晨",
+              "favorability": 1,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "唐诗涵",
+              "favorability": 0,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "方语晨一直问我手机壁纸猫的事，烦死了，奶茶都还没买。",
+              "emotion": "frustrated",
+              "importance": 3,
+              "people": [
+                "方语晨"
+              ],
+              "location": "走廊",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "df3acc",
+              "adjustment": 1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "在午休时找个机会问问他毕业后打算去哪混，看能不能透点底。（想找陆思远）",
+              "status": "missed_opportunity",
+              "brief_reason": "陆思远根本不在走廊，被方语晨缠住了。"
+            },
+            {
+              "goal": "拉他去操场投几个三分球，顺便带他开把王者。（想找何家骏）",
+              "status": "missed_opportunity",
+              "brief_reason": "何家骏不在场，没机会叫他。"
+            },
+            {
+              "goal": "故意在他面前哼新出的说唱，看他想管又管不了的样子。（想找沈逸凡）",
+              "status": "missed_opportunity",
+              "brief_reason": "沈逸凡不在，没法搞他。"
+            }
+          ]
+        }
+      },
+      "share_tick_layouts": [
+        {
+          "day": 7,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "哎，那个剧最新一集你看了没？剧情离谱死了，笑死。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "姜皓天这人刚才还被陈老师拎去教训，现在又在这儿晃，不知道憋着什么呢。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "这奶茶还没喝上呢，烦死了，沈逸凡那怂货千万别在这时候冒出来。"
+            }
+          ],
+          "featured_quote": "她们俩刚才怎么回事，难道又要瞒着我聊什么？",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 0
+        },
+        {
+          "day": 7,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "哎，姜皓天，你刚才又干啥了，看你一脸不爽的样。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "离谱，她们俩到底有什么好聊的，又瞒着我？"
+            }
+          ],
+          "featured_quote": "离谱，她们俩到底有什么好聊的，又瞒着我？",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 1
+        },
+        {
+          "day": 7,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "诶，方语晨，我的那杯奶茶还没下单呢吧？"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "他这表情真的很想让人逗他一下，不知道他手机里到底有没有劲爆的东西。"
+            }
+          ],
+          "featured_quote": "他这表情真的很想让人逗他一下，不知道他手机里到底有没有劲爆的东西。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 2
+        },
+        {
+          "day": 7,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "喂，你们俩聊什么呢我也要听。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "这奶茶再不下单晚自习前都喝不上了，赶紧问问。"
+            }
+          ],
+          "featured_quote": "这奶茶再不下单晚自习前都喝不上了，赶紧问问。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 3
+        },
+        {
+          "day": 7,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "啧，又被老陈训了？刚才看你站在那里，脸臭得跟什么似的。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "离谱，有这么好聊吗，当我不存在啊？"
+            }
+          ],
+          "featured_quote": "离谱，有这么好聊吗，当我不存在啊？",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 4
+        },
+        {
+          "day": 7,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "快点帮我定了吧，多加份珍珠，不然我真要渴死了。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "这男的手机屏保到底是不是那个，得想个办法炸他一下。"
+            }
+          ],
+          "featured_quote": "这男的手机屏保到底是不是那个，得想个办法炸他一下。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 5
+        },
+        {
+          "day": 7,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "行行行，你们聊，我去买还不成吗，真是的。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "这奶茶比课还难等，她们俩到底在磨叽什么？"
+            }
+          ],
+          "featured_quote": "这奶茶比课还难等，她们俩到底在磨叽什么？",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 6
+        },
+        {
+          "day": 7,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "行了行了，奶茶肯定没跑，你刚才手机亮的时候背景那猫谁拍的啊？"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "烦死了，到底还去不去买，在这儿浪费时间。"
+            }
+          ],
+          "featured_quote": "烦死了，到底还去不去买，在这儿浪费时间。",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 7
+        },
+        {
+          "day": 7,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "求求了，两位美女，我这命都快渴没了，下单那事儿还没准信吗？"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "有鬼，绝对有鬼，这反应肯定藏着秘密！"
+            }
+          ],
+          "featured_quote": "有鬼，绝对有鬼，这反应肯定藏着秘密！",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 8
+        },
+        {
+          "day": 7,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "哎，你这什么表情？我就问问，难道是不能说的秘密？"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "再不下单就真的来不及了，这群女的一天到晚磨磨叽叽。"
+            }
+          ],
+          "featured_quote": "再不下单就真的来不及了，这群女的一天到晚磨磨叽叽。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 9
+        },
+        {
+          "day": 7,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "搞快点，再磨蹭小卖部都要关门了。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "这男的肯定心虚，屏保那猫准有猫腻，看我不把他拆穿。"
+            }
+          ],
+          "featured_quote": "这男的肯定心虚，屏保那猫准有猫腻，看我不把他拆穿。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 10
+        },
+        {
+          "day": 7,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "走廊",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "没准信！你就说是不是不能说？遮遮掩掩反倒更可疑了哦。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "离谱，烦死了，再不去我真的要渴死了。"
+            }
+          ],
+          "featured_quote": "离谱，烦死了，再不去我真的要渴死了。",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 11
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第007天 · 课间 · 走廊 🌿\n\n「唐诗涵」她们俩刚才怎么回事，难道又要瞒着我聊什么？\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第007天_课间@走廊_t01.png",
+          "group_index": 0,
+          "tick_index": 0
+        },
+        {
+          "caption": "第007天 · 课间 · 走廊 ☀️\n\n「唐诗涵」离谱，她们俩到底有什么好聊的，又瞒着我？\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第007天_课间@走廊_t02.png",
+          "group_index": 0,
+          "tick_index": 1
+        },
+        {
+          "caption": "第007天 · 课间 · 走廊 ⚽\n\n「方语晨」他这表情真的很想让人逗他一下，不知道他手机里到底有没有劲爆的东西。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第007天_课间@走廊_t03.png",
+          "group_index": 0,
+          "tick_index": 2
+        },
+        {
+          "caption": "第007天 · 课间 · 走廊 🌿\n\n「姜皓天」这奶茶再不下单晚自习前都喝不上了，赶紧问问。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第007天_课间@走廊_t04.png",
+          "group_index": 0,
+          "tick_index": 3
+        },
+        {
+          "caption": "第007天 · 课间 · 走廊 ☀️\n\n「唐诗涵」离谱，有这么好聊吗，当我不存在啊？\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第007天_课间@走廊_t05.png",
+          "group_index": 0,
+          "tick_index": 4
+        },
+        {
+          "caption": "第007天 · 课间 · 走廊 ⚽\n\n「方语晨」这男的手机屏保到底是不是那个，得想个办法炸他一下。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第007天_课间@走廊_t06.png",
+          "group_index": 0,
+          "tick_index": 5
+        },
+        {
+          "caption": "第007天 · 课间 · 走廊 🌿\n\n「姜皓天」这奶茶比课还难等，她们俩到底在磨叽什么？\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第007天_课间@走廊_t07.png",
+          "group_index": 0,
+          "tick_index": 6
+        },
+        {
+          "caption": "第007天 · 课间 · 走廊 ☀️\n\n「唐诗涵」烦死了，到底还去不去买，在这儿浪费时间。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第007天_课间@走廊_t08.png",
+          "group_index": 0,
+          "tick_index": 7
+        },
+        {
+          "caption": "第007天 · 课间 · 走廊 ⚽\n\n「方语晨」有鬼，绝对有鬼，这反应肯定藏着秘密！\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第007天_课间@走廊_t09.png",
+          "group_index": 0,
+          "tick_index": 8
+        },
+        {
+          "caption": "第007天 · 课间 · 走廊 ☀️\n\n「姜皓天」再不下单就真的来不及了，这群女的一天到晚磨磨叽叽。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第007天_课间@走廊_t10.png",
+          "group_index": 0,
+          "tick_index": 9
+        },
+        {
+          "caption": "第007天 · 课间 · 走廊 🌿\n\n「方语晨」这男的肯定心虚，屏保那猫准有猫腻，看我不把他拆穿。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第007天_课间@走廊_t11.png",
+          "group_index": 0,
+          "tick_index": 10
+        },
+        {
+          "caption": "第007天 · 课间 · 走廊 ☀️\n\n「唐诗涵」离谱，烦死了，再不去我真的要渴死了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#走廊",
+            "#课间"
+          ],
+          "filename": "simcampus_第007天_课间@走廊_t12.png",
+          "group_index": 0,
+          "tick_index": 11
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "agent_id": "lu_siyuan",
+  "name_cn": "陆思远",
+  "day": 5,
+  "is_teacher": false,
+  "motif_emoji": "🌱",
+  "motif_tag": "好好先生",
+  "main_color": "#5BAA5B",
+  "emotion_label": "平静",
+  "energy_label": "精神还行",
+  "pressure_label": "稍有压力",
+  "featured_quote": "算了，今天图书馆也不适合学习，回教室吧，这地方太压抑了。",
+  "featured_scene": "15:30 · 课间",
+  "relationships": [
+    {
+      "target_name": "林昭宇",
+      "favorability": 32,
+      "trust": 24,
+      "label_text": "很亲近的朋友"
+    },
+    {
+      "target_name": "唐诗涵",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "程雨桐",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 3",
+      "text": "终于从姜皓天那里拿回了数学笔记，虽然他说话还是那么难听，但笔记总算回来了。",
+      "importance": 5
+    },
+    {
+      "date": "Day 2",
+      "text": "姜皓天在熄灯后还追问我的未来规划，搞得沈逸凡很不高兴。",
+      "importance": 5
+    }
+  ],
+  "top_concern": {
+    "text": "公众号草稿箱里积攒了十几篇内容，总觉得写得不够好或者没人看，迟迟不敢发布。",
+    "intensity_label": "中等",
+    "positive": false
+  },
+  "self_narrative": "又是帮姜皓天忙的一天。我像个只会点头的工具人，心里的草稿箱又积灰了。想写点什么，话到嘴边又咽回去，算了，反正没人看。林昭宇是我唯一的出口，和他待着才觉得舒服点。",
+  "caption_payload": {
+    "caption": "🌱 陆思远 · 第005天 档案\n\n标签：好好先生\n此刻心情：平静\n\n「算了，今天图书馆也不适合学习，回教室吧，这地方太压抑了。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_陆思远_档案_第005天.png"
+  }
+}

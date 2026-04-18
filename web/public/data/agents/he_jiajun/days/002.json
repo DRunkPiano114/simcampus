@@ -1,0 +1,62 @@
+{
+  "agent_id": "he_jiajun",
+  "name_cn": "何家骏",
+  "day": 2,
+  "is_teacher": false,
+  "motif_emoji": "🌫️",
+  "motif_tag": "寡言少年",
+  "main_color": "#7B8FA8",
+  "emotion_label": "焦虑",
+  "energy_label": "精神还行",
+  "pressure_label": "轻松",
+  "featured_quote": "他怎么还不说话，该不会是嫌我菜不想带吧？好丢人。",
+  "featured_scene": "12:00 · 午饭",
+  "relationships": [
+    {
+      "target_name": "唐诗涵",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "陆思远",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "林昭宇",
+      "favorability": -1,
+      "trust": 0,
+      "label_text": "有点疏远"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 2",
+      "text": "姜皓天在食堂主动叫我一起吃饭，还说下午带我练投篮。",
+      "importance": 6
+    },
+    {
+      "date": "Day 2",
+      "text": "姜皓天在食堂主动邀请我一起用餐，并约我下午去操场打球。",
+      "importance": 6
+    }
+  ],
+  "top_concern": {
+    "text": "想找机会和姜皓天打个招呼试着融入，但又怕被嫌弃，最终还是没敢开口。",
+    "intensity_label": "中等",
+    "positive": false
+  },
+  "self_narrative": "班里角落里的影子。没人注意最好。昨天数学卷子又是一团糟，算了，反正就这样。想开口和姜皓天聊聊，话到嘴边又咽下去了。爸爸昨晚又没见着人，微波炉里的饭还是冷的。没什么好说的，那个……没事。",
+  "caption_payload": {
+    "caption": "🌫️ 何家骏 · 第002天 档案\n\n标签：寡言少年\n此刻心情：焦虑\n\n「他怎么还不说话，该不会是嫌我菜不想带吧？好丢人。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_何家骏_档案_第002天.png"
+  }
+}

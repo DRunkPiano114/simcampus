@@ -1,0 +1,62 @@
+{
+  "agent_id": "tang_shihan",
+  "name_cn": "唐诗涵",
+  "day": 9,
+  "is_teacher": false,
+  "motif_emoji": "🌿",
+  "motif_tag": "大大咧咧学委",
+  "main_color": "#4AC4A8",
+  "emotion_label": "挫败",
+  "energy_label": "精神还行",
+  "pressure_label": "稍有压力",
+  "featured_quote": "真没劲，问句去不去都爱理不理的，随她们去吧，搞得我好像多想跟她们待在一起一样。",
+  "featured_scene": "12:00 · 午饭",
+  "relationships": [
+    {
+      "target_name": "方语晨",
+      "favorability": 15,
+      "trust": 6,
+      "label_text": "关系不错"
+    },
+    {
+      "target_name": "苏念瑶",
+      "favorability": 2,
+      "trust": -5,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "陆思远",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 5",
+      "text": "苏念瑶在聊八卦时居然往林昭宇那边看，肯定有情况！",
+      "importance": 7
+    },
+    {
+      "date": "Day 9",
+      "text": "苏念瑶在操场看到我过来，找个借口就跑了，明显不想理我。",
+      "importance": 6
+    }
+  ],
+  "top_concern": {
+    "text": "方语晨和苏念瑶在学校里总是神神秘秘，不仅对我隐瞒和林昭宇的交流，连课间和晚自习都刻意避开我，这种被排挤的感觉让我非常不安。",
+    "intensity_label": "较强",
+    "positive": false
+  },
+  "self_narrative": "在班里就是个开心果，谁有事都找我。最近真是离谱，苏念瑶和林昭宇到底什么情况？想问又开不了口，笑死，我这社交核心当得真累。一本目标还没影，烦死了，感觉自己快被这些小秘密压垮了。",
+  "caption_payload": {
+    "caption": "🌿 唐诗涵 · 第009天 档案\n\n标签：大大咧咧学委\n此刻心情：挫败\n\n「真没劲，问句去不去都爱理不理的，随她们去吧，搞得我好像多想跟她们待在一起一样。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_唐诗涵_档案_第009天.png"
+  }
+}

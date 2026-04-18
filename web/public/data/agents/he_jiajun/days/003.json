@@ -1,0 +1,62 @@
+{
+  "agent_id": "he_jiajun",
+  "name_cn": "何家骏",
+  "day": 3,
+  "is_teacher": false,
+  "motif_emoji": "🌫️",
+  "motif_tag": "寡言少年",
+  "main_color": "#7B8FA8",
+  "emotion_label": "尴尬",
+  "energy_label": "精神还行",
+  "pressure_label": "轻松",
+  "featured_quote": "坐标系什么的，真的听不懂。算了，硬着头皮写几个字吧，不然周五死定了。",
+  "featured_scene": "08:45 · 课间",
+  "relationships": [
+    {
+      "target_name": "姜皓天",
+      "favorability": 3,
+      "trust": 2,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "何老师",
+      "favorability": 1,
+      "trust": 0,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "林昭宇",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 3",
+      "text": "沈逸凡当众说我动静太大，吵到他们了，脸好烫。",
+      "importance": 6
+    },
+    {
+      "date": "Day 3",
+      "text": "何老师在食堂盯着我，非要我下午把错题本补好，躲都躲不掉。",
+      "importance": 6
+    }
+  ],
+  "top_concern": {
+    "text": "何老师要求周五前整理好错题本并去办公室讲解，担心自己无法应付。",
+    "intensity_label": "较强",
+    "positive": false
+  },
+  "self_narrative": "班里角落里的影子。没人注意最好。昨天数学卷子又是一团糟，算了，反正就这样。想开口和姜皓天聊聊，话到嘴边又咽下去了。爸爸昨晚又没见着人，微波炉里的饭还是冷的。没什么好说的，那个……没事。",
+  "caption_payload": {
+    "caption": "🌫️ 何家骏 · 第003天 档案\n\n标签：寡言少年\n此刻心情：尴尬\n\n「坐标系什么的，真的听不懂。算了，硬着头皮写几个字吧，不然周五死定了。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_何家骏_档案_第003天.png"
+  }
+}

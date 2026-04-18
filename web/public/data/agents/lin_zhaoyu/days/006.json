@@ -1,0 +1,62 @@
+{
+  "agent_id": "lin_zhaoyu",
+  "name_cn": "林昭宇",
+  "day": 6,
+  "is_teacher": false,
+  "motif_emoji": "🌧️",
+  "motif_tag": "书呆子",
+  "main_color": "#4A7BC4",
+  "emotion_label": "挫败",
+  "energy_label": "精神还行",
+  "pressure_label": "压力不小",
+  "featured_quote": "他会不会觉得这些题太基础了？好紧张，千万别让他觉得我很笨。",
+  "featured_scene": "07:00 · 早读",
+  "relationships": [
+    {
+      "target_name": "陆思远",
+      "favorability": 38,
+      "trust": 33,
+      "label_text": "很亲近的朋友"
+    },
+    {
+      "target_name": "唐诗涵",
+      "favorability": 8,
+      "trust": 5,
+      "label_text": "还行，有些好感"
+    },
+    {
+      "target_name": "沈逸凡",
+      "favorability": 7,
+      "trust": 6,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 6",
+      "text": "唐诗涵问我题，我没答出来，程雨桐还在旁边插嘴说我算错了，感觉好丢脸。",
+      "importance": 6
+    },
+    {
+      "date": "Day 3",
+      "text": "陆思远帮我解围后去图书馆门口等我，感觉还是他最懂我。",
+      "importance": 6
+    }
+  ],
+  "top_concern": {
+    "text": "英语成绩一直没有起色，担心这门课会成为拖累总分、影响考取985的短板。",
+    "intensity_label": "中等",
+    "positive": false
+  },
+  "self_narrative": "在班里就是个隐形人，除了和陆思远说话，基本不开口。英语单词还没背完，一想到妈那个智学网，心跳就快。物理题做得还行，但总觉得用AI查题很心虚。希望能考上985，别让爸妈再那么累了。",
+  "caption_payload": {
+    "caption": "🌧️ 林昭宇 · 第006天 档案\n\n标签：书呆子\n此刻心情：挫败\n\n「他会不会觉得这些题太基础了？好紧张，千万别让他觉得我很笨。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_林昭宇_档案_第006天.png"
+  }
+}

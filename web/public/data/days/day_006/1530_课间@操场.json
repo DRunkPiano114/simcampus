@@ -1,0 +1,582 @@
+{
+  "scene": {
+    "scene_index": 9,
+    "time": "15:30",
+    "name": "课间",
+    "location": "操场",
+    "description": "下午课间休息",
+    "day": 6
+  },
+  "participant_names": {
+    "cheng_yutong": "程雨桐",
+    "he_jiajun": "何家骏",
+    "shen_yifan": "沈逸凡"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "cheng_yutong",
+        "shen_yifan",
+        "he_jiajun"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "he_jiajun",
+              "content": "家骏，不是我说你，你应该回教室看会儿书了。"
+            },
+            "actions": [
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "默默戴上降噪耳机，转身背对着操场。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": [
+              "he_jiajun"
+            ]
+          },
+          "minds": {
+            "he_jiajun": {
+              "observation": "沈逸凡在球场边看着，离我不远。",
+              "inner_thought": "又要碰到他，赶紧走吧，待会儿物理还没写完。",
+              "emotion": "anxious",
+              "action_type": "exit",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "cheng_yutong": {
+              "observation": "沈逸凡和何家骏站在操场边，阳光太晃眼了。",
+              "inner_thought": "真吵，有这时间不如算一遍物理压轴题。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "默默戴上降噪耳机，转身背对着操场。",
+              "action_target": null,
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "shen_yifan": {
+              "observation": "何家骏还在球场边磨蹭，好像根本没打算回去复习。",
+              "inner_thought": "在这儿虚度光阴，真不知道他怎么想的。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "家骏，不是我说你，你应该回教室看会儿书了。",
+              "action_target": "he_jiajun",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "cheng_yutong": {
+              "observation": "沈逸凡在说教何家骏，他们两人的谈话进度比预想的慢。",
+              "inner_thought": "排名还不出来，再磨蹭下去今晚又没时间看书了。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "shen_yifan": {
+              "observation": "何家骏没搭理我的建议直接走了，程雨桐戴着耳机在那儿背对自己。",
+              "inner_thought": "真是一个比一个难管，我在这儿充什么大头，算了，清静点。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {},
+          "gated_agents": [
+            "cheng_yutong",
+            "shen_yifan"
+          ]
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {},
+          "gated_agents": [
+            "cheng_yutong",
+            "shen_yifan"
+          ]
+        },
+        {
+          "tick": 4,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {},
+          "gated_agents": [
+            "cheng_yutong",
+            "shen_yifan"
+          ]
+        }
+      ],
+      "narrative": {
+        "key_moments": [
+          "沈逸凡建议何家骏回教室看书。",
+          "程雨桐戴上降噪耳机并转身背对操场。",
+          "何家骏离开操场。"
+        ],
+        "fulfilled_intentions": [
+          "何家骏:离开操场"
+        ],
+        "events_discussed": [],
+        "new_events": [
+          {
+            "text": "沈逸凡建议何家骏回教室看书",
+            "category": "建议",
+            "witnesses": [
+              "程雨桐"
+            ],
+            "spread_probability": 0.3,
+            "cite_ticks": [
+              1
+            ]
+          },
+          {
+            "text": "何家骏离开操场",
+            "category": "行为",
+            "witnesses": [
+              "沈逸凡",
+              "程雨桐"
+            ],
+            "spread_probability": 0.2,
+            "cite_ticks": [
+              1
+            ]
+          }
+        ]
+      },
+      "reflections": {
+        "cheng_yutong": {
+          "emotion": "bored",
+          "relationship_changes": [
+            {
+              "to_agent": "沈逸凡",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": false
+            },
+            {
+              "to_agent": "何家骏",
+              "favorability": 0,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": false
+            }
+          ],
+          "memories": [
+            {
+              "text": "沈逸凡在操场催何家骏回教室学习，真是多管闲事。",
+              "emotion": "bored",
+              "importance": 3,
+              "people": [
+                "沈逸凡",
+                "何家骏"
+              ],
+              "location": "操场",
+              "topics": [
+                "学业焦虑"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "998933",
+              "adjustment": 1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "确认月考排名",
+              "status": "frustrated",
+              "brief_reason": "操场太吵，且排名始终未发布，干扰了我的节奏。"
+            },
+            {
+              "goal": "整理错题逻辑",
+              "status": "frustrated",
+              "brief_reason": "课间时间被无关的对话干扰，被迫戴上耳机隔绝环境。"
+            }
+          ]
+        },
+        "shen_yifan": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "何家骏",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "何家骏又不听劝，还在操场晃悠，班长真难当。",
+              "emotion": "frustrated",
+              "importance": 4,
+              "people": [
+                "何家骏"
+              ],
+              "location": "操场",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "a8eb7",
+              "adjustment": 1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "找个时间正式谈一次，明确纪律红线",
+              "status": "missed_opportunity",
+              "brief_reason": "何家骏直接走开了，根本没给我说话的机会。"
+            },
+            {
+              "goal": "去操场跑两圈，出一身汗",
+              "status": "attempted",
+              "brief_reason": "被班级琐事打断，没能静下心来跑步。"
+            }
+          ]
+        },
+        "he_jiajun": {
+          "emotion": "embarrassed",
+          "relationship_changes": [
+            {
+              "to_agent": "沈逸凡",
+              "favorability": -2,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "沈逸凡又在操场上说我，烦死了。",
+              "emotion": "embarrassed",
+              "importance": 6,
+              "people": [
+                "沈逸凡"
+              ],
+              "location": "操场",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "b577f9",
+              "adjustment": 1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "在午休前把物理错题本剩下的几道题写完",
+              "status": "frustrated",
+              "brief_reason": "被沈逸凡打断，又没心思写了。"
+            }
+          ]
+        }
+      },
+      "share_tick_layouts": [
+        {
+          "day": 6,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "家骏，不是我说你，你应该回教室看会儿书了。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "又要碰到他，赶紧走吧，待会儿物理还没写完。"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "真吵，有这时间不如算一遍物理压轴题。"
+            }
+          ],
+          "featured_quote": "又要碰到他，赶紧走吧，待会儿物理还没写完。",
+          "featured_speaker_name": "何家骏",
+          "tick_index": 0
+        },
+        {
+          "day": 6,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "排名还不出来，再磨蹭下去今晚又没时间看书了。"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "真是一个比一个难管，我在这儿充什么大头，算了，清静点。"
+            }
+          ],
+          "featured_quote": "真是一个比一个难管，我在这儿充什么大头，算了，清静点。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 1
+        },
+        {
+          "day": 6,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            }
+          ],
+          "bubbles": [],
+          "featured_quote": null,
+          "featured_speaker_name": null,
+          "tick_index": 2
+        },
+        {
+          "day": 6,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            }
+          ],
+          "bubbles": [],
+          "featured_quote": null,
+          "featured_speaker_name": null,
+          "tick_index": 3
+        },
+        {
+          "day": 6,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            }
+          ],
+          "bubbles": [],
+          "featured_quote": null,
+          "featured_speaker_name": null,
+          "tick_index": 4
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第006天 · 课间 · 操场 🔥\n\n「何家骏」又要碰到他，赶紧走吧，待会儿物理还没写完。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第006天_课间@操场_t01.png",
+          "group_index": 0,
+          "tick_index": 0
+        },
+        {
+          "caption": "第006天 · 课间 · 操场 📚\n\n「沈逸凡」真是一个比一个难管，我在这儿充什么大头，算了，清静点。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第006天_课间@操场_t02.png",
+          "group_index": 0,
+          "tick_index": 1
+        },
+        {
+          "caption": "第006天 · 课间 · 操场\n\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第006天_课间@操场_t03.png",
+          "group_index": 0,
+          "tick_index": 2
+        },
+        {
+          "caption": "第006天 · 课间 · 操场\n\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第006天_课间@操场_t04.png",
+          "group_index": 0,
+          "tick_index": 3
+        },
+        {
+          "caption": "第006天 · 课间 · 操场\n\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第006天_课间@操场_t05.png",
+          "group_index": 0,
+          "tick_index": 4
+        }
+      ]
+    }
+  ]
+}

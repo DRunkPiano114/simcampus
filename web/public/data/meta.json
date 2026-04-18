@@ -1,0 +1,243 @@
+{
+  "days": [
+    "day_001",
+    "day_002",
+    "day_003",
+    "day_004",
+    "day_005",
+    "day_006",
+    "day_007",
+    "day_008",
+    "day_009"
+  ],
+  "agents": {
+    "cheng_yutong": {
+      "name": "程雨桐",
+      "role": "student",
+      "gender": "female",
+      "seat_number": 5,
+      "position": null,
+      "dorm_id": "female_302"
+    },
+    "fang_yuchen": {
+      "name": "方语晨",
+      "role": "student",
+      "gender": "female",
+      "seat_number": 7,
+      "position": null,
+      "dorm_id": "female_302"
+    },
+    "he_jiajun": {
+      "name": "何家骏",
+      "role": "student",
+      "gender": "male",
+      "seat_number": 20,
+      "position": null,
+      "dorm_id": "male_303"
+    },
+    "he_min": {
+      "name": "何老师",
+      "role": "homeroom_teacher",
+      "gender": "female",
+      "seat_number": null,
+      "position": "班主任",
+      "dorm_id": null
+    },
+    "jiang_haotian": {
+      "name": "姜皓天",
+      "role": "student",
+      "gender": "male",
+      "seat_number": 14,
+      "position": "体育委员",
+      "dorm_id": "male_301"
+    },
+    "lin_zhaoyu": {
+      "name": "林昭宇",
+      "role": "student",
+      "gender": "male",
+      "seat_number": 12,
+      "position": null,
+      "dorm_id": "male_301"
+    },
+    "lu_siyuan": {
+      "name": "陆思远",
+      "role": "student",
+      "gender": "male",
+      "seat_number": 13,
+      "position": null,
+      "dorm_id": "male_301"
+    },
+    "shen_yifan": {
+      "name": "沈逸凡",
+      "role": "student",
+      "gender": "male",
+      "seat_number": 15,
+      "position": "班长",
+      "dorm_id": "male_301"
+    },
+    "su_nianyao": {
+      "name": "苏念瑶",
+      "role": "student",
+      "gender": "female",
+      "seat_number": 6,
+      "position": null,
+      "dorm_id": "female_302"
+    },
+    "tang_shihan": {
+      "name": "唐诗涵",
+      "role": "student",
+      "gender": "female",
+      "seat_number": 11,
+      "position": "学习委员",
+      "dorm_id": "female_302"
+    }
+  },
+  "schedule": [
+    {
+      "time": "07:00",
+      "name": "早读",
+      "location": "教室",
+      "density": "low",
+      "max_rounds": 8,
+      "trigger_probability": 0.15,
+      "description": "早读时间，大家在教室里朗读课文",
+      "opening_events": [
+        "早读铃响了，教室里稀稀拉拉地响起读书声",
+        "英语老师走进教室，大家赶紧翻开课本",
+        "有人打着哈欠走进教室，看起来没睡醒"
+      ]
+    },
+    {
+      "time": "08:45",
+      "name": "课间",
+      "location": "教室",
+      "density": "high",
+      "max_rounds": 12,
+      "trigger_probability": 1.0,
+      "description": "上午第一个课间休息，同学们在教室里活动",
+      "opening_events": [
+        "下课铃响了，教室里一下子热闹起来",
+        "老师刚走出教室，后排就开始闹了",
+        "下课了，几个人立马凑到一起",
+        "铃声响了，有人伸懒腰有人往外冲"
+      ],
+      "is_free_period": true,
+      "valid_locations": [
+        "教室",
+        "走廊",
+        "操场",
+        "小卖部",
+        "图书馆",
+        "天台"
+      ],
+      "pref_field": "morning_break"
+    },
+    {
+      "time": "10:30",
+      "name": "上课",
+      "location": "教室",
+      "density": "low",
+      "max_rounds": 8,
+      "trigger_probability": 0.15,
+      "description": "上午第二节课",
+      "opening_events": [
+        "老师在黑板上写题，底下有人偷偷传纸条",
+        "数学课，老师让大家做练习，教室安静下来",
+        "课上到一半，有人开始犯困"
+      ]
+    },
+    {
+      "time": "12:00",
+      "name": "午饭",
+      "location": "食堂",
+      "density": "high",
+      "max_rounds": 20,
+      "trigger_probability": 1.0,
+      "description": "午饭时间，同学们结伴去食堂吃饭",
+      "opening_events": [
+        "食堂里人挤人，端着餐盘找座位",
+        "刚坐下来，饭菜的香味飘过来",
+        "今天食堂出了新菜，排队的人特别多",
+        "几个人占了个角落的位子，开始吃饭"
+      ],
+      "is_free_period": true,
+      "valid_locations": [
+        "食堂",
+        "教室",
+        "操场",
+        "小卖部"
+      ],
+      "pref_field": "lunch"
+    },
+    {
+      "time": "14:00",
+      "name": "上课",
+      "location": "教室",
+      "density": "low",
+      "max_rounds": 8,
+      "trigger_probability": 0.15,
+      "description": "下午第一节课",
+      "opening_events": [
+        "下午第一节课，窗外太阳晒进来，有人昏昏欲睡",
+        "老师讲着讲着，突然停下来看了一眼后排",
+        "教室里闷热，有人偷偷在桌子底下玩手机"
+      ]
+    },
+    {
+      "time": "15:30",
+      "name": "课间",
+      "location": "教室",
+      "density": "high",
+      "max_rounds": 12,
+      "trigger_probability": 1.0,
+      "description": "下午课间休息",
+      "opening_events": [
+        "终于下课了，大家都松了口气",
+        "下课铃一响，走廊上立刻热闹起来",
+        "有人趴在桌上不想动，有人已经跑出去了",
+        "课间操刚结束，大家陆续回教室"
+      ],
+      "is_free_period": true,
+      "valid_locations": [
+        "教室",
+        "走廊",
+        "操场",
+        "小卖部",
+        "图书馆",
+        "天台"
+      ],
+      "pref_field": "afternoon_break"
+    },
+    {
+      "time": "18:30",
+      "name": "晚自习",
+      "location": "教室",
+      "density": "low",
+      "max_rounds": 8,
+      "trigger_probability": 0.15,
+      "description": "晚自习时间，教室里安静学习",
+      "opening_events": [
+        "晚自习开始了，教室里安静得只听到翻书声",
+        "值日班长在黑板上写了'保持安静'",
+        "有人趁没老师偷偷跟旁边的人说话"
+      ]
+    },
+    {
+      "time": "22:00",
+      "name": "宿舍夜聊",
+      "location": "宿舍",
+      "density": "high",
+      "max_rounds": 22,
+      "trigger_probability": 1.0,
+      "description": "熄灯后宿舍里的闲聊时间",
+      "opening_events": [
+        "灯灭了，黑暗中谁先开口说了句话",
+        "查寝的老师刚走，宿舍立刻活了过来",
+        "有人翻了个身，嘟囔了一句什么",
+        "手机屏幕的光在被窝里一闪一闪"
+      ]
+    }
+  ],
+  "current_date": "2025-09-01",
+  "next_exam_in_days": 21
+}

@@ -1,0 +1,411 @@
+{
+  "day": 1,
+  "headline": {
+    "scene_time": "15:30",
+    "scene_name": "课间",
+    "scene_location": "图书馆",
+    "scene_file": "1530_课间@图书馆.json",
+    "group_index": 0,
+    "tick_index": 7,
+    "speaker_id": "",
+    "speaker_name": "",
+    "speech": null,
+    "thought_id": "lin_zhaoyu",
+    "thought_name": "林昭宇",
+    "thought": "他抄完作业动作真快……我英语还没背完，压力好大，那个……那个……还是别管别人了。",
+    "urgency": 8
+  },
+  "secondaries": [
+    {
+      "scene_time": "08:45",
+      "scene_name": "课间",
+      "scene_location": "教室",
+      "scene_file": "0845_课间@教室.json",
+      "group_index": 0,
+      "tick_index": 10,
+      "speaker_id": "tang_shihan",
+      "speaker_name": "唐诗涵",
+      "speech": "苏念瑶，你下午去不去买奶茶？这空气闷得我要窒息了。",
+      "thought_id": "su_nianyao",
+      "thought_name": "苏念瑶",
+      "thought": "何家骏今天好暴躁啊，林昭宇也是，平时看他挺随和的，怎么今天跟谁都保持距离感？",
+      "urgency": 8
+    },
+    {
+      "scene_time": "22:00",
+      "scene_name": "宿舍夜聊",
+      "scene_location": "宿舍",
+      "scene_file": "2200_宿舍夜聊.json",
+      "group_index": 1,
+      "tick_index": 5,
+      "speaker_id": "tang_shihan",
+      "speaker_name": "唐诗涵",
+      "speech": "恐怖本好啊！但是我胆子小，到时候肯定全程拽着你，你不嫌我烦就行。",
+      "thought_id": "su_nianyao",
+      "thought_name": "苏念瑶",
+      "thought": "雨桐肯定嫌烦了，但她们俩声音压得好低，想睡又睡不着，干脆把心事写完算了。",
+      "urgency": 8
+    },
+    {
+      "scene_time": "12:00",
+      "scene_name": "午饭",
+      "scene_location": "食堂",
+      "scene_file": "1200_午饭@食堂.json",
+      "group_index": 2,
+      "tick_index": 15,
+      "speaker_id": "",
+      "speaker_name": "",
+      "speech": null,
+      "thought_id": "lin_zhaoyu",
+      "thought_name": "林昭宇",
+      "thought": "还好他不说话了。英语阅读题那些错题订正还没思路，赶紧吃完回图书馆。",
+      "urgency": 8
+    }
+  ],
+  "mood_map": [
+    {
+      "agent_id": "fang_yuchen",
+      "agent_name": "方语晨",
+      "dominant_emotion": "excited",
+      "emotion_counts": {
+        "excited": 11,
+        "curious": 7,
+        "bored": 5
+      },
+      "main_color": "#B06AB3",
+      "motif_emoji": "☀️"
+    },
+    {
+      "agent_id": "su_nianyao",
+      "agent_name": "苏念瑶",
+      "dominant_emotion": "curious",
+      "emotion_counts": {
+        "curious": 10,
+        "bored": 1,
+        "frustrated": 2,
+        "calm": 8,
+        "embarrassed": 2
+      },
+      "main_color": "#D4748B",
+      "motif_emoji": "🌸"
+    },
+    {
+      "agent_id": "tang_shihan",
+      "agent_name": "唐诗涵",
+      "dominant_emotion": "excited",
+      "emotion_counts": {
+        "curious": 2,
+        "frustrated": 5,
+        "excited": 8,
+        "neutral": 5
+      },
+      "main_color": "#4AC4A8",
+      "motif_emoji": "🌿"
+    },
+    {
+      "agent_id": "cheng_yutong",
+      "agent_name": "程雨桐",
+      "dominant_emotion": "anxious",
+      "emotion_counts": {
+        "neutral": 1,
+        "anxious": 19,
+        "frustrated": 8,
+        "calm": 2
+      },
+      "main_color": "#E8A838",
+      "motif_emoji": "📚"
+    },
+    {
+      "agent_id": "lin_zhaoyu",
+      "agent_name": "林昭宇",
+      "dominant_emotion": "anxious",
+      "emotion_counts": {
+        "calm": 3,
+        "anxious": 31,
+        "frustrated": 2
+      },
+      "main_color": "#4A7BC4",
+      "motif_emoji": "🌧️"
+    },
+    {
+      "agent_id": "lu_siyuan",
+      "agent_name": "陆思远",
+      "dominant_emotion": "calm",
+      "emotion_counts": {
+        "calm": 19,
+        "frustrated": 9,
+        "bored": 2,
+        "guilty": 2
+      },
+      "main_color": "#5BAA5B",
+      "motif_emoji": "🌱"
+    },
+    {
+      "agent_id": "shen_yifan",
+      "agent_name": "沈逸凡",
+      "dominant_emotion": "frustrated",
+      "emotion_counts": {
+        "anxious": 2,
+        "frustrated": 24,
+        "calm": 14,
+        "guilty": 3
+      },
+      "main_color": "#C4524A",
+      "motif_emoji": "🔥"
+    },
+    {
+      "agent_id": "jiang_haotian",
+      "agent_name": "姜皓天",
+      "dominant_emotion": "bored",
+      "emotion_counts": {
+        "bored": 30,
+        "excited": 3,
+        "curious": 1
+      },
+      "main_color": "#E87B42",
+      "motif_emoji": "⚽"
+    },
+    {
+      "agent_id": "he_jiajun",
+      "agent_name": "何家骏",
+      "dominant_emotion": "frustrated",
+      "emotion_counts": {
+        "anxious": 5,
+        "frustrated": 7,
+        "bored": 2
+      },
+      "main_color": "#7B8FA8",
+      "motif_emoji": "🌫️"
+    }
+  ],
+  "cp": {
+    "a_id": "lin_zhaoyu",
+    "a_name": "林昭宇",
+    "b_id": "lu_siyuan",
+    "b_name": "陆思远",
+    "favorability_delta": 7,
+    "trust_delta": 7,
+    "understanding_delta": 6
+  },
+  "golden_quote": {
+    "agent_id": "cheng_yutong",
+    "agent_name": "程雨桐",
+    "text": "这道题其实只要把牛顿第二定律微分一下就出来了，有那么难吗？排名还没出，真想快点结束课间。",
+    "scene_time": "08:45",
+    "scene_name": "课间"
+  },
+  "scene_thumbs": [
+    {
+      "time": "08:45",
+      "name": "课间",
+      "location": "操场",
+      "file": "0845_课间@操场.json",
+      "participants": [
+        "jiang_haotian",
+        "shen_yifan"
+      ]
+    },
+    {
+      "time": "08:45",
+      "name": "课间",
+      "location": "教室",
+      "file": "0845_课间@教室.json",
+      "participants": [
+        "cheng_yutong",
+        "he_jiajun",
+        "lin_zhaoyu",
+        "lu_siyuan",
+        "su_nianyao",
+        "tang_shihan"
+      ]
+    },
+    {
+      "time": "08:45",
+      "name": "课间",
+      "location": "走廊",
+      "file": "0845_课间@走廊.json",
+      "participants": [
+        "fang_yuchen"
+      ]
+    },
+    {
+      "time": "12:00",
+      "name": "午饭",
+      "location": "教室",
+      "file": "1200_午饭@教室.json",
+      "participants": [
+        "cheng_yutong"
+      ]
+    },
+    {
+      "time": "12:00",
+      "name": "午饭",
+      "location": "食堂",
+      "file": "1200_午饭@食堂.json",
+      "participants": [
+        "fang_yuchen",
+        "he_jiajun",
+        "jiang_haotian",
+        "lin_zhaoyu",
+        "lu_siyuan",
+        "shen_yifan",
+        "su_nianyao",
+        "tang_shihan"
+      ]
+    },
+    {
+      "time": "15:30",
+      "name": "课间",
+      "location": "图书馆",
+      "file": "1530_课间@图书馆.json",
+      "participants": [
+        "cheng_yutong",
+        "he_jiajun",
+        "lin_zhaoyu",
+        "lu_siyuan"
+      ]
+    },
+    {
+      "time": "15:30",
+      "name": "课间",
+      "location": "小卖部",
+      "file": "1530_课间@小卖部.json",
+      "participants": [
+        "tang_shihan"
+      ]
+    },
+    {
+      "time": "15:30",
+      "name": "课间",
+      "location": "教室",
+      "file": "1530_课间@教室.json",
+      "participants": [
+        "fang_yuchen",
+        "jiang_haotian",
+        "shen_yifan"
+      ]
+    },
+    {
+      "time": "15:30",
+      "name": "课间",
+      "location": "走廊",
+      "file": "1530_课间@走廊.json",
+      "participants": [
+        "su_nianyao"
+      ]
+    },
+    {
+      "time": "22:00",
+      "name": "宿舍夜聊",
+      "location": "宿舍",
+      "file": "2200_宿舍夜聊.json",
+      "participants": [
+        "cheng_yutong",
+        "fang_yuchen",
+        "jiang_haotian",
+        "lin_zhaoyu",
+        "lu_siyuan",
+        "shen_yifan",
+        "su_nianyao",
+        "tang_shihan"
+      ]
+    }
+  ],
+  "top_event": {
+    "text": "隔壁班男生翻墙外出购买限定款手办并携带一名高一女生",
+    "category": "八卦",
+    "scene_file": "1200_午饭@食堂.json",
+    "scene_time": "12:00",
+    "scene_name": "午饭",
+    "witnesses": [
+      {
+        "agent_id": "fang_yuchen",
+        "agent_name": "方语晨"
+      },
+      {
+        "agent_id": "su_nianyao",
+        "agent_name": "苏念瑶"
+      },
+      {
+        "agent_id": "tang_shihan",
+        "agent_name": "唐诗涵"
+      }
+    ],
+    "non_witnesses": [
+      {
+        "agent_id": "cheng_yutong",
+        "agent_name": "程雨桐"
+      },
+      {
+        "agent_id": "lin_zhaoyu",
+        "agent_name": "林昭宇"
+      },
+      {
+        "agent_id": "lu_siyuan",
+        "agent_name": "陆思远"
+      },
+      {
+        "agent_id": "shen_yifan",
+        "agent_name": "沈逸凡"
+      },
+      {
+        "agent_id": "jiang_haotian",
+        "agent_name": "姜皓天"
+      },
+      {
+        "agent_id": "he_jiajun",
+        "agent_name": "何家骏"
+      },
+      {
+        "agent_id": "he_min",
+        "agent_name": "何老师"
+      }
+    ],
+    "pull_quote": "这瓜真的超劲爆，一定要压低声音，决不能让隔壁桌听见。",
+    "pull_quote_agent_id": "fang_yuchen",
+    "pull_quote_agent_name": "方语晨",
+    "group_index": 0,
+    "tick_index": 3
+  },
+  "contrast": {
+    "kind": "mismatch",
+    "payload": {
+      "a_id": "lu_siyuan",
+      "a_name": "陆思远",
+      "a_thought": "大家都这么拼，我却在这里帮别人抄作业，感觉自己好没用，算了，先把这一页搞定吧。",
+      "a_emotion": "calm",
+      "b_id": "cheng_yutong",
+      "b_name": "程雨桐",
+      "b_thought": "英语语法这种东西背熟不就行了，手抖什么。快点看完，别影响我专注。",
+      "b_emotion": "anxious",
+      "fav_a_to_b": -1,
+      "fav_b_to_a": 1
+    },
+    "scene_time": "15:30",
+    "scene_name": "课间",
+    "scene_file": "1530_课间@图书馆.json",
+    "group_index": 0,
+    "tick_index": 5
+  },
+  "concern_spotlight": {
+    "agent_id": "fang_yuchen",
+    "agent_name": "方语晨",
+    "text": "那两人到底是不是在谈恋爱啊，好想快点挖出后续！",
+    "topic": "恋爱",
+    "intensity": 6,
+    "reinforcement_count": 0,
+    "days_active": 1,
+    "first_day": 1,
+    "reinforced_today": true
+  },
+  "caption_payload": {
+    "caption": "📰 第001天 班级日报\n\n今日头条 · 「林昭宇」他抄完作业动作真快……我英语还没背完，压力好大，那个……那个……还是别管别人了。\n今日 CP：林昭宇 × 陆思远\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#班级日报"
+    ],
+    "filename": "simcampus_班级日报_第001天.png"
+  }
+}

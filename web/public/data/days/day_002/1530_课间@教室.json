@@ -1,0 +1,1625 @@
+{
+  "scene": {
+    "scene_index": 7,
+    "time": "15:30",
+    "name": "课间",
+    "location": "教室",
+    "description": "下午课间休息",
+    "day": 2
+  },
+  "participant_names": {
+    "fang_yuchen": "方语晨",
+    "he_jiajun": "何家骏",
+    "shen_yifan": "沈逸凡",
+    "he_min": "何老师"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "he_jiajun",
+        "he_min",
+        "fang_yuchen",
+        "shen_yifan"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": {
+              "agent": "he_min",
+              "target": "he_jiajun",
+              "content": "我说两句啊，何家骏，你过来一下，把昨天的数学作业带上。"
+            },
+            "actions": [
+              {
+                "agent": "he_jiajun",
+                "type": "non_verbal",
+                "content": "默默把桌上的物理练习册收进书包，动作很轻。"
+              },
+              {
+                "agent": "fang_yuchen",
+                "type": "non_verbal",
+                "content": "从桌肚里抽出那本史政地笔记，假装很认真地开始翻阅，其实余光一直往沈逸凡那边瞟。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_min": {
+              "observation": "何家骏坐在座位上，看起来没什么事做，周围几个同学在聊天。",
+              "inner_thought": "这孩子底子薄，得找机会敲打敲打，不能让他这么混日子。",
+              "emotion": "calm",
+              "action_type": "speak",
+              "action_content": "我说两句啊，何家骏，你过来一下，把昨天的数学作业带上。",
+              "action_target": "he_jiajun",
+              "urgency": 8,
+              "is_disruptive": true
+            },
+            "he_jiajun": {
+              "observation": "沈逸凡在帮女生看题，何老师正在讲台旁批改作业，教室里挺安静的。",
+              "inner_thought": "好安静，还是别说话了，不然万一吵到老师。",
+              "emotion": "touched",
+              "action_type": "non_verbal",
+              "action_content": "默默把桌上的物理练习册收进书包，动作很轻。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "班主任好像还在教室后面巡视，沈逸凡正坐在位置上低头看书。",
+              "inner_thought": "老何盯着呢，先稳住，等下再找机会问问沈逸凡周末图书馆的事。",
+              "emotion": "curious",
+              "action_type": "non_verbal",
+              "action_content": "从桌肚里抽出那本史政地笔记，假装很认真地开始翻阅，其实余光一直往沈逸凡那边瞟。",
+              "action_target": null,
+              "urgency": 4,
+              "is_disruptive": false
+            },
+            "shen_yifan": {
+              "observation": "何家骏坐在座位上摆弄手机，何老师就在教室前门附近和人交代事情。",
+              "inner_thought": "又要偷玩，真是不长记性，当班长太累了。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "何家骏，手机收起来，老师在后头呢。",
+              "action_target": "he_jiajun",
+              "urgency": 8,
+              "is_disruptive": true
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "he_jiajun",
+              "content": "何家骏，手机收起来，老师在后头呢。"
+            },
+            "actions": [
+              {
+                "agent": "he_jiajun",
+                "type": "non_verbal",
+                "content": "从书包底翻出一张写得乱七八糟的数学试卷，攥着纸角，低着头走向讲台。"
+              },
+              {
+                "agent": "fang_yuchen",
+                "type": "non_verbal",
+                "content": "把史政地笔记翻得哗啦作响，假装在找重点，实际上一直在关注沈逸凡的动静。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_min": {
+              "observation": "何家骏收书包的动作太轻了，显得有点缩手缩脚，方语晨在旁边翻书也不太自然。",
+              "inner_thought": "这孩子怕什么，做错题又不是什么天塌下来的事。",
+              "emotion": "calm",
+              "action_type": "speak",
+              "action_content": "别这么紧张，我又不是要吃了你。把作业放桌上，你人坐过来。",
+              "action_target": "he_jiajun",
+              "urgency": 8,
+              "is_disruptive": true
+            },
+            "he_jiajun": {
+              "observation": "何老师在讲台那等着，手里拿着红笔，氛围特别压抑。",
+              "inner_thought": "丢脸，又要被骂了，动作还是快点吧。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "从书包底翻出一张写得乱七八糟的数学试卷，攥着纸角，低着头走向讲台。",
+              "action_target": "he_min",
+              "urgency": 9,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "何家骏被老何叫走了，沈逸凡还是那副雷打不动的样子在看书。",
+              "inner_thought": "这男的也太沉得住气了吧，周末去图书馆到底什么节奏？",
+              "emotion": "curious",
+              "action_type": "non_verbal",
+              "action_content": "把史政地笔记翻得哗啦作响，假装在找重点，实际上一直在关注沈逸凡的动静。",
+              "action_target": "shen_yifan",
+              "urgency": 3,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": {
+              "agent": "he_min",
+              "target": "he_jiajun",
+              "content": "别这么紧张，我又不是要吃了你。把作业放桌上，你人坐过来。"
+            },
+            "actions": [
+              {
+                "agent": "he_jiajun",
+                "type": "non_verbal",
+                "content": "走到讲台前，把乱糟糟的试卷放在何老师的红笔旁边，手微微抖了一下。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_jiajun": {
+              "observation": "何老师盯着我手里的试卷，方语晨和沈逸凡都在那边忙自己的。",
+              "inner_thought": "别看我了，快点结束吧，好尴尬。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "走到讲台前，把乱糟糟的试卷放在何老师的红笔旁边，手微微抖了一下。",
+              "action_target": "he_min",
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "何家骏被老何带去讲台批评了，沈逸凡倒是像没事人一样继续盯着书看。",
+              "inner_thought": "这人真是，周末去图书馆也不带个信儿，到底去干嘛啊？",
+              "emotion": "curious",
+              "action_type": "speak",
+              "action_content": "沈逸凡，你周末真要去图书馆啊？那边最近又不让留宿，你也不怕枯燥。",
+              "action_target": "shen_yifan",
+              "urgency": 6,
+              "is_disruptive": false
+            },
+            "shen_yifan": {
+              "observation": "何家骏被叫去讲台了，方语晨还在那装模作样地翻书。",
+              "inner_thought": "这两人一个比一个不省心，方语晨那动作假得一眼就能看出来。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": {
+              "agent": "he_jiajun",
+              "target": "he_min",
+              "content": "老师……我尽力写了。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_min": {
+              "observation": "何家骏把卷子放下后手在抖，显得非常拘谨，生怕做错了什么。",
+              "inner_thought": "这孩子心理压力太大了，平时肯定没少受气，得先安抚一下。",
+              "emotion": "calm",
+              "action_type": "speak",
+              "action_content": "抬头挺胸。家里最近怎么样，有没有谁管你写作业？",
+              "action_target": "he_jiajun",
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "he_jiajun": {
+              "observation": "何老师停下笔，正抬头看着我，周围静得能听见翻书声。",
+              "inner_thought": "能不能快点说，不想被全班听见。",
+              "emotion": "anxious",
+              "action_type": "speak",
+              "action_content": "老师……我尽力写了。",
+              "action_target": "he_min",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "shen_yifan"
+          ]
+        },
+        {
+          "tick": 4,
+          "public": {
+            "speech": {
+              "agent": "he_min",
+              "target": "he_jiajun",
+              "content": "抬头挺胸。家里最近怎么样，有没有谁管你写作业？"
+            },
+            "actions": [
+              {
+                "agent": "he_jiajun",
+                "type": "non_verbal",
+                "content": "下意识地向后退了半步，低头盯着自己那双磨损严重的安踏球鞋看。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_jiajun": {
+              "observation": "何老师拿起红笔在试卷上圈圈点点，没有马上骂我，只是皱着眉头。",
+              "inner_thought": "别再在那打叉了，看得我心慌，能不能快点结束。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "下意识地向后退了半步，低头盯着自己那双磨损严重的安踏球鞋看。",
+              "action_target": "he_min",
+              "urgency": 4,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "shen_yifan"
+          ]
+        },
+        {
+          "tick": 5,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "shen_yifan",
+              "content": "沈逸凡，你周末真要去图书馆啊？那边最近又不让留宿，你也不怕枯燥。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_min": {
+              "observation": "何家骏因为一句简单的问候退缩了，眼神一直在躲闪，球鞋磨得很旧。",
+              "inner_thought": "这孩子在家可能真没啥人顾得上，眼神里全是防备，先别逼太紧。",
+              "emotion": "calm",
+              "action_type": "speak",
+              "action_content": "行了，把脚抬起来。我又不是教导主任，你怕什么？周末抽个空，拿你的错题本到我办公室来，我给你对着题目讲一遍，别自己瞎琢磨了。",
+              "action_target": "he_jiajun",
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "he_jiajun": {
+              "observation": "何老师停下手里的笔，眼神还是没离开我，空气里那种压抑感更重了。",
+              "inner_thought": "别问了，爸在上班从来不回来的，别问了。",
+              "emotion": "anxious",
+              "action_type": "speak",
+              "action_content": "就……偶尔吧，挺好的。",
+              "action_target": "he_min",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "shen_yifan"
+          ]
+        },
+        {
+          "tick": 6,
+          "public": {
+            "speech": {
+              "agent": "he_min",
+              "target": "he_jiajun",
+              "content": "行了，把脚抬起来。我又不是教导主任，你怕什么？周末抽个空，拿你的错题本到我办公室来，我给你对着题目讲一遍，别自己瞎琢磨了。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "沈逸凡抬起头看了我一眼，眼神挺平静的，没直接回答问题。",
+              "inner_thought": "装什么深沉，是不是又打算去见那女生了？",
+              "emotion": "curious",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 3,
+              "is_disruptive": false
+            },
+            "shen_yifan": {
+              "observation": "方语晨凑过来跟我搭话，顺便瞟了眼讲台那边何家骏的情况。",
+              "inner_thought": "这有什么枯燥的，学习本来就该这样，这女生整天关心这些有的没的。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "习惯了。你要是时间多，不如多背几个单词，别老盯着我。",
+              "action_target": "fang_yuchen",
+              "urgency": 4,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 7,
+          "public": {
+            "speech": {
+              "agent": "he_jiajun",
+              "target": "he_min",
+              "content": "就……偶尔吧，挺好的。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_min": {
+              "observation": "何家骏还在低头看鞋，旁边方语晨和沈逸凡的对话听起来挺轻松的。",
+              "inner_thought": "这孩子确实敏感，得找个机会慢慢磨，不能急于一时。",
+              "emotion": "calm",
+              "action_type": "speak",
+              "action_content": "行了，先回座位去吧，把卷子先订正好，别再弄得乱七八糟的了。",
+              "action_target": "he_jiajun",
+              "urgency": 5,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "fang_yuchen"
+          ]
+        },
+        {
+          "tick": 8,
+          "public": {
+            "speech": {
+              "agent": "he_min",
+              "target": "he_jiajun",
+              "content": "行了，先回座位去吧，把卷子先订正好，别再弄得乱七八糟的了。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_jiajun": {
+              "observation": "何老师停下了笔，等着我继续回话，教室里静得连呼吸声都能听见。",
+              "inner_thought": "能不能快点放我回去，盯着我压力太大了。",
+              "emotion": "anxious",
+              "action_type": "speak",
+              "action_content": "老师，我先回去了？",
+              "action_target": "he_min",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "fang_yuchen"
+          ]
+        },
+        {
+          "tick": 9,
+          "public": {
+            "speech": {
+              "agent": "he_jiajun",
+              "target": "he_min",
+              "content": "老师，我先回去了？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_min": {
+              "observation": "何家骏背影显得有些落寞，方语晨和沈逸凡还在若无其事地聊天。",
+              "inner_thought": "这孩子肩膀太沉了，得找个时机再跟林昭宇聊聊，那孩子也累得够呛。",
+              "emotion": "calm",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 3,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "fang_yuchen"
+          ]
+        },
+        {
+          "tick": 10,
+          "public": {
+            "speech": {
+              "agent": "he_min",
+              "target": "he_jiajun",
+              "content": "去吧，记得刚才说的话，周五之前把错题整理出来。"
+            },
+            "actions": [
+              {
+                "agent": "he_jiajun",
+                "type": "non_verbal",
+                "content": "抱着那张被红笔批注得很难看的试卷，身体微微侧向课桌的方向，随时准备转身撤离。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_min": {
+              "observation": "何家骏背影显得有些局促，刚从讲台退回座位，方语晨和沈逸凡还在不远处讨论周末去图书馆的事。",
+              "inner_thought": "这孩子肩膀太沉了，得找个时机再跟林昭宇聊聊，那边也累得够呛。",
+              "emotion": "calm",
+              "action_type": "speak",
+              "action_content": "去吧，记得刚才说的话，周五之前把错题整理出来。",
+              "action_target": "he_jiajun",
+              "urgency": 5,
+              "is_disruptive": false
+            },
+            "he_jiajun": {
+              "observation": "何老师还没抬头，我又问了一遍能不能走。",
+              "inner_thought": "别再留我了，再站下去全班都要看我了。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "抱着那张被红笔批注得很难看的试卷，身体微微侧向课桌的方向，随时准备转身撤离。",
+              "action_target": "he_min",
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "何家骏回到座位了，但他看起来还是很紧张，老何还在讲台那边忙活。",
+              "inner_thought": "何家骏胆子真小，被叫去谈个话就吓成这样，算了，别打扰他了。",
+              "emotion": "calm",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 11,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "he_jiajun",
+              "content": "何家骏，刚才老师交代的错题本，你最好抓紧弄，别到时候又拖到晚自习。"
+            },
+            "actions": [
+              {
+                "agent": "he_jiajun",
+                "type": "non_verbal",
+                "content": "迅速转过身，快步走回最后一排的角落，把那张乱七八糟的试卷折好塞进课本下面。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_min": {
+              "observation": "何家骏回到座位后显得有些局促，沈逸凡和方语晨还在讨论周末去图书馆的事。",
+              "inner_thought": "林昭宇那孩子应该就在教室后排，得找机会过去看一眼。",
+              "emotion": "calm",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "he_jiajun": {
+              "observation": "何老师终于点头示意可以离开了，那种一直贴在后背上的目光总算消失了。",
+              "inner_thought": "还好没再多问，赶紧回座位藏起来。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "迅速转过身，快步走回最后一排的角落，把那张乱七八糟的试卷折好塞进课本下面。",
+              "action_target": null,
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "shen_yifan": {
+              "observation": "何家骏终于从讲台下来了，手里捏着被红笔改得满目疮痍的试卷，表情看起来有点灰溜溜的。",
+              "inner_thought": "何老师还是太心软了，这种不自觉的就该严厉点，惯着他没用。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "何家骏，刚才老师交代的错题本，你最好抓紧弄，别到时候又拖到晚自习。",
+              "action_target": "he_jiajun",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "fang_yuchen"
+          ]
+        }
+      ],
+      "narrative": {
+        "key_moments": [
+          "何老师要求何家骏携带数学作业前往讲台。",
+          "何家骏将数学试卷交给何老师。",
+          "何老师询问何家骏的家庭情况。",
+          "方语晨向沈逸凡询问周末去图书馆的计划。",
+          "何老师要求何家骏周五前整理错题本并到办公室讲解。",
+          "何家骏返回座位并将试卷放入课本下。"
+        ],
+        "fulfilled_intentions": [
+          "何老师:要求何家骏提交数学作业并进行辅导",
+          "方语晨:向沈逸凡确认周末行程"
+        ],
+        "events_discussed": [],
+        "new_events": [
+          {
+            "text": "何老师要求何家骏周五前整理错题本并去办公室讲解题目。",
+            "category": "学业辅导",
+            "witnesses": [
+              "何家骏",
+              "何老师",
+              "方语晨",
+              "沈逸凡"
+            ],
+            "spread_probability": 0.3,
+            "cite_ticks": [
+              7,
+              11
+            ]
+          },
+          {
+            "text": "沈逸凡计划周末前往图书馆。",
+            "category": "个人行程",
+            "witnesses": [
+              "方语晨",
+              "沈逸凡"
+            ],
+            "spread_probability": 0.2,
+            "cite_ticks": [
+              6
+            ]
+          }
+        ]
+      },
+      "reflections": {
+        "he_jiajun": {
+          "emotion": "anxious",
+          "relationship_changes": [
+            {
+              "to_agent": "何老师",
+              "favorability": 1,
+              "trust": 0,
+              "understanding": 2,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "沈逸凡",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "何老师竟然没骂我，还说周五找他补错题，这算好事吗？",
+              "emotion": "anxious",
+              "importance": 5,
+              "people": [
+                "何老师"
+              ],
+              "location": "教室",
+              "topics": [
+                "学业焦虑"
+              ]
+            },
+            {
+              "text": "沈逸凡又来催我，真烦，搞得好像他是我家长一样。",
+              "emotion": "frustrated",
+              "importance": 3,
+              "people": [
+                "沈逸凡"
+              ],
+              "location": "教室",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [
+            {
+              "text": "周五要把错题本给何老师看，要是还是什么都不会怎么办。",
+              "source_event": "何老师要求周五整理错题本并去办公室讲解",
+              "emotion": "anxious",
+              "intensity": 6,
+              "related_people": [
+                "何老师",
+                "自己"
+              ],
+              "positive": false,
+              "topic": "学业焦虑"
+            }
+          ],
+          "concern_updates": [],
+          "intention_outcomes": [
+            {
+              "goal": "中午去食堂买最便宜的套餐",
+              "status": "fulfilled",
+              "brief_reason": "午饭已经吃过了，虽然吃得并不开心。"
+            }
+          ]
+        },
+        "he_min": {
+          "emotion": "calm",
+          "relationship_changes": [
+            {
+              "to_agent": "何家骏",
+              "favorability": 2,
+              "trust": 0,
+              "understanding": 2,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "何家骏拿着乱糟糟的卷子，手都在抖，这孩子底子薄还没人管，看着真揪心。",
+              "emotion": "touched",
+              "importance": 5,
+              "people": [
+                "何家骏"
+              ],
+              "location": "教室",
+              "topics": [
+                "学业焦虑"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "检查他的作业进度，了解家庭情况（想找何家骏）",
+              "adjustment": 2
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "检查他的作业进度，了解家庭情况（想找何家骏）",
+              "status": "fulfilled",
+              "brief_reason": "已经让他周五前整理错题，也大致问了家里情况。"
+            },
+            {
+              "goal": "课间找他聊聊，观察他的精神状态（想找林昭宇）",
+              "status": "missed_opportunity",
+              "brief_reason": "忙于处理何家骏的事，还没来得及关注林昭宇。"
+            },
+            {
+              "goal": "去学校门口买杯热咖啡（想找自己）",
+              "status": "pending",
+              "brief_reason": "课间时间太短，还得批改作业。"
+            }
+          ]
+        },
+        "fang_yuchen": {
+          "emotion": "curious",
+          "relationship_changes": [
+            {
+              "to_agent": "沈逸凡",
+              "favorability": 1,
+              "trust": 0,
+              "understanding": 2,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "何家骏",
+              "favorability": 0,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": false
+            }
+          ],
+          "memories": [
+            {
+              "text": "沈逸凡居然为了物理错题要去图书馆，看来他跟那个女生周末真的有戏。",
+              "emotion": "curious",
+              "importance": 5,
+              "people": [
+                "沈逸凡"
+              ],
+              "location": "教室",
+              "topics": [
+                "恋爱"
+              ]
+            }
+          ],
+          "new_concerns": [
+            {
+              "text": "沈逸凡周末去图书馆到底是不是去约会的？好想知道！",
+              "source_event": "课间听到沈逸凡说周末去图书馆",
+              "emotion": "curious",
+              "intensity": 6,
+              "related_people": [
+                "沈逸凡"
+              ],
+              "positive": true,
+              "topic": "恋爱"
+            }
+          ],
+          "concern_updates": [
+            {
+              "concern_text": "e800c7",
+              "adjustment": 2
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "翻翻史政地笔记，稍微看两眼求个心安",
+              "status": "frustrated",
+              "brief_reason": "一直在偷听沈逸凡说话，根本没看进去多少内容"
+            }
+          ]
+        },
+        "shen_yifan": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "何家骏",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 2,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "方语晨",
+              "favorability": 0,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "何家骏又被老师拎出来训，他那副唯唯诺诺的样子真让人火大，明明只要按部就班就能做好的事非要拖。",
+              "emotion": "frustrated",
+              "importance": 4,
+              "people": [
+                "何家骏",
+                "何老师"
+              ],
+              "location": "教室",
+              "topics": [
+                "学业焦虑",
+                "其他"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "42fa81",
+              "adjustment": 1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "找个课间跟他聊聊手机纪律",
+              "status": "missed_opportunity",
+              "brief_reason": "一直在盯着何家骏和何老师的对话，没找到机会去管姜皓天。"
+            },
+            {
+              "goal": "去操场跑两圈，把郁闷的情绪发泄掉",
+              "status": "pending",
+              "brief_reason": "还没到放学时间，只能先在教室待着。"
+            }
+          ]
+        }
+      },
+      "share_tick_layouts": [
+        {
+          "day": 2,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "he_min",
+              "name_cn": "何老师",
+              "motif_emoji": "📐",
+              "motif_tag": "班主任"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "he_min",
+              "display_name": "何老师",
+              "kind": "speech",
+              "text": "我说两句啊，何家骏，你过来一下，把昨天的数学作业带上。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "好安静，还是别说话了，不然万一吵到老师。"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "又要偷玩，真是不长记性，当班长太累了。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "老何盯着呢，先稳住，等下再找机会问问沈逸凡周末图书馆的事。"
+            }
+          ],
+          "featured_quote": "这孩子底子薄，得找机会敲打敲打，不能让他这么混日子。",
+          "featured_speaker_name": "何老师",
+          "tick_index": 0
+        },
+        {
+          "day": 2,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "he_min",
+              "name_cn": "何老师",
+              "motif_emoji": "📐",
+              "motif_tag": "班主任"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "何家骏，手机收起来，老师在后头呢。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "丢脸，又要被骂了，动作还是快点吧。"
+            },
+            {
+              "agent_id": "he_min",
+              "display_name": "何老师",
+              "kind": "thought",
+              "text": "这孩子怕什么，做错题又不是什么天塌下来的事。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "这男的也太沉得住气了吧，周末去图书馆到底什么节奏？"
+            }
+          ],
+          "featured_quote": "丢脸，又要被骂了，动作还是快点吧。",
+          "featured_speaker_name": "何家骏",
+          "tick_index": 1
+        },
+        {
+          "day": 2,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "he_min",
+              "name_cn": "何老师",
+              "motif_emoji": "📐",
+              "motif_tag": "班主任"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "he_min",
+              "display_name": "何老师",
+              "kind": "speech",
+              "text": "别这么紧张，我又不是要吃了你。把作业放桌上，你人坐过来。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "别看我了，快点结束吧，好尴尬。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "这人真是，周末去图书馆也不带个信儿，到底去干嘛啊？"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "这两人一个比一个不省心，方语晨那动作假得一眼就能看出来。"
+            }
+          ],
+          "featured_quote": "别看我了，快点结束吧，好尴尬。",
+          "featured_speaker_name": "何家骏",
+          "tick_index": 2
+        },
+        {
+          "day": 2,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "he_min",
+              "name_cn": "何老师",
+              "motif_emoji": "📐",
+              "motif_tag": "班主任"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "speech",
+              "text": "老师……我尽力写了。"
+            },
+            {
+              "agent_id": "he_min",
+              "display_name": "何老师",
+              "kind": "thought",
+              "text": "这孩子心理压力太大了，平时肯定没少受气，得先安抚一下。"
+            }
+          ],
+          "featured_quote": "这孩子心理压力太大了，平时肯定没少受气，得先安抚一下。",
+          "featured_speaker_name": "何老师",
+          "tick_index": 3
+        },
+        {
+          "day": 2,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "he_min",
+              "name_cn": "何老师",
+              "motif_emoji": "📐",
+              "motif_tag": "班主任"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "he_min",
+              "display_name": "何老师",
+              "kind": "speech",
+              "text": "抬头挺胸。家里最近怎么样，有没有谁管你写作业？"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "别再在那打叉了，看得我心慌，能不能快点结束。"
+            }
+          ],
+          "featured_quote": "别再在那打叉了，看得我心慌，能不能快点结束。",
+          "featured_speaker_name": "何家骏",
+          "tick_index": 4
+        },
+        {
+          "day": 2,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "he_min",
+              "name_cn": "何老师",
+              "motif_emoji": "📐",
+              "motif_tag": "班主任"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "沈逸凡，你周末真要去图书馆啊？那边最近又不让留宿，你也不怕枯燥。"
+            },
+            {
+              "agent_id": "he_min",
+              "display_name": "何老师",
+              "kind": "thought",
+              "text": "这孩子在家可能真没啥人顾得上，眼神里全是防备，先别逼太紧。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "别问了，爸在上班从来不回来的，别问了。"
+            }
+          ],
+          "featured_quote": "这孩子在家可能真没啥人顾得上，眼神里全是防备，先别逼太紧。",
+          "featured_speaker_name": "何老师",
+          "tick_index": 5
+        },
+        {
+          "day": 2,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "he_min",
+              "name_cn": "何老师",
+              "motif_emoji": "📐",
+              "motif_tag": "班主任"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "he_min",
+              "display_name": "何老师",
+              "kind": "speech",
+              "text": "行了，把脚抬起来。我又不是教导主任，你怕什么？周末抽个空，拿你的错题本到我办公室来，我给你对着题目讲一遍，别自己瞎琢磨了。"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "这有什么枯燥的，学习本来就该这样，这女生整天关心这些有的没的。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "装什么深沉，是不是又打算去见那女生了？"
+            }
+          ],
+          "featured_quote": "这有什么枯燥的，学习本来就该这样，这女生整天关心这些有的没的。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 6
+        },
+        {
+          "day": 2,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "he_min",
+              "name_cn": "何老师",
+              "motif_emoji": "📐",
+              "motif_tag": "班主任"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "speech",
+              "text": "就……偶尔吧，挺好的。"
+            },
+            {
+              "agent_id": "he_min",
+              "display_name": "何老师",
+              "kind": "thought",
+              "text": "这孩子确实敏感，得找个机会慢慢磨，不能急于一时。"
+            }
+          ],
+          "featured_quote": "这孩子确实敏感，得找个机会慢慢磨，不能急于一时。",
+          "featured_speaker_name": "何老师",
+          "tick_index": 7
+        },
+        {
+          "day": 2,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "he_min",
+              "name_cn": "何老师",
+              "motif_emoji": "📐",
+              "motif_tag": "班主任"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "he_min",
+              "display_name": "何老师",
+              "kind": "speech",
+              "text": "行了，先回座位去吧，把卷子先订正好，别再弄得乱七八糟的了。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "能不能快点放我回去，盯着我压力太大了。"
+            }
+          ],
+          "featured_quote": "能不能快点放我回去，盯着我压力太大了。",
+          "featured_speaker_name": "何家骏",
+          "tick_index": 8
+        },
+        {
+          "day": 2,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "he_min",
+              "name_cn": "何老师",
+              "motif_emoji": "📐",
+              "motif_tag": "班主任"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "speech",
+              "text": "老师，我先回去了？"
+            },
+            {
+              "agent_id": "he_min",
+              "display_name": "何老师",
+              "kind": "thought",
+              "text": "这孩子肩膀太沉了，得找个时机再跟林昭宇聊聊，那孩子也累得够呛。"
+            }
+          ],
+          "featured_quote": "这孩子肩膀太沉了，得找个时机再跟林昭宇聊聊，那孩子也累得够呛。",
+          "featured_speaker_name": "何老师",
+          "tick_index": 9
+        },
+        {
+          "day": 2,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "he_min",
+              "name_cn": "何老师",
+              "motif_emoji": "📐",
+              "motif_tag": "班主任"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "he_min",
+              "display_name": "何老师",
+              "kind": "speech",
+              "text": "去吧，记得刚才说的话，周五之前把错题整理出来。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "别再留我了，再站下去全班都要看我了。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "何家骏胆子真小，被叫去谈个话就吓成这样，算了，别打扰他了。"
+            }
+          ],
+          "featured_quote": "别再留我了，再站下去全班都要看我了。",
+          "featured_speaker_name": "何家骏",
+          "tick_index": 10
+        },
+        {
+          "day": 2,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "he_min",
+              "name_cn": "何老师",
+              "motif_emoji": "📐",
+              "motif_tag": "班主任"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "何家骏，刚才老师交代的错题本，你最好抓紧弄，别到时候又拖到晚自习。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "还好没再多问，赶紧回座位藏起来。"
+            },
+            {
+              "agent_id": "he_min",
+              "display_name": "何老师",
+              "kind": "thought",
+              "text": "林昭宇那孩子应该就在教室后排，得找机会过去看一眼。"
+            }
+          ],
+          "featured_quote": "还好没再多问，赶紧回座位藏起来。",
+          "featured_speaker_name": "何家骏",
+          "tick_index": 11
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第002天 · 课间 · 教室 📐\n\n「何老师」这孩子底子薄，得找机会敲打敲打，不能让他这么混日子。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@教室_t01.png",
+          "group_index": 0,
+          "tick_index": 0
+        },
+        {
+          "caption": "第002天 · 课间 · 教室 🔥\n\n「何家骏」丢脸，又要被骂了，动作还是快点吧。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@教室_t02.png",
+          "group_index": 0,
+          "tick_index": 1
+        },
+        {
+          "caption": "第002天 · 课间 · 教室 📐\n\n「何家骏」别看我了，快点结束吧，好尴尬。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@教室_t03.png",
+          "group_index": 0,
+          "tick_index": 2
+        },
+        {
+          "caption": "第002天 · 课间 · 教室 🌫️\n\n「何老师」这孩子心理压力太大了，平时肯定没少受气，得先安抚一下。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@教室_t04.png",
+          "group_index": 0,
+          "tick_index": 3
+        },
+        {
+          "caption": "第002天 · 课间 · 教室 📐\n\n「何家骏」别再在那打叉了，看得我心慌，能不能快点结束。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@教室_t05.png",
+          "group_index": 0,
+          "tick_index": 4
+        },
+        {
+          "caption": "第002天 · 课间 · 教室 ☀️\n\n「何老师」这孩子在家可能真没啥人顾得上，眼神里全是防备，先别逼太紧。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@教室_t06.png",
+          "group_index": 0,
+          "tick_index": 5
+        },
+        {
+          "caption": "第002天 · 课间 · 教室 📐\n\n「沈逸凡」这有什么枯燥的，学习本来就该这样，这女生整天关心这些有的没的。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@教室_t07.png",
+          "group_index": 0,
+          "tick_index": 6
+        },
+        {
+          "caption": "第002天 · 课间 · 教室 🌫️\n\n「何老师」这孩子确实敏感，得找个机会慢慢磨，不能急于一时。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@教室_t08.png",
+          "group_index": 0,
+          "tick_index": 7
+        },
+        {
+          "caption": "第002天 · 课间 · 教室 📐\n\n「何家骏」能不能快点放我回去，盯着我压力太大了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@教室_t09.png",
+          "group_index": 0,
+          "tick_index": 8
+        },
+        {
+          "caption": "第002天 · 课间 · 教室 🌫️\n\n「何老师」这孩子肩膀太沉了，得找个时机再跟林昭宇聊聊，那孩子也累得够呛。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@教室_t10.png",
+          "group_index": 0,
+          "tick_index": 9
+        },
+        {
+          "caption": "第002天 · 课间 · 教室 📐\n\n「何家骏」别再留我了，再站下去全班都要看我了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@教室_t11.png",
+          "group_index": 0,
+          "tick_index": 10
+        },
+        {
+          "caption": "第002天 · 课间 · 教室 🔥\n\n「何家骏」还好没再多问，赶紧回座位藏起来。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#课间"
+          ],
+          "filename": "simcampus_第002天_课间@教室_t12.png",
+          "group_index": 0,
+          "tick_index": 11
+        }
+      ]
+    }
+  ]
+}

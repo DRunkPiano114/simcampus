@@ -1,0 +1,62 @@
+{
+  "agent_id": "lin_zhaoyu",
+  "name_cn": "林昭宇",
+  "day": 7,
+  "is_teacher": false,
+  "motif_emoji": "🌧️",
+  "motif_tag": "书呆子",
+  "main_color": "#4A7BC4",
+  "emotion_label": "平静",
+  "energy_label": "精神还行",
+  "pressure_label": "压力不小",
+  "featured_quote": "终于消停了，赶紧趁现在把那道受力分析题最后的矢量方向确定好，不然晚自习又要熬夜。",
+  "featured_scene": "14:00 · 上课",
+  "relationships": [
+    {
+      "target_name": "陆思远",
+      "favorability": 47,
+      "trust": 42,
+      "label_text": "很亲近的朋友"
+    },
+    {
+      "target_name": "沈逸凡",
+      "favorability": 8,
+      "trust": 6,
+      "label_text": "还行，有些好感"
+    },
+    {
+      "target_name": "唐诗涵",
+      "favorability": 7,
+      "trust": 5,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 7",
+      "text": "陆思远在图书馆帮我讲解英语定语从句，并一起讨论物理题，这种被支持的感觉让我很安心。",
+      "importance": 6
+    },
+    {
+      "date": "Day 7",
+      "text": "陆思远教我怎么把复杂的长难句拆解开看，果然把从句括起来就没那么绕了。",
+      "importance": 6
+    }
+  ],
+  "top_concern": {
+    "text": "英语成绩一直没有起色，担心这门课会成为拖累总分、影响考取985的短板。",
+    "intensity_label": "中等",
+    "positive": false
+  },
+  "self_narrative": "在班里就是个隐形人，除了和陆思远说话，基本不开口。英语单词还没背完，一想到妈那个智学网，心跳就快。物理题做得还行，但总觉得用AI查题很心虚。希望能考上985，别让爸妈再那么累了。",
+  "caption_payload": {
+    "caption": "🌧️ 林昭宇 · 第007天 档案\n\n标签：书呆子\n此刻心情：平静\n\n「终于消停了，赶紧趁现在把那道受力分析题最后的矢量方向确定好，不然晚自习又要熬夜。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_林昭宇_档案_第007天.png"
+  }
+}

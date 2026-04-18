@@ -1,0 +1,3485 @@
+{
+  "scene": {
+    "scene_index": 13,
+    "time": "22:00",
+    "name": "宿舍夜聊",
+    "location": "宿舍",
+    "description": "熄灯后宿舍里的闲聊时间",
+    "day": 6
+  },
+  "participant_names": {
+    "lin_zhaoyu": "林昭宇",
+    "jiang_haotian": "姜皓天",
+    "lu_siyuan": "陆思远",
+    "shen_yifan": "沈逸凡",
+    "tang_shihan": "唐诗涵",
+    "cheng_yutong": "程雨桐",
+    "su_nianyao": "苏念瑶",
+    "fang_yuchen": "方语晨"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "lin_zhaoyu",
+        "jiang_haotian",
+        "lu_siyuan",
+        "shen_yifan"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "jiang_haotian",
+              "content": "姜皓天，别以为熄灯了就没人看见，早点睡吧。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "沈逸凡在被窝里露出个手机角，光晃了一下。",
+              "inner_thought": "老沈这家伙，嘴上一套背地里一套，真虚伪。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "哟，班长大人也舍得玩手机啊？不记自己纪律啊？",
+              "action_target": "shen_yifan",
+              "urgency": 8,
+              "is_disruptive": true
+            },
+            "lin_zhaoyu": {
+              "observation": "姜皓天还在用被子蒙着头玩手机，光线漏出来了。",
+              "inner_thought": "烦死了，还不睡，明天早读又要打瞌睡。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "手机反光晃到我了，姜皓天，能不能收一收。",
+              "action_target": "jiang_haotian",
+              "urgency": 7,
+              "is_disruptive": true
+            },
+            "shen_yifan": {
+              "observation": "姜皓天在熄灯后还在被窝里偷偷用手机。",
+              "inner_thought": "又在玩手机，真是不知死活，但现在管他只会闹得更僵。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "姜皓天，别以为熄灯了就没人看见，早点睡吧。",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": true
+            },
+            "lu_siyuan": {
+              "observation": "姜皓天的手机光在被窝里闪，估计又在玩什么东西。",
+              "inner_thought": "那么晚了还在玩，也不怕被老师发现，心真大。",
+              "emotion": "calm",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "shen_yifan",
+              "content": "哟，班长大人也舍得玩手机啊？不记自己纪律啊？"
+            },
+            "actions": [
+              {
+                "agent": "shen_yifan",
+                "type": "non_verbal",
+                "content": "默默拉起被子蒙住脑袋，背对着姜皓天的床铺不再言语。"
+              },
+              {
+                "agent": "lu_siyuan",
+                "type": "non_verbal",
+                "content": "默默拉高被子蒙住半张脸，闭上眼睛假装睡觉。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "姜皓天完全没理会我的提醒，被子里依然透出阵阵蓝光，手机屏幕还没关。",
+              "inner_thought": "算了，说了也是白说，再管下去显得我多事，省点气力明天早起吧。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "默默拉起被子蒙住脑袋，背对着姜皓天的床铺不再言语。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "lu_siyuan": {
+              "observation": "姜皓天熄灯了还在玩手机，被沈逸凡提醒了。",
+              "inner_thought": "这两人又要开始吵了，真让人头疼，睡觉吧。",
+              "emotion": "bored",
+              "action_type": "non_verbal",
+              "action_content": "默默拉高被子蒙住半张脸，闭上眼睛假装睡觉。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": {
+              "agent": "lin_zhaoyu",
+              "target": "jiang_haotian",
+              "content": "手机反光晃到我了，姜皓天，能不能收一收。"
+            },
+            "actions": [
+              {
+                "agent": "jiang_haotian",
+                "type": "non_verbal",
+                "content": "重重地向后躺倒在枕头上，发出“砰”的一声响。"
+              },
+              {
+                "agent": "lu_siyuan",
+                "type": "non_verbal",
+                "content": "调整了一下枕头的位置，平躺着盯着天花板数羊。"
+              }
+            ],
+            "environmental_event": "【动作】姜皓天: 重重地向后躺倒在枕头上，发出“砰”的一声响。",
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "沈逸凡躲在被子里装死，陆思远也一副不想搭理我的样子。",
+              "inner_thought": "一个个都装模作样，烦死了，睡觉睡觉。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "重重地向后躺倒在枕头上，发出“砰”的一声响。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": true
+            },
+            "shen_yifan": {
+              "observation": "姜皓天还在嘲讽我，宿舍里的气氛冷得让人难受。",
+              "inner_thought": "真烦，没完没了了是吧，睡吧，明天还得早起晨跑。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "lu_siyuan": {
+              "observation": "姜皓天还在那儿说话，沈逸凡已经不理他了。",
+              "inner_thought": "这两人真没完没了，我只想赶紧睡着，明天还要早起。",
+              "emotion": "bored",
+              "action_type": "non_verbal",
+              "action_content": "调整了一下枕头的位置，平躺着盯着天花板数羊。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "lin_zhaoyu",
+                "type": "non_verbal",
+                "content": "默默戴上耳机，调低音量听起了许嵩的歌。"
+              },
+              {
+                "agent": "lu_siyuan",
+                "type": "non_verbal",
+                "content": null
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "宿舍里死气沉沉的，沈逸凡和陆思远都躲在被子里装死，林昭宇也不说话了。",
+              "inner_thought": "一个个都装模作样，烦死了，睡觉睡觉。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "lin_zhaoyu": {
+              "observation": "姜皓天还在折腾，宿舍里安静不下来，陆思远也没睡着。",
+              "inner_thought": "真烦，明早还有英语早读，再这样下去明天又要完蛋了。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "默默戴上耳机，调低音量听起了许嵩的歌。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "shen_yifan": {
+              "observation": "姜皓天还在折腾，宿舍里因为这点光亮和响动大家都没法安心睡觉。",
+              "inner_thought": "再吵明天大家都别想好过，算了，别理他，闭嘴就是对他最好的无视。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "lu_siyuan": {
+              "observation": "姜皓天还在折腾，沈逸凡彻底不理他了，林昭宇似乎也挺烦的。",
+              "inner_thought": "这几个人还没完没了了，真想一觉睡到天亮。",
+              "emotion": "bored",
+              "action_type": "non_verbal",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 4,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "shen_yifan",
+              "content": "行吧，都装高深是吧，明天看你们谁先困死。"
+            },
+            "actions": [
+              {
+                "agent": "lin_zhaoyu",
+                "type": "non_verbal",
+                "content": "闭上眼睛，把耳机戴得更紧一点，试图挡住光线。"
+              },
+              {
+                "agent": "lu_siyuan",
+                "type": "non_verbal",
+                "content": "默默地往林昭宇床铺的方向挪了挪，试图离姜皓天的位置远一点。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "宿舍里静得要命，沈逸凡和陆思远全都装死，林昭宇也在那儿听歌，压根没人理我。",
+              "inner_thought": "真没劲，一个个摆出这副死样子给谁看呢，搞得我像个外人一样。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "行吧，都装高深是吧，明天看你们谁先困死。",
+              "action_target": "shen_yifan",
+              "urgency": 4,
+              "is_disruptive": true
+            },
+            "lin_zhaoyu": {
+              "observation": "宿舍里还是很吵，姜皓天手机屏幕的光时不时闪烁，耳机里的许嵩声音太轻被盖住了。",
+              "inner_thought": "这歌听不清，烦死了，明天又要早起，真的好烦啊。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "闭上眼睛，把耳机戴得更紧一点，试图挡住光线。",
+              "action_target": null,
+              "urgency": 4,
+              "is_disruptive": false
+            },
+            "shen_yifan": {
+              "observation": "宿舍里安静了下来，但姜皓天床铺那边偶尔还有光亮射出来。",
+              "inner_thought": "真是一点规矩都不讲，明天还有早操，非得把大家拖垮才行。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "lu_siyuan": {
+              "observation": "林昭宇戴上了耳机，姜皓天还在那儿折腾，宿舍里一点不安静。",
+              "inner_thought": "希望明天早上起来大家都能稍微消停点，哪怕只有一会也好。",
+              "emotion": "bored",
+              "action_type": "non_verbal",
+              "action_content": "默默地往林昭宇床铺的方向挪了挪，试图离姜皓天的位置远一点。",
+              "action_target": "lin_zhaoyu",
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 5,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "jiang_haotian",
+                "type": "non_verbal",
+                "content": "翻了个身，把手机直接塞到枕头底下，用手狠狠抓了抓自己的短发。"
+              },
+              {
+                "agent": "lin_zhaoyu",
+                "type": "non_verbal",
+                "content": "把被子往上拉了拉，完全遮住头顶，强迫自己不去理会外界的动静。"
+              },
+              {
+                "agent": "lu_siyuan",
+                "type": "non_verbal",
+                "content": "轻轻叹了口气，把枕巾往上拉了拉，盖住耳朵试图屏蔽外界声音。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "宿舍里静得连根针掉地上都能听见，一个个都装得像死人一样。",
+              "inner_thought": "真没劲，一个个摆出这副清高样子，明天看你们怎么死。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "翻了个身，把手机直接塞到枕头底下，用手狠狠抓了抓自己的短发。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "lin_zhaoyu": {
+              "observation": "姜皓天还在那儿不停地折腾，手机亮光刺得我眼睛生疼。",
+              "inner_thought": "这人神经病吧，许嵩的新歌都听不进去，烦死。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "把被子往上拉了拉，完全遮住头顶，强迫自己不去理会外界的动静。",
+              "action_target": null,
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "shen_yifan": {
+              "observation": "姜皓天还在用手机，光亮透过被角照出来，宿舍里静得只能听见林昭宇耳机里的漏音。",
+              "inner_thought": "算了，懒得和他耗，明天早起跑完步再说吧。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "lu_siyuan": {
+              "observation": "姜皓天还在那儿不停挑衅，宿舍气氛很压抑。",
+              "inner_thought": "好烦啊，要是能一个人睡就好了，真吵。",
+              "emotion": "bored",
+              "action_type": "non_verbal",
+              "action_content": "轻轻叹了口气，把枕巾往上拉了拉，盖住耳朵试图屏蔽外界声音。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 6,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "宿舍里静得像停尸房，这帮人都戴着耳机或者躲被子里装死，没一个理我的。",
+              "inner_thought": "一个个都给我装清高，搞得像我欠他们钱一样，算了睡觉。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "lin_zhaoyu": {
+              "observation": "姜皓天终于安静下来了，整个宿舍现在只剩下时钟的滴答声和耳机里许嵩模糊的旋律。",
+              "inner_thought": "谢天谢地，困死我了，许嵩这首歌再听最后一遍就关掉。",
+              "emotion": "calm",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "shen_yifan": {
+              "observation": "宿舍终于没声音了，大家都躲在被子里试图睡觉。",
+              "inner_thought": "折腾半天终于消停了，明天还得早训，烦死了。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "lu_siyuan": {
+              "observation": "宿舍里终于安静下来了，大家似乎都打算睡觉了。",
+              "inner_thought": "终于不闹了，再吵下去明天早读又要没精神了。",
+              "emotion": "bored",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 7,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "宿舍里终于彻底安静下来了，虽然姜皓天还没睡，但至少没有更多动静了。",
+              "inner_thought": "明天还有早操，再不睡就要迟到了，省点精力吧。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 1,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "jiang_haotian",
+            "lin_zhaoyu",
+            "lu_siyuan"
+          ]
+        },
+        {
+          "tick": 8,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "shen_yifan",
+                "type": "non_verbal",
+                "content": "调整了一下呼吸节奏，强迫自己进入睡眠状态，不再发出任何声响。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "宿舍里终于安静下来了，大家都没了动静，只有呼吸声。",
+              "inner_thought": "终于消停了，明天还得早起晨跑，先睡吧。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "调整了一下呼吸节奏，强迫自己进入睡眠状态，不再发出任何声响。",
+              "action_target": null,
+              "urgency": 1,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "jiang_haotian",
+            "lin_zhaoyu",
+            "lu_siyuan"
+          ]
+        }
+      ],
+      "narrative": {
+        "key_moments": [
+          "沈逸凡提醒姜皓天熄灯后不要玩手机。",
+          "姜皓天反问沈逸凡玩手机的行为。",
+          "沈逸凡、陆思远、林昭宇先后采取遮盖头部或佩戴耳机的动作。",
+          "姜皓天将手机塞入枕头下方。",
+          "沈逸凡调整呼吸进入睡眠状态。"
+        ],
+        "fulfilled_intentions": [
+          "沈逸凡:熄灯后休息",
+          "林昭宇:熄灯后休息",
+          "陆思远:熄灯后休息"
+        ],
+        "events_discussed": [],
+        "new_events": [
+          {
+            "text": "姜皓天在熄灯后使用手机。",
+            "category": "纪律行为",
+            "witnesses": [
+              "沈逸凡",
+              "林昭宇",
+              "陆思远"
+            ],
+            "spread_probability": 0.8,
+            "cite_ticks": [
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      "reflections": {
+        "lin_zhaoyu": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "姜皓天",
+              "favorability": -2,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "陆思远",
+              "favorability": 1,
+              "trust": 1,
+              "understanding": 1,
+              "direct_interaction": false
+            }
+          ],
+          "memories": [
+            {
+              "text": "姜皓天在宿舍里闹腾，吵得根本没法睡觉，陆思远也只能跟着受罪。",
+              "emotion": "frustrated",
+              "importance": 5,
+              "people": [
+                "姜皓天",
+                "陆思远"
+              ],
+              "location": "宿舍",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "3247a4",
+              "adjustment": 2
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "晚自习前偷偷戴耳机听一下许嵩的新歌",
+              "status": "fulfilled",
+              "brief_reason": "虽然不是晚自习前，但刚才躲在被子里终于听上了，稍微好受点。"
+            }
+          ]
+        },
+        "jiang_haotian": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "沈逸凡",
+              "favorability": -2,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "林昭宇",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "陆思远",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": false
+            }
+          ],
+          "memories": [
+            {
+              "text": "熄灯了还被沈逸凡盯着管，这日子简直没法过，烦死了。",
+              "emotion": "frustrated",
+              "importance": 6,
+              "people": [
+                "沈逸凡"
+              ],
+              "location": "宿舍",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "df3acc",
+              "adjustment": 2
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "在午休时找机会问问他毕业后打算去哪混",
+              "status": "frustrated",
+              "brief_reason": "陆思远一直在装睡，根本没机会开口。"
+            },
+            {
+              "goal": "带何家骏去操场投几个三分球",
+              "status": "missed_opportunity",
+              "brief_reason": "在宿舍没机会提这事。"
+            },
+            {
+              "goal": "故意在沈逸凡面前哼新出的说唱",
+              "status": "fulfilled",
+              "brief_reason": "虽然被怼了，但确实恶心了他一下。"
+            }
+          ]
+        },
+        "lu_siyuan": {
+          "emotion": "bored",
+          "relationship_changes": [
+            {
+              "to_agent": "姜皓天",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": false
+            },
+            {
+              "to_agent": "林昭宇",
+              "favorability": 1,
+              "trust": 1,
+              "understanding": 0,
+              "direct_interaction": false
+            }
+          ],
+          "memories": [
+            {
+              "text": "熄灯后姜皓天又在闹腾，宿舍里乱糟糟的，只想赶紧睡着。",
+              "emotion": "bored",
+              "importance": 3,
+              "people": [
+                "姜皓天",
+                "林昭宇",
+                "沈逸凡"
+              ],
+              "location": "宿舍",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "2510f4",
+              "adjustment": 1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "发布公众号草稿",
+              "status": "frustrated",
+              "brief_reason": "宿舍里太吵了，根本没法静下心来改稿。"
+            }
+          ]
+        },
+        "shen_yifan": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "姜皓天",
+              "favorability": -2,
+              "trust": -2,
+              "understanding": 1,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "林昭宇",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": false
+            },
+            {
+              "to_agent": "陆思远",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": false
+            }
+          ],
+          "memories": [
+            {
+              "text": "熄灯后姜皓天又在宿舍闹腾，还阴阳怪气地嘲讽，真的没法交流。",
+              "emotion": "frustrated",
+              "importance": 6,
+              "people": [
+                "姜皓天"
+              ],
+              "location": "宿舍",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "42fa81",
+              "adjustment": 2
+            },
+            {
+              "concern_text": "dc9947",
+              "adjustment": 1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "找个时间正式谈一次，明确纪律红线",
+              "status": "frustrated",
+              "brief_reason": "姜皓天根本听不进去，只会挑衅，完全没法沟通。"
+            },
+            {
+              "goal": "语气放软一点，聊聊宿舍卫生的事",
+              "status": "missed_opportunity",
+              "brief_reason": "宿舍气氛太僵了，根本没机会开口。"
+            }
+          ]
+        }
+      },
+      "share_tick_layouts": [
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "姜皓天，别以为熄灯了就没人看见，早点睡吧。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "老沈这家伙，嘴上一套背地里一套，真虚伪。"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "display_name": "林昭宇",
+              "kind": "thought",
+              "text": "烦死了，还不睡，明天早读又要打瞌睡。"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "thought",
+              "text": "那么晚了还在玩，也不怕被老师发现，心真大。"
+            }
+          ],
+          "featured_quote": "又在玩手机，真是不知死活，但现在管他只会闹得更僵。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 0
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "哟，班长大人也舍得玩手机啊？不记自己纪律啊？"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "算了，说了也是白说，再管下去显得我多事，省点气力明天早起吧。"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "thought",
+              "text": "这两人又要开始吵了，真让人头疼，睡觉吧。"
+            }
+          ],
+          "featured_quote": "算了，说了也是白说，再管下去显得我多事，省点气力明天早起吧。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 1
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "lin_zhaoyu",
+              "display_name": "林昭宇",
+              "kind": "speech",
+              "text": "手机反光晃到我了，姜皓天，能不能收一收。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "一个个都装模作样，烦死了，睡觉睡觉。"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "真烦，没完没了了是吧，睡吧，明天还得早起晨跑。"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "thought",
+              "text": "这两人真没完没了，我只想赶紧睡着，明天还要早起。"
+            }
+          ],
+          "featured_quote": "这两人真没完没了，我只想赶紧睡着，明天还要早起。",
+          "featured_speaker_name": "陆思远",
+          "tick_index": 2
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "一个个都装模作样，烦死了，睡觉睡觉。"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "display_name": "林昭宇",
+              "kind": "thought",
+              "text": "真烦，明早还有英语早读，再这样下去明天又要完蛋了。"
+            }
+          ],
+          "featured_quote": "再吵明天大家都别想好过，算了，别理他，闭嘴就是对他最好的无视。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 3
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "行吧，都装高深是吧，明天看你们谁先困死。"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "真是一点规矩都不讲，明天还有早操，非得把大家拖垮才行。"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "display_name": "林昭宇",
+              "kind": "thought",
+              "text": "这歌听不清，烦死了，明天又要早起，真的好烦啊。"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "thought",
+              "text": "希望明天早上起来大家都能稍微消停点，哪怕只有一会也好。"
+            }
+          ],
+          "featured_quote": "真没劲，一个个摆出这副死样子给谁看呢，搞得我像个外人一样。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 4
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "lin_zhaoyu",
+              "display_name": "林昭宇",
+              "kind": "thought",
+              "text": "这人神经病吧，许嵩的新歌都听不进去，烦死。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "真没劲，一个个摆出这副清高样子，明天看你们怎么死。"
+            }
+          ],
+          "featured_quote": "这人神经病吧，许嵩的新歌都听不进去，烦死。",
+          "featured_speaker_name": "林昭宇",
+          "tick_index": 5
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "一个个都给我装清高，搞得像我欠他们钱一样，算了睡觉。"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "display_name": "林昭宇",
+              "kind": "thought",
+              "text": "谢天谢地，困死我了，许嵩这首歌再听最后一遍就关掉。"
+            }
+          ],
+          "featured_quote": "一个个都给我装清高，搞得像我欠他们钱一样，算了睡觉。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 6
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "明天还有早操，再不睡就要迟到了，省点精力吧。"
+            }
+          ],
+          "featured_quote": "明天还有早操，再不睡就要迟到了，省点精力吧。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 7
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "终于消停了，明天还得早起晨跑，先睡吧。"
+            }
+          ],
+          "featured_quote": "终于消停了，明天还得早起晨跑，先睡吧。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 8
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 🔥\n\n「沈逸凡」又在玩手机，真是不知死活，但现在管他只会闹得更僵。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t01.png",
+          "group_index": 0,
+          "tick_index": 0
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 ⚽\n\n「沈逸凡」算了，说了也是白说，再管下去显得我多事，省点气力明天早起吧。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t02.png",
+          "group_index": 0,
+          "tick_index": 1
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 🌧️\n\n「陆思远」这两人真没完没了，我只想赶紧睡着，明天还要早起。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t03.png",
+          "group_index": 0,
+          "tick_index": 2
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 ⚽\n\n「沈逸凡」再吵明天大家都别想好过，算了，别理他，闭嘴就是对他最好的无视。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t04.png",
+          "group_index": 0,
+          "tick_index": 3
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 ⚽\n\n「姜皓天」真没劲，一个个摆出这副死样子给谁看呢，搞得我像个外人一样。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t05.png",
+          "group_index": 0,
+          "tick_index": 4
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 🌧️\n\n「林昭宇」这人神经病吧，许嵩的新歌都听不进去，烦死。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t06.png",
+          "group_index": 0,
+          "tick_index": 5
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 ⚽\n\n「姜皓天」一个个都给我装清高，搞得像我欠他们钱一样，算了睡觉。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t07.png",
+          "group_index": 0,
+          "tick_index": 6
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 🔥\n\n「沈逸凡」明天还有早操，再不睡就要迟到了，省点精力吧。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t08.png",
+          "group_index": 0,
+          "tick_index": 7
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 🔥\n\n「沈逸凡」终于消停了，明天还得早起晨跑，先睡吧。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t09.png",
+          "group_index": 0,
+          "tick_index": 8
+        }
+      ]
+    },
+    {
+      "group_index": 1,
+      "participants": [
+        "tang_shihan",
+        "cheng_yutong",
+        "su_nianyao",
+        "fang_yuchen"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "su_nianyao",
+              "content": "刚才谁手机在亮啊，晃得我眼疼。"
+            },
+            "actions": [
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "戴上眼罩，侧过身背对她们。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "方语晨的手机屏幕光在被窝里闪，她又在偷偷摸摸看什么八卦了。",
+              "inner_thought": "这人怎么还不睡，也不怕被宿管阿姨抓到，心真大。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "还没睡呢？快关了，刺眼。",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": false
+            },
+            "tang_shihan": {
+              "observation": "方语晨躲在被窝里看手机，光一直闪，肯定又是在聊什么不想让我知道的事。",
+              "inner_thought": "神神秘秘的，到底有什么不能当面讲啊？",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "你手机那光晃死人了，又在看什么呢？",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": false
+            },
+            "cheng_yutong": {
+              "observation": "宿舍里传来方语晨和唐诗涵关于沈逸凡背景图的讨论声，声音还没停。",
+              "inner_thought": "真吵，有这闲工夫背几个单词不行吗。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "戴上眼罩，侧过身背对她们。",
+              "action_target": null,
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "念瑶那边被窝里手机屏幕的光亮了一下，又立刻暗下去。",
+              "inner_thought": "这回肯定又是那个林昭宇，偷偷摸摸到底在聊什么啊。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "刚才谁手机在亮啊，晃得我眼疼。",
+              "action_target": "su_nianyao",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "fang_yuchen",
+              "content": "还没睡呢？快关了，刺眼。"
+            },
+            "actions": [
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "将降噪耳机耳罩位置压紧，彻底隔绝外界声音。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "cheng_yutong": {
+              "observation": "宿舍熄灯后方语晨还在找谁手机亮着，声音又尖又吵。",
+              "inner_thought": "这群人没完没了，能不能安静点背书？",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "将降噪耳机耳罩位置压紧，彻底隔绝外界声音。",
+              "action_target": null,
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "苏念瑶在被子里把手机关了，程雨桐戴着眼罩装睡。",
+              "inner_thought": "装什么死呢，肯定在和林昭宇腻歪，心虚都不敢吭声。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "啧，心虚了？",
+              "action_target": "su_nianyao",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "su_nianyao",
+              "content": "啧，心虚了？"
+            },
+            "actions": [
+              {
+                "agent": "su_nianyao",
+                "type": "non_verbal",
+                "content": "把枕头往上拉了拉，遮住半张脸闭上眼。"
+              },
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "将藏在枕头下的手机拿出来，调节亮度至最低，准备进入阅读模式。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "方语晨的手机屏幕还在闪，程雨桐已经完全把自己缩进被子里不想理人了。",
+              "inner_thought": "真烦人，明天还要早起呢，能不能别折腾了。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "把枕头往上拉了拉，遮住半张脸闭上眼。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "cheng_yutong": {
+              "observation": "宿舍里依然有人因为手机光线问题在小声争执。",
+              "inner_thought": "真烦，赶紧看完那章就要睡觉了，别再出声了。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "将藏在枕头下的手机拿出来，调节亮度至最低，准备进入阅读模式。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "fang_yuchen",
+              "content": "你手机那光晃死人了，又在看什么呢？"
+            },
+            "actions": [
+              {
+                "agent": "su_nianyao",
+                "type": "non_verbal",
+                "content": null
+              },
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "拉高被子蒙住脑袋，开始全神贯注阅读手机页面。"
+              },
+              {
+                "agent": "fang_yuchen",
+                "type": "non_verbal",
+                "content": "重重地哼了一声，翻身拉过被子蒙住脑袋。"
+              }
+            ],
+            "environmental_event": "【动作】方语晨: 重重地哼了一声，翻身拉过被子蒙住脑袋。",
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "宿舍里光线暗下去，大家都缩进被子里准备睡觉了。",
+              "inner_thought": "终于安静了，困死了，再不睡明天肯定要迟到。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "cheng_yutong": {
+              "observation": "方语晨和苏念瑶因为手机光线还在小声争执，宿舍里依然不够安静。",
+              "inner_thought": "真烦，只要三十秒我就能看完更新了，别吵。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "拉高被子蒙住脑袋，开始全神贯注阅读手机页面。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "苏念瑶躲着不想聊，程雨桐那边又在偷偷摸摸看手机，一个个都奇奇怪怪的。",
+              "inner_thought": "真没劲，一个个都有秘密在那憋着，我倒要看看能藏多久。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "重重地哼了一声，翻身拉过被子蒙住脑袋。",
+              "action_target": null,
+              "urgency": 5,
+              "is_disruptive": true
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 4,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "fang_yuchen",
+              "content": "行吧行吧，都别看了，明天早操起不来又要去跑圈了。"
+            },
+            "actions": [
+              {
+                "agent": "su_nianyao",
+                "type": "non_verbal",
+                "content": null
+              },
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "保持全神贯注的姿势，利用微弱的屏幕光线继续阅读，呼吸频率变得非常平稳。"
+              },
+              {
+                "agent": "fang_yuchen",
+                "type": "non_verbal",
+                "content": null
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "方语晨和唐诗涵终于消停了，宿舍里总算彻底黑了下来。",
+              "inner_thought": "谢天谢地，困死我了，明天还要早操呢。",
+              "emotion": "calm",
+              "action_type": "non_verbal",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 1,
+              "is_disruptive": false
+            },
+            "tang_shihan": {
+              "observation": "宿舍里这会儿特别安静，方语晨和苏念瑶都在被子里藏着看手机，搞得神神秘秘的。",
+              "inner_thought": "真没劲，一个个都把手机当命一样，到底有什么不能讲出来分享一下的啊？",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "行吧行吧，都别看了，明天早操起不来又要去跑圈了。",
+              "action_target": "fang_yuchen",
+              "urgency": 4,
+              "is_disruptive": false
+            },
+            "cheng_yutong": {
+              "observation": "宿舍里终于稍微静了一些，方语晨和唐诗涵都蒙在被子里不再说话了。",
+              "inner_thought": "终于清净了，主角快要渡劫了，赶紧看完。",
+              "emotion": "calm",
+              "action_type": "non_verbal",
+              "action_content": "保持全神贯注的姿势，利用微弱的屏幕光线继续阅读，呼吸频率变得非常平稳。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "宿舍里死气沉沉的，大家都蒙着被子玩手机，真是没意思透了。",
+              "inner_thought": "一个个都藏着掖着，等周末剧本杀看我不把你们底裤都扒下来。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 5,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "fang_yuchen",
+              "content": "行吧，那你们看吧，明天早操别喊我起床。"
+            },
+            "actions": [
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "轻手轻脚地翻过书页，确保没有任何声音传出。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "宿舍终于彻底静下来了，大家都没再说话。",
+              "inner_thought": "困死了，希望明天起床别又是阴天。",
+              "emotion": "calm",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 1,
+              "is_disruptive": false
+            },
+            "tang_shihan": {
+              "observation": "宿舍里死气沉沉的，大家全都闷在被子里玩手机，没人搭理我。",
+              "inner_thought": "真没劲，一个个都把自己藏起来，也不嫌闷得慌。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "行吧，那你们看吧，明天早操别喊我起床。",
+              "action_target": "fang_yuchen",
+              "urgency": 4,
+              "is_disruptive": false
+            },
+            "cheng_yutong": {
+              "observation": "宿舍终于安静下来，大家都在被窝里保持沉默。",
+              "inner_thought": "终于可以看完最后几页，别再出什么幺蛾子了。",
+              "emotion": "calm",
+              "action_type": "non_verbal",
+              "action_content": "轻手轻脚地翻过书页，确保没有任何声音传出。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "宿舍里安静得可怕，每个人都躲在被子里鼓捣手机，苏念瑶那边一点声音也没有。",
+              "inner_thought": "装睡是吧，行，明天早起不了一起跑圈，看你还怎么躲。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 6,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "将手机亮度调到最低，缩进被窝深处继续阅读。"
+              },
+              {
+                "agent": "fang_yuchen",
+                "type": "non_verbal",
+                "content": "用力踹了一下床栏杆，发出很小但刺耳的金属撞击声。"
+              }
+            ],
+            "environmental_event": "【动作】方语晨: 用力踹了一下床栏杆，发出很小但刺耳的金属撞击声。",
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "宿舍里安静得诡异，只有程雨桐翻页的细微声响，大家全都在玩手机。",
+              "inner_thought": "真没意思，一个个都把自己藏起来，也不嫌闷得慌。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "cheng_yutong": {
+              "observation": "宿舍彻底安静下来了，只剩下轻微的呼吸声。",
+              "inner_thought": "终于清净了，主角开始凝气了，这章写得真带感。",
+              "emotion": "calm",
+              "action_type": "non_verbal",
+              "action_content": "将手机亮度调到最低，缩进被窝深处继续阅读。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "程雨桐在被子里玩手机玩得那么起劲，苏念瑶也闷声不响地躲着。",
+              "inner_thought": "一个个都这么能装，行，等周末见面了再慢慢收拾你们。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "用力踹了一下床栏杆，发出很小但刺耳的金属撞击声。",
+              "action_target": "cheng_yutong",
+              "urgency": 4,
+              "is_disruptive": true
+            }
+          },
+          "gated_agents": [
+            "su_nianyao"
+          ]
+        },
+        {
+          "tick": 7,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "su_nianyao",
+              "content": "行了，都别藏啦，手机光亮都快把被子烫穿了，烦死人。"
+            },
+            "actions": [
+              {
+                "agent": "su_nianyao",
+                "type": "non_verbal",
+                "content": "默默把毯子拉过头顶，只露出一点点鼻尖。"
+              },
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "用力把被子拉到头顶，把自己完全裹在里头，重重地叹了口气。"
+              }
+            ],
+            "environmental_event": "【动作】程雨桐: 用力把被子拉到头顶，把自己完全裹在里头，重重地叹了口气。",
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "方语晨又开始折腾床架了，这动静真让人心烦。",
+              "inner_thought": "再吵明天眼圈又要黑了，算了，眼不见为净。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "默默把毯子拉过头顶，只露出一点点鼻尖。",
+              "action_target": null,
+              "urgency": 4,
+              "is_disruptive": false
+            },
+            "tang_shihan": {
+              "observation": "方语晨又踹床栏杆，大家都闷在被子里玩手机，宿舍安静得连针掉地上都能听见。",
+              "inner_thought": "一个个都躲得紧紧的，到底在搞什么鬼啊？烦都烦死了。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "我说你们够了没，明天还要早起，真的不困啊？",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": true
+            },
+            "cheng_yutong": {
+              "observation": "方语晨又踹了床栏杆，宿舍里那一丝好不容易得来的安静又被破坏了。",
+              "inner_thought": "有病吧，大晚上踹什么床，还让不让人看书了。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "用力把被子拉到头顶，把自己完全裹在里头，重重地叹了口气。",
+              "action_target": "fang_yuchen",
+              "urgency": 8,
+              "is_disruptive": true
+            },
+            "fang_yuchen": {
+              "observation": "程雨桐和苏念瑶都在被子里玩手机，宿舍安静得让人心里发堵。",
+              "inner_thought": "一个个都藏着掖着，不就是看手机吗，有什么好防的。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "行了，都别藏啦，手机光亮都快把被子烫穿了，烦死人。",
+              "action_target": "su_nianyao",
+              "urgency": 6,
+              "is_disruptive": true
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 8,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "fang_yuchen",
+              "content": "我说你们够了没，明天还要早起，真的不困啊？"
+            },
+            "actions": [
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "将手机锁屏，仰面躺平，盯着天花板发呆。"
+              },
+              {
+                "agent": "fang_yuchen",
+                "type": "non_verbal",
+                "content": "侧过身，把手机屏幕直接反扣在枕头上，干脆闭眼睡觉。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "方语晨和程雨桐在被子里闹得不可开交，空气里全是那种让人心烦的摩擦声。",
+              "inner_thought": "再吵下去真没法睡了，真的烦死了。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "求你们了，能不能消停点，明天还要早操呢。",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": false
+            },
+            "cheng_yutong": {
+              "observation": "方语晨又在闹腾，整个宿舍的气氛完全被她搅乱了。",
+              "inner_thought": "能不能闭嘴，再吵下去这章网文又看不完了。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "将手机锁屏，仰面躺平，盯着天花板发呆。",
+              "action_target": null,
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "宿舍里安静得诡异，苏念瑶和程雨桐全躲在被子里鼓捣手机，没一个人搭理我。",
+              "inner_thought": "一个个都憋着坏水，我倒要看看你们明天还能不能起得来。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "侧过身，把手机屏幕直接反扣在枕头上，干脆闭眼睡觉。",
+              "action_target": null,
+              "urgency": 4,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 9,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "fang_yuchen",
+              "content": "求你们了，能不能消停点，明天还要早操呢。"
+            },
+            "actions": [
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "闭上眼，调整呼吸尝试入睡。"
+              },
+              {
+                "agent": "fang_yuchen",
+                "type": "non_verbal",
+                "content": "将枕头往下拉了一点，露出鼻子呼吸空气，没再发出声音。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "宿舍终于静下来了，大家都把手机放下躺平了。",
+              "inner_thought": "终于肯消停了，搞得像特务接头一样，真服了。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "终于肯睡了？明天要是起不来，我就把闹钟放到你们头顶响半小时。",
+              "action_target": "fang_yuchen",
+              "urgency": 4,
+              "is_disruptive": false
+            },
+            "cheng_yutong": {
+              "observation": "宿舍终于安静下来，方语晨反扣手机，大家似乎都准备入睡了。",
+              "inner_thought": "这章还没看完，算了，明天早起跑操要是状态不好就亏了。",
+              "emotion": "calm",
+              "action_type": "non_verbal",
+              "action_content": "闭上眼，调整呼吸尝试入睡。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "宿舍里重新安静下来，大家都没动静了。",
+              "inner_thought": "一个个装得跟没事人一样，烦死了，睡觉。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "将枕头往下拉了一点，露出鼻子呼吸空气，没再发出声音。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 10,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "fang_yuchen",
+              "content": "终于肯睡了？明天要是起不来，我就把闹钟放到你们头顶响半小时。"
+            },
+            "actions": [
+              {
+                "agent": "su_nianyao",
+                "type": "non_verbal",
+                "content": "调整了一下枕头高度，侧身把呼吸调得很轻。"
+              },
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "将手机彻底关机并放置在床头柜固定位置，双手交叠放在腹部准备入睡。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "寝室终于彻底安静下来，连刚才抱怨的方语晨也没动静了。",
+              "inner_thought": "总算能睡了，这几天累得像块被榨干的柠檬。",
+              "emotion": "calm",
+              "action_type": "non_verbal",
+              "action_content": "调整了一下枕头高度，侧身把呼吸调得很轻。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "cheng_yutong": {
+              "observation": "宿舍总算没人闹腾了，大家似乎都准备入睡。",
+              "inner_thought": "真累，明天还得早起抢位子复习，赶紧睡吧。",
+              "emotion": "calm",
+              "action_type": "non_verbal",
+              "action_content": "将手机彻底关机并放置在床头柜固定位置，双手交叠放在腹部准备入睡。",
+              "action_target": null,
+              "urgency": 3,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "苏念瑶在催促大家安静，宿舍里重新陷入了那种让人心烦的死寂。",
+              "inner_thought": "一个个都装得跟圣人一样，心里准在憋着什么坏水，烦死了。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 11,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "su_nianyao",
+                "type": "non_verbal",
+                "content": "轻轻呼吸，身体完全放松，慢慢进入梦乡。"
+              },
+              {
+                "agent": "tang_shihan",
+                "type": "non_verbal",
+                "content": "把被子往上拉了拉，遮住大半张脸，然后重重地呼出一口气。"
+              },
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": null
+              },
+              {
+                "agent": "fang_yuchen",
+                "type": "non_verbal",
+                "content": null
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "宿舍终于彻底静下来了，大家都没有动静，应该是都睡了。",
+              "inner_thought": "好累，明天还要早操，希望别被闹钟吵醒。",
+              "emotion": "calm",
+              "action_type": "non_verbal",
+              "action_content": "轻轻呼吸，身体完全放松，慢慢进入梦乡。",
+              "action_target": null,
+              "urgency": 1,
+              "is_disruptive": false
+            },
+            "tang_shihan": {
+              "observation": "宿舍终于彻底安静下来了，大家也都把手机收起来了，周围变得黑漆漆的。",
+              "inner_thought": "这几个人搞得神神秘秘的，到底有什么大瓜瞒着我？算了，睡觉吧，明天还要早起。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "把被子往上拉了拉，遮住大半张脸，然后重重地呼出一口气。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "cheng_yutong": {
+              "observation": "宿舍终于静下来了，除了呼吸声没有别的干扰。",
+              "inner_thought": "终于可以睡了，明天早起的任务不能搞砸。",
+              "emotion": "calm",
+              "action_type": "non_verbal",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 1,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "程雨桐终于关了手机，宿舍里彻底安静下来了。",
+              "inner_thought": "一个个装得这么累，我看看到底谁先憋不住。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 12,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "将手搭在额头上，调整呼吸频率争取快速进入深度睡眠。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "宿舍终于彻底安静下来，周围只能听到大家轻微且平稳的呼吸声。",
+              "inner_thought": "终于睡得着了，明天早操可千万别下雨。",
+              "emotion": "calm",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 1,
+              "is_disruptive": false
+            },
+            "tang_shihan": {
+              "observation": "宿舍总算彻底黑下来了，大家都装睡不再动弹。",
+              "inner_thought": "到底瞒着什么啊，真想钻她们被窝里看一眼。算了，懒得管了，睡觉。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 1,
+              "is_disruptive": false
+            },
+            "cheng_yutong": {
+              "observation": "宿舍终于彻底安静了，大家都陷入了睡眠状态。",
+              "inner_thought": "还好没吵了，明天要早起，希望排名快点出，不然心一直悬着。",
+              "emotion": "calm",
+              "action_type": "non_verbal",
+              "action_content": "将手搭在额头上，调整呼吸频率争取快速进入深度睡眠。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "宿舍里终于彻底安静下来了，大家都装睡不再动弹。",
+              "inner_thought": "一个个都这么能演，等着吧，明天早修看你们谁先露出马脚。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 1,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 13,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "cheng_yutong": {
+              "observation": "宿舍里终于彻底安静下来，没有人再发出琐碎的声音。",
+              "inner_thought": "这回总算能睡个好觉了，明天还要早操，希望早点出排名，别再拖了。",
+              "emotion": "calm",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 1,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "宿舍里终于彻底安静下来，程雨桐呼吸平稳，像是真的睡着了。",
+              "inner_thought": "一个个都装死，算了，明天早起看看你们谁先撑不住。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "su_nianyao",
+            "tang_shihan"
+          ]
+        },
+        {
+          "tick": 14,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "整个宿舍终于彻底安静下来了，大家都一动不动地躺在床上。",
+              "inner_thought": "真的都睡了？我不信，一个个心里肯定全是鬼，算了，明天还得早起。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "cheng_yutong",
+            "su_nianyao",
+            "tang_shihan"
+          ]
+        }
+      ],
+      "narrative": {
+        "key_moments": [
+          "方语晨询问是谁的手机光线晃眼。",
+          "程雨桐戴上眼罩并使用降噪耳机。",
+          "方语晨、苏念瑶和程雨桐先后在被窝中使用手机。",
+          "方语晨用力踹床栏杆发出声响。",
+          "唐诗涵多次提醒众人早起和早操事宜。",
+          "程雨桐将手机关机并放置在床头柜。",
+          "四人最终停止使用手机并尝试入睡。"
+        ],
+        "fulfilled_intentions": [
+          "程雨桐:阅读手机内容",
+          "方语晨:停止使用手机并尝试入睡",
+          "程雨桐:关机并准备入睡",
+          "苏念瑶:调整姿势准备入睡"
+        ],
+        "events_discussed": [
+          "明日早操",
+          "手机屏幕光线干扰"
+        ],
+        "new_events": [
+          {
+            "text": "方语晨对手机光线表示不满并踹床栏杆",
+            "category": "宿舍冲突",
+            "witnesses": [
+              "唐诗涵",
+              "程雨桐",
+              "苏念瑶"
+            ],
+            "spread_probability": 0.8,
+            "cite_ticks": [
+              1,
+              7,
+              8
+            ]
+          },
+          {
+            "text": "唐诗涵提出若明日起不来将使用闹钟提醒",
+            "category": "作息提醒",
+            "witnesses": [
+              "方语晨",
+              "苏念瑶",
+              "程雨桐"
+            ],
+            "spread_probability": 0.3,
+            "cite_ticks": [
+              11
+            ]
+          }
+        ]
+      },
+      "reflections": {
+        "tang_shihan": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "方语晨",
+              "favorability": -1,
+              "trust": -1,
+              "understanding": 0,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "苏念瑶",
+              "favorability": -1,
+              "trust": -1,
+              "understanding": 0,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "宿舍里大家为了看手机光亮吵来吵去，最后谁也没睡好，烦死了。",
+              "emotion": "frustrated",
+              "importance": 4,
+              "people": [
+                "方语晨",
+                "苏念瑶",
+                "程雨桐"
+              ],
+              "location": "宿舍",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "450fb6",
+              "adjustment": 1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "找个机会假装借文具顺便问他一道物理题，试探态度",
+              "status": "missed_opportunity",
+              "brief_reason": "在图书馆没机会，晚上在宿舍更不可能问"
+            },
+            {
+              "goal": "在午饭时套话，搞清楚她和苏念瑶到底在瞒着什么",
+              "status": "frustrated",
+              "brief_reason": "她们在宿舍一直躲躲闪闪，根本问不出什么"
+            },
+            {
+              "goal": "给蛋仔买新娃衣并拍照片发小红书",
+              "status": "frustrated",
+              "brief_reason": "忙了一天，还要应付室友的破事，根本没心情拍"
+            }
+          ]
+        },
+        "cheng_yutong": {
+          "emotion": "calm",
+          "relationship_changes": [
+            {
+              "to_agent": "方语晨",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": false
+            },
+            {
+              "to_agent": "苏念瑶",
+              "favorability": 0,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": false
+            },
+            {
+              "to_agent": "唐诗涵",
+              "favorability": 0,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": false
+            }
+          ],
+          "memories": [
+            {
+              "text": "舍友在熄灯后依然吵闹，被迫缩在被窝里才读完网文。",
+              "emotion": "frustrated",
+              "importance": 4,
+              "people": [
+                "方语晨",
+                "唐诗涵",
+                "苏念瑶"
+              ],
+              "location": "宿舍",
+              "topics": [
+                "兴趣爱好"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "f5f334",
+              "adjustment": 1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "阅读《仙路独行》",
+              "status": "fulfilled",
+              "brief_reason": "虽然环境嘈杂，但最终还是在被窝里看完了更新。"
+            },
+            {
+              "goal": "确认月考排名",
+              "status": "frustrated",
+              "brief_reason": "系统还没出结果，这种不确定性让人难以平静。"
+            }
+          ]
+        },
+        "su_nianyao": {
+          "emotion": "calm",
+          "relationship_changes": [
+            {
+              "to_agent": "方语晨",
+              "favorability": 1,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "程雨桐",
+              "favorability": 0,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": false
+            }
+          ],
+          "memories": [
+            {
+              "text": "宿舍里大家都在被窝里偷偷用手机光，明明累得不行还要硬撑，挺好笑的。",
+              "emotion": "calm",
+              "importance": 3,
+              "people": [
+                "方语晨",
+                "程雨桐",
+                "唐诗涵"
+              ],
+              "location": "宿舍",
+              "topics": [
+                "其他"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "354e18",
+              "adjustment": -1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "在午休时写一段关于冬天的随笔",
+              "status": "frustrated",
+              "brief_reason": "宿舍里太吵了，而且大家都盯着手机，根本没法静下心来写东西。"
+            }
+          ]
+        },
+        "fang_yuchen": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "苏念瑶",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "程雨桐",
+              "favorability": -2,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "宿舍里这几个人的手机光晃得人睡不着，真是烦死人了。",
+              "emotion": "frustrated",
+              "importance": 3,
+              "people": [
+                "苏念瑶",
+                "程雨桐"
+              ],
+              "location": "宿舍",
+              "topics": [
+                "其他"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "13a135",
+              "adjustment": -1
+            },
+            {
+              "concern_text": "c727f6",
+              "adjustment": -1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "假装借作业看，顺势瞄一眼他的手机屏幕或桌面通知",
+              "status": "missed_opportunity",
+              "brief_reason": "在宿舍里没机会见到姜皓天。"
+            },
+            {
+              "goal": "在午饭时跟念瑶旁敲侧击一下沈逸凡周末的动向",
+              "status": "frustrated",
+              "brief_reason": "念瑶在宿舍里一直躲着我不说话，根本没法聊。"
+            }
+          ]
+        }
+      },
+      "share_tick_layouts": [
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "刚才谁手机在亮啊，晃得我眼疼。"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "这人怎么还不睡，也不怕被宿管阿姨抓到，心真大。"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "真吵，有这闲工夫背几个单词不行吗。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "神神秘秘的，到底有什么不能当面讲啊？"
+            }
+          ],
+          "featured_quote": "真吵，有这闲工夫背几个单词不行吗。",
+          "featured_speaker_name": "程雨桐",
+          "tick_index": 0
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "还没睡呢？快关了，刺眼。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "装什么死呢，肯定在和林昭宇腻歪，心虚都不敢吭声。"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "这群人没完没了，能不能安静点背书？"
+            }
+          ],
+          "featured_quote": "这群人没完没了，能不能安静点背书？",
+          "featured_speaker_name": "程雨桐",
+          "tick_index": 1
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "啧，心虚了？"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "真烦人，明天还要早起呢，能不能别折腾了。"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "真烦，赶紧看完那章就要睡觉了，别再出声了。"
+            }
+          ],
+          "featured_quote": "真烦，赶紧看完那章就要睡觉了，别再出声了。",
+          "featured_speaker_name": "程雨桐",
+          "tick_index": 2
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "你手机那光晃死人了，又在看什么呢？"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "真没劲，一个个都有秘密在那憋着，我倒要看看能藏多久。"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "终于安静了，困死了，再不睡明天肯定要迟到。"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "真烦，只要三十秒我就能看完更新了，别吵。"
+            }
+          ],
+          "featured_quote": "真没劲，一个个都有秘密在那憋着，我倒要看看能藏多久。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 3
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "行吧行吧，都别看了，明天早操起不来又要去跑圈了。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "一个个都藏着掖着，等周末剧本杀看我不把你们底裤都扒下来。"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "终于清净了，主角快要渡劫了，赶紧看完。"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "谢天谢地，困死我了，明天还要早操呢。"
+            }
+          ],
+          "featured_quote": "真没劲，一个个都把手机当命一样，到底有什么不能讲出来分享一下的啊？",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 4
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "行吧，那你们看吧，明天早操别喊我起床。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "装睡是吧，行，明天早起不了一起跑圈，看你还怎么躲。"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "终于可以看完最后几页，别再出什么幺蛾子了。"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "困死了，希望明天起床别又是阴天。"
+            }
+          ],
+          "featured_quote": "真没劲，一个个都把自己藏起来，也不嫌闷得慌。",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 5
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "一个个都这么能装，行，等周末见面了再慢慢收拾你们。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "真没意思，一个个都把自己藏起来，也不嫌闷得慌。"
+            }
+          ],
+          "featured_quote": "一个个都这么能装，行，等周末见面了再慢慢收拾你们。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 6
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "行了，都别藏啦，手机光亮都快把被子烫穿了，烦死人。"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "再吵明天眼圈又要黑了，算了，眼不见为净。"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "有病吧，大晚上踹什么床，还让不让人看书了。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "一个个都躲得紧紧的，到底在搞什么鬼啊？烦都烦死了。"
+            }
+          ],
+          "featured_quote": "有病吧，大晚上踹什么床，还让不让人看书了。",
+          "featured_speaker_name": "程雨桐",
+          "tick_index": 7
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "我说你们够了没，明天还要早起，真的不困啊？"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "一个个都憋着坏水，我倒要看看你们明天还能不能起得来。"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "能不能闭嘴，再吵下去这章网文又看不完了。"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "再吵下去真没法睡了，真的烦死了。"
+            }
+          ],
+          "featured_quote": "能不能闭嘴，再吵下去这章网文又看不完了。",
+          "featured_speaker_name": "程雨桐",
+          "tick_index": 8
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "求你们了，能不能消停点，明天还要早操呢。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "一个个装得跟没事人一样，烦死了，睡觉。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "终于肯消停了，搞得像特务接头一样，真服了。"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "这章还没看完，算了，明天早起跑操要是状态不好就亏了。"
+            }
+          ],
+          "featured_quote": "终于肯消停了，搞得像特务接头一样，真服了。",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 9
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "终于肯睡了？明天要是起不来，我就把闹钟放到你们头顶响半小时。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "一个个都装得跟圣人一样，心里准在憋着什么坏水，烦死了。"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "真累，明天还得早起抢位子复习，赶紧睡吧。"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "总算能睡了，这几天累得像块被榨干的柠檬。"
+            }
+          ],
+          "featured_quote": "真累，明天还得早起抢位子复习，赶紧睡吧。",
+          "featured_speaker_name": "程雨桐",
+          "tick_index": 10
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "这几个人搞得神神秘秘的，到底有什么大瓜瞒着我？算了，睡觉吧，明天还要早起。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "一个个装得这么累，我看看到底谁先憋不住。"
+            }
+          ],
+          "featured_quote": "这几个人搞得神神秘秘的，到底有什么大瓜瞒着我？算了，睡觉吧，明天还要早起。",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 11
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "还好没吵了，明天要早起，希望排名快点出，不然心一直悬着。"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "终于睡得着了，明天早操可千万别下雨。"
+            }
+          ],
+          "featured_quote": "还好没吵了，明天要早起，希望排名快点出，不然心一直悬着。",
+          "featured_speaker_name": "程雨桐",
+          "tick_index": 12
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "一个个都装死，算了，明天早起看看你们谁先撑不住。"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "这回总算能睡个好觉了，明天还要早操，希望早点出排名，别再拖了。"
+            }
+          ],
+          "featured_quote": "一个个都装死，算了，明天早起看看你们谁先撑不住。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 13
+        },
+        {
+          "day": 6,
+          "time": "22:00",
+          "scene_name": "宿舍夜聊",
+          "location": "宿舍",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "真的都睡了？我不信，一个个心里肯定全是鬼，算了，明天还得早起。"
+            }
+          ],
+          "featured_quote": "真的都睡了？我不信，一个个心里肯定全是鬼，算了，明天还得早起。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 14
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 ☀️\n\n「程雨桐」真吵，有这闲工夫背几个单词不行吗。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t01.png",
+          "group_index": 1,
+          "tick_index": 0
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 🌸\n\n「程雨桐」这群人没完没了，能不能安静点背书？\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t02.png",
+          "group_index": 1,
+          "tick_index": 1
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 ☀️\n\n「程雨桐」真烦，赶紧看完那章就要睡觉了，别再出声了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t03.png",
+          "group_index": 1,
+          "tick_index": 2
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 🌿\n\n「方语晨」真没劲，一个个都有秘密在那憋着，我倒要看看能藏多久。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t04.png",
+          "group_index": 1,
+          "tick_index": 3
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 🌿\n\n「唐诗涵」真没劲，一个个都把手机当命一样，到底有什么不能讲出来分享一下的啊？\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t05.png",
+          "group_index": 1,
+          "tick_index": 4
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 🌿\n\n「唐诗涵」真没劲，一个个都把自己藏起来，也不嫌闷得慌。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t06.png",
+          "group_index": 1,
+          "tick_index": 5
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 ☀️\n\n「方语晨」一个个都这么能装，行，等周末见面了再慢慢收拾你们。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t07.png",
+          "group_index": 1,
+          "tick_index": 6
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 ☀️\n\n「程雨桐」有病吧，大晚上踹什么床，还让不让人看书了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t08.png",
+          "group_index": 1,
+          "tick_index": 7
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 🌿\n\n「程雨桐」能不能闭嘴，再吵下去这章网文又看不完了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t09.png",
+          "group_index": 1,
+          "tick_index": 8
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 🌸\n\n「唐诗涵」终于肯消停了，搞得像特务接头一样，真服了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t10.png",
+          "group_index": 1,
+          "tick_index": 9
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 🌿\n\n「程雨桐」真累，明天还得早起抢位子复习，赶紧睡吧。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t11.png",
+          "group_index": 1,
+          "tick_index": 10
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 🌿\n\n「唐诗涵」这几个人搞得神神秘秘的，到底有什么大瓜瞒着我？算了，睡觉吧，明天还要早起。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t12.png",
+          "group_index": 1,
+          "tick_index": 11
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 📚\n\n「程雨桐」还好没吵了，明天要早起，希望排名快点出，不然心一直悬着。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t13.png",
+          "group_index": 1,
+          "tick_index": 12
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 ☀️\n\n「方语晨」一个个都装死，算了，明天早起看看你们谁先撑不住。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t14.png",
+          "group_index": 1,
+          "tick_index": 13
+        },
+        {
+          "caption": "第006天 · 宿舍夜聊 · 宿舍 ☀️\n\n「方语晨」真的都睡了？我不信，一个个心里肯定全是鬼，算了，明天还得早起。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#宿舍夜聊"
+          ],
+          "filename": "simcampus_第006天_宿舍夜聊@宿舍_t15.png",
+          "group_index": 1,
+          "tick_index": 14
+        }
+      ]
+    }
+  ]
+}

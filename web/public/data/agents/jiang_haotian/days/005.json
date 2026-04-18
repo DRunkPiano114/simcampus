@@ -1,0 +1,62 @@
+{
+  "agent_id": "jiang_haotian",
+  "name_cn": "姜皓天",
+  "day": 5,
+  "is_teacher": false,
+  "motif_emoji": "⚽",
+  "motif_tag": "运动健将",
+  "main_color": "#E87B42",
+  "emotion_label": "挫败",
+  "energy_label": "精神还行",
+  "pressure_label": "轻松",
+  "featured_quote": "一天到晚就会这一套，真觉得自己是教导主任了，烦得要死。",
+  "featured_scene": "15:30 · 课间",
+  "relationships": [
+    {
+      "target_name": "林昭宇",
+      "favorability": 10,
+      "trust": 5,
+      "label_text": "还行，有些好感"
+    },
+    {
+      "target_name": "何家骏",
+      "favorability": 7,
+      "trust": 5,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "陆思远",
+      "favorability": 4,
+      "trust": 6,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 4",
+      "text": "在操场被沈逸凡当众要求收起手机，我用肩膀撞了他并威胁要抠出眼珠。",
+      "importance": 6
+    },
+    {
+      "date": "Day 1",
+      "text": "沈逸凡那死样子，整天就知道拿纪律压人，真把自己当盘菜了。",
+      "importance": 6
+    }
+  ],
+  "top_concern": {
+    "text": "想找陆思远聊聊毕业后的打算，但沈逸凡总是盯着不放，完全找不到机会。",
+    "intensity_label": "中等",
+    "positive": false
+  },
+  "self_narrative": "班里那个最吵的姜皓天就是我。天天哈哈大笑，其实心里虚得很。家里工厂那点破事，爸妈愁得不行，我却只能装作没事，继续带何家骏上分。沈逸凡那家伙管得太宽，烦死人。想找陆思远聊聊未来又总被搅和，这种日子真是一眼望不到头。",
+  "caption_payload": {
+    "caption": "⚽ 姜皓天 · 第005天 档案\n\n标签：运动健将\n此刻心情：挫败\n\n「一天到晚就会这一套，真觉得自己是教导主任了，烦得要死。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_姜皓天_档案_第005天.png"
+  }
+}

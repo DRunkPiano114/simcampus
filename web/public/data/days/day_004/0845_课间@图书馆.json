@@ -1,0 +1,361 @@
+{
+  "scene": {
+    "scene_index": 0,
+    "time": "08:45",
+    "name": "课间",
+    "location": "图书馆",
+    "description": "上午第一个课间休息，同学们在教室里活动",
+    "day": 4
+  },
+  "participant_names": {
+    "cheng_yutong": "程雨桐",
+    "he_jiajun": "何家骏"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "cheng_yutong",
+        "he_jiajun"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "he_jiajun",
+                "type": "non_verbal",
+                "content": "默默把书包往腿边挪了挪，挡住视线，继续低头翻看错题本。"
+              },
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "戴上降噪耳机，低头在方格本上继续演算物理题。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_jiajun": {
+              "observation": "程雨桐坐在不远处的书桌前，正低头翻着课本。",
+              "inner_thought": "离她远点，别被注意到了，还是赶紧把错题本弄好。",
+              "emotion": "embarrassed",
+              "action_type": "non_verbal",
+              "action_content": "默默把书包往腿边挪了挪，挡住视线，继续低头翻看错题本。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "cheng_yutong": {
+              "observation": "何家骏坐在不远处，正对着手机屏幕有些心不在焉地滑动。",
+              "inner_thought": "排名到底出了没，手机除了看视频还能干点正事吗。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "戴上降噪耳机，低头在方格本上继续演算物理题。",
+              "action_target": null,
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "he_jiajun",
+                "type": "non_verbal",
+                "content": "用笔尖在错题本上重重地划掉一个写错的步骤，又把练习册往下拉了拉。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_jiajun": {
+              "observation": "程雨桐戴着耳机在写题，根本没抬头看我这边。",
+              "inner_thought": "还好没被发现，继续看题吧，不然周五死定了。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "用笔尖在错题本上重重地划掉一个写错的步骤，又把练习册往下拉了拉。",
+              "action_target": null,
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "cheng_yutong": {
+              "observation": "何家骏在遮挡视线，可能在看什么不想被发现的东西。",
+              "inner_thought": "沈逸凡不是让他少看手机吗，怎么还没看进去书。",
+              "emotion": "anxious",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "he_jiajun",
+                "type": "non_verbal",
+                "content": "合上练习册，发出“啪”的一声轻响，然后揉了揉太阳穴。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_jiajun": {
+              "observation": "程雨桐在认真算题，笔尖划过纸面的声音很细，而我错题本上一片乱涂的墨迹。",
+              "inner_thought": "好烦，这道题到底怎么算的，脑子里一团浆糊。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "合上练习册，发出“啪”的一声轻响，然后揉了揉太阳穴。",
+              "action_target": null,
+              "urgency": 4,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "cheng_yutong"
+          ]
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "he_jiajun",
+                "type": "non_verbal",
+                "content": "将错题本翻到另一页，假装自己在认真研究别的内容。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_jiajun": {
+              "observation": "程雨桐取下耳机停笔看了看窗外。",
+              "inner_thought": "她怎么不写了，要是被她发现我在这死磕这道题也太丢脸了。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "将错题本翻到另一页，假装自己在认真研究别的内容。",
+              "action_target": "cheng_yutong",
+              "urgency": 4,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "cheng_yutong"
+          ]
+        }
+      ],
+      "narrative": null,
+      "reflections": {},
+      "trivial": true,
+      "share_tick_layouts": [
+        {
+          "day": 4,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "图书馆",
+          "portraits": [
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "排名到底出了没，手机除了看视频还能干点正事吗。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "离她远点，别被注意到了，还是赶紧把错题本弄好。"
+            }
+          ],
+          "featured_quote": "排名到底出了没，手机除了看视频还能干点正事吗。",
+          "featured_speaker_name": "程雨桐",
+          "tick_index": 0
+        },
+        {
+          "day": 4,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "图书馆",
+          "portraits": [
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "还好没被发现，继续看题吧，不然周五死定了。"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "沈逸凡不是让他少看手机吗，怎么还没看进去书。"
+            }
+          ],
+          "featured_quote": "还好没被发现，继续看题吧，不然周五死定了。",
+          "featured_speaker_name": "何家骏",
+          "tick_index": 1
+        },
+        {
+          "day": 4,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "图书馆",
+          "portraits": [
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "好烦，这道题到底怎么算的，脑子里一团浆糊。"
+            }
+          ],
+          "featured_quote": "好烦，这道题到底怎么算的，脑子里一团浆糊。",
+          "featured_speaker_name": "何家骏",
+          "tick_index": 2
+        },
+        {
+          "day": 4,
+          "time": "08:45",
+          "scene_name": "课间",
+          "location": "图书馆",
+          "portraits": [
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "她怎么不写了，要是被她发现我在这死磕这道题也太丢脸了。"
+            }
+          ],
+          "featured_quote": "她怎么不写了，要是被她发现我在这死磕这道题也太丢脸了。",
+          "featured_speaker_name": "何家骏",
+          "tick_index": 3
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第004天 · 课间 · 图书馆 📚\n\n「程雨桐」排名到底出了没，手机除了看视频还能干点正事吗。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#图书馆",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@图书馆_t01.png",
+          "group_index": 0,
+          "tick_index": 0
+        },
+        {
+          "caption": "第004天 · 课间 · 图书馆 🌫️\n\n「何家骏」还好没被发现，继续看题吧，不然周五死定了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#图书馆",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@图书馆_t02.png",
+          "group_index": 0,
+          "tick_index": 1
+        },
+        {
+          "caption": "第004天 · 课间 · 图书馆 🌫️\n\n「何家骏」好烦，这道题到底怎么算的，脑子里一团浆糊。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#图书馆",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@图书馆_t03.png",
+          "group_index": 0,
+          "tick_index": 2
+        },
+        {
+          "caption": "第004天 · 课间 · 图书馆 🌫️\n\n「何家骏」她怎么不写了，要是被她发现我在这死磕这道题也太丢脸了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#图书馆",
+            "#课间"
+          ],
+          "filename": "simcampus_第004天_课间@图书馆_t04.png",
+          "group_index": 0,
+          "tick_index": 3
+        }
+      ]
+    }
+  ]
+}

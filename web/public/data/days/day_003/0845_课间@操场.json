@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 0,
+    "time": "08:45",
+    "name": "课间",
+    "location": "操场",
+    "description": "上午第一个课间休息，同学们在教室里活动",
+    "day": 3
+  },
+  "participant_names": {
+    "jiang_haotian": "姜皓天"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "jiang_haotian"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "这天气打球正正好，何家骏那怂包待会儿会出来吗？",
+        "emotion": "frustrated",
+        "activity": "靠在操场边的栏杆上，手里有一搭没一搭地转着篮球，眼睛盯着教学楼的方向。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "agent_id": "cheng_yutong",
+  "name_cn": "程雨桐",
+  "day": 1,
+  "is_teacher": false,
+  "motif_emoji": "📚",
+  "motif_tag": "沉默第二名",
+  "main_color": "#E8A838",
+  "emotion_label": "平静",
+  "energy_label": "精神还行",
+  "pressure_label": "压力不小",
+  "featured_quote": "这道题其实只要把牛顿第二定律微分一下就出来了，有那么难吗？排名还没出，真想快点结束课间。",
+  "featured_scene": "08:45 · 课间",
+  "relationships": [
+    {
+      "target_name": "苏念瑶",
+      "favorability": 5,
+      "trust": 5,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "唐诗涵",
+      "favorability": 5,
+      "trust": 5,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 1",
+      "text": "舍友熄灯后还在吵闹，被迫打断了看书节奏。",
+      "importance": 4
+    },
+    {
+      "date": "Day 1",
+      "text": "在图书馆帮助陆思远核对物理卷子，并提供了准确的解题步骤。",
+      "importance": 4
+    }
+  ],
+  "top_concern": null,
+  "self_narrative": "",
+  "caption_payload": {
+    "caption": "📚 程雨桐 · 第001天 档案\n\n标签：沉默第二名\n此刻心情：平静\n\n「这道题其实只要把牛顿第二定律微分一下就出来了，有那么难吗？排名还没出，真想快点结束课间。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_程雨桐_档案_第001天.png"
+  }
+}

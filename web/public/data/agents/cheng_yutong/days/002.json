@@ -1,0 +1,62 @@
+{
+  "agent_id": "cheng_yutong",
+  "name_cn": "程雨桐",
+  "day": 2,
+  "is_teacher": false,
+  "motif_emoji": "📚",
+  "motif_tag": "沉默第二名",
+  "main_color": "#E8A838",
+  "emotion_label": "平静",
+  "energy_label": "精神还行",
+  "pressure_label": "压力不小",
+  "featured_quote": "公式解出来了，但排名还没出，这焦虑感真碍事，想看仙路独行了。",
+  "featured_scene": "15:30 · 课间",
+  "relationships": [
+    {
+      "target_name": "苏念瑶",
+      "favorability": 4,
+      "trust": 5,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "唐诗涵",
+      "favorability": 4,
+      "trust": 5,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "陆思远",
+      "favorability": 1,
+      "trust": 1,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 1",
+      "text": "舍友熄灯后还在吵闹，被迫打断了看书节奏。",
+      "importance": 4
+    },
+    {
+      "date": "Day 1",
+      "text": "在图书馆帮助陆思远核对物理卷子，并提供了准确的解题步骤。",
+      "importance": 4
+    }
+  ],
+  "top_concern": {
+    "text": "月考排名尚未公布，对成绩的悬念导致持续的焦虑感。",
+    "intensity_label": "中等",
+    "positive": false
+  },
+  "self_narrative": "开学了。教室很吵。苏念瑶又在说话。我没听，戴上耳机刷了三道物理题。排名还没出，焦虑感在胃里翻腾。只有熄灯后那半小时修仙文能看。我必须保持第一。除此之外，没什么好说的。",
+  "caption_payload": {
+    "caption": "📚 程雨桐 · 第002天 档案\n\n标签：沉默第二名\n此刻心情：平静\n\n「公式解出来了，但排名还没出，这焦虑感真碍事，想看仙路独行了。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_程雨桐_档案_第002天.png"
+  }
+}

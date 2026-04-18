@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 6,
+    "time": "12:00",
+    "name": "午饭",
+    "location": "小卖部",
+    "description": "午饭时间，同学们结伴去食堂吃饭",
+    "day": 5
+  },
+  "participant_names": {
+    "su_nianyao": "苏念瑶"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "su_nianyao"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "衣服到底能不能准时到啊，好烦，都没心思吃饭了。",
+        "emotion": "frustrated",
+        "activity": "站在小卖部货架前，心不在焉地翻着手里刚买的菠萝面包，偶尔低头刷一下快递物流信息。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 6,
+    "time": "15:30",
+    "name": "课间",
+    "location": "小卖部",
+    "description": "下午课间休息",
+    "day": 4
+  },
+  "participant_names": {
+    "tang_shihan": "唐诗涵"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "tang_shihan"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "这奶茶好喝，真不错，待会儿还要去买娃衣。",
+        "emotion": "curious",
+        "activity": "正在小卖部一边喝奶茶，一边刷小红书看别人的穿搭分享。"
+      }
+    }
+  ]
+}

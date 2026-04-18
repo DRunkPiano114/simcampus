@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 8,
+    "time": "15:30",
+    "name": "课间",
+    "location": "小卖部",
+    "description": "下午课间休息",
+    "day": 7
+  },
+  "participant_names": {
+    "he_jiajun": "何家骏"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "he_jiajun"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "物理作业还没改，万一被抓到怎么解释啊。",
+        "emotion": "anxious",
+        "activity": "在小卖部买了一瓶冰水，正靠在墙边刷着有关快递分拣工作的手机短视频。"
+      }
+    }
+  ]
+}

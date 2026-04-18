@@ -1,0 +1,62 @@
+{
+  "agent_id": "lin_zhaoyu",
+  "name_cn": "林昭宇",
+  "day": 9,
+  "is_teacher": false,
+  "motif_emoji": "🌧️",
+  "motif_tag": "书呆子",
+  "main_color": "#4A7BC4",
+  "emotion_label": "平静",
+  "energy_label": "精神还行",
+  "pressure_label": "压力不小",
+  "featured_quote": "唐诗涵还在等我反应，但她刚才是不是看我了？好紧张，还是先给橡皮吧。",
+  "featured_scene": "08:45 · 课间",
+  "relationships": [
+    {
+      "target_name": "陆思远",
+      "favorability": 65,
+      "trust": 61,
+      "label_text": "很亲近的朋友"
+    },
+    {
+      "target_name": "唐诗涵",
+      "favorability": 5,
+      "trust": 5,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "程雨桐",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 8",
+      "text": "唐诗涵一直问我在看什么，我紧张得话都说不利索，还好陆思远帮我挡了一下。",
+      "importance": 6
+    },
+    {
+      "date": "Day 7",
+      "text": "陆思远在图书馆帮我讲解英语定语从句，并一起讨论物理题，这种被支持的感觉让我很安心。",
+      "importance": 6
+    }
+  ],
+  "top_concern": {
+    "text": "宿舍环境太吵闹，姜皓天的行为让人无法静心休息，影响了晚上的状态。",
+    "intensity_label": "轻微",
+    "positive": false
+  },
+  "self_narrative": "在班里像个影子，除了陆思远，别人都不认识我。英语还是烂，怕被妈念叨死。物理题好不容易搞懂了，可宿舍太吵，心静不下来。挺累的，只想考上985，让家里别那么苦。",
+  "caption_payload": {
+    "caption": "🌧️ 林昭宇 · 第009天 档案\n\n标签：书呆子\n此刻心情：平静\n\n「唐诗涵还在等我反应，但她刚才是不是看我了？好紧张，还是先给橡皮吧。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_林昭宇_档案_第009天.png"
+  }
+}

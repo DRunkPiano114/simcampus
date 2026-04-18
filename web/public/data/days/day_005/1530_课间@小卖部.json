@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 11,
+    "time": "15:30",
+    "name": "课间",
+    "location": "小卖部",
+    "description": "下午课间休息",
+    "day": 5
+  },
+  "participant_names": {
+    "tang_shihan": "唐诗涵"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "tang_shihan"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "刚那把太爽了，下次还要找他带我。林昭宇到底什么情况啊。",
+        "emotion": "excited",
+        "activity": "站在小卖部货架前，一边刷着王者荣耀战绩，一边挑饮料。"
+      }
+    }
+  ]
+}

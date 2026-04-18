@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 2,
+    "time": "08:45",
+    "name": "课间",
+    "location": "走廊",
+    "description": "上午第一个课间休息，同学们在教室里活动",
+    "day": 1
+  },
+  "participant_names": {
+    "fang_yuchen": "方语晨"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "fang_yuchen"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "苏念瑶怎么还没来，憋死我了，昨天的瓜还没讲呢。",
+        "emotion": "excited",
+        "activity": "靠在走廊栏杆上刷手机，时不时抬头往教室门口张望。"
+      }
+    }
+  ]
+}

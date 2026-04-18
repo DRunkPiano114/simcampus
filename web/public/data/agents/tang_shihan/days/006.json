@@ -1,0 +1,62 @@
+{
+  "agent_id": "tang_shihan",
+  "name_cn": "唐诗涵",
+  "day": 6,
+  "is_teacher": false,
+  "motif_emoji": "🌿",
+  "motif_tag": "大大咧咧学委",
+  "main_color": "#4AC4A8",
+  "emotion_label": "挫败",
+  "energy_label": "精神还行",
+  "pressure_label": "稍有压力",
+  "featured_quote": "离谱，她们什么时候这么熟了？真的是烦死了，没一个说实话的。",
+  "featured_scene": "18:30 · 晚自习",
+  "relationships": [
+    {
+      "target_name": "方语晨",
+      "favorability": 32,
+      "trust": 19,
+      "label_text": "很亲近的朋友"
+    },
+    {
+      "target_name": "苏念瑶",
+      "favorability": 15,
+      "trust": 6,
+      "label_text": "关系不错"
+    },
+    {
+      "target_name": "陆思远",
+      "favorability": 1,
+      "trust": 0,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 5",
+      "text": "苏念瑶在聊八卦时居然往林昭宇那边看，肯定有情况！",
+      "importance": 7
+    },
+    {
+      "date": "Day 6",
+      "text": "方语晨和苏念瑶当着我的面传纸条，还在上课搞小动作，明显有事瞒着我。",
+      "importance": 6
+    }
+  ],
+  "top_concern": {
+    "text": "苏念瑶和方语晨之间到底在瞒着我什么秘密？这种被排除在小圈子之外的感觉很不舒服。",
+    "intensity_label": "中等",
+    "positive": false
+  },
+  "self_narrative": "今天又是忙忙碌碌的一天。在班里我就是那个停不下来的社交达人，虽然作业收得头大，但和朋友们八卦真的好快乐！就是林昭宇那块木头，到底烦不烦我啊？想问他物理题又怂了，纠结死。周末一定要去买奶茶和娃衣，谁也别拦着我！",
+  "caption_payload": {
+    "caption": "🌿 唐诗涵 · 第006天 档案\n\n标签：大大咧咧学委\n此刻心情：挫败\n\n「离谱，她们什么时候这么熟了？真的是烦死了，没一个说实话的。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_唐诗涵_档案_第006天.png"
+  }
+}

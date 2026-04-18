@@ -1,0 +1,62 @@
+{
+  "agent_id": "he_jiajun",
+  "name_cn": "何家骏",
+  "day": 7,
+  "is_teacher": false,
+  "motif_emoji": "🌫️",
+  "motif_tag": "寡言少年",
+  "main_color": "#7B8FA8",
+  "emotion_label": "焦虑",
+  "energy_label": "精神还行",
+  "pressure_label": "轻松",
+  "featured_quote": "她们怎么这么轻松，我也想这样，可物理作业还没搞定，真想把自己关起来。",
+  "featured_scene": "08:45 · 课间",
+  "relationships": [
+    {
+      "target_name": "姜皓天",
+      "favorability": 14,
+      "trust": 8,
+      "label_text": "还行，有些好感"
+    },
+    {
+      "target_name": "林昭宇",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "唐诗涵",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 7",
+      "text": "因为担心物理错题本被老师发现抄袭，全天都处于焦虑中，拒绝了姜皓天的打球邀请，感觉自己越来越边缘化。",
+      "importance": 6
+    },
+    {
+      "date": "Day 6",
+      "text": "姜皓天说晚上带我打王者，还说要带我躺赢。",
+      "importance": 6
+    }
+  ],
+  "top_concern": {
+    "text": "物理错题本抄了答案，周五检查时如果不小心被何老师发现，可能会非常尴尬。",
+    "intensity_label": "较强",
+    "positive": false
+  },
+  "self_narrative": "又是坐在角落的一天。姜皓天叫我打球，心里挺高兴的，但话到嘴边又咽下去了。错题本还没整好，何老师那关难过。想去开黑，又怕被嫌弃菜。那个……算了，先这样吧。",
+  "caption_payload": {
+    "caption": "🌫️ 何家骏 · 第007天 档案\n\n标签：寡言少年\n此刻心情：焦虑\n\n「她们怎么这么轻松，我也想这样，可物理作业还没搞定，真想把自己关起来。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_何家骏_档案_第007天.png"
+  }
+}

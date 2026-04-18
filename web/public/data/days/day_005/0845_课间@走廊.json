@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 4,
+    "time": "08:45",
+    "name": "课间",
+    "location": "走廊",
+    "description": "上午第一个课间休息，同学们在教室里活动",
+    "day": 5
+  },
+  "participant_names": {
+    "jiang_haotian": "姜皓天"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "jiang_haotian"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "老何今天投篮手感行啊，晚上叫他上线带他飞一把。",
+        "emotion": "bored",
+        "activity": "靠在走廊栏杆上，百无聊赖地看着楼下操场的学生发呆。"
+      }
+    }
+  ]
+}

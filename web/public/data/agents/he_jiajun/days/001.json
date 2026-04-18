@@ -1,0 +1,39 @@
+{
+  "agent_id": "he_jiajun",
+  "name_cn": "何家骏",
+  "day": 1,
+  "is_teacher": false,
+  "motif_emoji": "🌫️",
+  "motif_tag": "寡言少年",
+  "main_color": "#7B8FA8",
+  "emotion_label": "无聊",
+  "energy_label": "精神还行",
+  "pressure_label": "轻松",
+  "featured_quote": "他们都在聊题，只有我看不懂。还是先别凑过去，等会儿再去看看姜皓天还在不在。",
+  "featured_scene": "08:45 · 课间",
+  "relationships": [],
+  "memories": [
+    {
+      "date": "Day 1",
+      "text": "在图书馆看到陆思远在誊抄姜皓天的物理卷子，意识到自己和他们的圈子距离很远。",
+      "importance": 4
+    },
+    {
+      "date": "Day 1",
+      "text": "林昭宇和唐诗涵为了物理题在那边磨叽，烦死了。",
+      "importance": 3
+    }
+  ],
+  "top_concern": null,
+  "self_narrative": "",
+  "caption_payload": {
+    "caption": "🌫️ 何家骏 · 第001天 档案\n\n标签：寡言少年\n此刻心情：无聊\n\n「他们都在聊题，只有我看不懂。还是先别凑过去，等会儿再去看看姜皓天还在不在。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_何家骏_档案_第001天.png"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "agent_id": "su_nianyao",
+  "name_cn": "苏念瑶",
+  "day": 4,
+  "is_teacher": false,
+  "motif_emoji": "🌸",
+  "motif_tag": "玻璃心诗人",
+  "main_color": "#D4748B",
+  "emotion_label": "挫败",
+  "energy_label": "精神还行",
+  "pressure_label": "稍有压力",
+  "featured_quote": "阅读选C？那题我也选的C，难道我们都错了？该不是要我也跟着一起纠结吧。",
+  "featured_scene": "15:30 · 课间",
+  "relationships": [
+    {
+      "target_name": "方语晨",
+      "favorability": 24,
+      "trust": 18,
+      "label_text": "很亲近的朋友"
+    },
+    {
+      "target_name": "唐诗涵",
+      "favorability": 12,
+      "trust": 6,
+      "label_text": "还行，有些好感"
+    },
+    {
+      "target_name": "程雨桐",
+      "favorability": 7,
+      "trust": 6,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 3",
+      "text": "方语晨一直追问沈逸凡那个猫头像的事，差点就瞒不住了，烦死了。",
+      "importance": 5
+    },
+    {
+      "date": "Day 2",
+      "text": "方语晨终于说了那个翻墙男生的八卦，竟然是沈逸凡，还拍了猫的照片，这也太甜了。",
+      "importance": 5
+    }
+  ],
+  "top_concern": {
+    "text": "想路过林昭宇的座位看他是否还在听那首歌，但今天没能找到合适的机会。",
+    "intensity_label": "中等",
+    "positive": true
+  },
+  "self_narrative": "开学了，还是老样子。每天和方语晨凑一起八卦，其实大部分时间都在听。路过林昭宇座位时，心跳莫名漏一拍，赶紧装作看窗外。日记本又厚了几页，关于爸爸的，关于他的。这些秘密，藏得好累，又好安心。",
+  "caption_payload": {
+    "caption": "🌸 苏念瑶 · 第004天 档案\n\n标签：玻璃心诗人\n此刻心情：挫败\n\n「阅读选C？那题我也选的C，难道我们都错了？该不是要我也跟着一起纠结吧。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_苏念瑶_档案_第004天.png"
+  }
+}

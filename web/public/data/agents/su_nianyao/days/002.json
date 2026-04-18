@@ -1,0 +1,62 @@
+{
+  "agent_id": "su_nianyao",
+  "name_cn": "苏念瑶",
+  "day": 2,
+  "is_teacher": false,
+  "motif_emoji": "🌸",
+  "motif_tag": "玻璃心诗人",
+  "main_color": "#D4748B",
+  "emotion_label": "平静",
+  "energy_label": "精神还行",
+  "pressure_label": "稍有压力",
+  "featured_quote": "她这心理素质我服了，肯定是想等我主动投降，不能让她看出来我这么急。",
+  "featured_scene": "08:45 · 课间",
+  "relationships": [
+    {
+      "target_name": "方语晨",
+      "favorability": 21,
+      "trust": 16,
+      "label_text": "很亲近的朋友"
+    },
+    {
+      "target_name": "唐诗涵",
+      "favorability": 11,
+      "trust": 5,
+      "label_text": "还行，有些好感"
+    },
+    {
+      "target_name": "程雨桐",
+      "favorability": 9,
+      "trust": 5,
+      "label_text": "还行，有些好感"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 2",
+      "text": "方语晨终于说了那个翻墙男生的八卦，竟然是沈逸凡，还拍了猫的照片，这也太甜了。",
+      "importance": 5
+    },
+    {
+      "date": "Day 2",
+      "text": "和方语晨、唐诗涵约好周末去玩恐怖本《深渊录》，并讨论了攻略细节。",
+      "importance": 5
+    }
+  ],
+  "top_concern": {
+    "text": "到底哪个男生翻墙去买手办还带了高一学妹？",
+    "intensity_label": "轻微",
+    "positive": false
+  },
+  "self_narrative": "开学了，还是老样子。每天和方语晨凑一起八卦，其实大部分时间都在听。路过林昭宇座位时，心跳莫名漏一拍，赶紧装作看窗外。日记本又厚了几页，关于爸爸的，关于他的。这些秘密，藏得好累，又好安心。",
+  "caption_payload": {
+    "caption": "🌸 苏念瑶 · 第002天 档案\n\n标签：玻璃心诗人\n此刻心情：平静\n\n「她这心理素质我服了，肯定是想等我主动投降，不能让她看出来我这么急。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_苏念瑶_档案_第002天.png"
+  }
+}

@@ -1,0 +1,4392 @@
+{
+  "scene": {
+    "scene_index": 4,
+    "time": "12:00",
+    "name": "午饭",
+    "location": "食堂",
+    "description": "午饭时间，同学们结伴去食堂吃饭",
+    "day": 2
+  },
+  "participant_names": {
+    "fang_yuchen": "方语晨",
+    "he_jiajun": "何家骏",
+    "jiang_haotian": "姜皓天",
+    "lu_siyuan": "陆思远",
+    "shen_yifan": "沈逸凡",
+    "su_nianyao": "苏念瑶",
+    "tang_shihan": "唐诗涵"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "fang_yuchen",
+        "tang_shihan",
+        "su_nianyao"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "tang_shihan",
+              "content": "诗涵，周末那个恐怖本，你真的敢去吗？我昨天又刷到一个特吓人的推荐，要不要定那个？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "食堂里人头攒动，打饭窗口的香气混杂着大家嘈杂的聊天声。",
+              "inner_thought": "沈逸凡那事儿太好笑了，方语晨居然连聊天背景都知道。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "还是你消息灵通，沈逸凡那个背景图真这么抓马？",
+              "action_target": "fang_yuchen",
+              "urgency": 7,
+              "is_disruptive": false
+            },
+            "tang_shihan": {
+              "observation": "食堂里人挤人，苏念瑶和方语晨坐我对面，气氛感觉怪怪的。",
+              "inner_thought": "昨晚吵得那么僵，待会买点饼干缓和一下吧，不然真的尴尬死。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "哎，等下吃完去超市买点零食不？最近又长肉了，但还是想吃甜的。",
+              "action_target": "fang_yuchen",
+              "urgency": 7,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "食堂这会人挤人，我们三个好不容易占到个靠窗的位子，餐盘都摆好了。",
+              "inner_thought": "恐怖本的事儿还没敲定，趁吃饭赶紧问问诗涵。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "诗涵，周末那个恐怖本，你真的敢去吗？我昨天又刷到一个特吓人的推荐，要不要定那个？",
+              "action_target": "tang_shihan",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "fang_yuchen",
+              "content": "哎，等下吃完去超市买点零食不？最近又长肉了，但还是想吃甜的。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "诗涵听了我的提议，正停下筷子看着我，好像在权衡去不去。",
+              "inner_thought": "希望她别怂，我那个恐怖本真的是精挑细选的，超级带劲！要是能把念瑶也忽悠去就完美了。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "就那个《深渊录》，评分超级高，你要是怕的话咱们就拉上念瑶一起，人多胆子大嘛！",
+              "action_target": "tang_shihan",
+              "urgency": 7,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "tang_shihan",
+              "content": "就那个《深渊录》，评分超级高，你要是怕的话咱们就拉上念瑶一起，人多胆子大嘛！"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "方语晨和苏念瑶都没接买零食的话头，苏念瑶盯着饭盒里的菜，感觉她还在气头上。",
+              "inner_thought": "这气氛真是绝了，带她们去扫荡超市希望有用吧。",
+              "emotion": "anxious",
+              "action_type": "speak",
+              "action_content": "就这么说定了啊，那家店刚上了新品，苏念瑶你到时候帮我挑挑，我选择困难症又犯了。",
+              "action_target": "su_nianyao",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "fang_yuchen",
+              "content": "还是你消息灵通，沈逸凡那个背景图真这么抓马？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "我拉着坐在旁边的念瑶的胳膊，期待着她们俩能答应一起去刷本。",
+              "inner_thought": "念瑶还没表态，要是她也去的话，恐怖本肯定超好玩！",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "念瑶，你也一起去呗？就这周末，好不容易大家都有空，人多肯定更有意思啊！",
+              "action_target": "su_nianyao",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 4,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "su_nianyao",
+              "content": "念瑶，你也一起去呗？就这周末，好不容易大家都有空，人多肯定更有意思啊！"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "方语晨凑过来跟我分享八卦，食堂嘈杂的谈话声盖不住她的兴奋。",
+              "inner_thought": "猫的照片当背景，沈逸凡看起来冷冰冰，私下里居然这么反差萌。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "那是，他平时那副高冷样，结果锁屏是这种小猫，反差感拉满，绝了。",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 5,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "su_nianyao",
+              "content": "就这么说定了啊，那家店刚上了新品，苏念瑶你到时候帮我挑挑，我选择困难症又犯了。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "念瑶和诗涵都在听我说话，念瑶还没完全松口，诗涵在考虑超市零食的事情。",
+              "inner_thought": "只要念瑶也去，这趟绝对稳了，恐怖本就是要人多才够刺激！",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "念瑶，别犹豫啦，我都看了好久了，我们就定了《深渊录》吧！诗涵你也说句话呀，买完零食咱们就直接去买票。",
+              "action_target": "su_nianyao",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 6,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "fang_yuchen",
+              "content": "那是，他平时那副高冷样，结果锁屏是这种小猫，反差感拉满，绝了。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "方语晨和苏念瑶虽然还是有点别扭，但终于开始聊起来了。",
+              "inner_thought": "还好没冷场，恐怖本要是能订到，气氛肯定能缓和。",
+              "emotion": "anxious",
+              "action_type": "speak",
+              "action_content": "行，那我也要把我的零花钱省出来去买那个限量版的谷子，恐怖本就看它能不能成功破冰了。",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 7,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "su_nianyao",
+              "content": "念瑶，别犹豫啦，我都看了好久了，我们就定了《深渊录》吧！诗涵你也说句话呀，买完零食咱们就直接去买票。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "方语晨兴致勃勃地提到恐怖本，唐诗涵也在旁边跟着附和，食堂里到处都是午间闲聊的喧嚣。",
+              "inner_thought": "周末去鬼屋吗？感觉好久没出去透气了，去看看也好，正好能离林昭宇的消息远一点。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "行啊，我也好久没去玩了，正好放松一下。",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 8,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "fang_yuchen",
+              "content": "行啊，我也好久没去玩了，正好放松一下。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "诗涵听了我的话，正低头扒拉餐盘里的菜，看起来是默认了周末的计划。",
+              "inner_thought": "稳了！搞定！又可以去超市买一堆快乐水了。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "行，那吃完赶紧去超市扫货！我想喝那个新品奶茶。",
+              "action_target": "tang_shihan",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 9,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "tang_shihan",
+              "content": "行，那吃完赶紧去超市扫货！我想喝那个新品奶茶。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "方语晨和唐诗涵正在兴致勃勃地讨论周末的行程，周围食堂的饭点喧闹声依旧。",
+              "inner_thought": "好久没放松了，希望鬼屋能让我把脑子里乱七八糟的想法都震出来。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "不过说好了啊，要是太吓人我可要先跑的，你们俩到时候别笑话我。",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 10,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "fang_yuchen",
+              "content": "不过说好了啊，要是太吓人我可要先跑的，你们俩到时候别笑话我。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "大家已经达成共识，都在加快速度吃午饭，准备一会儿去超市。",
+              "inner_thought": "终于敲定了，周末要是能把那个限量出的娃衣挂件抢到手就圆满了。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "快点吃，我要去抢那家店的限定款，去晚了肯定被扫空。",
+              "action_target": "tang_shihan",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 11,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "tang_shihan",
+              "content": "快点吃，我要去抢那家店的限定款，去晚了肯定被扫空。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "唐诗涵听到我说要跑，笑得把刚喝进去的汤差点喷出来。",
+              "inner_thought": "这周末终于能稍微把那些复杂的念头关掉一会儿了。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "笑什么啦，我说真的，我胆子小你们又不是不知道，到时候别丢下我就行。",
+              "action_target": "tang_shihan",
+              "urgency": 6,
+              "is_disruptive": false
+            },
+            "tang_shihan": {
+              "observation": "苏念瑶答应了去玩恐怖本，还开玩笑说怕得要命。",
+              "inner_thought": "还好她们说话了，恐怖本这事能成，我也能松口气。",
+              "emotion": "happy",
+              "action_type": "speak",
+              "action_content": "放心吧，到时候我直接把你挡前面，笑死。",
+              "action_target": "su_nianyao",
+              "urgency": 5,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 12,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "su_nianyao",
+              "content": "放心吧，到时候我直接把你挡前面，笑死。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "诗涵和念瑶都加快了吃饭速度，我们三个现在的频道完全一致，目标就是食堂外的超市。",
+              "inner_thought": "动作得快点，不然那款联名挂件肯定要没，还要记得问问史政地课本的事。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "记得哦，到时候谁先挑到喜欢的谁先拿，抢不到不许哭。",
+              "action_target": "tang_shihan",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 13,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "tang_shihan",
+              "content": "笑什么啦，我说真的，我胆子小你们又不是不知道，到时候别丢下我就行。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "苏念瑶终于笑了，寝室三人组的僵硬状态总算缓解了。",
+              "inner_thought": "总算不尴尬了，吓死我，晚上又能安生睡觉咯。",
+              "emotion": "happy",
+              "action_type": "speak",
+              "action_content": "那为了庆祝我们要去扫货，今天奶茶我请了，就当是预祝大家活过《深渊录》！",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 14,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "tang_shihan",
+              "content": "记得哦，到时候谁先挑到喜欢的谁先拿，抢不到不许哭。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "唐诗涵还在坏笑，看来她是真打算到时候要把我推出去挡枪了。",
+              "inner_thought": "希望到时候别真被她们坑了，但出去玩确实有点期待。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "行行行，到时候我紧紧拽着你衣服总行了吧。",
+              "action_target": "tang_shihan",
+              "urgency": 5,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 15,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "fang_yuchen",
+              "content": "那为了庆祝我们要去扫货，今天奶茶我请了，就当是预祝大家活过《深渊录》！"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "大家都在加快速度吃饭，准备去超市抢购限量周边。",
+              "inner_thought": "动作得快点！这要是去晚了被别人抢先买走就亏大了。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "搞快点，我怕那家店的限定款被扫空了。",
+              "action_target": "tang_shihan",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 16,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "tang_shihan",
+              "content": "搞快点，我怕那家店的限定款被扫空了。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "大家终于开始讨论周末安排了，气氛比刚才那种尴尬的冷场好多了。",
+              "inner_thought": "还好没冷场，恐怖本这事能成，晚上不用在寝室对着那两个冤家发愁了。",
+              "emotion": "happy",
+              "action_type": "speak",
+              "action_content": "那快点吃，吃完去抢限定奶茶，去晚了又要排长队。",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 17,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "fang_yuchen",
+              "content": "那快点吃，吃完去抢限定奶茶，去晚了又要排长队。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "fang_yuchen": {
+              "observation": "诗涵说要请客奶茶，念瑶正在收拾餐盘，大家都吃得差不多了。",
+              "inner_thought": "奶茶请客我最爱，顺便把史政地笔记这事提一下，省得晚上还要翻书。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "诗涵你太棒了！对了，下午史政地的那个重点，你带笔记本了吗？我感觉我史政地又要挂，求救命。",
+              "action_target": "tang_shihan",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 18,
+          "public": {
+            "speech": {
+              "agent": "fang_yuchen",
+              "target": "tang_shihan",
+              "content": "诗涵你太棒了！对了，下午史政地的那个重点，你带笔记本了吗？我感觉我史政地又要挂，求救命。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "方语晨和苏念瑶终于开始有说有笑了，寝室那种让人窒息的冷战气氛总算散了。",
+              "inner_thought": "希望周末这趟恐怖本能把她们俩的关系彻底修复，别再让我夹在中间难受了。",
+              "emotion": "happy",
+              "action_type": "speak",
+              "action_content": "搞快点，我奶茶券都准备好了，今天谁也不许点热量低的。",
+              "action_target": "fang_yuchen",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 19,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "fang_yuchen",
+              "content": "搞快点，我奶茶券都准备好了，今天谁也不许点热量低的。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "方语晨还在担心下午的课，转头就开始向唐诗涵求救记笔记的事，果然是老样子。",
+              "inner_thought": "史政地啊，其实我也挺头疼的，不过笔记确实得抄一套。",
+              "emotion": "calm",
+              "action_type": "speak",
+              "action_content": "你又要挂？我笔记倒是记了点，等下借你对对。",
+              "action_target": "fang_yuchen",
+              "urgency": 5,
+              "is_disruptive": false
+            },
+            "fang_yuchen": {
+              "observation": "唐诗涵听完我的话，从书包里掏出了那本记满红字的史政地练习册。",
+              "inner_thought": "还好诗涵带着，这下不用愁了，下午课我就能摸鱼刷剧。",
+              "emotion": "happy",
+              "action_type": "speak",
+              "action_content": "我就知道诗涵最好了！等下借我拍几张重点啊，下午那课我肯定会走神。",
+              "action_target": "tang_shihan",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        }
+      ],
+      "narrative": {
+        "key_moments": [
+          "方语晨邀请唐诗涵和苏念瑶周末去玩恐怖本《深渊录》。",
+          "苏念瑶讨论沈逸凡手机锁屏背景图的内容。",
+          "苏念瑶同意参加周末的恐怖本活动。",
+          "唐诗涵提议吃完午饭后去超市购买零食并购买奶茶。",
+          "方语晨向唐诗涵询问史政地科目的复习笔记本。"
+        ],
+        "fulfilled_intentions": [
+          "方语晨:邀请同伴参加周末恐怖本活动",
+          "苏念瑶:确认参加周末恐怖本活动",
+          "唐诗涵:确定午饭后去超市购买零食及奶茶的计划"
+        ],
+        "events_discussed": [
+          "周末恐怖本《深渊录》活动",
+          "沈逸凡的手机锁屏背景图",
+          "下午史政地科目复习"
+        ],
+        "new_events": [
+          {
+            "text": "方语晨邀请唐诗涵和苏念瑶周末一起去玩恐怖本《深渊录》",
+            "category": "社交邀约",
+            "witnesses": [
+              "方语晨",
+              "唐诗涵",
+              "苏念瑶"
+            ],
+            "spread_probability": 1.0,
+            "cite_ticks": [
+              1,
+              3,
+              5,
+              8,
+              9
+            ]
+          },
+          {
+            "text": "苏念瑶描述沈逸凡的手机锁屏背景图为小猫图片",
+            "category": "八卦",
+            "witnesses": [
+              "方语晨",
+              "苏念瑶"
+            ],
+            "spread_probability": 0.6,
+            "cite_ticks": [
+              4,
+              7
+            ]
+          },
+          {
+            "text": "唐诗涵决定请大家喝奶茶",
+            "category": "消费决策",
+            "witnesses": [
+              "方语晨",
+              "唐诗涵"
+            ],
+            "spread_probability": 0.4,
+            "cite_ticks": [
+              16,
+              20
+            ]
+          },
+          {
+            "text": "方语晨向唐诗涵借阅史政地科目的复习笔记本",
+            "category": "学习互助",
+            "witnesses": [
+              "方语晨",
+              "唐诗涵"
+            ],
+            "spread_probability": 0.2,
+            "cite_ticks": [
+              19
+            ]
+          }
+        ]
+      },
+      "reflections": {
+        "fang_yuchen": {
+          "emotion": "excited",
+          "relationship_changes": [
+            {
+              "to_agent": "唐诗涵",
+              "favorability": 3,
+              "trust": 2,
+              "understanding": 2,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "苏念瑶",
+              "favorability": 2,
+              "trust": 2,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "约好周末和诗涵、念瑶一起去刷恐怖本《深渊录》，还要去抢奶茶限定款！",
+              "emotion": "excited",
+              "importance": 6,
+              "people": [
+                "唐诗涵",
+                "苏念瑶"
+              ],
+              "location": "食堂",
+              "topics": [
+                "期待的事",
+                "兴趣爱好"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "5a53fd",
+              "adjustment": 2
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "和诗涵敲定周末恐怖本的行程",
+              "status": "fulfilled",
+              "brief_reason": "成功敲定了《深渊录》，还拉上了念瑶。"
+            },
+            {
+              "goal": "翻翻史政地笔记，稍微看两眼求个心安",
+              "status": "attempted",
+              "brief_reason": "虽然提到了这事，但忙着抢奶茶和聊八卦，还没顾上掏课本。"
+            }
+          ]
+        },
+        "tang_shihan": {
+          "emotion": "excited",
+          "relationship_changes": [
+            {
+              "to_agent": "方语晨",
+              "favorability": 2,
+              "trust": 1,
+              "understanding": 1,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "苏念瑶",
+              "favorability": 1,
+              "trust": 1,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "和方语晨、苏念瑶约好周末去玩恐怖本《深渊录》，还要一起去买零食和奶茶，超期待！",
+              "emotion": "excited",
+              "importance": 5,
+              "people": [
+                "方语晨",
+                "苏念瑶"
+              ],
+              "location": "食堂",
+              "topics": [
+                "期待的事",
+                "兴趣爱好"
+              ]
+            }
+          ],
+          "new_concerns": [
+            {
+              "text": "这周末一定要去把那家店的限定款奶茶抢到手，不能空手而归！",
+              "source_event": "和方语晨商量去买限定奶茶",
+              "emotion": "excited",
+              "intensity": 4,
+              "related_people": [
+                "方语晨"
+              ],
+              "positive": true,
+              "topic": "期待的事"
+            }
+          ],
+          "concern_updates": [
+            {
+              "concern_text": "01b45a",
+              "adjustment": 2
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "尝试再问他一道物理题，看看他反应",
+              "status": "missed_opportunity",
+              "brief_reason": "午饭时都在和室友讨论周末计划，没机会去找林昭宇。"
+            },
+            {
+              "goal": "买点零食回寝室，调节一下气氛",
+              "status": "fulfilled",
+              "brief_reason": "已经和方语晨、苏念瑶说定吃完饭就去超市扫货。"
+            }
+          ]
+        },
+        "su_nianyao": {
+          "emotion": "excited",
+          "relationship_changes": [
+            {
+              "to_agent": "方语晨",
+              "favorability": 2,
+              "trust": 1,
+              "understanding": 1,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "唐诗涵",
+              "favorability": 1,
+              "trust": 1,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "和方语晨、唐诗涵约好周末去玩恐怖本《深渊录》，感觉会很刺激。",
+              "emotion": "excited",
+              "importance": 4,
+              "people": [
+                "方语晨",
+                "唐诗涵"
+              ],
+              "location": "食堂",
+              "topics": [
+                "期待的事"
+              ]
+            }
+          ],
+          "new_concerns": [
+            {
+              "text": "周末去玩恐怖本，千万别被那两个坑了。",
+              "source_event": "和方语晨、唐诗涵约定周末去玩恐怖本",
+              "emotion": "anxious",
+              "intensity": 3,
+              "related_people": [
+                "方语晨",
+                "唐诗涵"
+              ],
+              "positive": false,
+              "topic": "期待的事"
+            }
+          ],
+          "concern_updates": [],
+          "intention_outcomes": [
+            {
+              "goal": "课间去接水的时候路过他的座位",
+              "status": "missed_opportunity",
+              "brief_reason": "一直在食堂和朋友聊天，没机会去教室那边。"
+            },
+            {
+              "goal": "在午休时写一段关于秋天的文字",
+              "status": "pending",
+              "brief_reason": "被拉去超市扫货了，等回来再写吧。"
+            }
+          ]
+        }
+      },
+      "share_tick_layouts": [
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "诗涵，周末那个恐怖本，你真的敢去吗？我昨天又刷到一个特吓人的推荐，要不要定那个？"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "昨晚吵得那么僵，待会买点饼干缓和一下吧，不然真的尴尬死。"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "沈逸凡那事儿太好笑了，方语晨居然连聊天背景都知道。"
+            }
+          ],
+          "featured_quote": "恐怖本的事儿还没敲定，趁吃饭赶紧问问诗涵。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 0
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "哎，等下吃完去超市买点零食不？最近又长肉了，但还是想吃甜的。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "希望她别怂，我那个恐怖本真的是精挑细选的，超级带劲！要是能把念瑶也忽悠去就完美了。"
+            }
+          ],
+          "featured_quote": "希望她别怂，我那个恐怖本真的是精挑细选的，超级带劲！要是能把念瑶也忽悠去就完美了。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 1
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "就那个《深渊录》，评分超级高，你要是怕的话咱们就拉上念瑶一起，人多胆子大嘛！"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "这气氛真是绝了，带她们去扫荡超市希望有用吧。"
+            }
+          ],
+          "featured_quote": "这气氛真是绝了，带她们去扫荡超市希望有用吧。",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 2
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "还是你消息灵通，沈逸凡那个背景图真这么抓马？"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "念瑶还没表态，要是她也去的话，恐怖本肯定超好玩！"
+            }
+          ],
+          "featured_quote": "念瑶还没表态，要是她也去的话，恐怖本肯定超好玩！",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 3
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "念瑶，你也一起去呗？就这周末，好不容易大家都有空，人多肯定更有意思啊！"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "猫的照片当背景，沈逸凡看起来冷冰冰，私下里居然这么反差萌。"
+            }
+          ],
+          "featured_quote": "猫的照片当背景，沈逸凡看起来冷冰冰，私下里居然这么反差萌。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 4
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "就这么说定了啊，那家店刚上了新品，苏念瑶你到时候帮我挑挑，我选择困难症又犯了。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "只要念瑶也去，这趟绝对稳了，恐怖本就是要人多才够刺激！"
+            }
+          ],
+          "featured_quote": "只要念瑶也去，这趟绝对稳了，恐怖本就是要人多才够刺激！",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 5
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "那是，他平时那副高冷样，结果锁屏是这种小猫，反差感拉满，绝了。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "还好没冷场，恐怖本要是能订到，气氛肯定能缓和。"
+            }
+          ],
+          "featured_quote": "还好没冷场，恐怖本要是能订到，气氛肯定能缓和。",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 6
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "念瑶，别犹豫啦，我都看了好久了，我们就定了《深渊录》吧！诗涵你也说句话呀，买完零食咱们就直接去买票。"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "周末去鬼屋吗？感觉好久没出去透气了，去看看也好，正好能离林昭宇的消息远一点。"
+            }
+          ],
+          "featured_quote": "周末去鬼屋吗？感觉好久没出去透气了，去看看也好，正好能离林昭宇的消息远一点。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 7
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "行啊，我也好久没去玩了，正好放松一下。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "稳了！搞定！又可以去超市买一堆快乐水了。"
+            }
+          ],
+          "featured_quote": "稳了！搞定！又可以去超市买一堆快乐水了。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 8
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "行，那吃完赶紧去超市扫货！我想喝那个新品奶茶。"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "好久没放松了，希望鬼屋能让我把脑子里乱七八糟的想法都震出来。"
+            }
+          ],
+          "featured_quote": "好久没放松了，希望鬼屋能让我把脑子里乱七八糟的想法都震出来。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 9
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "不过说好了啊，要是太吓人我可要先跑的，你们俩到时候别笑话我。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "终于敲定了，周末要是能把那个限量出的娃衣挂件抢到手就圆满了。"
+            }
+          ],
+          "featured_quote": "终于敲定了，周末要是能把那个限量出的娃衣挂件抢到手就圆满了。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 10
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "快点吃，我要去抢那家店的限定款，去晚了肯定被扫空。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "还好她们说话了，恐怖本这事能成，我也能松口气。"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "这周末终于能稍微把那些复杂的念头关掉一会儿了。"
+            }
+          ],
+          "featured_quote": "这周末终于能稍微把那些复杂的念头关掉一会儿了。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 11
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "放心吧，到时候我直接把你挡前面，笑死。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "动作得快点，不然那款联名挂件肯定要没，还要记得问问史政地课本的事。"
+            }
+          ],
+          "featured_quote": "动作得快点，不然那款联名挂件肯定要没，还要记得问问史政地课本的事。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 12
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "笑什么啦，我说真的，我胆子小你们又不是不知道，到时候别丢下我就行。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "总算不尴尬了，吓死我，晚上又能安生睡觉咯。"
+            }
+          ],
+          "featured_quote": "总算不尴尬了，吓死我，晚上又能安生睡觉咯。",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 13
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "记得哦，到时候谁先挑到喜欢的谁先拿，抢不到不许哭。"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "希望到时候别真被她们坑了，但出去玩确实有点期待。"
+            }
+          ],
+          "featured_quote": "希望到时候别真被她们坑了，但出去玩确实有点期待。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 14
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "那为了庆祝我们要去扫货，今天奶茶我请了，就当是预祝大家活过《深渊录》！"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "动作得快点！这要是去晚了被别人抢先买走就亏大了。"
+            }
+          ],
+          "featured_quote": "动作得快点！这要是去晚了被别人抢先买走就亏大了。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 15
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "搞快点，我怕那家店的限定款被扫空了。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "还好没冷场，恐怖本这事能成，晚上不用在寝室对着那两个冤家发愁了。"
+            }
+          ],
+          "featured_quote": "还好没冷场，恐怖本这事能成，晚上不用在寝室对着那两个冤家发愁了。",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 16
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "那快点吃，吃完去抢限定奶茶，去晚了又要排长队。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "奶茶请客我最爱，顺便把史政地笔记这事提一下，省得晚上还要翻书。"
+            }
+          ],
+          "featured_quote": "奶茶请客我最爱，顺便把史政地笔记这事提一下，省得晚上还要翻书。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 17
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "speech",
+              "text": "诗涵你太棒了！对了，下午史政地的那个重点，你带笔记本了吗？我感觉我史政地又要挂，求救命。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "希望周末这趟恐怖本能把她们俩的关系彻底修复，别再让我夹在中间难受了。"
+            }
+          ],
+          "featured_quote": "希望周末这趟恐怖本能把她们俩的关系彻底修复，别再让我夹在中间难受了。",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 18
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "name_cn": "方语晨",
+              "motif_emoji": "☀️",
+              "motif_tag": "小太阳"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "搞快点，我奶茶券都准备好了，今天谁也不许点热量低的。"
+            },
+            {
+              "agent_id": "fang_yuchen",
+              "display_name": "方语晨",
+              "kind": "thought",
+              "text": "还好诗涵带着，这下不用愁了，下午课我就能摸鱼刷剧。"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "史政地啊，其实我也挺头疼的，不过笔记确实得抄一套。"
+            }
+          ],
+          "featured_quote": "还好诗涵带着，这下不用愁了，下午课我就能摸鱼刷剧。",
+          "featured_speaker_name": "方语晨",
+          "tick_index": 19
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第002天 · 午饭 · 食堂 ☀️\n\n「方语晨」恐怖本的事儿还没敲定，趁吃饭赶紧问问诗涵。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t01.png",
+          "group_index": 0,
+          "tick_index": 0
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌿\n\n「方语晨」希望她别怂，我那个恐怖本真的是精挑细选的，超级带劲！要是能把念瑶也忽悠去就完美了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t02.png",
+          "group_index": 0,
+          "tick_index": 1
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 ☀️\n\n「唐诗涵」这气氛真是绝了，带她们去扫荡超市希望有用吧。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t03.png",
+          "group_index": 0,
+          "tick_index": 2
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌸\n\n「方语晨」念瑶还没表态，要是她也去的话，恐怖本肯定超好玩！\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t04.png",
+          "group_index": 0,
+          "tick_index": 3
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 ☀️\n\n「苏念瑶」猫的照片当背景，沈逸凡看起来冷冰冰，私下里居然这么反差萌。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t05.png",
+          "group_index": 0,
+          "tick_index": 4
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌿\n\n「方语晨」只要念瑶也去，这趟绝对稳了，恐怖本就是要人多才够刺激！\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t06.png",
+          "group_index": 0,
+          "tick_index": 5
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌸\n\n「唐诗涵」还好没冷场，恐怖本要是能订到，气氛肯定能缓和。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t07.png",
+          "group_index": 0,
+          "tick_index": 6
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 ☀️\n\n「苏念瑶」周末去鬼屋吗？感觉好久没出去透气了，去看看也好，正好能离林昭宇的消息远一点。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t08.png",
+          "group_index": 0,
+          "tick_index": 7
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌸\n\n「方语晨」稳了！搞定！又可以去超市买一堆快乐水了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t09.png",
+          "group_index": 0,
+          "tick_index": 8
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 ☀️\n\n「苏念瑶」好久没放松了，希望鬼屋能让我把脑子里乱七八糟的想法都震出来。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t10.png",
+          "group_index": 0,
+          "tick_index": 9
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌸\n\n「方语晨」终于敲定了，周末要是能把那个限量出的娃衣挂件抢到手就圆满了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t11.png",
+          "group_index": 0,
+          "tick_index": 10
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 ☀️\n\n「苏念瑶」这周末终于能稍微把那些复杂的念头关掉一会儿了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t12.png",
+          "group_index": 0,
+          "tick_index": 11
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌿\n\n「方语晨」动作得快点，不然那款联名挂件肯定要没，还要记得问问史政地课本的事。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t13.png",
+          "group_index": 0,
+          "tick_index": 12
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌸\n\n「唐诗涵」总算不尴尬了，吓死我，晚上又能安生睡觉咯。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t14.png",
+          "group_index": 0,
+          "tick_index": 13
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 ☀️\n\n「苏念瑶」希望到时候别真被她们坑了，但出去玩确实有点期待。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t15.png",
+          "group_index": 0,
+          "tick_index": 14
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌿\n\n「方语晨」动作得快点！这要是去晚了被别人抢先买走就亏大了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t16.png",
+          "group_index": 0,
+          "tick_index": 15
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 ☀️\n\n「唐诗涵」还好没冷场，恐怖本这事能成，晚上不用在寝室对着那两个冤家发愁了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t17.png",
+          "group_index": 0,
+          "tick_index": 16
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌿\n\n「方语晨」奶茶请客我最爱，顺便把史政地笔记这事提一下，省得晚上还要翻书。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t18.png",
+          "group_index": 0,
+          "tick_index": 17
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 ☀️\n\n「唐诗涵」希望周末这趟恐怖本能把她们俩的关系彻底修复，别再让我夹在中间难受了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t19.png",
+          "group_index": 0,
+          "tick_index": 18
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌿\n\n「方语晨」还好诗涵带着，这下不用愁了，下午课我就能摸鱼刷剧。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t20.png",
+          "group_index": 0,
+          "tick_index": 19
+        }
+      ]
+    },
+    {
+      "group_index": 1,
+      "participants": [
+        "jiang_haotian",
+        "lu_siyuan",
+        "he_jiajun",
+        "shen_yifan"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "jiang_haotian",
+              "content": "姜皓天，你下午要是敢翘课去网吧，我就直接把名报给老班了。"
+            },
+            "actions": [
+              {
+                "agent": "he_jiajun",
+                "type": "non_verbal",
+                "content": "低头扒拉着餐盘里剩的几块肉，视线躲闪，假装没听见。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "陆思远和何家骏正拿着餐盘找位子，沈逸凡还在后面磨磨蹭蹭。",
+              "inner_thought": "早饭没吃饱，饿死老子了。先叫这俩兄弟过来吃，沈逸凡那货就别理了。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "诶！陆思远，何家骏！这边这边，给你们占好地儿了，快过来！",
+              "action_target": "lu_siyuan",
+              "urgency": 8,
+              "is_disruptive": true
+            },
+            "he_jiajun": {
+              "observation": "姜皓天和陆思远正凑在一起小声商量午饭后去网吧的事。",
+              "inner_thought": "他们又要去网吧，我段位太低，肯定会被嫌弃的。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "低头扒拉着餐盘里剩的几块肉，视线躲闪，假装没听见。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "shen_yifan": {
+              "observation": "姜皓天一边吃饭一边和陆思远眼神交流，看起来不太正经。",
+              "inner_thought": "这两人肯定又在商量去网吧，真是没救了。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "姜皓天，你下午要是敢翘课去网吧，我就直接把名报给老班了。",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": true
+            },
+            "lu_siyuan": {
+              "observation": "姜皓天一边拿着手机看比赛回放，一边把餐盘里的红烧肉往我这边推。",
+              "inner_thought": "下午还要上数学课，笔记得赶紧拿回来，不然又要被老师点名了。",
+              "emotion": "anxious",
+              "action_type": "speak",
+              "action_content": "那个，皓天，上次借你的数学笔记能不能先还我？下午课要用。",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "lu_siyuan",
+              "content": "诶！陆思远，何家骏！这边这边，给你们占好地儿了，快过来！"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_jiajun": {
+              "observation": "沈逸凡在盯着姜皓天，姜皓天听了这话后脸色不太好看。",
+              "inner_thought": "沈逸凡管得真严，要是姜皓天真不去网吧了，我是不是能趁机约他周末打球？",
+              "emotion": "anxious",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 3,
+              "is_disruptive": false
+            },
+            "shen_yifan": {
+              "observation": "姜皓天还在那笑嘻嘻的，仿佛完全没把我刚才的那句警告当回事。",
+              "inner_thought": "死猪不怕开水烫，真当我在开玩笑吗？",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "别跟我嬉皮笑脸的，我可不是在开玩笑。你最好把心思花在正道上，别到时候被叫家长了又来找我哭。",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": true
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": {
+              "agent": "lu_siyuan",
+              "target": "jiang_haotian",
+              "content": "那个，皓天，上次借你的数学笔记能不能先还我？下午课要用。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "陆思远和何家骏正拿着餐盘走过来，沈逸凡那死样子还在后面念叨。",
+              "inner_thought": "老沈这家伙真烦人，饭都不让好好吃，等会儿找机会把陆思远叫出去透透气。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "快点快点，再不坐下菜都凉了，别听那书呆子瞎叨叨。",
+              "action_target": "lu_siyuan",
+              "urgency": 7,
+              "is_disruptive": false
+            },
+            "he_jiajun": {
+              "observation": "姜皓天居然叫我过去一起坐，我没听错吧。",
+              "inner_thought": "他是在叫我吗？心跳好快，过去会不会很尴尬啊。",
+              "emotion": "anxious",
+              "action_type": "speak",
+              "action_content": "叫我？行。",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "lu_siyuan",
+              "content": "快点快点，再不坐下菜都凉了，别听那书呆子瞎叨叨。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "lu_siyuan": {
+              "observation": "姜皓天还在摆弄手机，似乎没太把我说的话当回事。",
+              "inner_thought": "他要是忘了带或者弄丢了就麻烦了，下午老师肯定要检查的。",
+              "emotion": "anxious",
+              "action_type": "speak",
+              "action_content": "就那个蓝皮的练习册，作业补完没？",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 4,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "jiang_haotian",
+              "content": "别跟我嬉皮笑脸的，我可不是在开玩笑。你最好把心思花在正道上，别到时候被叫家长了又来找我哭。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "沈逸凡在后面盯着看，陆思远还在纠结他的笔记，何家骏则缩着头不说话。",
+              "inner_thought": "老沈真是阴魂不散，看这哥俩被他吓的，得找机会带走。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "那破笔记下午再还你，陆思远你先坐下，何家骏你也别杵着，快吃。",
+              "action_target": "lu_siyuan",
+              "urgency": 7,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 5,
+          "public": {
+            "speech": {
+              "agent": "he_jiajun",
+              "target": "jiang_haotian",
+              "content": "叫我？行。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "姜皓天完全没把我的话当回事，还在招呼陆思远和何家骏坐下，甚至当面说我是书呆子。",
+              "inner_thought": "真是一点长进也没有，这么下去迟早要出事。算了，管不住，随他去吧。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "随你便吧，到时候别后悔。",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 6,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "lu_siyuan",
+              "content": "那破笔记下午再还你，陆思远你先坐下，何家骏你也别杵着，快吃。"
+            },
+            "actions": [
+              {
+                "agent": "he_jiajun",
+                "type": "non_verbal",
+                "content": "默默挪动椅子，尽量不出声地往姜皓天旁边的空位蹭过去。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_jiajun": {
+              "observation": "姜皓天叫我一起坐下吃饭，沈逸凡还在旁边念叨网吧的事。",
+              "inner_thought": "他居然真的叫我了，好紧张，现在坐过去是不是有点打扰他们？",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "默默挪动椅子，尽量不出声地往姜皓天旁边的空位蹭过去。",
+              "action_target": "jiang_haotian",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 7,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "jiang_haotian",
+              "content": "随你便吧，到时候别后悔。"
+            },
+            "actions": [
+              {
+                "agent": "he_jiajun",
+                "type": "non_verbal",
+                "content": "埋头飞快地扒着餐盘里的饭菜，尽量缩减存在感。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "何家骏像个受惊的兔子一样坐下，沈逸凡还在那儿装模作样地站着看。",
+              "inner_thought": "老沈真是要把这饭桌气氛给毁了，看着就心烦，吃个饭都不消停。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "家骏，多吃点肉，长长个儿。别理有些人，一天到晚只会念经。",
+              "action_target": "he_jiajun",
+              "urgency": 6,
+              "is_disruptive": false
+            },
+            "he_jiajun": {
+              "observation": "我终于挪到姜皓天旁边的位置坐下了，姜皓天还在跟沈逸凡和陆思远说话。",
+              "inner_thought": "离他这么近，说话会不会被看出来手抖……还是先别开口了。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "埋头飞快地扒着餐盘里的饭菜，尽量缩减存在感。",
+              "action_target": "jiang_haotian",
+              "urgency": 4,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 8,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "he_jiajun",
+              "content": "家骏，多吃点肉，长长个儿。别理有些人，一天到晚只会念经。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_jiajun": {
+              "observation": "姜皓天还在跟沈逸凡和陆思远说话，没人注意到我。",
+              "inner_thought": "好紧张，手里的筷子都要捏断了，还是先别说话了。",
+              "emotion": "anxious",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "shen_yifan": {
+              "observation": "姜皓天完全无视了我的警告，拉着陆思远和何家骏坐下吃饭，气氛很吵。",
+              "inner_thought": "真累，我在这儿唱独角戏呢？算了，懒得理他。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "lu_siyuan": {
+              "observation": "姜皓天完全没把笔记的事放心上，又去和沈逸凡拌嘴了。",
+              "inner_thought": "笔记肯定在他书包里，但我又不敢太强硬去要，算了，晚自习再说吧。",
+              "emotion": "anxious",
+              "action_type": "speak",
+              "action_content": "行吧，那下午课前记得给我。",
+              "action_target": "jiang_haotian",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 9,
+          "public": {
+            "speech": {
+              "agent": "he_jiajun",
+              "target": "jiang_haotian",
+              "content": "嗯……谢谢。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "沈逸凡终于走开了，何家骏还在闷头吃，陆思远看着我也挺无语的。",
+              "inner_thought": "这沈逸凡真是个苍蝇，烦死了，赶紧吃完去操场透气。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "陆思远，晚上开一把？我带你飞。",
+              "action_target": "lu_siyuan",
+              "urgency": 6,
+              "is_disruptive": false
+            },
+            "he_jiajun": {
+              "observation": "姜皓天当着沈逸凡的面跟我说话，沈逸凡看起来有点不高兴。",
+              "inner_thought": "他居然帮我说话，心跳好快，这块肉一定要吃掉。",
+              "emotion": "touched",
+              "action_type": "speak",
+              "action_content": "嗯……谢谢。",
+              "action_target": "jiang_haotian",
+              "urgency": 6,
+              "is_disruptive": false
+            },
+            "shen_yifan": {
+              "observation": "姜皓天当面嘲讽我只会念经，陆思远和何家骏在旁边沉默着没说话。",
+              "inner_thought": "真把自己当回事，等成绩下来看谁笑话，懒得再跟他浪费口舌。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 10,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "lu_siyuan",
+              "content": "陆思远，晚上开一把？我带你飞。"
+            },
+            "actions": [
+              {
+                "agent": "he_jiajun",
+                "type": "non_verbal",
+                "content": "埋头猛吃了一口饭，试图掩盖脸上的发烫。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": [
+              "shen_yifan"
+            ]
+          },
+          "minds": {
+            "he_jiajun": {
+              "observation": "姜皓天一边吃着饭，一边侧头看向我，像是等着我接下文的样子。",
+              "inner_thought": "他怎么还不转头，好紧张，感觉大家都在听。",
+              "emotion": "touched",
+              "action_type": "non_verbal",
+              "action_content": "埋头猛吃了一口饭，试图掩盖脸上的发烫。",
+              "action_target": "jiang_haotian",
+              "urgency": 4,
+              "is_disruptive": false
+            },
+            "shen_yifan": {
+              "observation": "姜皓天还在试图拉拢何家骏，完全无视了班长的纪律要求。",
+              "inner_thought": "算了，这帮人没救了，说再多也是对牛弹琴。",
+              "emotion": "frustrated",
+              "action_type": "exit",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 11,
+          "public": {
+            "speech": {
+              "agent": "lu_siyuan",
+              "target": "jiang_haotian",
+              "content": "行吧，那下午课前记得给我。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "沈逸凡终于走掉清净了，何家骏这小子居然在脸红。",
+              "inner_thought": "老沈总算滚了。看何家骏这怂样，饭都要吃进鼻子里去了。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "哎，何家骏你脸怎么红成这样？没见过美女啊，吃个饭而已，淡定点。",
+              "action_target": "he_jiajun",
+              "urgency": 6,
+              "is_disruptive": false
+            },
+            "he_jiajun": {
+              "observation": "姜皓天在邀请陆思远晚上开黑，沈逸凡走后周围气氛稍微放松了点。",
+              "inner_thought": "他说带飞...要是能加个好友就好了，虽然我技术很菜。",
+              "emotion": "touched",
+              "action_type": "speak",
+              "action_content": "晚上...我也能一起吗？",
+              "action_target": "jiang_haotian",
+              "urgency": 7,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 12,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "he_jiajun",
+              "content": "哎，何家骏你脸怎么红成这样？没见过美女啊，吃个饭而已，淡定点。"
+            },
+            "actions": [
+              {
+                "agent": "lu_siyuan",
+                "type": "non_verbal",
+                "content": "低头安静地吃一口饭，不再多说什么"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "lu_siyuan": {
+              "observation": "姜皓天还在催着我吃饭，完全没在意笔记这事，何家骏在一旁一言不发的样子。",
+              "inner_thought": "他肯定又敷衍我，算了，吃完饭再说吧，反正急也没用。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "低头安静地吃一口饭，不再多说什么",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 13,
+          "public": {
+            "speech": {
+              "agent": "he_jiajun",
+              "target": "jiang_haotian",
+              "content": "晚上...我也能一起吗？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "何家骏还在闷头猛吃，陆思远也沉默不语，气氛有点沉闷。",
+              "inner_thought": "这哥俩怎么都跟哑巴似的，太没劲了，还是得找机会把何家骏拉去投几个篮。",
+              "emotion": "bored",
+              "action_type": "speak",
+              "action_content": "家骏，下午体育课要是没事，带你操场练投篮去？正好我也练练手。",
+              "action_target": "he_jiajun",
+              "urgency": 5,
+              "is_disruptive": false
+            },
+            "lu_siyuan": {
+              "observation": "姜皓天还在拿何家骏开玩笑，何家骏埋着头一句话也不说。",
+              "inner_thought": "他俩闹起来没完没了，我那笔记下午到底能不能拿回来啊。",
+              "emotion": "anxious",
+              "action_type": "speak",
+              "action_content": "那什么，皓天，你下午别忘了把笔记放我桌上，真的急用。",
+              "action_target": "jiang_haotian",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 14,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "he_jiajun",
+              "content": "家骏，下午体育课要是没事，带你操场练投篮去？正好我也练练手。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_jiajun": {
+              "observation": "我问完之后，死死盯着姜皓天的反应，手心全是汗。",
+              "inner_thought": "千万别拒绝，千万别嫌弃我菜。",
+              "emotion": "anxious",
+              "action_type": "speak",
+              "action_content": "晚上...我也能一起吗？",
+              "action_target": "jiang_haotian",
+              "urgency": 10,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 15,
+          "public": {
+            "speech": {
+              "agent": "he_jiajun",
+              "target": "jiang_haotian",
+              "content": "晚上...我也能一起吗？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "何家骏终于开口答应一起打球了，陆思远还在闷头吃饭。",
+              "inner_thought": "这小子终于支棱起来了，不容易啊，看来他也挺压抑的。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "好兄弟！那说定了，到时候我包C，带你杀穿对面。",
+              "action_target": "he_jiajun",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 16,
+          "public": {
+            "speech": {
+              "agent": "lu_siyuan",
+              "target": "jiang_haotian",
+              "content": "那什么，皓天，你下午别忘了把笔记放我桌上，真的急用。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_jiajun": {
+              "observation": "我问完之后，死死盯着姜皓天的反应，手心全是汗。",
+              "inner_thought": "他怎么还不说话，该不会是嫌我菜不想带吧？好丢人。",
+              "emotion": "anxious",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": "jiang_haotian",
+              "urgency": 9,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 17,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "he_jiajun",
+              "content": "好兄弟！那说定了，到时候我包C，带你杀穿对面。"
+            },
+            "actions": [
+              {
+                "agent": "he_jiajun",
+                "type": "non_verbal",
+                "content": "默默加快了扒饭的速度，低着头，死死盯着餐盘里的一块白菜。"
+              },
+              {
+                "agent": "lu_siyuan",
+                "type": "non_verbal",
+                "content": "默默加快了吃饭的速度，不再插话。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "he_jiajun": {
+              "observation": "姜皓天还在和陆思远说笔记的事，没回答我刚才问的关于晚上开黑能不能一起的事。",
+              "inner_thought": "他是不是没听到？还是觉得我太烦了？算了，不问了，好尴尬。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "默默加快了扒饭的速度，低着头，死死盯着餐盘里的一块白菜。",
+              "action_target": null,
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "lu_siyuan": {
+              "observation": "姜皓天还在跟何家骏说体育课的事，对我的话完全没反应。",
+              "inner_thought": "他肯定又没当回事，算了，下午自己去他课桌上翻翻看吧。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "默默加快了吃饭的速度，不再插话。",
+              "action_target": null,
+              "urgency": 3,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 18,
+          "public": {
+            "speech": {
+              "agent": "he_jiajun",
+              "target": "jiang_haotian",
+              "content": "嗯……好，那晚上见。"
+            },
+            "actions": [
+              {
+                "agent": "lu_siyuan",
+                "type": "non_verbal",
+                "content": "默默把餐盘里的最后一口饭塞进嘴里，起身带上餐具准备去回收处。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "何家骏和陆思远都埋头狂吃，气氛冷得不行，这顿饭吃得真没劲。",
+              "inner_thought": "这俩人怎么了，是被沈逸凡吓傻了还是咋滴，话都不会说了？",
+              "emotion": "bored",
+              "action_type": "speak",
+              "action_content": "哎，你们俩别跟比赛似的行吗？吃个饭跟上刑一样，慢点吃又没人抢。",
+              "action_target": "lu_siyuan",
+              "urgency": 4,
+              "is_disruptive": false
+            },
+            "he_jiajun": {
+              "observation": "姜皓天答应带我一起打游戏，心里那种石头落地了的感觉。",
+              "inner_thought": "真的没嫌弃我，他说包C，太好了。",
+              "emotion": "touched",
+              "action_type": "speak",
+              "action_content": "嗯……好，那晚上见。",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "lu_siyuan": {
+              "observation": "姜皓天完全沉浸在和何家骏的体育课约定里，明显把我的话又抛在脑后了。",
+              "inner_thought": "算了，反正问了也白问，下午直接去他位子上翻吧。好烦啊。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "默默把餐盘里的最后一口饭塞进嘴里，起身带上餐具准备去回收处。",
+              "action_target": null,
+              "urgency": 3,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 19,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "he_jiajun",
+                "type": "non_verbal",
+                "content": null
+              }
+            ],
+            "environmental_event": null,
+            "exits": [
+              "lu_siyuan"
+            ]
+          },
+          "minds": {
+            "he_jiajun": {
+              "observation": "陆思远起身去收餐盘了，姜皓天还在位置上没动。",
+              "inner_thought": "他真的答应带我了，心跳还没降下来，好想赶紧回去练练操作。",
+              "emotion": "touched",
+              "action_type": "non_verbal",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 3,
+              "is_disruptive": false
+            },
+            "lu_siyuan": {
+              "observation": "姜皓天完全沉浸在和何家骏的约球计划里，压根没管笔记的事，我拿着餐盘准备走了。",
+              "inner_thought": "算了，反正跟他说了也没用，下午数学课前去他桌子上看一眼吧。",
+              "emotion": "frustrated",
+              "action_type": "exit",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 4,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        }
+      ],
+      "narrative": {
+        "key_moments": [
+          "沈逸凡警告姜皓天不要翘课去网吧。",
+          "姜皓天邀请陆思远和何家骏在食堂同桌用餐。",
+          "陆思远向姜皓天索要数学笔记。",
+          "姜皓天承诺下午将笔记还给陆思远。",
+          "姜皓天邀请何家骏下午去操场练习投篮。",
+          "何家骏询问并确认加入姜皓天晚上的游戏活动。",
+          "沈逸凡和陆思远先后离开食堂。"
+        ],
+        "fulfilled_intentions": [
+          "陆思远:向姜皓天索要数学笔记",
+          "姜皓天:邀请何家骏下午练习投篮",
+          "何家骏:确认参与晚上的游戏活动"
+        ],
+        "events_discussed": [
+          "下午翘课去网吧",
+          "数学笔记归还",
+          "下午体育课练习投篮",
+          "晚上游戏活动"
+        ],
+        "new_events": [
+          {
+            "text": "姜皓天承诺下午将数学笔记归还给陆思远",
+            "category": "学术资料归还",
+            "witnesses": [
+              "姜皓天",
+              "陆思远",
+              "何家骏"
+            ],
+            "spread_probability": 0.2,
+            "cite_ticks": [
+              7,
+              12,
+              17
+            ]
+          },
+          {
+            "text": "姜皓天邀请何家骏下午在操场练习投篮",
+            "category": "体育活动",
+            "witnesses": [
+              "姜皓天",
+              "何家骏"
+            ],
+            "spread_probability": 0.1,
+            "cite_ticks": [
+              15,
+              18
+            ]
+          },
+          {
+            "text": "何家骏加入姜皓天和陆思远晚上的游戏活动",
+            "category": "社交娱乐",
+            "witnesses": [
+              "姜皓天",
+              "何家骏",
+              "陆思远"
+            ],
+            "spread_probability": 0.3,
+            "cite_ticks": [
+              14,
+              16,
+              18,
+              19
+            ]
+          }
+        ]
+      },
+      "reflections": {
+        "jiang_haotian": {
+          "emotion": "excited",
+          "relationship_changes": [
+            {
+              "to_agent": "陆思远",
+              "favorability": 1,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "何家骏",
+              "favorability": 3,
+              "trust": 2,
+              "understanding": 2,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "沈逸凡",
+              "favorability": -2,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "约了何家骏晚上开黑，这小子答应得挺痛快，看他吃饭那劲儿，估计憋坏了。",
+              "emotion": "happy",
+              "importance": 5,
+              "people": [
+                "何家骏"
+              ],
+              "location": "食堂",
+              "topics": [
+                "兴趣爱好"
+              ]
+            }
+          ],
+          "new_concerns": [
+            {
+              "text": "何家骏这小子平时闷声不响的，晚上带他开黑得让他玩得开心点，别让他光顾着紧张。",
+              "source_event": "食堂午饭时何家骏主动问晚上能不能一起开黑",
+              "emotion": "excited",
+              "intensity": 4,
+              "related_people": [
+                "何家骏"
+              ],
+              "positive": true,
+              "topic": "期待的事"
+            }
+          ],
+          "concern_updates": [
+            {
+              "concern_text": "9e32b7",
+              "adjustment": 0
+            },
+            {
+              "concern_text": "168376",
+              "adjustment": 1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "找个机会旁敲侧击问问陆思远以后打算干嘛",
+              "status": "missed_opportunity",
+              "brief_reason": "只顾着逗何家骏和怼沈逸凡了，根本没机会聊正经事。"
+            },
+            {
+              "goal": "课间拉何家骏去操场投篮",
+              "status": "fulfilled",
+              "brief_reason": "不仅约了投篮，还顺便带他入伙开黑，这波稳了。"
+            }
+          ]
+        },
+        "lu_siyuan": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "姜皓天",
+              "favorability": -2,
+              "trust": -1,
+              "understanding": 1,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "何家骏",
+              "favorability": 0,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "食堂里姜皓天又推迟了还我笔记的时间，下午课真的要用。",
+              "emotion": "frustrated",
+              "importance": 4,
+              "people": [
+                "姜皓天"
+              ],
+              "location": "食堂",
+              "topics": [
+                "学业焦虑"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "e59812",
+              "adjustment": 0
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "在数学课前把上次借他的笔记要回来",
+              "status": "attempted",
+              "brief_reason": "虽然开口提了，但被他以吃饭为由又推到了下午。"
+            }
+          ]
+        },
+        "he_jiajun": {
+          "emotion": "touched",
+          "relationship_changes": [
+            {
+              "to_agent": "姜皓天",
+              "favorability": 3,
+              "trust": 2,
+              "understanding": 2,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "陆思远",
+              "favorability": 0,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "姜皓天在食堂主动叫我一起吃饭，还说下午带我练投篮。",
+              "emotion": "touched",
+              "importance": 6,
+              "people": [
+                "姜皓天"
+              ],
+              "location": "食堂",
+              "topics": [
+                "人际矛盾",
+                "期待的事"
+              ]
+            }
+          ],
+          "new_concerns": [
+            {
+              "text": "晚上开黑要是玩得太菜被嫌弃怎么办？",
+              "source_event": "姜皓天邀请晚上一起玩游戏",
+              "emotion": "anxious",
+              "intensity": 6,
+              "related_people": [
+                "姜皓天"
+              ],
+              "positive": false,
+              "topic": "人际矛盾"
+            },
+            {
+              "text": "下午体育课练投篮，希望别出丑。",
+              "source_event": "姜皓天约下午练投篮",
+              "emotion": "excited",
+              "intensity": 5,
+              "related_people": [
+                "姜皓天"
+              ],
+              "positive": true,
+              "topic": "期待的事"
+            }
+          ],
+          "concern_updates": [
+            {
+              "concern_text": "a74ad1",
+              "adjustment": -3
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "课间去操场假装路过跟他打个招呼（想找姜皓天）",
+              "status": "fulfilled",
+              "brief_reason": "没想到直接在食堂被姜皓天主动叫住了，不用假装路过也成功搭上话了。"
+            }
+          ]
+        },
+        "shen_yifan": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "姜皓天",
+              "favorability": -2,
+              "trust": -1,
+              "understanding": 1,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "何家骏",
+              "favorability": 0,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": false
+            }
+          ],
+          "memories": [
+            {
+              "text": "姜皓天在食堂当众喊人开黑，还带坏了何家骏，简直完全不把我这个班长放在眼里。",
+              "emotion": "frustrated",
+              "importance": 6,
+              "people": [
+                "姜皓天",
+                "何家骏"
+              ],
+              "location": "食堂",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [
+            {
+              "text": "连何家骏都开始跟着姜皓天胡闹了，班里的纪律是不是真的要管不住了？",
+              "source_event": "看到何家骏在食堂顺从姜皓天并约着晚上打游戏",
+              "emotion": "anxious",
+              "intensity": 6,
+              "related_people": [
+                "姜皓天",
+                "何家骏"
+              ],
+              "positive": false,
+              "topic": "人际矛盾"
+            }
+          ],
+          "concern_updates": [
+            {
+              "concern_text": "42fa81",
+              "adjustment": 2
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "找个课间跟他聊聊手机纪律，这次必须解决掉这个问题，不能再拖了。",
+              "status": "frustrated",
+              "brief_reason": "在食堂尝试劝告姜皓天，但他根本听不进去，只会嬉皮笑脸。"
+            }
+          ]
+        }
+      },
+      "share_tick_layouts": [
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "姜皓天，你下午要是敢翘课去网吧，我就直接把名报给老班了。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "早饭没吃饱，饿死老子了。先叫这俩兄弟过来吃，沈逸凡那货就别理了。"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "thought",
+              "text": "下午还要上数学课，笔记得赶紧拿回来，不然又要被老师点名了。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "他们又要去网吧，我段位太低，肯定会被嫌弃的。"
+            }
+          ],
+          "featured_quote": "早饭没吃饱，饿死老子了。先叫这俩兄弟过来吃，沈逸凡那货就别理了。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 0
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "诶！陆思远，何家骏！这边这边，给你们占好地儿了，快过来！"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "死猪不怕开水烫，真当我在开玩笑吗？"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "沈逸凡管得真严，要是姜皓天真不去网吧了，我是不是能趁机约他周末打球？"
+            }
+          ],
+          "featured_quote": "死猪不怕开水烫，真当我在开玩笑吗？",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 1
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "speech",
+              "text": "那个，皓天，上次借你的数学笔记能不能先还我？下午课要用。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "老沈这家伙真烦人，饭都不让好好吃，等会儿找机会把陆思远叫出去透透气。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "他是在叫我吗？心跳好快，过去会不会很尴尬啊。"
+            }
+          ],
+          "featured_quote": "他是在叫我吗？心跳好快，过去会不会很尴尬啊。",
+          "featured_speaker_name": "何家骏",
+          "tick_index": 2
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "快点快点，再不坐下菜都凉了，别听那书呆子瞎叨叨。"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "thought",
+              "text": "他要是忘了带或者弄丢了就麻烦了，下午老师肯定要检查的。"
+            }
+          ],
+          "featured_quote": "他要是忘了带或者弄丢了就麻烦了，下午老师肯定要检查的。",
+          "featured_speaker_name": "陆思远",
+          "tick_index": 3
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "别跟我嬉皮笑脸的，我可不是在开玩笑。你最好把心思花在正道上，别到时候被叫家长了又来找我哭。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "老沈真是阴魂不散，看这哥俩被他吓的，得找机会带走。"
+            }
+          ],
+          "featured_quote": "老沈真是阴魂不散，看这哥俩被他吓的，得找机会带走。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 4
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "speech",
+              "text": "叫我？行。"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "真是一点长进也没有，这么下去迟早要出事。算了，管不住，随他去吧。"
+            }
+          ],
+          "featured_quote": "真是一点长进也没有，这么下去迟早要出事。算了，管不住，随他去吧。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 5
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "那破笔记下午再还你，陆思远你先坐下，何家骏你也别杵着，快吃。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "他居然真的叫我了，好紧张，现在坐过去是不是有点打扰他们？"
+            }
+          ],
+          "featured_quote": "他居然真的叫我了，好紧张，现在坐过去是不是有点打扰他们？",
+          "featured_speaker_name": "何家骏",
+          "tick_index": 6
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "随你便吧，到时候别后悔。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "老沈真是要把这饭桌气氛给毁了，看着就心烦，吃个饭都不消停。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "离他这么近，说话会不会被看出来手抖……还是先别开口了。"
+            }
+          ],
+          "featured_quote": "老沈真是要把这饭桌气氛给毁了，看着就心烦，吃个饭都不消停。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 7
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "家骏，多吃点肉，长长个儿。别理有些人，一天到晚只会念经。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "好紧张，手里的筷子都要捏断了，还是先别说话了。"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "thought",
+              "text": "笔记肯定在他书包里，但我又不敢太强硬去要，算了，晚自习再说吧。"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "真累，我在这儿唱独角戏呢？算了，懒得理他。"
+            }
+          ],
+          "featured_quote": "笔记肯定在他书包里，但我又不敢太强硬去要，算了，晚自习再说吧。",
+          "featured_speaker_name": "陆思远",
+          "tick_index": 8
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "speech",
+              "text": "嗯……谢谢。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "这沈逸凡真是个苍蝇，烦死了，赶紧吃完去操场透气。"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "真把自己当回事，等成绩下来看谁笑话，懒得再跟他浪费口舌。"
+            }
+          ],
+          "featured_quote": "这沈逸凡真是个苍蝇，烦死了，赶紧吃完去操场透气。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 9
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "陆思远，晚上开一把？我带你飞。"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "算了，这帮人没救了，说再多也是对牛弹琴。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "他怎么还不转头，好紧张，感觉大家都在听。"
+            }
+          ],
+          "featured_quote": "算了，这帮人没救了，说再多也是对牛弹琴。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 10
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "speech",
+              "text": "行吧，那下午课前记得给我。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "老沈总算滚了。看何家骏这怂样，饭都要吃进鼻子里去了。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "他说带飞...要是能加个好友就好了，虽然我技术很菜。"
+            }
+          ],
+          "featured_quote": "他说带飞...要是能加个好友就好了，虽然我技术很菜。",
+          "featured_speaker_name": "何家骏",
+          "tick_index": 11
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "哎，何家骏你脸怎么红成这样？没见过美女啊，吃个饭而已，淡定点。"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "thought",
+              "text": "他肯定又敷衍我，算了，吃完饭再说吧，反正急也没用。"
+            }
+          ],
+          "featured_quote": "他肯定又敷衍我，算了，吃完饭再说吧，反正急也没用。",
+          "featured_speaker_name": "陆思远",
+          "tick_index": 12
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "speech",
+              "text": "晚上...我也能一起吗？"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "这哥俩怎么都跟哑巴似的，太没劲了，还是得找机会把何家骏拉去投几个篮。"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "thought",
+              "text": "他俩闹起来没完没了，我那笔记下午到底能不能拿回来啊。"
+            }
+          ],
+          "featured_quote": "他俩闹起来没完没了，我那笔记下午到底能不能拿回来啊。",
+          "featured_speaker_name": "陆思远",
+          "tick_index": 13
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "家骏，下午体育课要是没事，带你操场练投篮去？正好我也练练手。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "千万别拒绝，千万别嫌弃我菜。"
+            }
+          ],
+          "featured_quote": "千万别拒绝，千万别嫌弃我菜。",
+          "featured_speaker_name": "何家骏",
+          "tick_index": 14
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "speech",
+              "text": "晚上...我也能一起吗？"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "这小子终于支棱起来了，不容易啊，看来他也挺压抑的。"
+            }
+          ],
+          "featured_quote": "这小子终于支棱起来了，不容易啊，看来他也挺压抑的。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 15
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "speech",
+              "text": "那什么，皓天，你下午别忘了把笔记放我桌上，真的急用。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "他怎么还不说话，该不会是嫌我菜不想带吧？好丢人。"
+            }
+          ],
+          "featured_quote": "他怎么还不说话，该不会是嫌我菜不想带吧？好丢人。",
+          "featured_speaker_name": "何家骏",
+          "tick_index": 16
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "好兄弟！那说定了，到时候我包C，带你杀穿对面。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "他是不是没听到？还是觉得我太烦了？算了，不问了，好尴尬。"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "thought",
+              "text": "他肯定又没当回事，算了，下午自己去他课桌上翻翻看吧。"
+            }
+          ],
+          "featured_quote": "他是不是没听到？还是觉得我太烦了？算了，不问了，好尴尬。",
+          "featured_speaker_name": "何家骏",
+          "tick_index": 17
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "speech",
+              "text": "嗯……好，那晚上见。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "这俩人怎么了，是被沈逸凡吓傻了还是咋滴，话都不会说了？"
+            },
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "thought",
+              "text": "算了，反正问了也白问，下午直接去他位子上翻吧。好烦啊。"
+            }
+          ],
+          "featured_quote": "真的没嫌弃我，他说包C，太好了。",
+          "featured_speaker_name": "何家骏",
+          "tick_index": 18
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "食堂",
+          "portraits": [
+            {
+              "agent_id": "lu_siyuan",
+              "name_cn": "陆思远",
+              "motif_emoji": "🌱",
+              "motif_tag": "好好先生"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "name_cn": "何家骏",
+              "motif_emoji": "🌫️",
+              "motif_tag": "寡言少年"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "lu_siyuan",
+              "display_name": "陆思远",
+              "kind": "thought",
+              "text": "算了，反正跟他说了也没用，下午数学课前去他桌子上看一眼吧。"
+            },
+            {
+              "agent_id": "he_jiajun",
+              "display_name": "何家骏",
+              "kind": "thought",
+              "text": "他真的答应带我了，心跳还没降下来，好想赶紧回去练练操作。"
+            }
+          ],
+          "featured_quote": "算了，反正跟他说了也没用，下午数学课前去他桌子上看一眼吧。",
+          "featured_speaker_name": "陆思远",
+          "tick_index": 19
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第002天 · 午饭 · 食堂 🔥\n\n「姜皓天」早饭没吃饱，饿死老子了。先叫这俩兄弟过来吃，沈逸凡那货就别理了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t01.png",
+          "group_index": 1,
+          "tick_index": 0
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 ⚽\n\n「沈逸凡」死猪不怕开水烫，真当我在开玩笑吗？\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t02.png",
+          "group_index": 1,
+          "tick_index": 1
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌱\n\n「何家骏」他是在叫我吗？心跳好快，过去会不会很尴尬啊。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t03.png",
+          "group_index": 1,
+          "tick_index": 2
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 ⚽\n\n「陆思远」他要是忘了带或者弄丢了就麻烦了，下午老师肯定要检查的。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t04.png",
+          "group_index": 1,
+          "tick_index": 3
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🔥\n\n「姜皓天」老沈真是阴魂不散，看这哥俩被他吓的，得找机会带走。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t05.png",
+          "group_index": 1,
+          "tick_index": 4
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌫️\n\n「沈逸凡」真是一点长进也没有，这么下去迟早要出事。算了，管不住，随他去吧。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t06.png",
+          "group_index": 1,
+          "tick_index": 5
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 ⚽\n\n「何家骏」他居然真的叫我了，好紧张，现在坐过去是不是有点打扰他们？\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t07.png",
+          "group_index": 1,
+          "tick_index": 6
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🔥\n\n「姜皓天」老沈真是要把这饭桌气氛给毁了，看着就心烦，吃个饭都不消停。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t08.png",
+          "group_index": 1,
+          "tick_index": 7
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 ⚽\n\n「陆思远」笔记肯定在他书包里，但我又不敢太强硬去要，算了，晚自习再说吧。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t09.png",
+          "group_index": 1,
+          "tick_index": 8
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌫️\n\n「姜皓天」这沈逸凡真是个苍蝇，烦死了，赶紧吃完去操场透气。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t10.png",
+          "group_index": 1,
+          "tick_index": 9
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 ⚽\n\n「沈逸凡」算了，这帮人没救了，说再多也是对牛弹琴。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t11.png",
+          "group_index": 1,
+          "tick_index": 10
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌱\n\n「何家骏」他说带飞...要是能加个好友就好了，虽然我技术很菜。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t12.png",
+          "group_index": 1,
+          "tick_index": 11
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 ⚽\n\n「陆思远」他肯定又敷衍我，算了，吃完饭再说吧，反正急也没用。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t13.png",
+          "group_index": 1,
+          "tick_index": 12
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌫️\n\n「陆思远」他俩闹起来没完没了，我那笔记下午到底能不能拿回来啊。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t14.png",
+          "group_index": 1,
+          "tick_index": 13
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 ⚽\n\n「何家骏」千万别拒绝，千万别嫌弃我菜。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t15.png",
+          "group_index": 1,
+          "tick_index": 14
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌫️\n\n「姜皓天」这小子终于支棱起来了，不容易啊，看来他也挺压抑的。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t16.png",
+          "group_index": 1,
+          "tick_index": 15
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌱\n\n「何家骏」他怎么还不说话，该不会是嫌我菜不想带吧？好丢人。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t17.png",
+          "group_index": 1,
+          "tick_index": 16
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 ⚽\n\n「何家骏」他是不是没听到？还是觉得我太烦了？算了，不问了，好尴尬。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t18.png",
+          "group_index": 1,
+          "tick_index": 17
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌫️\n\n「何家骏」真的没嫌弃我，他说包C，太好了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t19.png",
+          "group_index": 1,
+          "tick_index": 18
+        },
+        {
+          "caption": "第002天 · 午饭 · 食堂 🌱\n\n「陆思远」算了，反正跟他说了也没用，下午数学课前去他桌子上看一眼吧。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#食堂",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@食堂_t20.png",
+          "group_index": 1,
+          "tick_index": 19
+        }
+      ]
+    }
+  ]
+}

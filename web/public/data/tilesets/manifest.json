@@ -1,0 +1,182 @@
+{
+  "classroom": {
+    "teacher_desk": {
+      "w": 128,
+      "h": 64,
+      "tiles_w": 4,
+      "tiles_h": 2
+    },
+    "teacher_desk_book": {
+      "w": 64,
+      "h": 64,
+      "tiles_w": 2,
+      "tiles_h": 2
+    },
+    "student_desk": {
+      "w": 32,
+      "h": 64,
+      "tiles_w": 1,
+      "tiles_h": 2
+    },
+    "chair_green": {
+      "w": 32,
+      "h": 64,
+      "tiles_w": 1,
+      "tiles_h": 2
+    },
+    "chalkboard_black": {
+      "w": 64,
+      "h": 64,
+      "tiles_w": 2,
+      "tiles_h": 2
+    },
+    "poster_abc": {
+      "w": 64,
+      "h": 64,
+      "tiles_w": 2,
+      "tiles_h": 2
+    },
+    "poster_numbers": {
+      "w": 64,
+      "h": 64,
+      "tiles_w": 2,
+      "tiles_h": 2
+    },
+    "notice_board": {
+      "w": 64,
+      "h": 32,
+      "tiles_w": 2,
+      "tiles_h": 1
+    }
+  },
+  "library": {
+    "bookshelf_tall_a": {
+      "w": 64,
+      "h": 96,
+      "tiles_w": 2,
+      "tiles_h": 3
+    },
+    "bookshelf_tall_b": {
+      "w": 64,
+      "h": 96,
+      "tiles_w": 2,
+      "tiles_h": 3
+    },
+    "bookshelf_tall_c": {
+      "w": 64,
+      "h": 96,
+      "tiles_w": 2,
+      "tiles_h": 3
+    },
+    "bookshelf_short": {
+      "w": 64,
+      "h": 64,
+      "tiles_w": 2,
+      "tiles_h": 2
+    },
+    "bookshelf_colorful": {
+      "w": 64,
+      "h": 64,
+      "tiles_w": 2,
+      "tiles_h": 2
+    },
+    "reading_table": {
+      "w": 64,
+      "h": 64,
+      "tiles_w": 2,
+      "tiles_h": 2
+    }
+  },
+  "dorm": {
+    "bed_green": {
+      "w": 64,
+      "h": 128,
+      "tiles_w": 2,
+      "tiles_h": 4
+    },
+    "bed_blue": {
+      "w": 64,
+      "h": 128,
+      "tiles_w": 2,
+      "tiles_h": 4
+    },
+    "bed_pink": {
+      "w": 64,
+      "h": 128,
+      "tiles_w": 2,
+      "tiles_h": 4
+    },
+    "wardrobe": {
+      "w": 64,
+      "h": 96,
+      "tiles_w": 2,
+      "tiles_h": 3
+    }
+  },
+  "cafeteria": {
+    "fridge": {
+      "w": 64,
+      "h": 128,
+      "tiles_w": 2,
+      "tiles_h": 4
+    },
+    "stove": {
+      "w": 64,
+      "h": 64,
+      "tiles_w": 2,
+      "tiles_h": 2
+    },
+    "counter_long": {
+      "w": 128,
+      "h": 64,
+      "tiles_w": 4,
+      "tiles_h": 2
+    },
+    "dining_table": {
+      "w": 64,
+      "h": 128,
+      "tiles_w": 2,
+      "tiles_h": 4
+    }
+  },
+  "store": {
+    "vending_a": {
+      "w": 64,
+      "h": 64,
+      "tiles_w": 2,
+      "tiles_h": 2
+    },
+    "vending_b": {
+      "w": 64,
+      "h": 64,
+      "tiles_w": 2,
+      "tiles_h": 2
+    },
+    "shelf_tall": {
+      "w": 64,
+      "h": 128,
+      "tiles_w": 2,
+      "tiles_h": 4
+    },
+    "cooler_glass": {
+      "w": 64,
+      "h": 128,
+      "tiles_w": 2,
+      "tiles_h": 4
+    },
+    "register": {
+      "w": 64,
+      "h": 64,
+      "tiles_w": 2,
+      "tiles_h": 2
+    }
+  },
+  "sports": {
+    "basketball_court": {
+      "w": 416,
+      "h": 320,
+      "tiles_w": 13,
+      "tiles_h": 10
+    }
+  }
+}

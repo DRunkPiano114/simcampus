@@ -1,0 +1,38 @@
+{
+  "agent_id": "he_min",
+  "name_cn": "何老师",
+  "day": 6,
+  "is_teacher": true,
+  "motif_emoji": "📐",
+  "motif_tag": "班主任",
+  "main_color": "#8B6E4E",
+  "emotion_label": "平常",
+  "energy_label": "精神还行",
+  "pressure_label": "稍有压力",
+  "featured_quote": null,
+  "featured_scene": null,
+  "relationships": [],
+  "memories": [
+    {
+      "date": "Day 2",
+      "text": "何家骏拿着乱糟糟的卷子，手都在抖，这孩子底子薄还没人管，看着真揪心。",
+      "importance": 5
+    }
+  ],
+  "top_concern": {
+    "text": "林昭宇近期的心理状态依然令人担忧，需要找机会进行谈话。",
+    "intensity_label": "轻微",
+    "positive": false
+  },
+  "self_narrative": "这几天忙得像陀螺，何家骏那孩子底子薄，盯着他补错题跟打仗似的，好在看到他有点进步，心里稍微踏实点。林昭宇那孩子最近状态不对，总想找他聊聊，可学校事务一件接一件，总是排不上号。现在的孩子越来越难教了，AI写作文防不胜防，家长那边盯着分数不放，我夹在中间，有时候真觉得“努力就有回报”这套逻辑在他们面前显得苍白。但我还是得撑住，我是班主任，我倒下了，这帮孩子找谁去？再累，也得把这届带好。",
+  "caption_payload": {
+    "caption": "📐 何老师 · 第006天 档案\n\n标签：班主任\n此刻心情：平常\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_何老师_档案_第006天.png"
+  }
+}

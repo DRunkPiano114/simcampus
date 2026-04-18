@@ -1,0 +1,62 @@
+{
+  "agent_id": "fang_yuchen",
+  "name_cn": "方语晨",
+  "day": 2,
+  "is_teacher": false,
+  "motif_emoji": "☀️",
+  "motif_tag": "小太阳",
+  "main_color": "#B06AB3",
+  "emotion_label": "平静",
+  "energy_label": "精神还行",
+  "pressure_label": "稍有压力",
+  "featured_quote": "希望她别怂，我那个恐怖本真的是精挑细选的，超级带劲！要是能把念瑶也忽悠去就完美了。",
+  "featured_scene": "12:00 · 午饭",
+  "relationships": [
+    {
+      "target_name": "苏念瑶",
+      "favorability": 23,
+      "trust": 17,
+      "label_text": "很亲近的朋友"
+    },
+    {
+      "target_name": "唐诗涵",
+      "favorability": 18,
+      "trust": 13,
+      "label_text": "关系不错"
+    },
+    {
+      "target_name": "姜皓天",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 2",
+      "text": "终于把沈逸凡和那个女生的八卦告诉念瑶了，聊天背景是猫真的太好磕了！",
+      "importance": 6
+    },
+    {
+      "date": "Day 2",
+      "text": "约好周末和诗涵、念瑶一起去刷恐怖本《深渊录》，还要去抢奶茶限定款！",
+      "importance": 6
+    }
+  ],
+  "top_concern": {
+    "text": "那两人到底是不是在谈恋爱啊，好想快点挖出后续！",
+    "intensity_label": "中等",
+    "positive": true
+  },
+  "self_narrative": "开学真忙，忙着吃瓜忙着收谷子。苏念瑶还是老样子，唐诗涵新买的立牌真好看。其实大家什么心思我全知道，但这事儿我也没法跟谁说。二本线有点悬，算了，还是先刷会儿短视频吧。",
+  "caption_payload": {
+    "caption": "☀️ 方语晨 · 第002天 档案\n\n标签：小太阳\n此刻心情：平静\n\n「希望她别怂，我那个恐怖本真的是精挑细选的，超级带劲！要是能把念瑶也忽悠去就完美了。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_方语晨_档案_第002天.png"
+  }
+}

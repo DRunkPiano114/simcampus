@@ -1,0 +1,1282 @@
+{
+  "scene": {
+    "scene_index": 7,
+    "time": "15:30",
+    "name": "课间",
+    "location": "操场",
+    "description": "下午课间休息",
+    "day": 8
+  },
+  "participant_names": {
+    "jiang_haotian": "姜皓天",
+    "shen_yifan": "沈逸凡",
+    "su_nianyao": "苏念瑶"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "jiang_haotian",
+        "shen_yifan",
+        "su_nianyao"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "jiang_haotian",
+              "content": "姜皓天，过来下，有点事跟你说。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "姜皓天在操场跑来跑去投篮，沈逸凡在旁边站着看手机，看起来有点心事重重的样子。",
+              "inner_thought": "沈逸凡又在看手机了，是在看那只猫吗？算了，别过去，万一又要被问到林昭宇就麻烦了。",
+              "emotion": "embarrassed",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "shen_yifan": {
+              "observation": "姜皓天站在操场边上，看起来没在干什么正事，这人简直一刻都停不下来。",
+              "inner_thought": "又撞上了，这回说什么也得把话摊开，总不能让他一直这么晃荡。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "姜皓天，过来下，有点事跟你说。",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": true
+            },
+            "jiang_haotian": {
+              "observation": "沈逸凡在操场边晃悠，看起来正经得让人火大。",
+              "inner_thought": "这货又在装模作样，去逗逗他，不能让他闲着。",
+              "emotion": "happy",
+              "action_type": "speak",
+              "action_content": "哟，沈大班长，不去图书馆复习在那儿遛弯呢？",
+              "action_target": "shen_yifan",
+              "urgency": 6,
+              "is_disruptive": true
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "shen_yifan",
+              "content": "哟，沈大班长，不去图书馆复习在那儿遛弯呢？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "姜皓天停下了脚步，但看我的眼神还是那一副无所谓的痞样。",
+              "inner_thought": "又要开始摆烂了，真是一句话都听不进去，烦死了。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "你应该清楚，再这么晃荡下去，对谁都没好处，别逼我一定要去陈老师那里把这事说明白。",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": true
+            }
+          },
+          "gated_agents": [
+            "su_nianyao"
+          ]
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "jiang_haotian",
+              "content": "你应该清楚，再这么晃荡下去，对谁都没好处，别逼我一定要去陈老师那里把这事说明白。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "沈逸凡正站在操场边，看起来一脸严肃地盯着我，一副又要讲纪律的样子。",
+              "inner_thought": "啧，这人真扫兴，还没完没了了。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "怎么了沈大班长？要是又想记我名字，麻烦动作快点，我球还没投完呢。",
+              "action_target": "shen_yifan",
+              "urgency": 8,
+              "is_disruptive": true
+            }
+          },
+          "gated_agents": [
+            "su_nianyao"
+          ]
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "shen_yifan",
+              "content": "怎么了沈大班长？要是又想记我名字，麻烦动作快点，我球还没投完呢。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "姜皓天在那儿似笑非笑地看着我，根本没把我的警告当回事，苏念瑶站在不远处似乎有点尴尬。",
+              "inner_thought": "他这副死样子真让人想揍他，算了，再多说也是废话，看着就心烦。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "su_nianyao"
+          ]
+        },
+        {
+          "tick": 4,
+          "public": {
+            "speech": {
+              "agent": "shen_yifan",
+              "target": "jiang_haotian",
+              "content": "行，你继续练，陈老师那边我会如实汇报，到时候别说我没提醒过你。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "姜皓天还在那儿挑衅沈逸凡，火药味闻着都有点冲了。",
+              "inner_thought": "这两人怎么又杠上了，真让人头大，赶紧结束吧。",
+              "emotion": "bored",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "shen_yifan": {
+              "observation": "姜皓天还在那儿耍贫嘴，苏念瑶站在一边看起来很不自在。",
+              "inner_thought": "对着他讲道理就是浪费时间，既然他这么喜欢球，那就让他练个够。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "行，你继续练，陈老师那边我会如实汇报，到时候别说我没提醒过你。",
+              "action_target": "jiang_haotian",
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "jiang_haotian": {
+              "observation": "沈逸凡还是一脸严肃地站在那，好像没打算走，还看了旁边的苏念瑶一眼。",
+              "inner_thought": "真把自己当回事，多看一眼都嫌烦。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "看什么看，班长大人，苏念瑶又不是你纪律本上的，有事说事，没事滚远点。",
+              "action_target": "shen_yifan",
+              "urgency": 6,
+              "is_disruptive": true
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 5,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": [
+              "shen_yifan"
+            ]
+          },
+          "minds": {
+            "shen_yifan": {
+              "observation": "姜皓天完全没把我的话当回事，还在那儿转球，苏念瑶一脸尴尬地站在旁边。",
+              "inner_thought": "算了，跟他多说一个字都是浪费我时间，爱怎样怎样吧。",
+              "emotion": "frustrated",
+              "action_type": "exit",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "su_nianyao"
+          ]
+        },
+        {
+          "tick": 6,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "沈逸凡这家伙真走了，留下苏念瑶在离我不远的地方站着。",
+              "inner_thought": "这扫兴的走了，正好，待会儿还是去叫何家骏吧。",
+              "emotion": "frustrated",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "su_nianyao"
+          ]
+        },
+        {
+          "tick": 7,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "jiang_haotian",
+                "type": "non_verbal",
+                "content": "用力把手里的篮球往地上一砸，发出一声响亮的拍击声，然后故意大声哼起GAI的歌。"
+              }
+            ],
+            "environmental_event": "【动作】姜皓天: 用力把手里的篮球往地上一砸，发出一声响亮的拍击声，然后故意大声哼起GAI的歌。",
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "沈逸凡终于走开了，苏念瑶还在边上，球场边一下安静了不少。",
+              "inner_thought": "这货真是扫兴，盯着看球还没心情了。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "用力把手里的篮球往地上一砸，发出一声响亮的拍击声，然后故意大声哼起GAI的歌。",
+              "action_target": null,
+              "urgency": 4,
+              "is_disruptive": true
+            }
+          },
+          "gated_agents": [
+            "su_nianyao"
+          ]
+        },
+        {
+          "tick": 8,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "shen_yifan",
+              "content": "切，假正经，没劲。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "沈逸凡被姜皓天气得直接走了，姜皓天在操场上闹腾得动静很大。",
+              "inner_thought": "这男的真够幼稚的，球场霸凌也不是这么玩的吧。",
+              "emotion": "bored",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "jiang_haotian": {
+              "observation": "沈逸凡还没走远，苏念瑶在那儿站着，感觉气氛怪怪的。",
+              "inner_thought": "真烦，盯着看球还没心情了，走了正好，别在这碍眼。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "切，假正经，没劲。",
+              "action_target": "shen_yifan",
+              "urgency": 6,
+              "is_disruptive": true
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 9,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "jiang_haotian",
+                "type": "non_verbal",
+                "content": "弯下腰捡起地上的篮球，熟练地转了一圈，直接朝着篮筐投了一个三分球。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "沈逸凡走远了，苏念瑶还在旁边站着，操场上没什么人。",
+              "inner_thought": "真扫兴，这班长当得像教导主任，没劲透了。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "弯下腰捡起地上的篮球，熟练地转了一圈，直接朝着篮筐投了一个三分球。",
+              "action_target": null,
+              "urgency": 3,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "su_nianyao"
+          ]
+        },
+        {
+          "tick": 10,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "su_nianyao",
+              "content": "啧，这就叫实力，这球怎么说？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "球进了，沈逸凡走远了，苏念瑶站在不远处看着这边。",
+              "inner_thought": "进了个好球，爽！沈逸凡那死人脸总算滚了，眼不见心不烦。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "啧，这就叫实力，这球怎么说？",
+              "action_target": "su_nianyao",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "su_nianyao"
+          ]
+        },
+        {
+          "tick": 11,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "jiang_haotian",
+              "content": "行行行，你最强，满意了？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "姜皓天投进了三分球，正在试图找人炫耀他的战果。",
+              "inner_thought": "真烦，又想拉我当观众，幼稚得像还没学会走路的小孩，随口应付一下赶紧走人。",
+              "emotion": "bored",
+              "action_type": "speak",
+              "action_content": "行行行，你最强，满意了？",
+              "action_target": "jiang_haotian",
+              "urgency": 4,
+              "is_disruptive": false
+            },
+            "jiang_haotian": {
+              "observation": "沈逸凡走远了，剩下苏念瑶在那，球进了心里正爽。",
+              "inner_thought": "进个球真不容易，沈逸凡那货终于滚了，这下清静。",
+              "emotion": "excited",
+              "action_type": "speak",
+              "action_content": "刚才那球，绝吧？",
+              "action_target": "su_nianyao",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        }
+      ],
+      "narrative": {
+        "key_moments": [
+          "沈逸凡要求姜皓天停止目前的行为，并威胁向陈老师汇报。",
+          "姜皓天在沈逸凡离开后将篮球砸向地面并哼唱歌曲。",
+          "姜皓天投进一个三分球，并询问苏念瑶的评价。",
+          "苏念瑶回应姜皓天的投篮表现。"
+        ],
+        "fulfilled_intentions": [
+          "沈逸凡:向姜皓天传达警告",
+          "姜皓天:完成篮球投篮动作"
+        ],
+        "events_discussed": [],
+        "new_events": [
+          {
+            "text": "沈逸凡向姜皓天发出警告，称将向陈老师汇报其行为。",
+            "category": "警告",
+            "witnesses": [
+              "姜皓天"
+            ],
+            "spread_probability": 0.3,
+            "cite_ticks": [
+              3,
+              5
+            ]
+          },
+          {
+            "text": "姜皓天在操场投进一个三分球。",
+            "category": "体育活动",
+            "witnesses": [
+              "苏念瑶"
+            ],
+            "spread_probability": 0.2,
+            "cite_ticks": [
+              10,
+              11
+            ]
+          }
+        ]
+      },
+      "reflections": {
+        "jiang_haotian": {
+          "emotion": "proud",
+          "relationship_changes": [
+            {
+              "to_agent": "沈逸凡",
+              "favorability": -2,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "苏念瑶",
+              "favorability": 1,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "在操场当面怼了沈逸凡，投了个三分球，苏念瑶夸我厉害。",
+              "emotion": "proud",
+              "importance": 5,
+              "people": [
+                "沈逸凡",
+                "苏念瑶"
+              ],
+              "location": "操场",
+              "topics": [
+                "人际矛盾",
+                "兴趣爱好"
+              ]
+            }
+          ],
+          "new_concerns": [
+            {
+              "text": "沈逸凡这小子真要告状？烦死了。",
+              "source_event": "沈逸凡威胁要向陈老师汇报我课间晃荡的事",
+              "emotion": "anxious",
+              "intensity": 6,
+              "related_people": [
+                "沈逸凡"
+              ],
+              "positive": false,
+              "topic": "人际矛盾"
+            }
+          ],
+          "concern_updates": [
+            {
+              "concern_text": "df3acc",
+              "adjustment": -1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "故意在他面前哼新出的说唱",
+              "status": "fulfilled",
+              "brief_reason": "当面哼了GAI的歌，气得他够呛，爽。"
+            },
+            {
+              "goal": "课间拉他去操场投几个三分球",
+              "status": "missed_opportunity",
+              "brief_reason": "本来想叫何家骏，被沈逸凡打断了。"
+            }
+          ]
+        },
+        "shen_yifan": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "姜皓天",
+              "favorability": -2,
+              "trust": -2,
+              "understanding": 1,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "苏念瑶",
+              "favorability": 0,
+              "trust": 0,
+              "understanding": -1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "姜皓天在操场当众挑衅，不仅无视班规还大声哼歌羞辱，完全没有悔改之意。",
+              "emotion": "angry",
+              "importance": 8,
+              "people": [
+                "姜皓天"
+              ],
+              "location": "操场",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "42fa81",
+              "adjustment": 2
+            },
+            {
+              "concern_text": "de8422",
+              "adjustment": 1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "找个机会跟他好好谈谈，把纪律红线说清楚",
+              "status": "frustrated",
+              "brief_reason": "姜皓天根本听不进去，只会挑衅，谈话完全失败。"
+            }
+          ]
+        },
+        "su_nianyao": {
+          "emotion": "bored",
+          "relationship_changes": [
+            {
+              "to_agent": "沈逸凡",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": false
+            },
+            {
+              "to_agent": "姜皓天",
+              "favorability": 0,
+              "trust": 0,
+              "understanding": 1,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "沈逸凡在操场找姜皓天麻烦，姜皓天投了个三分球挺拽的。",
+              "emotion": "bored",
+              "importance": 3,
+              "people": [
+                "沈逸凡",
+                "姜皓天"
+              ],
+              "location": "操场",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [],
+          "intention_outcomes": [
+            {
+              "goal": "在图书馆找个角落把冬天的随笔写完",
+              "status": "frustrated",
+              "brief_reason": "被操场这边的动静打断了，根本没法静心。"
+            },
+            {
+              "goal": "路过他座位时确认一下他在不在看书",
+              "status": "missed_opportunity",
+              "brief_reason": "一直在操场这边，没回教室。"
+            },
+            {
+              "goal": "拉着语晨去操场散步，顺便吐槽数学课",
+              "status": "missed_opportunity",
+              "brief_reason": "语晨不在，只有姜皓天在这儿发神经。"
+            }
+          ]
+        }
+      },
+      "share_tick_layouts": [
+        {
+          "day": 8,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "姜皓天，过来下，有点事跟你说。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "这货又在装模作样，去逗逗他，不能让他闲着。"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "沈逸凡又在看手机了，是在看那只猫吗？算了，别过去，万一又要被问到林昭宇就麻烦了。"
+            }
+          ],
+          "featured_quote": "又撞上了，这回说什么也得把话摊开，总不能让他一直这么晃荡。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 0
+        },
+        {
+          "day": 8,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "哟，沈大班长，不去图书馆复习在那儿遛弯呢？"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "又要开始摆烂了，真是一句话都听不进去，烦死了。"
+            }
+          ],
+          "featured_quote": "又要开始摆烂了，真是一句话都听不进去，烦死了。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 1
+        },
+        {
+          "day": 8,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "你应该清楚，再这么晃荡下去，对谁都没好处，别逼我一定要去陈老师那里把这事说明白。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "啧，这人真扫兴，还没完没了了。"
+            }
+          ],
+          "featured_quote": "啧，这人真扫兴，还没完没了了。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 2
+        },
+        {
+          "day": 8,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "怎么了沈大班长？要是又想记我名字，麻烦动作快点，我球还没投完呢。"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "他这副死样子真让人想揍他，算了，再多说也是废话，看着就心烦。"
+            }
+          ],
+          "featured_quote": "他这副死样子真让人想揍他，算了，再多说也是废话，看着就心烦。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 3
+        },
+        {
+          "day": 8,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "speech",
+              "text": "行，你继续练，陈老师那边我会如实汇报，到时候别说我没提醒过你。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "真把自己当回事，多看一眼都嫌烦。"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "这两人怎么又杠上了，真让人头大，赶紧结束吧。"
+            }
+          ],
+          "featured_quote": "对着他讲道理就是浪费时间，既然他这么喜欢球，那就让他练个够。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 4
+        },
+        {
+          "day": 8,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "shen_yifan",
+              "display_name": "沈逸凡",
+              "kind": "thought",
+              "text": "算了，跟他多说一个字都是浪费我时间，爱怎样怎样吧。"
+            }
+          ],
+          "featured_quote": "算了，跟他多说一个字都是浪费我时间，爱怎样怎样吧。",
+          "featured_speaker_name": "沈逸凡",
+          "tick_index": 5
+        },
+        {
+          "day": 8,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "这扫兴的走了，正好，待会儿还是去叫何家骏吧。"
+            }
+          ],
+          "featured_quote": "这扫兴的走了，正好，待会儿还是去叫何家骏吧。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 6
+        },
+        {
+          "day": 8,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "这货真是扫兴，盯着看球还没心情了。"
+            }
+          ],
+          "featured_quote": "这货真是扫兴，盯着看球还没心情了。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 7
+        },
+        {
+          "day": 8,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "切，假正经，没劲。"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "这男的真够幼稚的，球场霸凌也不是这么玩的吧。"
+            }
+          ],
+          "featured_quote": "真烦，盯着看球还没心情了，走了正好，别在这碍眼。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 8
+        },
+        {
+          "day": 8,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "真扫兴，这班长当得像教导主任，没劲透了。"
+            }
+          ],
+          "featured_quote": "真扫兴，这班长当得像教导主任，没劲透了。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 9
+        },
+        {
+          "day": 8,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "啧，这就叫实力，这球怎么说？"
+            }
+          ],
+          "featured_quote": "进了个好球，爽！沈逸凡那死人脸总算滚了，眼不见心不烦。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 10
+        },
+        {
+          "day": 8,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "shen_yifan",
+              "name_cn": "沈逸凡",
+              "motif_emoji": "🔥",
+              "motif_tag": "正义班长"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "行行行，你最强，满意了？"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "进个球真不容易，沈逸凡那货终于滚了，这下清静。"
+            }
+          ],
+          "featured_quote": "进个球真不容易，沈逸凡那货终于滚了，这下清静。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 11
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第008天 · 课间 · 操场 🔥\n\n「沈逸凡」又撞上了，这回说什么也得把话摊开，总不能让他一直这么晃荡。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第008天_课间@操场_t01.png",
+          "group_index": 0,
+          "tick_index": 0
+        },
+        {
+          "caption": "第008天 · 课间 · 操场 ⚽\n\n「沈逸凡」又要开始摆烂了，真是一句话都听不进去，烦死了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第008天_课间@操场_t02.png",
+          "group_index": 0,
+          "tick_index": 1
+        },
+        {
+          "caption": "第008天 · 课间 · 操场 🔥\n\n「姜皓天」啧，这人真扫兴，还没完没了了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第008天_课间@操场_t03.png",
+          "group_index": 0,
+          "tick_index": 2
+        },
+        {
+          "caption": "第008天 · 课间 · 操场 ⚽\n\n「沈逸凡」他这副死样子真让人想揍他，算了，再多说也是废话，看着就心烦。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第008天_课间@操场_t04.png",
+          "group_index": 0,
+          "tick_index": 3
+        },
+        {
+          "caption": "第008天 · 课间 · 操场 🔥\n\n「沈逸凡」对着他讲道理就是浪费时间，既然他这么喜欢球，那就让他练个够。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第008天_课间@操场_t05.png",
+          "group_index": 0,
+          "tick_index": 4
+        },
+        {
+          "caption": "第008天 · 课间 · 操场 🔥\n\n「沈逸凡」算了，跟他多说一个字都是浪费我时间，爱怎样怎样吧。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第008天_课间@操场_t06.png",
+          "group_index": 0,
+          "tick_index": 5
+        },
+        {
+          "caption": "第008天 · 课间 · 操场 ⚽\n\n「姜皓天」这扫兴的走了，正好，待会儿还是去叫何家骏吧。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第008天_课间@操场_t07.png",
+          "group_index": 0,
+          "tick_index": 6
+        },
+        {
+          "caption": "第008天 · 课间 · 操场 ⚽\n\n「姜皓天」这货真是扫兴，盯着看球还没心情了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第008天_课间@操场_t08.png",
+          "group_index": 0,
+          "tick_index": 7
+        },
+        {
+          "caption": "第008天 · 课间 · 操场 ⚽\n\n「姜皓天」真烦，盯着看球还没心情了，走了正好，别在这碍眼。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第008天_课间@操场_t09.png",
+          "group_index": 0,
+          "tick_index": 8
+        },
+        {
+          "caption": "第008天 · 课间 · 操场 ⚽\n\n「姜皓天」真扫兴，这班长当得像教导主任，没劲透了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第008天_课间@操场_t10.png",
+          "group_index": 0,
+          "tick_index": 9
+        },
+        {
+          "caption": "第008天 · 课间 · 操场 ⚽\n\n「姜皓天」进了个好球，爽！沈逸凡那死人脸总算滚了，眼不见心不烦。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第008天_课间@操场_t11.png",
+          "group_index": 0,
+          "tick_index": 10
+        },
+        {
+          "caption": "第008天 · 课间 · 操场 🌸\n\n「姜皓天」进个球真不容易，沈逸凡那货终于滚了，这下清静。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第008天_课间@操场_t12.png",
+          "group_index": 0,
+          "tick_index": 11
+        }
+      ]
+    }
+  ]
+}

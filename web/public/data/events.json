@@ -1,0 +1,5376 @@
+[
+  {
+    "id": "evt_1",
+    "source_scene": "catalyst",
+    "source_day": 1,
+    "text": "方语晨偶然发现苏念瑶的一个小秘密",
+    "category": "catalyst",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.7,
+    "active": false,
+    "cite_ticks": [],
+    "group_index": null
+  },
+  {
+    "id": "evt_2",
+    "source_scene": "catalyst",
+    "source_day": 1,
+    "text": "程雨桐的座位因为换座被安排到了一个新的位置旁边",
+    "category": "catalyst",
+    "witnesses": [
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.7,
+    "active": false,
+    "cite_ticks": [],
+    "group_index": null
+  },
+  {
+    "id": "evt_3",
+    "source_scene": "catalyst",
+    "source_day": 1,
+    "text": "方语晨的座位因为换座被安排到了一个新的位置旁边",
+    "category": "catalyst",
+    "witnesses": [
+      "fang_yuchen"
+    ],
+    "known_by": [
+      "fang_yuchen"
+    ],
+    "spread_probability": 0.7,
+    "active": false,
+    "cite_ticks": [],
+    "group_index": null
+  },
+  {
+    "id": "evt_4",
+    "source_scene": "catalyst",
+    "source_day": 1,
+    "text": "何家骏的座位因为换座被安排到了一个新的位置旁边",
+    "category": "catalyst",
+    "witnesses": [
+      "he_jiajun"
+    ],
+    "known_by": [
+      "he_jiajun"
+    ],
+    "spread_probability": 0.7,
+    "active": false,
+    "cite_ticks": [],
+    "group_index": null
+  },
+  {
+    "id": "evt_5",
+    "source_scene": "catalyst",
+    "source_day": 1,
+    "text": "有人主动邀请陆思远一起做某件事",
+    "category": "catalyst",
+    "witnesses": [
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.7,
+    "active": false,
+    "cite_ticks": [],
+    "group_index": null
+  },
+  {
+    "id": "evt_6",
+    "source_scene": "catalyst",
+    "source_day": 1,
+    "text": "有人主动邀请沈逸凡一起做某件事",
+    "category": "catalyst",
+    "witnesses": [
+      "shen_yifan"
+    ],
+    "known_by": [
+      "shen_yifan"
+    ],
+    "spread_probability": 0.7,
+    "active": false,
+    "cite_ticks": [],
+    "group_index": null
+  },
+  {
+    "id": "evt_7",
+    "source_scene": "课间@操场",
+    "source_day": 1,
+    "text": "姜皓天邀请沈逸凡在课间去篮球场打球",
+    "category": "社交邀请",
+    "witnesses": [
+      "jiang_haotian",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "jiang_haotian",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      3,
+      7
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_8",
+    "source_scene": "课间@操场",
+    "source_day": 1,
+    "text": "沈逸凡拒绝打球邀请并返回教学楼",
+    "category": "行为决策",
+    "witnesses": [
+      "jiang_haotian",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "jiang_haotian",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      7,
+      9
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_9",
+    "source_scene": "课间@教室",
+    "source_day": 1,
+    "text": "林昭宇与陆思远约定晚自习在图书馆讨论物理题",
+    "category": "学习计划",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      3,
+      8,
+      9
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_10",
+    "source_scene": "课间@教室",
+    "source_day": 1,
+    "text": "唐诗涵邀请苏念瑶下午去买奶茶，苏念瑶拒绝",
+    "category": "社交活动",
+    "witnesses": [
+      "tang_shihan",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "tang_shihan",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      11,
+      12
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_11",
+    "source_scene": "午饭@食堂",
+    "source_day": 1,
+    "text": "隔壁班男生翻墙外出购买限定款手办并携带一名高一女生",
+    "category": "八卦",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.8,
+    "active": false,
+    "cite_ticks": [
+      3,
+      5,
+      7,
+      8,
+      9
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_12",
+    "source_scene": "午饭@食堂",
+    "source_day": 1,
+    "text": "方语晨展示新购买的娃衣",
+    "category": "物品展示",
+    "witnesses": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      11,
+      13,
+      16,
+      20
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_13",
+    "source_scene": "午饭@食堂",
+    "source_day": 1,
+    "text": "陆思远计划下午帮姜皓天查看物理卷子错题。",
+    "category": "学业辅导",
+    "witnesses": [
+      "jiang_haotian",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "jiang_haotian",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      8,
+      10
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_14",
+    "source_scene": "午饭@食堂",
+    "source_day": 1,
+    "text": "姜皓天与陆思远约定午饭后前往网吧。",
+    "category": "娱乐活动",
+    "witnesses": [
+      "jiang_haotian",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "jiang_haotian",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      9,
+      11,
+      12,
+      14
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_15",
+    "source_scene": "午饭@食堂",
+    "source_day": 1,
+    "text": "沈逸凡与林昭宇决定周末一起去图书馆学习。",
+    "category": "社交约定",
+    "witnesses": [
+      "lin_zhaoyu",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      11
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_16",
+    "source_scene": "午饭@食堂",
+    "source_day": 1,
+    "text": "沈逸凡计划周末订正物理卷子。",
+    "category": "学习计划",
+    "witnesses": [
+      "lin_zhaoyu",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      11
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_17",
+    "source_scene": "课间@图书馆",
+    "source_day": 1,
+    "text": "程雨桐向陆思远提供了物理题的解题答案。",
+    "category": "学术互助",
+    "witnesses": [
+      "lu_siyuan",
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "lu_siyuan",
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      2
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_18",
+    "source_scene": "课间@图书馆",
+    "source_day": 1,
+    "text": "陆思远誊抄了姜皓天的物理卷子答案。",
+    "category": "学术行为",
+    "witnesses": [
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      5,
+      6,
+      7
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_19",
+    "source_scene": "课间@教室",
+    "source_day": 1,
+    "text": "沈逸凡计划周末去图书馆学习",
+    "category": "个人行程",
+    "witnesses": [
+      "fang_yuchen",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      4
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_20",
+    "source_scene": "课间@教室",
+    "source_day": 1,
+    "text": "沈逸凡警告姜皓天晚自习期间不得违纪",
+    "category": "班级管理",
+    "witnesses": [
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      3,
+      7
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_21",
+    "source_scene": "宿舍夜聊",
+    "source_day": 1,
+    "text": "林昭宇在陆思远床板边敲了两下",
+    "category": "互动",
+    "witnesses": [
+      "jiang_haotian",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "jiang_haotian",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.8,
+    "active": false,
+    "cite_ticks": [
+      9
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_22",
+    "source_scene": "宿舍夜聊",
+    "source_day": 1,
+    "text": "沈逸凡警告姜皓天若再说话将记录其名字",
+    "category": "警告",
+    "witnesses": [
+      "jiang_haotian",
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "jiang_haotian",
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.9,
+    "active": false,
+    "cite_ticks": [
+      15
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_23",
+    "source_scene": "宿舍夜聊",
+    "source_day": 1,
+    "text": "方语晨提议周末去玩恐怖本",
+    "category": "社交活动",
+    "witnesses": [
+      "tang_shihan",
+      "fang_yuchen"
+    ],
+    "known_by": [
+      "tang_shihan",
+      "fang_yuchen"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      2,
+      6
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_24",
+    "source_scene": "宿舍夜聊",
+    "source_day": 1,
+    "text": "唐诗涵和方语晨讨论购买同款闺蜜装",
+    "category": "购物",
+    "witnesses": [
+      "tang_shihan",
+      "fang_yuchen"
+    ],
+    "known_by": [
+      "tang_shihan",
+      "fang_yuchen"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      5,
+      9
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_25",
+    "source_scene": "catalyst",
+    "source_day": 2,
+    "text": "方语晨偶然发现唐诗涵的一个小秘密",
+    "category": "catalyst",
+    "witnesses": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.7,
+    "active": false,
+    "cite_ticks": [],
+    "group_index": null
+  },
+  {
+    "id": "evt_26",
+    "source_scene": "catalyst",
+    "source_day": 2,
+    "text": "林昭宇和陆思远被分到同一个值日组",
+    "category": "catalyst",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.7,
+    "active": false,
+    "cite_ticks": [],
+    "group_index": null
+  },
+  {
+    "id": "evt_27",
+    "source_scene": "课间@操场",
+    "source_day": 2,
+    "text": "姜皓天在课间使用手机",
+    "category": "违纪行为",
+    "witnesses": [
+      "shen_yifan"
+    ],
+    "known_by": [
+      "shen_yifan"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      1,
+      3
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_28",
+    "source_scene": "课间@操场",
+    "source_day": 2,
+    "text": "姜皓天计划周末去图书馆",
+    "category": "个人行程",
+    "witnesses": [
+      "shen_yifan"
+    ],
+    "known_by": [
+      "shen_yifan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      4
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_29",
+    "source_scene": "课间@操场",
+    "source_day": 2,
+    "text": "姜皓天在课间前往篮球场打球",
+    "category": "课间活动",
+    "witnesses": [
+      "shen_yifan"
+    ],
+    "known_by": [
+      "shen_yifan"
+    ],
+    "spread_probability": 0.4,
+    "active": false,
+    "cite_ticks": [
+      7,
+      9
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_30",
+    "source_scene": "课间@教室",
+    "source_day": 2,
+    "text": "林昭宇与陆思远约定下午在图书馆研究物理题",
+    "category": "学习计划",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.8,
+    "active": false,
+    "cite_ticks": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_31",
+    "source_scene": "课间@教室",
+    "source_day": 2,
+    "text": "林昭宇与陆思远讨论物理受力分析的分力方向偏差",
+    "category": "学术讨论",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      11,
+      12
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_32",
+    "source_scene": "课间@走廊",
+    "source_day": 2,
+    "text": "沈逸凡在晚自习前递给一名女生一瓶去冰三分糖奶茶。",
+    "category": "社交行为",
+    "witnesses": [
+      "fang_yuchen"
+    ],
+    "known_by": [
+      "fang_yuchen"
+    ],
+    "spread_probability": 0.8,
+    "active": false,
+    "cite_ticks": [
+      4
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_33",
+    "source_scene": "课间@走廊",
+    "source_day": 2,
+    "text": "沈逸凡帮一名女生修改了物理练习册。",
+    "category": "学术行为",
+    "witnesses": [
+      "fang_yuchen"
+    ],
+    "known_by": [
+      "fang_yuchen"
+    ],
+    "spread_probability": 0.7,
+    "active": false,
+    "cite_ticks": [
+      6
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_34",
+    "source_scene": "课间@走廊",
+    "source_day": 2,
+    "text": "沈逸凡与一名女生计划周末在图书馆复习。",
+    "category": "社交计划",
+    "witnesses": [
+      "fang_yuchen"
+    ],
+    "known_by": [
+      "fang_yuchen"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      8
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_35",
+    "source_scene": "课间@走廊",
+    "source_day": 2,
+    "text": "沈逸凡向一名女生展示了家中猫的照片，且该照片被设为聊天记录背景。",
+    "category": "社交行为",
+    "witnesses": [
+      "fang_yuchen"
+    ],
+    "known_by": [
+      "fang_yuchen"
+    ],
+    "spread_probability": 0.9,
+    "active": false,
+    "cite_ticks": [
+      10,
+      12
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_36",
+    "source_scene": "午饭@食堂",
+    "source_day": 2,
+    "text": "方语晨邀请唐诗涵和苏念瑶周末一起去玩恐怖本《深渊录》",
+    "category": "社交邀约",
+    "witnesses": [
+      "fang_yuchen",
+      "tang_shihan",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "tang_shihan",
+      "su_nianyao"
+    ],
+    "spread_probability": 1.0,
+    "active": false,
+    "cite_ticks": [
+      1,
+      3,
+      5,
+      8,
+      9
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_37",
+    "source_scene": "午饭@食堂",
+    "source_day": 2,
+    "text": "苏念瑶描述沈逸凡的手机锁屏背景图为小猫图片",
+    "category": "八卦",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      4,
+      7
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_38",
+    "source_scene": "午饭@食堂",
+    "source_day": 2,
+    "text": "唐诗涵决定请大家喝奶茶",
+    "category": "消费决策",
+    "witnesses": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.4,
+    "active": false,
+    "cite_ticks": [
+      16,
+      20
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_39",
+    "source_scene": "午饭@食堂",
+    "source_day": 2,
+    "text": "方语晨向唐诗涵借阅史政地科目的复习笔记本",
+    "category": "学习互助",
+    "witnesses": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      19
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_40",
+    "source_scene": "午饭@食堂",
+    "source_day": 2,
+    "text": "姜皓天承诺下午将数学笔记归还给陆思远",
+    "category": "学术资料归还",
+    "witnesses": [
+      "jiang_haotian",
+      "lu_siyuan",
+      "he_jiajun"
+    ],
+    "known_by": [
+      "jiang_haotian",
+      "lu_siyuan",
+      "he_jiajun"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      7,
+      12,
+      17
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_41",
+    "source_scene": "午饭@食堂",
+    "source_day": 2,
+    "text": "姜皓天邀请何家骏下午在操场练习投篮",
+    "category": "体育活动",
+    "witnesses": [
+      "jiang_haotian",
+      "he_jiajun"
+    ],
+    "known_by": [
+      "jiang_haotian",
+      "he_jiajun"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      15,
+      18
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_42",
+    "source_scene": "午饭@食堂",
+    "source_day": 2,
+    "text": "何家骏加入姜皓天和陆思远晚上的游戏活动",
+    "category": "社交娱乐",
+    "witnesses": [
+      "jiang_haotian",
+      "he_jiajun",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "jiang_haotian",
+      "he_jiajun",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      14,
+      16,
+      18,
+      19
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_43",
+    "source_scene": "课间@图书馆",
+    "source_day": 2,
+    "text": "陆思远前往教室向姜皓天取回笔记",
+    "category": "行动计划",
+    "witnesses": [
+      "lin_zhaoyu"
+    ],
+    "known_by": [
+      "lin_zhaoyu"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      1,
+      3,
+      10,
+      11
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_44",
+    "source_scene": "课间@图书馆",
+    "source_day": 2,
+    "text": "林昭宇通过拆解定语从句理解了英语阅读题",
+    "category": "学习进展",
+    "witnesses": [
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      7,
+      8,
+      9
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_45",
+    "source_scene": "课间@图书馆",
+    "source_day": 2,
+    "text": "苏念瑶向程雨桐提供软糖，程雨桐拒绝并推回。",
+    "category": "社交互动",
+    "witnesses": [
+      "cheng_yutong",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "cheng_yutong",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      4,
+      5,
+      6
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_46",
+    "source_scene": "课间@教室",
+    "source_day": 2,
+    "text": "何老师要求何家骏周五前整理错题本并去办公室讲解题目。",
+    "category": "学业辅导",
+    "witnesses": [
+      "he_jiajun",
+      "he_min",
+      "fang_yuchen",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "he_min",
+      "fang_yuchen",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      7,
+      11
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_47",
+    "source_scene": "课间@教室",
+    "source_day": 2,
+    "text": "沈逸凡计划周末前往图书馆。",
+    "category": "个人行程",
+    "witnesses": [
+      "fang_yuchen",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      6
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_48",
+    "source_scene": "宿舍夜聊",
+    "source_day": 2,
+    "text": "姜皓天承诺次日将数学笔记交给陆思远",
+    "category": "学术交流",
+    "witnesses": [
+      "lu_siyuan",
+      "jiang_haotian",
+      "shen_yifan",
+      "lin_zhaoyu"
+    ],
+    "known_by": [
+      "lu_siyuan",
+      "jiang_haotian",
+      "shen_yifan",
+      "lin_zhaoyu"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      7
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_49",
+    "source_scene": "宿舍夜聊",
+    "source_day": 2,
+    "text": "周末恐怖本活动建议着装为港风或复古风格",
+    "category": "活动规划",
+    "witnesses": [
+      "tang_shihan",
+      "fang_yuchen",
+      "cheng_yutong",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "tang_shihan",
+      "fang_yuchen",
+      "cheng_yutong",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.8,
+    "active": false,
+    "cite_ticks": [
+      7
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_50",
+    "source_scene": "宿舍夜聊",
+    "source_day": 2,
+    "text": "方语晨向唐诗涵借阅史政地笔记",
+    "category": "学习互助",
+    "witnesses": [
+      "tang_shihan",
+      "fang_yuchen",
+      "cheng_yutong",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "tang_shihan",
+      "fang_yuchen",
+      "cheng_yutong",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      8,
+      10
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_51",
+    "source_scene": "宿舍夜聊",
+    "source_day": 2,
+    "text": "恐怖本活动中唐诗涵负责尖叫，方语晨负责顶在前面",
+    "category": "活动分工",
+    "witnesses": [
+      "tang_shihan",
+      "fang_yuchen",
+      "cheng_yutong",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "tang_shihan",
+      "fang_yuchen",
+      "cheng_yutong",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.7,
+    "active": false,
+    "cite_ticks": [
+      11,
+      13
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_52",
+    "source_scene": "课间@教室",
+    "source_day": 3,
+    "text": "林昭宇和陆思远约定放学后一起讨论物理题并携带参考书",
+    "category": "约定",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      6
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_53",
+    "source_scene": "课间@教室",
+    "source_day": 3,
+    "text": "方语晨与唐诗涵约定周末共同前往排队购买限定奶茶",
+    "category": "社交约定",
+    "witnesses": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      1,
+      4
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_54",
+    "source_scene": "课间@教室",
+    "source_day": 3,
+    "text": "方语晨与唐诗涵共同参与限量立牌的拼单抢购",
+    "category": "购物决策",
+    "witnesses": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.4,
+    "active": false,
+    "cite_ticks": [
+      6,
+      9,
+      11
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_55",
+    "source_scene": "午饭@食堂",
+    "source_day": 3,
+    "text": "沈逸凡给女生递奶茶并修改练习册",
+    "category": "八卦",
+    "witnesses": [
+      "fang_yuchen"
+    ],
+    "known_by": [
+      "fang_yuchen"
+    ],
+    "spread_probability": 0.8,
+    "active": false,
+    "cite_ticks": [
+      5
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_56",
+    "source_scene": "午饭@食堂",
+    "source_day": 3,
+    "text": "沈逸凡的聊天背景图为一只猫",
+    "category": "八卦",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      9
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_57",
+    "source_scene": "午饭@食堂",
+    "source_day": 3,
+    "text": "陆思远从姜皓天处取回数学笔记并录入错题",
+    "category": "物品归还",
+    "witnesses": [
+      "lu_siyuan",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "lu_siyuan",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      7,
+      9,
+      11,
+      12
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_58",
+    "source_scene": "午饭@食堂",
+    "source_day": 3,
+    "text": "沈逸凡邀请陆思远下午去图书馆讨论物理题",
+    "category": "学习安排",
+    "witnesses": [
+      "shen_yifan",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "shen_yifan",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      6,
+      10,
+      13
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_59",
+    "source_scene": "午饭@食堂",
+    "source_day": 3,
+    "text": "陆思远与林昭宇约定在食堂门口汇合",
+    "category": "行程安排",
+    "witnesses": [
+      "lu_siyuan",
+      "lin_zhaoyu"
+    ],
+    "known_by": [
+      "lu_siyuan",
+      "lin_zhaoyu"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      14
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_60",
+    "source_scene": "午饭@食堂",
+    "source_day": 3,
+    "text": "何老师要求何家骏在下午第一节课课间检查错题本",
+    "category": "学业监督",
+    "witnesses": [
+      "he_jiajun",
+      "he_min"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "he_min"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      1,
+      5,
+      9,
+      10
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_61",
+    "source_scene": "午饭@食堂",
+    "source_day": 3,
+    "text": "何家骏承诺在放学前补齐错题本",
+    "category": "学业承诺",
+    "witnesses": [
+      "he_jiajun",
+      "he_min"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "he_min"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      4
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_62",
+    "source_scene": "课间@图书馆",
+    "source_day": 3,
+    "text": "陆思远向林昭宇演示了利用投影法解决阅读理解逻辑问题的方法。",
+    "category": "学习交流",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      2,
+      4
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_63",
+    "source_scene": "课间@图书馆",
+    "source_day": 3,
+    "text": "林昭宇与陆思远约定后续共同练习物理题目。",
+    "category": "学习计划",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      8
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_64",
+    "source_scene": "课间@图书馆",
+    "source_day": 3,
+    "text": "程雨桐在图书馆进行电磁学压轴题的演算。",
+    "category": "学习行为",
+    "witnesses": [
+      "su_nianyao"
+    ],
+    "known_by": [
+      "su_nianyao"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      3,
+      4,
+      5
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_65",
+    "source_scene": "课间@图书馆",
+    "source_day": 3,
+    "text": "苏念瑶在书架旁阅读散文集。",
+    "category": "休闲行为",
+    "witnesses": [
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      5
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_66",
+    "source_scene": "课间@操场",
+    "source_day": 3,
+    "text": "沈逸凡建议何家骏少看手机多看球场。",
+    "category": "建议",
+    "witnesses": [
+      "he_jiajun",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_67",
+    "source_scene": "课间@操场",
+    "source_day": 3,
+    "text": "沈逸凡前往操场跑道跑步。",
+    "category": "行为",
+    "witnesses": [
+      "he_jiajun",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      4,
+      5
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_68",
+    "source_scene": "课间@操场",
+    "source_day": 3,
+    "text": "何家骏离开操场返回教室。",
+    "category": "行为",
+    "witnesses": [
+      "he_jiajun",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      5,
+      6
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_69",
+    "source_scene": "课间@走廊",
+    "source_day": 3,
+    "text": "姜皓天正在查看手机内容。",
+    "category": "日常行为",
+    "witnesses": [
+      "fang_yuchen",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_70",
+    "source_scene": "课间@走廊",
+    "source_day": 3,
+    "text": "姜皓天前往洗脸。",
+    "category": "行动",
+    "witnesses": [
+      "fang_yuchen",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      4,
+      5
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_71",
+    "source_scene": "宿舍夜聊",
+    "source_day": 3,
+    "text": "沈逸凡要求姜皓天关闭手机并威胁上报其名字",
+    "category": "宿舍纪律",
+    "witnesses": [
+      "lin_zhaoyu",
+      "jiang_haotian",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "jiang_haotian",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      1,
+      3
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_72",
+    "source_scene": "宿舍夜聊",
+    "source_day": 3,
+    "text": "姜皓天在早操时将催促跑得慢的人",
+    "category": "日常互动",
+    "witnesses": [
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      4
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_73",
+    "source_scene": "宿舍夜聊",
+    "source_day": 3,
+    "text": "方语晨询问苏念瑶关于沈逸凡背景图之外的信息",
+    "category": "八卦",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao",
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao",
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      1,
+      2,
+      4
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_74",
+    "source_scene": "课间@教室",
+    "source_day": 4,
+    "text": "林昭宇与陆思远约定下午去图书馆对逻辑",
+    "category": "行程安排",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      2,
+      7
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_75",
+    "source_scene": "课间@教室",
+    "source_day": 4,
+    "text": "沈逸凡向林昭宇提及昨晚宿舍说话事件并寻求和解",
+    "category": "社交互动",
+    "witnesses": [
+      "shen_yifan",
+      "lin_zhaoyu"
+    ],
+    "known_by": [
+      "shen_yifan",
+      "lin_zhaoyu"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      4,
+      9
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_76",
+    "source_scene": "课间@教室",
+    "source_day": 4,
+    "text": "沈逸凡决定下午前往图书馆复习物理",
+    "category": "行程安排",
+    "witnesses": [
+      "shen_yifan",
+      "lin_zhaoyu"
+    ],
+    "known_by": [
+      "shen_yifan",
+      "lin_zhaoyu"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      8,
+      10,
+      11
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_77",
+    "source_scene": "课间@走廊",
+    "source_day": 4,
+    "text": "苏念瑶与方语晨计划建立群组讨论剧本杀攻略",
+    "category": "社交计划",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      2
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_78",
+    "source_scene": "课间@走廊",
+    "source_day": 4,
+    "text": "方语晨与苏念瑶决定穿丝绒材质服装参加剧本杀",
+    "category": "活动准备",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      10,
+      11,
+      12
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_79",
+    "source_scene": "午饭@食堂",
+    "source_day": 4,
+    "text": "沈逸凡周末去图书馆的行程目的引发讨论",
+    "category": "八卦",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.8,
+    "active": false,
+    "cite_ticks": [
+      2,
+      4,
+      6,
+      9,
+      12,
+      15,
+      19
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_80",
+    "source_scene": "午饭@食堂",
+    "source_day": 4,
+    "text": "周末有恐怖本活动",
+    "category": "活动计划",
+    "witnesses": [
+      "fang_yuchen",
+      "tang_shihan",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "tang_shihan",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      8,
+      11,
+      13
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_81",
+    "source_scene": "午饭@食堂",
+    "source_day": 4,
+    "text": "苏念瑶计划购买恐怖本活动的丝绒裙子",
+    "category": "个人计划",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      13,
+      14
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_82",
+    "source_scene": "午饭@食堂",
+    "source_day": 4,
+    "text": "唐诗涵计划吃完饭后去买奶茶",
+    "category": "个人计划",
+    "witnesses": [
+      "tang_shihan",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "tang_shihan",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.4,
+    "active": false,
+    "cite_ticks": [
+      20
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_83",
+    "source_scene": "午饭@食堂",
+    "source_day": 4,
+    "text": "林昭宇决定吃完饭后去图书馆占位置。",
+    "category": "个人计划",
+    "witnesses": [
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.8,
+    "active": false,
+    "cite_ticks": [
+      5,
+      9
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_84",
+    "source_scene": "午饭@食堂",
+    "source_day": 4,
+    "text": "陆思远决定随林昭宇一同前往图书馆。",
+    "category": "个人计划",
+    "witnesses": [
+      "shen_yifan"
+    ],
+    "known_by": [
+      "shen_yifan"
+    ],
+    "spread_probability": 0.5,
+    "active": false,
+    "cite_ticks": [
+      10
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_85",
+    "source_scene": "午饭@食堂",
+    "source_day": 4,
+    "text": "姜皓天和何家骏约定下午在操场进行篮球对抗。",
+    "category": "活动安排",
+    "witnesses": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      12,
+      13,
+      14,
+      19
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_86",
+    "source_scene": "午饭@食堂",
+    "source_day": 4,
+    "text": "姜皓天前往球场占位，何家骏处理餐盘后前往球场。",
+    "category": "行动计划",
+    "witnesses": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      16,
+      17,
+      18,
+      20
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_87",
+    "source_scene": "课间@图书馆",
+    "source_day": 4,
+    "text": "陆思远向林昭宇讲解物理受力分析的投影法与坐标系解法",
+    "category": "学术讨论",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      1,
+      2,
+      4,
+      6,
+      8,
+      10
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_88",
+    "source_scene": "课间@图书馆",
+    "source_day": 4,
+    "text": "林昭宇与陆思远讨论英语阅读理解最后一题的答案",
+    "category": "学术讨论",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      9,
+      11,
+      12
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_89",
+    "source_scene": "课间@操场",
+    "source_day": 4,
+    "text": "何家骏询问姜皓天晚上是否玩游戏",
+    "category": "社交邀请",
+    "witnesses": [
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_90",
+    "source_scene": "课间@操场",
+    "source_day": 4,
+    "text": "沈逸凡要求姜皓天收起手机并威胁向陈老师告状",
+    "category": "纪律纠正",
+    "witnesses": [
+      "jiang_haotian",
+      "he_jiajun"
+    ],
+    "known_by": [
+      "jiang_haotian",
+      "he_jiajun"
+    ],
+    "spread_probability": 0.4,
+    "active": false,
+    "cite_ticks": [
+      3,
+      5
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_91",
+    "source_scene": "课间@操场",
+    "source_day": 4,
+    "text": "姜皓天用肩膀撞击沈逸凡",
+    "category": "肢体冲突",
+    "witnesses": [
+      "shen_yifan"
+    ],
+    "known_by": [
+      "shen_yifan"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      9
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_92",
+    "source_scene": "课间@操场",
+    "source_day": 4,
+    "text": "姜皓天威胁沈逸凡称要抠出其眼珠",
+    "category": "言语威胁",
+    "witnesses": [
+      "shen_yifan"
+    ],
+    "known_by": [
+      "shen_yifan"
+    ],
+    "spread_probability": 0.5,
+    "active": false,
+    "cite_ticks": [
+      12
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_93",
+    "source_scene": "课间@教室",
+    "source_day": 4,
+    "text": "何老师叫何家骏去办公室",
+    "category": "校园事务",
+    "witnesses": [
+      "fang_yuchen",
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_94",
+    "source_scene": "晚自习",
+    "source_day": 4,
+    "text": "姜皓天向陆思远借用橡皮",
+    "category": "借用物品",
+    "witnesses": [
+      "lin_zhaoyu",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      3,
+      4
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_95",
+    "source_scene": "晚自习",
+    "source_day": 4,
+    "text": "姜皓天踢了陆思远的凳腿",
+    "category": "肢体接触",
+    "witnesses": [
+      "lu_siyuan",
+      "lin_zhaoyu"
+    ],
+    "known_by": [
+      "lu_siyuan",
+      "lin_zhaoyu"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      8
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_96",
+    "source_scene": "晚自习",
+    "source_day": 4,
+    "text": "方语晨邀请苏念瑶周末参加恐怖本活动",
+    "category": "社交邀约",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      5
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_97",
+    "source_scene": "晚自习",
+    "source_day": 4,
+    "text": "苏念瑶在笔记本上划掉关于风的句子",
+    "category": "个人行为",
+    "witnesses": [
+      "su_nianyao"
+    ],
+    "known_by": [
+      "su_nianyao"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      6
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_98",
+    "source_scene": "宿舍夜聊",
+    "source_day": 4,
+    "text": "姜皓天询问陆思远毕业后是否打算考大学。",
+    "category": "升学规划",
+    "witnesses": [
+      "jiang_haotian",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "jiang_haotian",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      1,
+      3
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_99",
+    "source_scene": "宿舍夜聊",
+    "source_day": 4,
+    "text": "姜皓天在宿舍内踹床栏杆并发出声响。",
+    "category": "宿舍冲突",
+    "witnesses": [
+      "jiang_haotian",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "jiang_haotian",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      4
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_100",
+    "source_scene": "宿舍夜聊",
+    "source_day": 4,
+    "text": "苏念瑶持有关于沈逸凡的猫猫背景图信息",
+    "category": "八卦",
+    "witnesses": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.8,
+    "active": false,
+    "cite_ticks": [
+      8
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_101",
+    "source_scene": "宿舍夜聊",
+    "source_day": 4,
+    "text": "苏念瑶枕头下藏有牛皮纸日记",
+    "category": "个人物品",
+    "witnesses": [
+      "su_nianyao"
+    ],
+    "known_by": [
+      "su_nianyao"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      18
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_102",
+    "source_scene": "catalyst",
+    "source_day": 5,
+    "text": "林昭宇在沈逸凡面前抱怨另一个人，让沈逸凡很为难",
+    "category": "catalyst",
+    "witnesses": [
+      "shen_yifan"
+    ],
+    "known_by": [
+      "shen_yifan"
+    ],
+    "spread_probability": 0.7,
+    "active": false,
+    "cite_ticks": [],
+    "group_index": null
+  },
+  {
+    "id": "evt_103",
+    "source_scene": "早读",
+    "source_day": 5,
+    "text": "林昭宇与陆思远约定下课去图书馆讨论题目",
+    "category": "社交约定",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      4,
+      5
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_104",
+    "source_scene": "早读",
+    "source_day": 5,
+    "text": "沈逸凡加入林昭宇和陆思远的图书馆讨论计划",
+    "category": "社交约定",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.4,
+    "active": false,
+    "cite_ticks": [
+      7
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_105",
+    "source_scene": "早读",
+    "source_day": 5,
+    "text": "方语晨与苏念瑶之间存在需要下课讨论的秘密信息。",
+    "category": "社交互动",
+    "witnesses": [
+      "tang_shihan",
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "tang_shihan",
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      1,
+      2,
+      3
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_106",
+    "source_scene": "早读",
+    "source_day": 5,
+    "text": "苏念瑶在早读期间观察林昭宇的座位。",
+    "category": "观察行为",
+    "witnesses": [
+      "tang_shihan",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "tang_shihan",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.4,
+    "active": false,
+    "cite_ticks": [
+      6,
+      7
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_107",
+    "source_scene": "早读",
+    "source_day": 5,
+    "text": "姜皓天与何家骏约定晚上进行游戏活动",
+    "category": "社交约定",
+    "witnesses": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      3,
+      4
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_108",
+    "source_scene": "课间@教室",
+    "source_day": 5,
+    "text": "唐诗涵邀请方语晨周末参加恐怖本活动并询问服装准备",
+    "category": "社交活动",
+    "witnesses": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_109",
+    "source_scene": "课间@教室",
+    "source_day": 5,
+    "text": "沈逸凡计划周末前往图书馆",
+    "category": "个人计划",
+    "witnesses": [
+      "fang_yuchen",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      2,
+      5
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_110",
+    "source_scene": "课间@教室",
+    "source_day": 5,
+    "text": "唐诗涵邀请方语晨前往奶茶店购买绿茶",
+    "category": "社交活动",
+    "witnesses": [
+      "tang_shihan",
+      "fang_yuchen"
+    ],
+    "known_by": [
+      "tang_shihan",
+      "fang_yuchen"
+    ],
+    "spread_probability": 0.4,
+    "active": false,
+    "cite_ticks": [
+      7,
+      8,
+      10,
+      11,
+      12
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_111",
+    "source_scene": "上课",
+    "source_day": 5,
+    "text": "姜皓天在课堂上使用手机",
+    "category": "违纪行为",
+    "witnesses": [
+      "shen_yifan",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "shen_yifan",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.8,
+    "active": false,
+    "cite_ticks": [
+      2,
+      4
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_112",
+    "source_scene": "上课",
+    "source_day": 5,
+    "text": "姜皓天邀请陆思远和何家骏下课去操场打球",
+    "category": "社交邀请",
+    "witnesses": [
+      "lu_siyuan",
+      "he_jiajun",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "lu_siyuan",
+      "he_jiajun",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.4,
+    "active": false,
+    "cite_ticks": [
+      3,
+      4,
+      6
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_113",
+    "source_scene": "上课",
+    "source_day": 5,
+    "text": "林昭宇与陆思远约定下午一同前往图书馆",
+    "category": "行程安排",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      7,
+      8
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_114",
+    "source_scene": "上课",
+    "source_day": 5,
+    "text": "方语晨询问苏念瑶周末是否去约会",
+    "category": "八卦",
+    "witnesses": [
+      "su_nianyao"
+    ],
+    "known_by": [
+      "su_nianyao"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      1,
+      2
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_115",
+    "source_scene": "上课",
+    "source_day": 5,
+    "text": "苏念瑶购买了一件丝绒裙子",
+    "category": "消费",
+    "witnesses": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      1,
+      3,
+      4,
+      6
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_116",
+    "source_scene": "午饭@操场",
+    "source_day": 5,
+    "text": "何家骏被何老师叫走",
+    "category": "学校事务",
+    "witnesses": [
+      "cheng_yutong",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "cheng_yutong",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      2
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_117",
+    "source_scene": "午饭@教室",
+    "source_day": 5,
+    "text": "沈逸凡与林昭宇商定晚上商量宿舍值日表事宜",
+    "category": "宿舍事务",
+    "witnesses": [
+      "lin_zhaoyu",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_118",
+    "source_scene": "午饭@教室",
+    "source_day": 5,
+    "text": "沈逸凡建议何家骏去图书馆向陆思远请教物理题",
+    "category": "学业建议",
+    "witnesses": [
+      "shen_yifan",
+      "he_jiajun",
+      "fang_yuchen",
+      "lin_zhaoyu"
+    ],
+    "known_by": [
+      "shen_yifan",
+      "he_jiajun",
+      "fang_yuchen",
+      "lin_zhaoyu"
+    ],
+    "spread_probability": 0.4,
+    "active": false,
+    "cite_ticks": [
+      3
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_119",
+    "source_scene": "午饭@食堂",
+    "source_day": 5,
+    "text": "唐诗涵决定放弃在食堂排队，前往小卖部购买面包。",
+    "category": "决定",
+    "witnesses": [
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      3
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_120",
+    "source_scene": "午饭@食堂",
+    "source_day": 5,
+    "text": "陆思远决定放弃在食堂排队，前往图书馆占位置。",
+    "category": "决定",
+    "witnesses": [
+      "tang_shihan"
+    ],
+    "known_by": [
+      "tang_shihan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      4,
+      8
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_121",
+    "source_scene": "课间@图书馆",
+    "source_day": 5,
+    "text": "程雨桐将草稿纸揉成团塞进书包侧袋",
+    "category": "行为记录",
+    "witnesses": [
+      "cheng_yutong",
+      "he_jiajun",
+      "lu_siyuan",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "cheng_yutong",
+      "he_jiajun",
+      "lu_siyuan",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      4
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_122",
+    "source_scene": "课间@图书馆",
+    "source_day": 5,
+    "text": "陆思远离开图书馆",
+    "category": "人员变动",
+    "witnesses": [
+      "cheng_yutong",
+      "he_jiajun",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "cheng_yutong",
+      "he_jiajun",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      5
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_123",
+    "source_scene": "课间@图书馆",
+    "source_day": 5,
+    "text": "何家骏离开图书馆",
+    "category": "人员变动",
+    "witnesses": [
+      "cheng_yutong",
+      "he_jiajun"
+    ],
+    "known_by": [
+      "cheng_yutong",
+      "he_jiajun"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      7
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_124",
+    "source_scene": "课间@操场",
+    "source_day": 5,
+    "text": "沈逸凡警告姜皓天若再闹事将向陈老师报告",
+    "category": "纪律警告",
+    "witnesses": [
+      "jiang_haotian",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "jiang_haotian",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      3,
+      5
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_125",
+    "source_scene": "课间@教室",
+    "source_day": 5,
+    "text": "林昭宇计划前往图书馆订正错题。",
+    "category": "个人计划",
+    "witnesses": [
+      "fang_yuchen",
+      "lin_zhaoyu"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "lin_zhaoyu"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      1,
+      2
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_126",
+    "source_scene": "课间@教室",
+    "source_day": 5,
+    "text": "方语晨计划寻找思瑶聊天。",
+    "category": "个人计划",
+    "witnesses": [
+      "fang_yuchen",
+      "lin_zhaoyu"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "lin_zhaoyu"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      3
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_127",
+    "source_scene": "宿舍夜聊",
+    "source_day": 5,
+    "text": "林昭宇计划在明天课间与陆思远讨论物理压轴题。",
+    "category": "学习计划",
+    "witnesses": [
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      7
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_128",
+    "source_scene": "宿舍夜聊",
+    "source_day": 5,
+    "text": "苏念瑶的代购快递尚未送达",
+    "category": "生活琐事",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      2
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_129",
+    "source_scene": "宿舍夜聊",
+    "source_day": 5,
+    "text": "沈逸凡使用了猫猫背景图",
+    "category": "社交八卦",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      6
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_130",
+    "source_scene": "宿舍夜聊",
+    "source_day": 5,
+    "text": "唐诗涵怀疑沈逸凡猫的照片由苏念瑶拍摄",
+    "category": "社交八卦",
+    "witnesses": [
+      "tang_shihan",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "tang_shihan",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.4,
+    "active": false,
+    "cite_ticks": [
+      11
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_131",
+    "source_scene": "catalyst",
+    "source_day": 6,
+    "text": "何老师在班里公开表扬了程雨桐最近某次作业的一个亮点",
+    "category": "catalyst",
+    "witnesses": [
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.7,
+    "active": false,
+    "cite_ticks": [],
+    "group_index": null
+  },
+  {
+    "id": "evt_132",
+    "source_scene": "catalyst",
+    "source_day": 6,
+    "text": "何家骏偶然看到之前期待的那件事有了新进展",
+    "category": "catalyst",
+    "witnesses": [
+      "he_jiajun"
+    ],
+    "known_by": [
+      "he_jiajun"
+    ],
+    "spread_probability": 0.7,
+    "active": false,
+    "cite_ticks": [],
+    "group_index": null
+  },
+  {
+    "id": "evt_133",
+    "source_scene": "早读",
+    "source_day": 6,
+    "text": "方语晨询问苏念瑶关于沈逸凡背景图的来源。",
+    "category": "八卦",
+    "witnesses": [
+      "su_nianyao",
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "su_nianyao",
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      2
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_134",
+    "source_scene": "早读",
+    "source_day": 6,
+    "text": "方语晨向苏念瑶提及唐诗涵称照片由苏念瑶拍摄。",
+    "category": "八卦",
+    "witnesses": [
+      "su_nianyao",
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "su_nianyao",
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.7,
+    "active": false,
+    "cite_ticks": [
+      4
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_135",
+    "source_scene": "早读",
+    "source_day": 6,
+    "text": "方语晨邀请唐诗涵下课去厕所。",
+    "category": "社交",
+    "witnesses": [
+      "su_nianyao",
+      "cheng_yutong",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "su_nianyao",
+      "cheng_yutong",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.4,
+    "active": false,
+    "cite_ticks": [
+      6
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_136",
+    "source_scene": "早读",
+    "source_day": 6,
+    "text": "陆思远同意辅导林昭宇英语阅读理解逻辑",
+    "category": "学业辅导",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      1,
+      5
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_137",
+    "source_scene": "早读",
+    "source_day": 6,
+    "text": "陆思远在草稿纸上写下英语关联词并交给林昭宇",
+    "category": "学业辅导",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      6,
+      7
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_138",
+    "source_scene": "早读",
+    "source_day": 6,
+    "text": "姜皓天邀请何家骏下课后进行练习。",
+    "category": "社交活动",
+    "witnesses": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      3,
+      4,
+      5
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_139",
+    "source_scene": "早读",
+    "source_day": 6,
+    "text": "何家骏与姜皓天约定晚上进行王者荣耀游戏。",
+    "category": "社交活动",
+    "witnesses": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      6,
+      7,
+      8
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_140",
+    "source_scene": "课间@图书馆",
+    "source_day": 6,
+    "text": "林昭宇正在研究陆思远写的关联词草稿纸",
+    "category": "学术活动",
+    "witnesses": [
+      "tang_shihan",
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "tang_shihan",
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_141",
+    "source_scene": "课间@图书馆",
+    "source_day": 6,
+    "text": "林昭宇的物理能量守恒方程内能变化量计算错误",
+    "category": "学术纠错",
+    "witnesses": [
+      "lin_zhaoyu",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.4,
+    "active": false,
+    "cite_ticks": [
+      2
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_142",
+    "source_scene": "课间@操场",
+    "source_day": 6,
+    "text": "沈逸凡周末前往图书馆",
+    "category": "个人行踪",
+    "witnesses": [
+      "fang_yuchen"
+    ],
+    "known_by": [
+      "fang_yuchen"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_143",
+    "source_scene": "课间@操场",
+    "source_day": 6,
+    "text": "沈逸凡更换了手机桌面背景",
+    "category": "个人行为",
+    "witnesses": [
+      "fang_yuchen"
+    ],
+    "known_by": [
+      "fang_yuchen"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      5
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_144",
+    "source_scene": "课间@走廊",
+    "source_day": 6,
+    "text": "姜皓天前往操场投篮。",
+    "category": "个人行程",
+    "witnesses": [
+      "su_nianyao"
+    ],
+    "known_by": [
+      "su_nianyao"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      3,
+      4
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_145",
+    "source_scene": "午饭@食堂",
+    "source_day": 6,
+    "text": "方语晨询问苏念瑶关于背景图照片拍摄者的问题",
+    "category": "八卦",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      5,
+      7,
+      14
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_146",
+    "source_scene": "午饭@食堂",
+    "source_day": 6,
+    "text": "唐诗涵计划周末穿丝绒裙子拍照",
+    "category": "个人计划",
+    "witnesses": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      3,
+      13
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_147",
+    "source_scene": "午饭@食堂",
+    "source_day": 6,
+    "text": "唐诗涵邀请方语晨去小卖部买奶茶",
+    "category": "社交活动",
+    "witnesses": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.4,
+    "active": false,
+    "cite_ticks": [
+      17,
+      20
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_148",
+    "source_scene": "午饭@食堂",
+    "source_day": 6,
+    "text": "姜皓天邀请何家骏下午去操场打球。",
+    "category": "社交邀请",
+    "witnesses": [
+      "jiang_haotian",
+      "he_jiajun"
+    ],
+    "known_by": [
+      "jiang_haotian",
+      "he_jiajun"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      4
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_149",
+    "source_scene": "午饭@食堂",
+    "source_day": 6,
+    "text": "沈逸凡警告姜皓天若继续在食堂喧哗将向班主任报告。",
+    "category": "冲突警告",
+    "witnesses": [
+      "shen_yifan",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "shen_yifan",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      11,
+      14
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_150",
+    "source_scene": "上课",
+    "source_day": 6,
+    "text": "姜皓天在课堂上使用手机并晃动课桌干扰他人。",
+    "category": "课堂违纪",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.8,
+    "active": false,
+    "cite_ticks": [
+      2,
+      4,
+      6
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_151",
+    "source_scene": "上课",
+    "source_day": 6,
+    "text": "林昭宇与陆思远在课堂上通过纸条交流英语长难句。",
+    "category": "学术交流",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      6,
+      7,
+      8
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_152",
+    "source_scene": "上课",
+    "source_day": 6,
+    "text": "某人即将被老师抓到",
+    "category": "八卦",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_153",
+    "source_scene": "上课",
+    "source_day": 6,
+    "text": "下课一起去厕所",
+    "category": "社交约定",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      6,
+      7
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_154",
+    "source_scene": "课间@操场",
+    "source_day": 6,
+    "text": "沈逸凡建议何家骏回教室看书",
+    "category": "建议",
+    "witnesses": [
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_155",
+    "source_scene": "课间@操场",
+    "source_day": 6,
+    "text": "何家骏离开操场",
+    "category": "行为",
+    "witnesses": [
+      "shen_yifan",
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "shen_yifan",
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_156",
+    "source_scene": "课间@走廊",
+    "source_day": 6,
+    "text": "方语晨询问姜皓天手机屏保内容",
+    "category": "询问",
+    "witnesses": [
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      1,
+      3,
+      12
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_157",
+    "source_scene": "课间@走廊",
+    "source_day": 6,
+    "text": "姜皓天委托方语晨代买奶茶",
+    "category": "委托",
+    "witnesses": [
+      "fang_yuchen"
+    ],
+    "known_by": [
+      "fang_yuchen"
+    ],
+    "spread_probability": 0.4,
+    "active": false,
+    "cite_ticks": [
+      8,
+      11
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_158",
+    "source_scene": "课间@走廊",
+    "source_day": 6,
+    "text": "唐诗涵前往小卖部",
+    "category": "行动",
+    "witnesses": [
+      "fang_yuchen",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      7,
+      9,
+      10
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_159",
+    "source_scene": "晚自习",
+    "source_day": 6,
+    "text": "沈逸凡要求林昭宇和陆思远在晚自习期间保持安静",
+    "category": "纪律提醒",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.2,
+    "active": false,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_160",
+    "source_scene": "晚自习",
+    "source_day": 6,
+    "text": "陆思远指出林昭宇在物理习题中漏掉受力分析矢量方向",
+    "category": "学术交流",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      3,
+      4
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_161",
+    "source_scene": "晚自习",
+    "source_day": 6,
+    "text": "沈逸凡向林昭宇表示歉意",
+    "category": "社交互动",
+    "witnesses": [
+      "lin_zhaoyu",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.1,
+    "active": false,
+    "cite_ticks": [
+      6
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_162",
+    "source_scene": "晚自习",
+    "source_day": 6,
+    "text": "方语晨在课桌下查看手机并摩挲一枚徽章",
+    "category": "个人行为",
+    "witnesses": [
+      "tang_shihan"
+    ],
+    "known_by": [
+      "tang_shihan"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      3,
+      4
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_163",
+    "source_scene": "晚自习",
+    "source_day": 6,
+    "text": "苏念瑶在前往饮水机途中侧头看向林昭宇",
+    "category": "社交行为",
+    "witnesses": [
+      "fang_yuchen",
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.6,
+    "active": false,
+    "cite_ticks": [
+      4,
+      5,
+      6
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_164",
+    "source_scene": "晚自习",
+    "source_day": 6,
+    "text": "方语晨询问苏念瑶与林昭宇的关系",
+    "category": "社交询问",
+    "witnesses": [
+      "su_nianyao",
+      "tang_shihan",
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "su_nianyao",
+      "tang_shihan",
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.7,
+    "active": false,
+    "cite_ticks": [
+      7
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_165",
+    "source_scene": "晚自习",
+    "source_day": 6,
+    "text": "姜皓天邀请何家骏晚自习期间进行游戏。",
+    "category": "社交邀请",
+    "witnesses": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_166",
+    "source_scene": "晚自习",
+    "source_day": 6,
+    "text": "姜皓天提议在厕所进行游戏。",
+    "category": "社交邀请",
+    "witnesses": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.4,
+    "active": false,
+    "cite_ticks": [
+      4
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_167",
+    "source_scene": "宿舍夜聊",
+    "source_day": 6,
+    "text": "姜皓天在熄灯后使用手机。",
+    "category": "纪律行为",
+    "witnesses": [
+      "shen_yifan",
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "shen_yifan",
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.8,
+    "active": false,
+    "cite_ticks": [
+      1,
+      2,
+      3
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_168",
+    "source_scene": "宿舍夜聊",
+    "source_day": 6,
+    "text": "方语晨对手机光线表示不满并踹床栏杆",
+    "category": "宿舍冲突",
+    "witnesses": [
+      "tang_shihan",
+      "cheng_yutong",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "tang_shihan",
+      "cheng_yutong",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.8,
+    "active": false,
+    "cite_ticks": [
+      1,
+      7,
+      8
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_169",
+    "source_scene": "宿舍夜聊",
+    "source_day": 6,
+    "text": "唐诗涵提出若明日起不来将使用闹钟提醒",
+    "category": "作息提醒",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao",
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao",
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.3,
+    "active": false,
+    "cite_ticks": [
+      11
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_170",
+    "source_scene": "catalyst",
+    "source_day": 7,
+    "text": "一个偶然的机会让何家骏不得不面对一直拖延的事情",
+    "category": "catalyst",
+    "witnesses": [
+      "he_jiajun"
+    ],
+    "known_by": [
+      "he_jiajun"
+    ],
+    "spread_probability": 0.7,
+    "active": true,
+    "cite_ticks": [],
+    "group_index": null
+  },
+  {
+    "id": "evt_171",
+    "source_scene": "课间@教室",
+    "source_day": 7,
+    "text": "林昭宇与陆思远约定下午一同前往图书馆。",
+    "category": "计划",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      2,
+      6
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_172",
+    "source_scene": "课间@教室",
+    "source_day": 7,
+    "text": "沈逸凡要求林昭宇在晚上回寝室后确定值日表。",
+    "category": "任务",
+    "witnesses": [
+      "shen_yifan",
+      "lin_zhaoyu"
+    ],
+    "known_by": [
+      "shen_yifan",
+      "lin_zhaoyu"
+    ],
+    "spread_probability": 0.4,
+    "active": true,
+    "cite_ticks": [
+      4,
+      7,
+      8
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_173",
+    "source_scene": "课间@教室",
+    "source_day": 7,
+    "text": "方语晨与苏念瑶进行过交谈",
+    "category": "社交",
+    "witnesses": [
+      "tang_shihan"
+    ],
+    "known_by": [
+      "tang_shihan"
+    ],
+    "spread_probability": 0.6,
+    "active": true,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_174",
+    "source_scene": "课间@教室",
+    "source_day": 7,
+    "text": "唐诗涵计划购买丝绒裙子",
+    "category": "购物",
+    "witnesses": [
+      "fang_yuchen"
+    ],
+    "known_by": [
+      "fang_yuchen"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      2,
+      4,
+      6,
+      7,
+      9,
+      10
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_175",
+    "source_scene": "课间@教室",
+    "source_day": 7,
+    "text": "唐诗涵决定去买绿茶",
+    "category": "行动",
+    "witnesses": [
+      "fang_yuchen",
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.2,
+    "active": true,
+    "cite_ticks": [
+      9,
+      11
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_176",
+    "source_scene": "课间@教室",
+    "source_day": 7,
+    "text": "方语晨委托唐诗涵购买冰红茶",
+    "category": "行动",
+    "witnesses": [
+      "tang_shihan"
+    ],
+    "known_by": [
+      "tang_shihan"
+    ],
+    "spread_probability": 0.1,
+    "active": true,
+    "cite_ticks": [
+      12
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_177",
+    "source_scene": "午饭@食堂",
+    "source_day": 7,
+    "text": "林昭宇需在午饭后回寝室制定值日表",
+    "category": "宿舍事务",
+    "witnesses": [
+      "lin_zhaoyu",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.2,
+    "active": true,
+    "cite_ticks": [
+      1,
+      4,
+      5
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_178",
+    "source_scene": "午饭@食堂",
+    "source_day": 7,
+    "text": "林昭宇与陆思远计划下午在图书馆复习物理题",
+    "category": "学习计划",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.1,
+    "active": true,
+    "cite_ticks": [
+      9,
+      11,
+      13,
+      18,
+      19
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_179",
+    "source_scene": "午饭@食堂",
+    "source_day": 7,
+    "text": "苏念瑶在食堂排队期间长时间注视林昭宇。",
+    "category": "社交行为",
+    "witnesses": [
+      "fang_yuchen"
+    ],
+    "known_by": [
+      "fang_yuchen"
+    ],
+    "spread_probability": 0.8,
+    "active": true,
+    "cite_ticks": [
+      5,
+      7,
+      11,
+      13,
+      17
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_180",
+    "source_scene": "午饭@食堂",
+    "source_day": 7,
+    "text": "方语晨计划在午饭后前往购买新品奶茶。",
+    "category": "日程安排",
+    "witnesses": [
+      "su_nianyao"
+    ],
+    "known_by": [
+      "su_nianyao"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      7
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_181",
+    "source_scene": "午饭@食堂",
+    "source_day": 7,
+    "text": "何老师要求何家骏饭后整理错题本并于教学楼入口集合",
+    "category": "学业安排",
+    "witnesses": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.8,
+    "active": true,
+    "cite_ticks": [
+      1,
+      9
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_182",
+    "source_scene": "午饭@食堂",
+    "source_day": 7,
+    "text": "姜皓天邀请何家骏饭后去操场练球",
+    "category": "课外活动",
+    "witnesses": [
+      "he_jiajun"
+    ],
+    "known_by": [
+      "he_jiajun"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      4
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_183",
+    "source_scene": "午饭@食堂",
+    "source_day": 7,
+    "text": "何老师批评姜皓天吃饭姿态并要求其正大光明说话",
+    "category": "纪律教育",
+    "witnesses": [
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.6,
+    "active": true,
+    "cite_ticks": [
+      13
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_184",
+    "source_scene": "上课",
+    "source_day": 7,
+    "text": "沈逸凡要求林昭宇课后完成值日表",
+    "category": "任务分配",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_185",
+    "source_scene": "上课",
+    "source_day": 7,
+    "text": "沈逸凡发现陆思远在练习册下使用手机并要求其收起",
+    "category": "课堂纪律",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.6,
+    "active": true,
+    "cite_ticks": [
+      3
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_186",
+    "source_scene": "上课",
+    "source_day": 7,
+    "text": "方语晨手机屏保更换",
+    "category": "个人动态",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      2
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_187",
+    "source_scene": "上课",
+    "source_day": 7,
+    "text": "姜皓天邀请何家骏下课去操场练习",
+    "category": "社交邀请",
+    "witnesses": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.2,
+    "active": true,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_188",
+    "source_scene": "上课",
+    "source_day": 7,
+    "text": "何家骏表示未看懂物理题",
+    "category": "学习交流",
+    "witnesses": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.1,
+    "active": true,
+    "cite_ticks": [
+      2
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_189",
+    "source_scene": "课间@图书馆",
+    "source_day": 7,
+    "text": "陆思远删除了公众号草稿箱中关于“被利用感”的文字。",
+    "category": "个人行为",
+    "witnesses": [
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.1,
+    "active": true,
+    "cite_ticks": [
+      6
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_190",
+    "source_scene": "课间@图书馆",
+    "source_day": 7,
+    "text": "陆思远将手机屏幕点亮并停留在发布按钮上。",
+    "category": "个人行为",
+    "witnesses": [
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.1,
+    "active": true,
+    "cite_ticks": [
+      12
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_191",
+    "source_scene": "课间@走廊",
+    "source_day": 7,
+    "text": "姜皓天被老陈训斥",
+    "category": "校园生活",
+    "witnesses": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.6,
+    "active": true,
+    "cite_ticks": [
+      5
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_192",
+    "source_scene": "课间@走廊",
+    "source_day": 7,
+    "text": "姜皓天手机背景照片为猫",
+    "category": "个人信息",
+    "witnesses": [
+      "fang_yuchen"
+    ],
+    "known_by": [
+      "fang_yuchen"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      8
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_193",
+    "source_scene": "课间@走廊",
+    "source_day": 7,
+    "text": "唐诗涵前往小卖部购买奶茶",
+    "category": "日常活动",
+    "witnesses": [
+      "fang_yuchen",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.4,
+    "active": true,
+    "cite_ticks": [
+      7,
+      11
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_194",
+    "source_scene": "宿舍夜聊",
+    "source_day": 7,
+    "text": "沈逸凡要求林昭宇在明天早读课前提交值日表",
+    "category": "任务分配",
+    "witnesses": [
+      "lin_zhaoyu",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      3
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_195",
+    "source_scene": "宿舍夜聊",
+    "source_day": 7,
+    "text": "沈逸凡警告姜皓天若再发出动静将报其名字参加早操",
+    "category": "纪律警告",
+    "witnesses": [
+      "shen_yifan",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "shen_yifan",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.4,
+    "active": true,
+    "cite_ticks": [
+      13
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_196",
+    "source_scene": "宿舍夜聊",
+    "source_day": 7,
+    "text": "方语晨询问苏念瑶在食堂看林昭宇的眼神含义",
+    "category": "八卦",
+    "witnesses": [
+      "tang_shihan",
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "tang_shihan",
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.8,
+    "active": true,
+    "cite_ticks": [
+      2
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_197",
+    "source_scene": "宿舍夜聊",
+    "source_day": 7,
+    "text": "方语晨威胁将苏念瑶的裙子借给程雨桐试穿",
+    "category": "社交互动",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao",
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao",
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.6,
+    "active": true,
+    "cite_ticks": [
+      8
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_198",
+    "source_scene": "宿舍夜聊",
+    "source_day": 7,
+    "text": "苏念瑶讨论在恐怖本场合佩戴暗黑风项圈",
+    "category": "着装讨论",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      7,
+      14
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_199",
+    "source_scene": "catalyst",
+    "source_day": 8,
+    "text": "姜皓天在林昭宇面前抱怨另一个人，让林昭宇很为难",
+    "category": "catalyst",
+    "witnesses": [
+      "lin_zhaoyu"
+    ],
+    "known_by": [
+      "lin_zhaoyu"
+    ],
+    "spread_probability": 0.7,
+    "active": true,
+    "cite_ticks": [],
+    "group_index": null
+  },
+  {
+    "id": "evt_200",
+    "source_scene": "catalyst",
+    "source_day": 8,
+    "text": "姜皓天偶然发现何家骏的一个小秘密",
+    "category": "catalyst",
+    "witnesses": [
+      "jiang_haotian",
+      "he_jiajun"
+    ],
+    "known_by": [
+      "jiang_haotian",
+      "he_jiajun"
+    ],
+    "spread_probability": 0.7,
+    "active": true,
+    "cite_ticks": [],
+    "group_index": null
+  },
+  {
+    "id": "evt_201",
+    "source_scene": "课间@教室",
+    "source_day": 8,
+    "text": "林昭宇整理并提交了寝室值日表给沈逸凡",
+    "category": "行政事务",
+    "witnesses": [
+      "lin_zhaoyu",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.2,
+    "active": true,
+    "cite_ticks": [
+      1,
+      6,
+      9
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_202",
+    "source_scene": "课间@教室",
+    "source_day": 8,
+    "text": "沈逸凡提醒何家骏收起手机以防扣分",
+    "category": "纪律提醒",
+    "witnesses": [
+      "shen_yifan",
+      "he_jiajun"
+    ],
+    "known_by": [
+      "shen_yifan",
+      "he_jiajun"
+    ],
+    "spread_probability": 0.4,
+    "active": true,
+    "cite_ticks": [
+      12
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_203",
+    "source_scene": "课间@教室",
+    "source_day": 8,
+    "text": "方语晨计划在小卖部寻找姜皓天并询问事情。",
+    "category": "个人计划",
+    "witnesses": [
+      "tang_shihan",
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "tang_shihan",
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      4
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_204",
+    "source_scene": "课间@教室",
+    "source_day": 8,
+    "text": "唐诗涵前往小卖部购买奶茶。",
+    "category": "行动",
+    "witnesses": [
+      "fang_yuchen",
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.2,
+    "active": true,
+    "cite_ticks": [
+      12
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_205",
+    "source_scene": "午饭@食堂",
+    "source_day": 8,
+    "text": "陆思远同意在吃完饭后向林昭宇展示草稿纸上的长难句拆解例子。",
+    "category": "学习交流",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.2,
+    "active": true,
+    "cite_ticks": [
+      8,
+      9
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_206",
+    "source_scene": "午饭@食堂",
+    "source_day": 8,
+    "text": "林昭宇和陆思远约定吃完饭后回宿舍。",
+    "category": "行程安排",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.1,
+    "active": true,
+    "cite_ticks": [
+      12,
+      13
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_207",
+    "source_scene": "午饭@食堂",
+    "source_day": 8,
+    "text": "苏念瑶提议放弃食堂排队，改去便利店购买面包。",
+    "category": "决定",
+    "witnesses": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.8,
+    "active": true,
+    "cite_ticks": [
+      7,
+      10,
+      11
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_208",
+    "source_scene": "午饭@食堂",
+    "source_day": 8,
+    "text": "唐诗涵离开食堂前往便利店。",
+    "category": "行动",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.5,
+    "active": true,
+    "cite_ticks": [
+      13
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_209",
+    "source_scene": "午饭@食堂",
+    "source_day": 8,
+    "text": "何家骏与姜皓天约定下午体育课在操场见面。",
+    "category": "社交约定",
+    "witnesses": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.2,
+    "active": true,
+    "cite_ticks": [
+      13,
+      16
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_210",
+    "source_scene": "午饭@食堂",
+    "source_day": 8,
+    "text": "何家骏与姜皓天约定晚上进行王者荣耀游戏组队。",
+    "category": "社交约定",
+    "witnesses": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.1,
+    "active": true,
+    "cite_ticks": [
+      12,
+      13,
+      14
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_211",
+    "source_scene": "课间@图书馆",
+    "source_day": 8,
+    "text": "林昭宇在物理能量守恒方程推导中出现单位书写错误",
+    "category": "学术讨论",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      4,
+      6,
+      10
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_212",
+    "source_scene": "课间@操场",
+    "source_day": 8,
+    "text": "沈逸凡向姜皓天发出警告，称将向陈老师汇报其行为。",
+    "category": "警告",
+    "witnesses": [
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      3,
+      5
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_213",
+    "source_scene": "课间@操场",
+    "source_day": 8,
+    "text": "姜皓天在操场投进一个三分球。",
+    "category": "体育活动",
+    "witnesses": [
+      "su_nianyao"
+    ],
+    "known_by": [
+      "su_nianyao"
+    ],
+    "spread_probability": 0.2,
+    "active": true,
+    "cite_ticks": [
+      10,
+      11
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_214",
+    "source_scene": "晚自习",
+    "source_day": 8,
+    "text": "沈逸凡要求林昭宇在晚自习结束前提交宿舍值日表",
+    "category": "任务分配",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      8
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_215",
+    "source_scene": "晚自习",
+    "source_day": 8,
+    "text": "方语晨向苏念瑶借阅物理练习册",
+    "category": "借阅请求",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao",
+      "tang_shihan",
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao",
+      "tang_shihan",
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.8,
+    "active": true,
+    "cite_ticks": [
+      4,
+      6,
+      7
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_216",
+    "source_scene": "晚自习",
+    "source_day": 8,
+    "text": "苏念瑶将物理练习册借给方语晨",
+    "category": "物品借阅",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao",
+      "tang_shihan",
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao",
+      "tang_shihan",
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.6,
+    "active": true,
+    "cite_ticks": [
+      7
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_217",
+    "source_scene": "晚自习",
+    "source_day": 8,
+    "text": "姜皓天与何家骏约定晚上进行游戏活动",
+    "category": "社交约定",
+    "witnesses": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.2,
+    "active": true,
+    "cite_ticks": [
+      1,
+      4,
+      5
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_218",
+    "source_scene": "晚自习",
+    "source_day": 8,
+    "text": "何家骏在晚自习期间完成物理错题本的誊写",
+    "category": "学习行为",
+    "witnesses": [
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.1,
+    "active": true,
+    "cite_ticks": [
+      1,
+      2,
+      4,
+      6
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_219",
+    "source_scene": "宿舍夜聊",
+    "source_day": 8,
+    "text": "沈逸凡要求姜皓天收起手机以备明天跑操。",
+    "category": "宿舍管理",
+    "witnesses": [
+      "jiang_haotian",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "jiang_haotian",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.2,
+    "active": true,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_220",
+    "source_scene": "宿舍夜聊",
+    "source_day": 8,
+    "text": "林昭宇向陆思远讨论物理题数值。",
+    "category": "学术讨论",
+    "witnesses": [
+      "lu_siyuan",
+      "jiang_haotian",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "lu_siyuan",
+      "jiang_haotian",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      4,
+      7
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_221",
+    "source_scene": "宿舍夜聊",
+    "source_day": 8,
+    "text": "苏念瑶在食堂长时间注视某人",
+    "category": "八卦",
+    "witnesses": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.8,
+    "active": true,
+    "cite_ticks": [
+      2,
+      5
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_222",
+    "source_scene": "宿舍夜聊",
+    "source_day": 8,
+    "text": "苏念瑶持有与林昭宇相关的草稿纸",
+    "category": "八卦",
+    "witnesses": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "su_nianyao"
+    ],
+    "spread_probability": 0.6,
+    "active": true,
+    "cite_ticks": [
+      8,
+      14
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_223",
+    "source_scene": "catalyst",
+    "source_day": 9,
+    "text": "一个偶然的机会让程雨桐不得不面对一直拖延的事情",
+    "category": "catalyst",
+    "witnesses": [
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.7,
+    "active": true,
+    "cite_ticks": [],
+    "group_index": null
+  },
+  {
+    "id": "evt_224",
+    "source_scene": "catalyst",
+    "source_day": 9,
+    "text": "一个偶然的机会让姜皓天不得不面对一直拖延的事情",
+    "category": "catalyst",
+    "witnesses": [
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.7,
+    "active": true,
+    "cite_ticks": [],
+    "group_index": null
+  },
+  {
+    "id": "evt_225",
+    "source_scene": "catalyst",
+    "source_day": 9,
+    "text": "一个偶然的机会让沈逸凡不得不面对一直拖延的事情",
+    "category": "catalyst",
+    "witnesses": [
+      "shen_yifan"
+    ],
+    "known_by": [
+      "shen_yifan"
+    ],
+    "spread_probability": 0.7,
+    "active": true,
+    "cite_ticks": [],
+    "group_index": null
+  },
+  {
+    "id": "evt_226",
+    "source_scene": "课间@教室",
+    "source_day": 9,
+    "text": "林昭宇与陆思远约定晚自习在图书馆侧厅偏僻桌子处见面讨论物理题。",
+    "category": "约定",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      3,
+      5,
+      10
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_227",
+    "source_scene": "课间@教室",
+    "source_day": 9,
+    "text": "林昭宇向唐诗涵提供物理题解题思路。",
+    "category": "学术交流",
+    "witnesses": [
+      "lin_zhaoyu",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.2,
+    "active": true,
+    "cite_ticks": [
+      11
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_228",
+    "source_scene": "课间@走廊",
+    "source_day": 9,
+    "text": "方语晨向姜皓天询问奶茶拼单进度",
+    "category": "日常交流",
+    "witnesses": [
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.2,
+    "active": true,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_229",
+    "source_scene": "课间@走廊",
+    "source_day": 9,
+    "text": "苏念瑶在数学压轴题中计算出负数结果",
+    "category": "学业讨论",
+    "witnesses": [
+      "fang_yuchen"
+    ],
+    "known_by": [
+      "fang_yuchen"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      2,
+      6
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_230",
+    "source_scene": "课间@走廊",
+    "source_day": 9,
+    "text": "方语晨和苏念瑶决定前往操场",
+    "category": "行动决定",
+    "witnesses": [
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.1,
+    "active": true,
+    "cite_ticks": [
+      10
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_231",
+    "source_scene": "上课",
+    "source_day": 9,
+    "text": "林昭宇的物理受力分析图方向错误",
+    "category": "学术讨论",
+    "witnesses": [
+      "lin_zhaoyu",
+      "shen_yifan",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "shen_yifan",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      3,
+      4,
+      5
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_232",
+    "source_scene": "上课",
+    "source_day": 9,
+    "text": "方语晨向苏念瑶展示吧唧预览图",
+    "category": "社交互动",
+    "witnesses": [
+      "su_nianyao"
+    ],
+    "known_by": [
+      "su_nianyao"
+    ],
+    "spread_probability": 0.2,
+    "active": true,
+    "cite_ticks": [
+      5,
+      6
+    ],
+    "group_index": 1
+  },
+  {
+    "id": "evt_233",
+    "source_scene": "上课",
+    "source_day": 9,
+    "text": "姜皓天与何家骏约定下节体育课在操场集合投篮",
+    "category": "活动约定",
+    "witnesses": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "he_jiajun",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.2,
+    "active": true,
+    "cite_ticks": [
+      3,
+      4,
+      5
+    ],
+    "group_index": 2
+  },
+  {
+    "id": "evt_234",
+    "source_scene": "午饭@操场",
+    "source_day": 9,
+    "text": "程雨桐在操场出现后离开并返回教室。",
+    "category": "行为记录",
+    "witnesses": [
+      "su_nianyao"
+    ],
+    "known_by": [
+      "su_nianyao"
+    ],
+    "spread_probability": 0.2,
+    "active": true,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_235",
+    "source_scene": "午饭@教室",
+    "source_day": 9,
+    "text": "奶茶店上新",
+    "category": "校园资讯",
+    "witnesses": [
+      "tang_shihan",
+      "fang_yuchen"
+    ],
+    "known_by": [
+      "tang_shihan",
+      "fang_yuchen"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_236",
+    "source_scene": "午饭@教室",
+    "source_day": 9,
+    "text": "何家骏持有物理错题本",
+    "category": "个人行为",
+    "witnesses": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "tang_shihan"
+    ],
+    "spread_probability": 0.2,
+    "active": true,
+    "cite_ticks": [
+      1,
+      2,
+      4,
+      6
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_237",
+    "source_scene": "午饭@食堂",
+    "source_day": 9,
+    "text": "林昭宇请求陆思远在晚上协助其避开姜皓天以进行刷题。",
+    "category": "社交请求",
+    "witnesses": [
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      1,
+      3
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_238",
+    "source_scene": "午饭@食堂",
+    "source_day": 9,
+    "text": "陆思远与林昭宇决定离开食堂前往图书馆。",
+    "category": "行程决策",
+    "witnesses": [
+      "lu_siyuan",
+      "lin_zhaoyu",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "lu_siyuan",
+      "lin_zhaoyu",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.6,
+    "active": true,
+    "cite_ticks": [
+      11,
+      12,
+      15
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_239",
+    "source_scene": "课间@图书馆",
+    "source_day": 9,
+    "text": "林昭宇在陆思远的协助下完成了电磁感应题目第二问的推导。",
+    "category": "学业讨论",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.2,
+    "active": true,
+    "cite_ticks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_240",
+    "source_scene": "课间@图书馆",
+    "source_day": 9,
+    "text": "程雨桐离开图书馆。",
+    "category": "人员变动",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan",
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.1,
+    "active": true,
+    "cite_ticks": [
+      7,
+      8,
+      9
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_241",
+    "source_scene": "课间@图书馆",
+    "source_day": 9,
+    "text": "陆思远向林昭宇请教生物题目。",
+    "category": "学业讨论",
+    "witnesses": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "lu_siyuan"
+    ],
+    "spread_probability": 0.1,
+    "active": true,
+    "cite_ticks": [
+      9,
+      11,
+      12
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_242",
+    "source_scene": "课间@操场",
+    "source_day": 9,
+    "text": "苏念瑶离开操场",
+    "category": "人员变动",
+    "witnesses": [
+      "tang_shihan",
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "tang_shihan",
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      3
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_243",
+    "source_scene": "课间@操场",
+    "source_day": 9,
+    "text": "姜皓天在操场进行篮球运动",
+    "category": "体育活动",
+    "witnesses": [
+      "tang_shihan"
+    ],
+    "known_by": [
+      "tang_shihan"
+    ],
+    "spread_probability": 0.2,
+    "active": true,
+    "cite_ticks": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_244",
+    "source_scene": "课间@操场",
+    "source_day": 9,
+    "text": "唐诗涵离开操场",
+    "category": "人员变动",
+    "witnesses": [
+      "jiang_haotian"
+    ],
+    "known_by": [
+      "jiang_haotian"
+    ],
+    "spread_probability": 0.1,
+    "active": true,
+    "cite_ticks": [
+      9
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_245",
+    "source_scene": "课间@教室",
+    "source_day": 9,
+    "text": "姜皓天发起了奶茶拼单群。",
+    "category": "社交信息",
+    "witnesses": [
+      "fang_yuchen",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "fang_yuchen",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.6,
+    "active": true,
+    "cite_ticks": [
+      1
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_246",
+    "source_scene": "宿舍夜聊",
+    "source_day": 9,
+    "text": "姜皓天在宿舍内多次向陆思远搭话，被沈逸凡制止。",
+    "category": "宿舍互动",
+    "witnesses": [
+      "lin_zhaoyu",
+      "jiang_haotian",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "known_by": [
+      "lin_zhaoyu",
+      "jiang_haotian",
+      "lu_siyuan",
+      "shen_yifan"
+    ],
+    "spread_probability": 0.3,
+    "active": true,
+    "cite_ticks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "group_index": 0
+  },
+  {
+    "id": "evt_247",
+    "source_scene": "宿舍夜聊",
+    "source_day": 9,
+    "text": "方语晨声称手上拥有其他人的糗事素材，并威胁要将其置顶在空间。",
+    "category": "威胁/社交冲突",
+    "witnesses": [
+      "tang_shihan",
+      "su_nianyao",
+      "cheng_yutong"
+    ],
+    "known_by": [
+      "tang_shihan",
+      "su_nianyao",
+      "cheng_yutong"
+    ],
+    "spread_probability": 0.8,
+    "active": true,
+    "cite_ticks": [
+      9
+    ],
+    "group_index": 1
+  }
+]

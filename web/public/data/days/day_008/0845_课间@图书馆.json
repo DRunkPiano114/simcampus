@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 0,
+    "time": "08:45",
+    "name": "课间",
+    "location": "图书馆",
+    "description": "上午第一个课间休息，同学们在教室里活动",
+    "day": 8
+  },
+  "participant_names": {
+    "su_nianyao": "苏念瑶"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "su_nianyao"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "冬天写不出来的随笔，还没林昭宇的歌词带感。",
+        "emotion": "frustrated",
+        "activity": "我在图书馆角落坐着，盯着空白的笔记本发呆，手里转着水笔。"
+      }
+    }
+  ]
+}

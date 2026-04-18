@@ -1,0 +1,361 @@
+{
+  "scene": {
+    "scene_index": 3,
+    "time": "12:00",
+    "name": "午饭",
+    "location": "教室",
+    "description": "午饭时间，同学们结伴去食堂吃饭",
+    "day": 2
+  },
+  "participant_names": {
+    "cheng_yutong": "程雨桐",
+    "lin_zhaoyu": "林昭宇"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "cheng_yutong",
+        "lin_zhaoyu"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "lin_zhaoyu",
+                "type": "non_verbal",
+                "content": "从书包里拿出那本皱巴巴的英语练习册，翻到错题页，拿起笔却迟迟没有下笔。"
+              },
+              {
+                "agent": "cheng_yutong",
+                "type": "non_verbal",
+                "content": "戴上降噪耳机，打开iPad。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "lin_zhaoyu": {
+              "observation": "程雨桐在收拾东西准备去吃饭，教室里没剩下几个人了。",
+              "inner_thought": "英语阅读题还没订正，好烦，那个……中午还是先写一点吧。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "从书包里拿出那本皱巴巴的英语练习册，翻到错题页，拿起笔却迟迟没有下笔。",
+              "action_target": null,
+              "urgency": 4,
+              "is_disruptive": false
+            },
+            "cheng_yutong": {
+              "observation": "林昭宇还没走，还在教室里。",
+              "inner_thought": "这人怎么还不去食堂，想看智学网排名了。",
+              "emotion": "bored",
+              "action_type": "non_verbal",
+              "action_content": "戴上降噪耳机，打开iPad。",
+              "action_target": null,
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "lin_zhaoyu",
+                "type": "non_verbal",
+                "content": "叹了口气，把英语练习册往旁边推一点，拿出草稿纸开始胡乱画受力分析图。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "lin_zhaoyu": {
+              "observation": "程雨桐戴着耳机在看iPad，教室里的人越来越少了。",
+              "inner_thought": "英语这几道题又看不懂，烦死，妈到时候又要问这问那了。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "叹了口气，把英语练习册往旁边推一点，拿出草稿纸开始胡乱画受力分析图。",
+              "action_target": null,
+              "urgency": 4,
+              "is_disruptive": false
+            },
+            "cheng_yutong": {
+              "observation": "林昭宇对着英语练习册发呆。",
+              "inner_thought": "动作太慢了，在那纠结半天也做不出来。",
+              "emotion": "bored",
+              "action_type": "observe",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "lin_zhaoyu",
+                "type": "non_verbal",
+                "content": "把草稿纸压在受力分析图下面，重新翻开英语参考书对照解析，眉头紧锁地盯着错题。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "lin_zhaoyu": {
+              "observation": "程雨桐戴着耳机在看iPad，教室里的人越来越少了，我也得抓紧把英语订正弄完。",
+              "inner_thought": "英语再拖下去真不行，那个……那个……还是硬着头皮把语法订正掉吧，不想回家被妈念。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "把草稿纸压在受力分析图下面，重新翻开英语参考书对照解析，眉头紧锁地盯着错题。",
+              "action_target": null,
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "cheng_yutong"
+          ]
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "lin_zhaoyu",
+                "type": "non_verbal",
+                "content": "用力抓了抓头发，把草稿纸揉成一团塞进桌肚里，只拿了一支笔继续死磕英语笔记。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "lin_zhaoyu": {
+              "observation": "程雨桐戴着耳机在看iPad，教室里的人陆陆续续都走了，我盯着英语解析还是觉得脑袋涨。",
+              "inner_thought": "英语语法太难了，那个……那个……能不能快点结束，好想早点去食堂把饭吃完。",
+              "emotion": "anxious",
+              "action_type": "non_verbal",
+              "action_content": "用力抓了抓头发，把草稿纸揉成一团塞进桌肚里，只拿了一支笔继续死磕英语笔记。",
+              "action_target": null,
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "cheng_yutong"
+          ]
+        }
+      ],
+      "narrative": null,
+      "reflections": {},
+      "trivial": true,
+      "share_tick_layouts": [
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "这人怎么还不去食堂，想看智学网排名了。"
+            },
+            {
+              "agent_id": "lin_zhaoyu",
+              "display_name": "林昭宇",
+              "kind": "thought",
+              "text": "英语阅读题还没订正，好烦，那个……中午还是先写一点吧。"
+            }
+          ],
+          "featured_quote": "这人怎么还不去食堂，想看智学网排名了。",
+          "featured_speaker_name": "程雨桐",
+          "tick_index": 0
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "lin_zhaoyu",
+              "display_name": "林昭宇",
+              "kind": "thought",
+              "text": "英语这几道题又看不懂，烦死，妈到时候又要问这问那了。"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "display_name": "程雨桐",
+              "kind": "thought",
+              "text": "动作太慢了，在那纠结半天也做不出来。"
+            }
+          ],
+          "featured_quote": "英语这几道题又看不懂，烦死，妈到时候又要问这问那了。",
+          "featured_speaker_name": "林昭宇",
+          "tick_index": 1
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "lin_zhaoyu",
+              "display_name": "林昭宇",
+              "kind": "thought",
+              "text": "英语再拖下去真不行，那个……那个……还是硬着头皮把语法订正掉吧，不想回家被妈念。"
+            }
+          ],
+          "featured_quote": "英语再拖下去真不行，那个……那个……还是硬着头皮把语法订正掉吧，不想回家被妈念。",
+          "featured_speaker_name": "林昭宇",
+          "tick_index": 2
+        },
+        {
+          "day": 2,
+          "time": "12:00",
+          "scene_name": "午饭",
+          "location": "教室",
+          "portraits": [
+            {
+              "agent_id": "lin_zhaoyu",
+              "name_cn": "林昭宇",
+              "motif_emoji": "🌧️",
+              "motif_tag": "书呆子"
+            },
+            {
+              "agent_id": "cheng_yutong",
+              "name_cn": "程雨桐",
+              "motif_emoji": "📚",
+              "motif_tag": "沉默第二名"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "lin_zhaoyu",
+              "display_name": "林昭宇",
+              "kind": "thought",
+              "text": "英语语法太难了，那个……那个……能不能快点结束，好想早点去食堂把饭吃完。"
+            }
+          ],
+          "featured_quote": "英语语法太难了，那个……那个……能不能快点结束，好想早点去食堂把饭吃完。",
+          "featured_speaker_name": "林昭宇",
+          "tick_index": 3
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第002天 · 午饭 · 教室 📚\n\n「程雨桐」这人怎么还不去食堂，想看智学网排名了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@教室_t01.png",
+          "group_index": 0,
+          "tick_index": 0
+        },
+        {
+          "caption": "第002天 · 午饭 · 教室 🌧️\n\n「林昭宇」英语这几道题又看不懂，烦死，妈到时候又要问这问那了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@教室_t02.png",
+          "group_index": 0,
+          "tick_index": 1
+        },
+        {
+          "caption": "第002天 · 午饭 · 教室 🌧️\n\n「林昭宇」英语再拖下去真不行，那个……那个……还是硬着头皮把语法订正掉吧，不想回家被妈念。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@教室_t03.png",
+          "group_index": 0,
+          "tick_index": 2
+        },
+        {
+          "caption": "第002天 · 午饭 · 教室 🌧️\n\n「林昭宇」英语语法太难了，那个……那个……能不能快点结束，好想早点去食堂把饭吃完。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#教室日常",
+            "#午饭"
+          ],
+          "filename": "simcampus_第002天_午饭@教室_t04.png",
+          "group_index": 0,
+          "tick_index": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 3,
+    "time": "12:00",
+    "name": "午饭",
+    "location": "教室",
+    "description": "午饭时间，同学们结伴去食堂吃饭",
+    "day": 1
+  },
+  "participant_names": {
+    "cheng_yutong": "程雨桐"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "cheng_yutong"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "排名还没出，胃里不舒服。先把最后一道物理题算完。",
+        "emotion": "anxious",
+        "activity": "我在方格本上演算物理压轴题，周围只有翻动书页的声音。"
+      }
+    }
+  ]
+}

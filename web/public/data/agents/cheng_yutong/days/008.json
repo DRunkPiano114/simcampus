@@ -1,0 +1,62 @@
+{
+  "agent_id": "cheng_yutong",
+  "name_cn": "程雨桐",
+  "day": 8,
+  "is_teacher": false,
+  "motif_emoji": "📚",
+  "motif_tag": "沉默第二名",
+  "main_color": "#E8A838",
+  "emotion_label": "平静",
+  "energy_label": "精神还行",
+  "pressure_label": "压力不小",
+  "featured_quote": "内能单位写错还要遮遮掩掩，简直是在浪费时间，这题明明一眼就能看出破绽。",
+  "featured_scene": "15:30 · 课间",
+  "relationships": [
+    {
+      "target_name": "陆思远",
+      "favorability": 1,
+      "trust": 1,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "林昭宇",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "姜皓天",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 8",
+      "text": "月考排名迟迟未出，导致学习计划无法推进，内心产生明显的挫败感。",
+      "importance": 6
+    },
+    {
+      "date": "Day 6",
+      "text": "早读被方语晨和唐诗涵的闲聊打断，还要处理她们发出的噪音，严重影响了物理错题的演算效率。",
+      "importance": 6
+    }
+  ],
+  "top_concern": {
+    "text": "每晚熄灯后阅读《仙路独行》的私密时间被白天的琐事和晚上的宿舍喧闹挤压，难以获得心理逃避。",
+    "intensity_label": "中等",
+    "positive": false
+  },
+  "self_narrative": "班里的隐形人。月考排名还没出，节奏被打乱。整天被噪音包围，效率极低。只有熄灯后那半小时，看《仙路独行》才能喘口气。排名不出的每一秒，都在消耗我的意志。",
+  "caption_payload": {
+    "caption": "📚 程雨桐 · 第008天 档案\n\n标签：沉默第二名\n此刻心情：平静\n\n「内能单位写错还要遮遮掩掩，简直是在浪费时间，这题明明一眼就能看出破绽。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_程雨桐_档案_第008天.png"
+  }
+}

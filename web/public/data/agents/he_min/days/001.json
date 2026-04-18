@@ -1,0 +1,28 @@
+{
+  "agent_id": "he_min",
+  "name_cn": "何老师",
+  "day": 1,
+  "is_teacher": true,
+  "motif_emoji": "📐",
+  "motif_tag": "班主任",
+  "main_color": "#8B6E4E",
+  "emotion_label": "平常",
+  "energy_label": "精神还行",
+  "pressure_label": "稍有压力",
+  "featured_quote": null,
+  "featured_scene": null,
+  "relationships": [],
+  "memories": [],
+  "top_concern": null,
+  "self_narrative": "",
+  "caption_payload": {
+    "caption": "📐 何老师 · 第001天 档案\n\n标签：班主任\n此刻心情：平常\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_何老师_档案_第001天.png"
+  }
+}

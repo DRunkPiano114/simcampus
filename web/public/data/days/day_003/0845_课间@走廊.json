@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 2,
+    "time": "08:45",
+    "name": "课间",
+    "location": "走廊",
+    "description": "上午第一个课间休息，同学们在教室里活动",
+    "day": 3
+  },
+  "participant_names": {
+    "su_nianyao": "苏念瑶"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "su_nianyao"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "刚发的随笔有人催更了，嘿嘿，赶紧回一下。",
+        "emotion": "happy",
+        "activity": "靠在走廊栏杆边，手指飞快地在手机屏幕上打字回复LOFTER的消息。"
+      }
+    }
+  ]
+}

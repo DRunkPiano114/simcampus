@@ -1,0 +1,62 @@
+{
+  "agent_id": "shen_yifan",
+  "name_cn": "沈逸凡",
+  "day": 8,
+  "is_teacher": false,
+  "motif_emoji": "🔥",
+  "motif_tag": "正义班长",
+  "main_color": "#C4524A",
+  "emotion_label": "挫败",
+  "energy_label": "精神还行",
+  "pressure_label": "稍有压力",
+  "featured_quote": "对着他讲道理就是浪费时间，既然他这么喜欢球，那就让他练个够。",
+  "featured_scene": "15:30 · 课间",
+  "relationships": [
+    {
+      "target_name": "方语晨",
+      "favorability": 0,
+      "trust": 0,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "林昭宇",
+      "favorability": -1,
+      "trust": 5,
+      "label_text": "有点疏远"
+    },
+    {
+      "target_name": "陆思远",
+      "favorability": -6,
+      "trust": -1,
+      "label_text": "关系紧张"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 4",
+      "text": "姜皓天在操场当众挑衅，还用肩膀撞我，简直无法无天。",
+      "importance": 8
+    },
+    {
+      "date": "Day 8",
+      "text": "何家骏在眼皮子底下玩手机，简直不知悔改，这种人迟早要出事。",
+      "importance": 6
+    }
+  ],
+  "top_concern": {
+    "text": "在食堂对姜皓天的公开警告虽然维护了纪律，但这种强硬的对抗方式是否会引发更激烈的报复，让我感到不安。",
+    "intensity_label": "强烈",
+    "positive": false
+  },
+  "self_narrative": "班长当得像个笑话，姜皓天越来越横，管纪律反而成了众矢之的。方语晨她们看我的眼神也怪怪的。我只是想维持规矩，为什么大家都觉得我烦？明明是为了班级好，难道我真的错了吗？算了，不说了，先把明天考勤表弄完吧。",
+  "caption_payload": {
+    "caption": "🔥 沈逸凡 · 第008天 档案\n\n标签：正义班长\n此刻心情：挫败\n\n「对着他讲道理就是浪费时间，既然他这么喜欢球，那就让他练个够。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_沈逸凡_档案_第008天.png"
+  }
+}

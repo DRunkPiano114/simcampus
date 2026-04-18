@@ -1,0 +1,1060 @@
+{
+  "scene": {
+    "scene_index": 9,
+    "time": "15:30",
+    "name": "课间",
+    "location": "操场",
+    "description": "下午课间休息",
+    "day": 9
+  },
+  "participant_names": {
+    "jiang_haotian": "姜皓天",
+    "su_nianyao": "苏念瑶",
+    "tang_shihan": "唐诗涵"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "su_nianyao",
+        "tang_shihan",
+        "jiang_haotian"
+      ],
+      "ticks": [
+        {
+          "tick": 0,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "su_nianyao",
+              "content": "诶，你俩聊啥呢？那么神神秘秘的。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "苏念瑶在操场边和姜皓天聊了几句，又往教学楼那边看了一眼。",
+              "inner_thought": "又在看什么？这俩人什么时候变这么熟了？",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "诶，你俩聊啥呢？那么神神秘秘的。",
+              "action_target": "su_nianyao",
+              "urgency": 7,
+              "is_disruptive": false
+            },
+            "su_nianyao": {
+              "observation": "姜皓天一边盯着那群打球的人，一边还在那儿玩手机游戏。",
+              "inner_thought": "真吵啊，太阳晒得头晕，想回教室了。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "好晒啊，你们在这儿看吧，我先回去了。",
+              "action_target": "tang_shihan",
+              "urgency": 6,
+              "is_disruptive": false
+            },
+            "jiang_haotian": {
+              "observation": "苏念瑶和唐诗涵就在旁边，阳光晃得人眼花，操场上打球的这帮人又吵又闹。",
+              "inner_thought": "烦死了，沈逸凡那张脸在脑子里挥之不去，真想大吼一声把憋屈都甩出去。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "啧，这天晒得要命，真没劲。",
+              "action_target": "su_nianyao",
+              "urgency": 4,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 1,
+          "public": {
+            "speech": {
+              "agent": "su_nianyao",
+              "target": "tang_shihan",
+              "content": "好晒啊，你们在这儿看吧，我先回去了。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "苏念瑶听到我的话后表情有点不自然，姜皓天在旁边摸了摸鼻子，没接话。",
+              "inner_thought": "肯定是瞒着我什么，这表情一眼假，烦死了。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "怎么姜皓天也在啊，你们刚不是在教室吗？",
+              "action_target": "su_nianyao",
+              "urgency": 7,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 2,
+          "public": {
+            "speech": null,
+            "actions": [],
+            "environmental_event": null,
+            "exits": [
+              "su_nianyao"
+            ]
+          },
+          "minds": {
+            "su_nianyao": {
+              "observation": "唐诗涵还在操场边站着，姜皓天依然在看球，太阳确实很刺眼。",
+              "inner_thought": "好累，想回教室吹空调，这里简直是个大蒸笼。",
+              "emotion": "frustrated",
+              "action_type": "exit",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 3,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "jiang_haotian",
+              "content": "搞什么啊，突然走这么快，心虚被我抓包了吧？"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "苏念瑶突然找个借口走了，留下姜皓天在原地。",
+              "inner_thought": "离谱，这就走了？肯定是心虚，这俩人肯定有鬼。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "搞什么啊，突然走这么快，心虚被我抓包了吧？",
+              "action_target": "jiang_haotian",
+              "urgency": 7,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": [
+            "jiang_haotian"
+          ]
+        },
+        {
+          "tick": 4,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "tang_shihan",
+              "content": "关我屁事，别瞎猜了，打球去。"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "姜皓天一脸尴尬地挠头，好像不想接这个话茬。",
+              "inner_thought": "这男的怎么也怪怪的，问个话支支吾吾的，真离谱。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "哎，你哑巴啦？问你话呢，平时不挺能说的吗？",
+              "action_target": "jiang_haotian",
+              "urgency": 6,
+              "is_disruptive": false
+            },
+            "jiang_haotian": {
+              "observation": "苏念瑶突然走了，唐诗涵正转头一脸八卦地对着我说话。",
+              "inner_thought": "这女的怎么这么八卦，烦人，还是去球场看看吧。",
+              "emotion": "frustrated",
+              "action_type": "speak",
+              "action_content": "关我屁事，别瞎猜了，打球去。",
+              "action_target": "tang_shihan",
+              "urgency": 5,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 5,
+          "public": {
+            "speech": {
+              "agent": "tang_shihan",
+              "target": "jiang_haotian",
+              "content": "哎，你哑巴啦？问你话呢，平时不挺能说的吗？"
+            },
+            "actions": [
+              {
+                "agent": "jiang_haotian",
+                "type": "non_verbal",
+                "content": "拍了拍手上的灰，转身往篮球场中央大步走去，不再理会唐诗涵。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "jiang_haotian": {
+              "observation": "唐诗涵还在那八卦着，操场上篮球框晃晃悠悠的，真没劲。",
+              "inner_thought": "跟女生聊天太累了，还是去把球投进框里实在。",
+              "emotion": "bored",
+              "action_type": "non_verbal",
+              "action_content": "拍了拍手上的灰，转身往篮球场中央大步走去，不再理会唐诗涵。",
+              "action_target": null,
+              "urgency": 4,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 6,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "tang_shihan",
+                "type": "non_verbal",
+                "content": "用力踢了一下操场边的塑料瓶，然后烦躁地从口袋里掏出手机点亮屏幕又锁上。"
+              },
+              {
+                "agent": "jiang_haotian",
+                "type": "non_verbal",
+                "content": "朝着传球过来的方向跑去，顺手把球接过来，直接运球冲向篮下。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "姜皓天头也不回地走了，只剩下我一个人站在操场边。",
+              "inner_thought": "一个个都什么毛病啊，真离谱，气死我了。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "用力踢了一下操场边的塑料瓶，然后烦躁地从口袋里掏出手机点亮屏幕又锁上。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "jiang_haotian": {
+              "observation": "唐诗涵还在后面嘀咕，篮球场上刚好有人传球过来。",
+              "inner_thought": "真烦，没完没了了，赶紧打球散散心。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "朝着传球过来的方向跑去，顺手把球接过来，直接运球冲向篮下。",
+              "action_target": null,
+              "urgency": 8,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 7,
+          "public": {
+            "speech": null,
+            "actions": [
+              {
+                "agent": "tang_shihan",
+                "type": "non_verbal",
+                "content": "烦躁地抓了抓头发，把手机塞回校服口袋，转身往教学楼走。"
+              },
+              {
+                "agent": "jiang_haotian",
+                "type": "non_verbal",
+                "content": "看都没看唐诗涵一眼，直接一个干拔跳投，球进了。"
+              }
+            ],
+            "environmental_event": null,
+            "exits": []
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "姜皓天头也不回地跑去打球了，操场上只剩下我一个人。",
+              "inner_thought": "一个个都什么毛病啊，真离谱，气死我了。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "烦躁地抓了抓头发，把手机塞回校服口袋，转身往教学楼走。",
+              "action_target": null,
+              "urgency": 2,
+              "is_disruptive": false
+            },
+            "jiang_haotian": {
+              "observation": "唐诗涵还在边上踢塑料瓶，一副很不爽的样子。",
+              "inner_thought": "这女的还没走？别烦我了，打球呢，没空理她。",
+              "emotion": "frustrated",
+              "action_type": "non_verbal",
+              "action_content": "看都没看唐诗涵一眼，直接一个干拔跳投，球进了。",
+              "action_target": null,
+              "urgency": 4,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        },
+        {
+          "tick": 8,
+          "public": {
+            "speech": {
+              "agent": "jiang_haotian",
+              "target": "jiang_haotian",
+              "content": "兄弟，再来一把，传我！"
+            },
+            "actions": [],
+            "environmental_event": null,
+            "exits": [
+              "tang_shihan"
+            ]
+          },
+          "minds": {
+            "tang_shihan": {
+              "observation": "姜皓天头也不回地去打球了，完全把我晾在操场边上。",
+              "inner_thought": "真是有病，一个个都莫名其妙，懒得理你们了。",
+              "emotion": "frustrated",
+              "action_type": "exit",
+              "action_content": null,
+              "action_target": null,
+              "urgency": 8,
+              "is_disruptive": false
+            },
+            "jiang_haotian": {
+              "observation": "唐诗涵走回教学楼了，操场上只有我们这帮打球的哥们，空气终于清净了点。",
+              "inner_thought": "终于走了，烦得要死，还是打球痛快。",
+              "emotion": "calm",
+              "action_type": "speak",
+              "action_content": "兄弟，再来一把，传我！",
+              "action_target": "jiang_haotian",
+              "urgency": 6,
+              "is_disruptive": false
+            }
+          },
+          "gated_agents": []
+        }
+      ],
+      "narrative": {
+        "key_moments": [
+          "苏念瑶离开操场。",
+          "姜皓天转身走向篮球场中央。",
+          "唐诗涵踢了操场边的塑料瓶。",
+          "姜皓天完成干拔跳投并进球。",
+          "唐诗涵离开操场。"
+        ],
+        "fulfilled_intentions": [
+          "苏念瑶:回教室",
+          "姜皓天:打篮球",
+          "唐诗涵:离开操场"
+        ],
+        "events_discussed": [],
+        "new_events": [
+          {
+            "text": "苏念瑶离开操场",
+            "category": "人员变动",
+            "witnesses": [
+              "唐诗涵",
+              "姜皓天"
+            ],
+            "spread_probability": 0.3,
+            "cite_ticks": [
+              3
+            ]
+          },
+          {
+            "text": "姜皓天在操场进行篮球运动",
+            "category": "体育活动",
+            "witnesses": [
+              "唐诗涵"
+            ],
+            "spread_probability": 0.2,
+            "cite_ticks": [
+              5,
+              6,
+              7,
+              8,
+              9
+            ]
+          },
+          {
+            "text": "唐诗涵离开操场",
+            "category": "人员变动",
+            "witnesses": [
+              "姜皓天"
+            ],
+            "spread_probability": 0.1,
+            "cite_ticks": [
+              9
+            ]
+          }
+        ]
+      },
+      "reflections": {
+        "su_nianyao": {
+          "emotion": "bored",
+          "relationship_changes": [
+            {
+              "to_agent": "唐诗涵",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "姜皓天",
+              "favorability": 0,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": false
+            }
+          ],
+          "memories": [
+            {
+              "text": "在操场被唐诗涵追问，感觉很烦，借口太晒先回教室了。",
+              "emotion": "bored",
+              "importance": 3,
+              "people": [
+                "唐诗涵"
+              ],
+              "location": "操场",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "6bad6e",
+              "adjustment": 0
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "尝试和程雨桐随便聊两句，看能不能缓和气氛",
+              "status": "missed_opportunity",
+              "brief_reason": "程雨桐不在操场，没机会搭话。"
+            },
+            {
+              "goal": "路过林昭宇座位时确认一下他在不在看书",
+              "status": "missed_opportunity",
+              "brief_reason": "一直在操场，没机会路过他座位。"
+            }
+          ]
+        },
+        "tang_shihan": {
+          "emotion": "frustrated",
+          "relationship_changes": [
+            {
+              "to_agent": "苏念瑶",
+              "favorability": -2,
+              "trust": -2,
+              "understanding": 1,
+              "direct_interaction": true
+            },
+            {
+              "to_agent": "姜皓天",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "苏念瑶在操场看到我过来，找个借口就跑了，明显不想理我。",
+              "emotion": "frustrated",
+              "importance": 6,
+              "people": [
+                "苏念瑶"
+              ],
+              "location": "操场",
+              "topics": [
+                "人际矛盾"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "450fb6",
+              "adjustment": 2
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "借橡皮顺便问物理题，看看他什么反应",
+              "status": "missed_opportunity",
+              "brief_reason": "林昭宇不在场，根本没机会。"
+            },
+            {
+              "goal": "买两杯奶茶去食堂找她套话",
+              "status": "frustrated",
+              "brief_reason": "苏念瑶直接走掉了，连说话的机会都不给。"
+            },
+            {
+              "goal": "给蛋仔拍组新照片发小红书",
+              "status": "frustrated",
+              "brief_reason": "心情太差了，根本没心思拍照。"
+            }
+          ]
+        },
+        "jiang_haotian": {
+          "emotion": "excited",
+          "relationship_changes": [
+            {
+              "to_agent": "唐诗涵",
+              "favorability": -1,
+              "trust": 0,
+              "understanding": 0,
+              "direct_interaction": true
+            }
+          ],
+          "memories": [
+            {
+              "text": "课间在操场投进个漂亮的三分球，感觉爽翻了。",
+              "emotion": "proud",
+              "importance": 5,
+              "people": [],
+              "location": "操场",
+              "topics": [
+                "兴趣爱好"
+              ]
+            }
+          ],
+          "new_concerns": [],
+          "concern_updates": [
+            {
+              "concern_text": "df3acc",
+              "adjustment": -1
+            }
+          ],
+          "intention_outcomes": [
+            {
+              "goal": "找个机会问问他毕业后打算干嘛",
+              "status": "missed_opportunity",
+              "brief_reason": "陆思远不在现场，没机会开口。"
+            },
+            {
+              "goal": "戴耳机听最新的说唱单曲",
+              "status": "pending",
+              "brief_reason": "在操场打球呢，没空听。"
+            }
+          ]
+        }
+      },
+      "share_tick_layouts": [
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "诶，你俩聊啥呢？那么神神秘秘的。"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "真吵啊，太阳晒得头晕，想回教室了。"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "烦死了，沈逸凡那张脸在脑子里挥之不去，真想大吼一声把憋屈都甩出去。"
+            }
+          ],
+          "featured_quote": "又在看什么？这俩人什么时候变这么熟了？",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 0
+        },
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "speech",
+              "text": "好晒啊，你们在这儿看吧，我先回去了。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "肯定是瞒着我什么，这表情一眼假，烦死了。"
+            }
+          ],
+          "featured_quote": "肯定是瞒着我什么，这表情一眼假，烦死了。",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 1
+        },
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "su_nianyao",
+              "display_name": "苏念瑶",
+              "kind": "thought",
+              "text": "好累，想回教室吹空调，这里简直是个大蒸笼。"
+            }
+          ],
+          "featured_quote": "好累，想回教室吹空调，这里简直是个大蒸笼。",
+          "featured_speaker_name": "苏念瑶",
+          "tick_index": 2
+        },
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "搞什么啊，突然走这么快，心虚被我抓包了吧？"
+            }
+          ],
+          "featured_quote": "离谱，这就走了？肯定是心虚，这俩人肯定有鬼。",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 3
+        },
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "关我屁事，别瞎猜了，打球去。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "这男的怎么也怪怪的，问个话支支吾吾的，真离谱。"
+            }
+          ],
+          "featured_quote": "这男的怎么也怪怪的，问个话支支吾吾的，真离谱。",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 4
+        },
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "speech",
+              "text": "哎，你哑巴啦？问你话呢，平时不挺能说的吗？"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "跟女生聊天太累了，还是去把球投进框里实在。"
+            }
+          ],
+          "featured_quote": "跟女生聊天太累了，还是去把球投进框里实在。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 5
+        },
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "真烦，没完没了了，赶紧打球散散心。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "一个个都什么毛病啊，真离谱，气死我了。"
+            }
+          ],
+          "featured_quote": "真烦，没完没了了，赶紧打球散散心。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 6
+        },
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "这女的还没走？别烦我了，打球呢，没空理她。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "一个个都什么毛病啊，真离谱，气死我了。"
+            }
+          ],
+          "featured_quote": "这女的还没走？别烦我了，打球呢，没空理她。",
+          "featured_speaker_name": "姜皓天",
+          "tick_index": 7
+        },
+        {
+          "day": 9,
+          "time": "15:30",
+          "scene_name": "课间",
+          "location": "操场",
+          "portraits": [
+            {
+              "agent_id": "jiang_haotian",
+              "name_cn": "姜皓天",
+              "motif_emoji": "⚽",
+              "motif_tag": "运动健将"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "name_cn": "唐诗涵",
+              "motif_emoji": "🌿",
+              "motif_tag": "大大咧咧学委"
+            },
+            {
+              "agent_id": "su_nianyao",
+              "name_cn": "苏念瑶",
+              "motif_emoji": "🌸",
+              "motif_tag": "玻璃心诗人"
+            }
+          ],
+          "bubbles": [
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "speech",
+              "text": "兄弟，再来一把，传我！"
+            },
+            {
+              "agent_id": "jiang_haotian",
+              "display_name": "姜皓天",
+              "kind": "thought",
+              "text": "终于走了，烦得要死，还是打球痛快。"
+            },
+            {
+              "agent_id": "tang_shihan",
+              "display_name": "唐诗涵",
+              "kind": "thought",
+              "text": "真是有病，一个个都莫名其妙，懒得理你们了。"
+            }
+          ],
+          "featured_quote": "真是有病，一个个都莫名其妙，懒得理你们了。",
+          "featured_speaker_name": "唐诗涵",
+          "tick_index": 8
+        }
+      ],
+      "share_tick_captions": [
+        {
+          "caption": "第009天 · 课间 · 操场 🌿\n\n「唐诗涵」又在看什么？这俩人什么时候变这么熟了？\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@操场_t01.png",
+          "group_index": 0,
+          "tick_index": 0
+        },
+        {
+          "caption": "第009天 · 课间 · 操场 🌸\n\n「唐诗涵」肯定是瞒着我什么，这表情一眼假，烦死了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@操场_t02.png",
+          "group_index": 0,
+          "tick_index": 1
+        },
+        {
+          "caption": "第009天 · 课间 · 操场 🌸\n\n「苏念瑶」好累，想回教室吹空调，这里简直是个大蒸笼。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@操场_t03.png",
+          "group_index": 0,
+          "tick_index": 2
+        },
+        {
+          "caption": "第009天 · 课间 · 操场 🌿\n\n「唐诗涵」离谱，这就走了？肯定是心虚，这俩人肯定有鬼。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@操场_t04.png",
+          "group_index": 0,
+          "tick_index": 3
+        },
+        {
+          "caption": "第009天 · 课间 · 操场 ⚽\n\n「唐诗涵」这男的怎么也怪怪的，问个话支支吾吾的，真离谱。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@操场_t05.png",
+          "group_index": 0,
+          "tick_index": 4
+        },
+        {
+          "caption": "第009天 · 课间 · 操场 🌿\n\n「姜皓天」跟女生聊天太累了，还是去把球投进框里实在。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@操场_t06.png",
+          "group_index": 0,
+          "tick_index": 5
+        },
+        {
+          "caption": "第009天 · 课间 · 操场 ⚽\n\n「姜皓天」真烦，没完没了了，赶紧打球散散心。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@操场_t07.png",
+          "group_index": 0,
+          "tick_index": 6
+        },
+        {
+          "caption": "第009天 · 课间 · 操场 ⚽\n\n「姜皓天」这女的还没走？别烦我了，打球呢，没空理她。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@操场_t08.png",
+          "group_index": 0,
+          "tick_index": 7
+        },
+        {
+          "caption": "第009天 · 课间 · 操场 ⚽\n\n「唐诗涵」真是有病，一个个都莫名其妙，懒得理你们了。\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+          "hashtags": [
+            "#SimCampus",
+            "#AI高中生",
+            "#青春日记",
+            "#操场时光",
+            "#课间"
+          ],
+          "filename": "simcampus_第009天_课间@操场_t09.png",
+          "group_index": 0,
+          "tick_index": 8
+        }
+      ]
+    }
+  ]
+}

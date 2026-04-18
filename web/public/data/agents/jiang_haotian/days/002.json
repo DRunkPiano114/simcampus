@@ -1,0 +1,62 @@
+{
+  "agent_id": "jiang_haotian",
+  "name_cn": "姜皓天",
+  "day": 2,
+  "is_teacher": false,
+  "motif_emoji": "⚽",
+  "motif_tag": "运动健将",
+  "main_color": "#E87B42",
+  "emotion_label": "挫败",
+  "energy_label": "精神还行",
+  "pressure_label": "轻松",
+  "featured_quote": "早饭没吃饱，饿死老子了。先叫这俩兄弟过来吃，沈逸凡那货就别理了。",
+  "featured_scene": "12:00 · 午饭",
+  "relationships": [
+    {
+      "target_name": "林昭宇",
+      "favorability": 10,
+      "trust": 5,
+      "label_text": "还行，有些好感"
+    },
+    {
+      "target_name": "陆思远",
+      "favorability": 5,
+      "trust": 6,
+      "label_text": "普通同学"
+    },
+    {
+      "target_name": "何家骏",
+      "favorability": 1,
+      "trust": 1,
+      "label_text": "普通同学"
+    }
+  ],
+  "memories": [
+    {
+      "date": "Day 1",
+      "text": "沈逸凡那死样子，整天就知道拿纪律压人，真把自己当盘菜了。",
+      "importance": 6
+    },
+    {
+      "date": "Day 2",
+      "text": "约了何家骏晚上开黑，这小子答应得挺痛快，看他吃饭那劲儿，估计憋坏了。",
+      "importance": 5
+    }
+  ],
+  "top_concern": {
+    "text": "家里工厂订单减少，想打听别人对未来就业的看法，但一直没找到合适的机会深入询问。",
+    "intensity_label": "中等",
+    "positive": false
+  },
+  "self_narrative": "班里那个最吵的姜皓天就是我。每天笑嘻嘻，其实心里没底。爸妈厂子快撑不住了，我只能装傻。沈逸凡那家伙天天盯着我扣分，烦死。篮球场上我还能罩着何家骏，至少在那儿我说了算。混日子呗，走一步看一步。",
+  "caption_payload": {
+    "caption": "⚽ 姜皓天 · 第002天 档案\n\n标签：运动健将\n此刻心情：挫败\n\n「早饭没吃饱，饿死老子了。先叫这俩兄弟过来吃，沈逸凡那货就别理了。」\n\nSimCampus · AI 校园模拟器 · 每天都在上演",
+    "hashtags": [
+      "#SimCampus",
+      "#AI高中生",
+      "#青春日记",
+      "#人物志"
+    ],
+    "filename": "simcampus_姜皓天_档案_第002天.png"
+  }
+}

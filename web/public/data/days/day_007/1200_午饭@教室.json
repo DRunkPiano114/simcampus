@@ -1,0 +1,27 @@
+{
+  "scene": {
+    "scene_index": 3,
+    "time": "12:00",
+    "name": "午饭",
+    "location": "教室",
+    "description": "午饭时间，同学们结伴去食堂吃饭",
+    "day": 7
+  },
+  "participant_names": {
+    "cheng_yutong": "程雨桐"
+  },
+  "groups": [
+    {
+      "group_index": 0,
+      "participants": [
+        "cheng_yutong"
+      ],
+      "is_solo": true,
+      "solo_reflection": {
+        "inner_thought": "智学网还没刷新，排名到底什么时候出。",
+        "emotion": "frustrated",
+        "activity": "一边吃午饭，一边用手机持续刷新智学网的后台页面。"
+      }
+    }
+  ]
+}
